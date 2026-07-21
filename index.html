@@ -165,37 +165,46 @@ body.lock{overflow:hidden}
   "project": "北美工業公司商業模式知識庫 / North American Industrials KB",
   "schemaVersion": 2,
   "lastUpdated": "2026-07-21",
-  "batchesCompleted": 2,
-  "totalCompanies": 10,
+  "batchesCompleted": 3,
+  "totalCompanies": 20,
   "completed": {
-    "power": ["GEV", "ETN"],
-    "machinery": ["CAT", "DE"],
-    "aerospace": ["RTX", "LMT", "CAE"],
-    "automation": ["ROK", "ATS", "EMR"]
+    "power": ["GEV", "ETN", "VRT", "PWR"],
+    "machinery": ["CAT", "DE", "CMI", "PH", "TT"],
+    "aerospace": ["RTX", "LMT", "CAE", "NOC", "GE", "BBD"],
+    "automation": ["ROK", "ATS", "EMR", "HON", "SYM"]
   },
   "nextSuggested": [
-    {"zh": "HON 漢威聯合(自動化/多元工業)", "en": "HON Honeywell (Automation/Diversified)"},
-    {"zh": "NOC 諾斯洛普·格魯曼(航太國防)", "en": "NOC Northrop Grumman (A&D)"},
-    {"zh": "CMI 康明斯(機械/動力)", "en": "CMI Cummins (Machinery/Power)"},
-    {"zh": "VRT Vertiv(電力/資料中心)", "en": "VRT Vertiv (Power/Data centers)"},
-    {"zh": "BBD 龐巴迪(加拿大・公務機)", "en": "BBD Bombardier (Canada · business jets)"}
+    {"zh": "HONA 漢威航太(航太・新分拆)", "en": "HONA Honeywell Aerospace (A&D, new spin)"},
+    {"zh": "GD 通用動力(航太國防・Gulfstream)", "en": "GD General Dynamics (A&D · Gulfstream)"},
+    {"zh": "LHX L3Harris(航太國防)", "en": "LHX L3Harris (A&D)"},
+    {"zh": "TDG TransDigm(航太零組件)", "en": "TDG TransDigm (Aero components)"},
+    {"zh": "HWM Howmet(航太結構件)", "en": "HWM Howmet Aerospace"},
+    {"zh": "ITW 伊利諾工具(多元機械)", "en": "ITW Illinois Tool Works"},
+    {"zh": "CARR 開利(HVAC)", "en": "CARR Carrier Global (HVAC)"},
+    {"zh": "JCI 江森自控(樓宇)", "en": "JCI Johnson Controls (Buildings)"},
+    {"zh": "URI 聯合租賃(設備租賃)", "en": "URI United Rentals"},
+    {"zh": "WSP Global(加拿大・工程顧問)", "en": "WSP Global (Canada · engineering)"}
   ],
   "updateRoutine": {
-    "zh": "每批更新例行:1) 刷新全部公司估值列(股價/市值/P/E/截至日)、52 週區間與卡片統計 2) priceHistory 各追加一筆當期價 3) 檢查各公司自上次後的新財報與重大事件,以「▸ 更新」段落附加於近期動態 4) 新增 5 家雙語條目 5) 同步 meta 與本紀錄。",
-    "en": "Per-batch routine: 1) refresh every company's valuation strip (price/mkt cap/P-E/as-of), 52-week range and card stats 2) append one priceHistory point each 3) check for new earnings/major events since last session and append dated update paragraphs 4) add 5 new bilingual entries 5) sync meta and this log."
+    "zh": "「更新」= 每批例行:1) 刷新全部公司估值列(股價/市值/P-E/截至日)、52 週區間與卡片統計 2) priceHistory 各追加一筆當期價 3) 檢查各公司新財報與重大事件,以「▸ 日期更新」段落附加於近期動態 4) 新增 10 家雙語條目 5) 同步 meta 與本紀錄 6) 推送至 GitHub Pages。",
+    "en": "'Update' = per-batch routine: 1) refresh every company's valuation strip (price/mkt cap/P-E/as-of), 52-week range and card stats 2) append one priceHistory point each 3) check for new earnings/major events and append dated update paragraphs 4) add 10 new bilingual entries 5) sync meta and this log 6) push to GitHub Pages."
+  },
+  "deployment": {
+    "zh": "已部署於 GitHub Pages:repo Jonathan057/industrials-kb(branch main,檔名 index.html);更新時以 GitHub API PUT 推送(需用戶提供權杖,權杖不儲存)",
+    "en": "Deployed on GitHub Pages: repo Jonathan057/industrials-kb (branch main, index.html); push updates via GitHub API PUT (user supplies token each conversation; never stored)"
   },
   "earningsCalendar": [
-    {"zh": "GEV 7/22 · LMT+RTX 7/23 · ROK 7/27 · ETN 7/31 · CAT+EMR 8/4 · CAE 8/11-12 · ATS 8/12 · DE 8/20", "en": "GEV Jul 22 · LMT+RTX Jul 23 · ROK Jul 27 · ETN Jul 31 · CAT+EMR Aug 4 · CAE Aug 11-12 · ATS Aug 12 · DE Aug 20"}
+    {"zh": "GEV 7/22 · LMT+RTX 7/23 · ROK 7/27 · VRT 7/29 · ETN 7/31 · PWR+TT 7月底 · PH 8月初 · CAT+EMR 8/4 · SYM 8月上旬 · CAE 8/11-12 · ATS 8/12 · DE 8/20", "en": "GEV Jul 22 · LMT+RTX Jul 23 · ROK Jul 27 · VRT Jul 29 · ETN Jul 31 · PWR+TT late Jul · PH early Aug · CAT+EMR Aug 4 · SYM early Aug · CAE Aug 11-12 · ATS Aug 12 · DE Aug 20"}
   ],
   "dataNotes": [
-    {"zh": "全部報價、市值與 52 週區間刷新至 2026-07-17~20(依各公司標註);priceHistory 為各批次紀錄價,將隨每次更新累積", "en": "All quotes, mkt caps and 52-week ranges refreshed to 2026-07-17~20 (per-company as-of); priceHistory logs one point per session and accumulates"},
-    {"zh": "約值:ETN 2025、DE FY25、EMR FY25、CAE FY23 營收;CAT FY2025 依 TTM 推算;板塊佔比多為概算;部分 P/E 為 TTM 與前瞻並列概算", "en": "Approximate: ETN 2025, DE FY25, EMR FY25, CAE FY23 revenue; CAT FY2025 from TTM; segment mixes and some P/E figures are estimates"},
-    {"zh": "接下來兩週為財報密集期(見 earningsCalendar),下批更新時 GEV/LMT/RTX/ROK/ETN 的 Q2 數據應優先刷新", "en": "Heavy earnings fortnight ahead (see earningsCalendar); prioritize refreshing GEV/LMT/RTX/ROK/ETN Q2 figures next session"},
-    {"zh": "ATS 已完成 CEO 交接(Doug Wright);Schema v2:所有內容欄位為雙語物件 {zh, en}", "en": "ATS CEO transition complete (Doug Wright); Schema v2: all content fields are bilingual {zh, en} objects"}
+    {"zh": "第 1–2 批報價刷新至 2026-07-17~20;第 3 批多為 2026-07-20 快照;NOC 為 7/21 盤中(今晨 Q2 後 -4%)", "en": "Batches 1–2 quotes as of 2026-07-17~20; batch 3 mostly Jul 20 snapshots; NOC intraday Jul 21 (-4% post-Q2)"},
+    {"zh": "待補:HON 分拆後(6/29)股價/市值、BBD 報價——下批確認;第 3 批十家的 52 週區間亦於下批補齊", "en": "Pending: HON post-spin (Jun 29) price/mkt cap and BBD quote — confirm next batch; batch-3 52-week ranges to be backfilled next session"},
+    {"zh": "約值:多家 2025/FY25 營收與板塊佔比為概算(各圖已標注);VRT 積壓各方報導介於 US$125–150 億", "en": "Approximate: several 2025/FY25 revenues and segment mixes are estimates (flagged on charts); VRT backlog reported between US$12.5–15B"},
+    {"zh": "Schema v2:所有內容欄位為雙語物件 {zh, en};近期動態的「▸ 更新」段落隨批次累積", "en": "Schema v2: all content fields bilingual {zh, en}; dated update paragraphs accumulate per batch"}
   ],
   "howToContinue": {
-    "zh": "在新對話上傳本 HTML 並指示『繼續工業公司知識庫,新增 5 家』。Claude 應:1) 讀取本進度紀錄 2) 執行上方例行更新 3) 搜尋新公司即時財報與行情 4) 在 APP_DATA.companies 的 INSERT 標記前新增「雙語」條目 5) 更新 APP_DATA.meta 與本 progress-log 6) 回傳更新版檔案。",
-    "en": "In a new conversation, upload this HTML and say 'Continue the industrials KB, add 5 companies'. Claude should: 1) read this log 2) run the update routine above 3) research fresh filings & quotes 4) insert new BILINGUAL entries before the INSERT marker in APP_DATA.companies 5) update APP_DATA.meta and this progress-log 6) return the updated file."
+    "zh": "新對話請上傳最新 index.html(或本檔)並說「更新」。Claude 應:1) 讀取本紀錄 2) 執行上方例行更新(含刷新既有 20 家報價) 3) 研究新 10 家財報與行情 4) 於 INSERT 標記前新增雙語條目 5) 更新 meta 與本紀錄 6) 請用戶提供 GitHub 權杖後推送。",
+    "en": "In a new conversation, upload the latest index.html (or this file) and say 'update'. Claude should: 1) read this log 2) run the routine above (incl. refreshing all 20 quotes) 3) research 10 new companies 4) insert bilingual entries before the INSERT marker 5) update meta and this log 6) ask for the GitHub token and push."
   }
 }
 </script>
@@ -240,7 +249,7 @@ body.lock{overflow:hidden}
    新增公司:在 __INSERT_NEW_COMPANIES_HERE__ 標記「之前」加入物件
 ================================================================= */
 const APP_DATA = {
-meta:{ project:"北美工業公司商業模式知識庫", lastUpdated:"2026-07-21", batch:2 },
+meta:{ project:"北美工業公司商業模式知識庫", lastUpdated:"2026-07-21", batch:3 },
 
 subsectors:[
  { id:"power",      name:{zh:"電力／能源設備",en:"Power & Energy Equipment"}, en:"POWER & ENERGY",   color:"#C1521B" },
@@ -706,6 +715,428 @@ sections:[
 ]
 }
 
+,
+
+/* ---------------- 11. HONEYWELL TECHNOLOGIES ---------------- */
+{
+id:"HON", ticker:"HON", exchange:"NASDAQ", name:{zh:"Honeywell 漢威(自動化)",en:"Honeywell Technologies"}, subsector:"automation", batch:3, added:"2026-07-21",
+tagline:{zh:"世紀巨頭三分拆完成——「從自動化走向自主」的純自動化新漢威",
+         en:"The century-old giant's three-way breakup is complete — the new pure-play automation Honeywell, 'from automation to autonomy'"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國北卡羅來納州 Charlotte",en:"Charlotte, NC, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"1906(2026/6/29 完成三分拆)",en:"1906 (3-way split done Jun 29, 2026)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"分拆後約 5–6 萬(概)",en:"~50–60k post-spin (est.)"}],
+ [{zh:"CEO",en:"CEO"},"Vimal Kapur"],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:{zh:"—(分拆後,下批確認)",en:"— (post-spin; confirm next batch)"}, mcap:{zh:"—(下批確認)",en:"— (confirm next batch)"}, pe:{zh:"FY26 調整後 EPS 指引 US$3.95–4.15",en:"FY26 adj. EPS guide US$3.95–4.15"}, asOf:{zh:"待更新",en:"pending"} },
+cardStats:[ [{zh:"分拆前積壓",en:"BACKLOG (PRE-SPIN)"},"$38.3B"], [{zh:"FY26營收指引",en:"FY26 REV GUIDE"},"~$20B"], [{zh:"EPS指引",en:"EPS GUIDE"},"$3.95-4.15"] ],
+financials:[
+ [{zh:"分拆架構",en:"Breakup structure"},{zh:"Solstice(2025/10)→ Quantinuum IPO(2026/6/4)→ Honeywell Aerospace「HONA」(2026/6/29)",en:"Solstice (Oct 2025) → Quantinuum IPO (Jun 4, 2026) → Honeywell Aerospace 'HONA' (Jun 29, 2026)"}],
+ [{zh:"分拆後 FY2026 指引",en:"Post-spin FY2026 guide"},{zh:"營收 US$199–202 億;調整後 EPS US$3.95–4.15",en:"Rev US$19.9–20.2B; adj. EPS US$3.95–4.15"}],
+ [{zh:"分拆前 FY2026 指引",en:"Pre-spin FY2026 guide"},{zh:"營收 US$388–398 億;調整後 EPS US$10.35–10.65",en:"Rev US$38.8–39.8B; adj. EPS US$10.35–10.65"}],
+ [{zh:"2026Q1(分拆前)",en:"Q1 2026 (pre-spin)"},{zh:"營收 US$91 億(+2% 有機);訂單 +7%;積壓 US$383 億",en:"Rev US$9.1B (+2% organic); orders +7%; backlog US$38.3B"}],
+ [{zh:"2026Q1 調整後 EPS",en:"Q1 2026 adj. EPS"},{zh:"US$2.45(+11%);板塊利潤率 23.3%(+90bps)",en:"US$2.45 (+11%); segment margin 23.3% (+90bps)"}],
+ [{zh:"組合精簡",en:"Portfolio pruning"},{zh:"出售 PSS 與倉儲工作流方案(WWS),2026 下半年交割",en:"Selling PSS and Warehouse & Workflow Solutions; closing H2 2026"}]
+],
+revTrend:{ unit:{zh:"十億美元(分拆前口徑)",en:"US$B (pre-spin basis)"}, labels:["2023","2024","2025"], values:[36.7,38.5,40.0], approx:[false,false,true], note:{zh:"*2025 為約值;分拆後口徑約 US$200 億",en:"*2025 approx.; post-spin basis ~US$20B"} },
+segments:{ title:{zh:"分拆後三大板塊(FY26 營收概佔)",en:"Post-spin segments (FY26 rev, approx.)"}, labels:[{zh:"樓宇自動化",en:"Building Automation"},{zh:"工業自動化",en:"Industrial Automation"},{zh:"流程自動化與技術",en:"Process Automation & Technology"}], values:[36,32,32] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"創立於 1906 年的 Honeywell 曾是美國多元工業集團的代名詞,2026 年 6 月 29 日完成史詩級的三分拆:先進材料獨立為 Solstice(2025/10)、量子運算 Quantinuum 完成 IPO(2026/6)、航太業務獨立為 Honeywell Aerospace(NASDAQ: HONA),留下的 Honeywell Technologies(仍用 HON 代碼)成為純自動化公司,總部位於北卡 Charlotte。三大板塊:樓宇自動化、工業自動化、流程自動化與技術,年營收約 200 億美元,由主導整場改造的 Vimal Kapur 續任董事長兼 CEO。",
+ en:"Founded in 1906, Honeywell was long the definition of the American industrial conglomerate. On June 29, 2026 it completed an epic three-way breakup: advanced materials became Solstice (Oct 2025), quantum unit Quantinuum IPO'd (Jun 2026), and aerospace spun off as Honeywell Aerospace (NASDAQ: HONA) — leaving Honeywell Technologies (still ticker HON) as a pure-play automation company headquartered in Charlotte, NC. Three segments — Building Automation, Industrial Automation, and Process Automation & Technology — generate roughly $20B of annual revenue, with transformation architect Vimal Kapur staying on as Chairman and CEO."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"新 HON 的敘事是「從自動化走向自主(automation to autonomy)」:憑藉全球最龐大的樓宇控制、感測器、流程控制安裝基礎之一,把數十年累積的設備數據轉化為軟體與 AI 服務收入。樓宇自動化賣的是大樓的神經系統(空調控制、消防保全、能源管理),工業自動化涵蓋感測、掃描與製程安全,流程自動化(前身 Honeywell Process Solutions)與 Emerson 的 DeltaV 在煉化廠控制室正面對決。分拆邏輯與 ROK/EMR 相同:讓自動化業務獲得純類股估值,並以聚焦的資本配置加速軟體化。",
+ en:"The new HON's narrative is 'from automation to autonomy': leveraging one of the world's largest installed bases of building controls, sensors and process systems to convert decades of equipment data into software and AI service revenue. Building Automation sells the nervous system of buildings (HVAC controls, fire & security, energy management); Industrial Automation spans sensing, scanning and process safety; Process Automation (the former Honeywell Process Solutions) goes head-to-head with Emerson's DeltaV in refinery and chemical control rooms. The breakup logic mirrors ROK/EMR: give automation a pure-play multiple and accelerate softwareization with focused capital allocation."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"分拆後的 HON 一躍成為與 Rockwell、Emerson、Siemens、Schneider 同場競技的純自動化巨頭:樓宇自動化全球前二(對手 Johnson Controls、Siemens),流程自動化全球前三(對手 Emerson、ABB),工業感測與安全設備居第一梯隊。相對 ROK 偏離散製造、EMR 偏流程工業,HON 的獨特之處是「樓宇+工業+流程」三線並進,終端市場最分散;知識庫內自動化板塊至此集齊北美四大天王(ROK、EMR、HON、ATS),可作完整對照。",
+ en:"Post-spin, HON instantly becomes a pure-play automation giant competing with Rockwell, Emerson, Siemens and Schneider: top-two globally in building automation (vs Johnson Controls, Siemens), top-three in process automation (vs Emerson, ABB), and first-tier in industrial sensing and safety. Where ROK skews discrete and EMR skews process, HON's distinction is fighting on three fronts — buildings, industrial and process — with the most diversified end markets. With this entry, the KB's automation shelf now holds North America's big four (ROK, EMR, HON, ATS) for full comparison."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026Q1(分拆前)營收 91 億美元、有機 +2%,中東衝突干擾流程自動化收款與出貨;訂單 +7%、積壓升至 383 億美元,調整後 EPS 2.45 美元(+11%)。6/9 重申全年指引並首次給出分拆後展望:Honeywell Technologies 全年營收 199–202 億、調整後 EPS 3.95–4.15 美元;同時出售 PSS 與倉儲工作流方案完成最後瘦身。6/29 三分拆正式收官,HON、HONA 同日分開掛牌。分拆後股價與市值基期全變,本庫將於下批刷新確認;HONA(航太)亦列入未來新增候選。",
+ en:"Pre-spin Q1 2026 revenue was $9.1B (+2% organic), with Middle East disruptions hitting Process Automation collections and shipments; orders rose 7%, backlog reached $38.3B, and adjusted EPS of $2.45 grew 11%. On June 9 the company reaffirmed guidance and gave its first post-spin outlook: Honeywell Technologies at $19.9–20.2B revenue and $3.95–4.15 adjusted EPS, while divesting PSS and Warehouse & Workflow Solutions as the final slimming step. The three-way breakup closed June 29 with HON and HONA trading separately the same day. Post-spin price and market-cap baselines have reset — this KB will confirm them next batch, and HONA (aerospace) joins the future-additions shortlist."}]
+]
+},
+
+/* ---------------- 12. NORTHROP GRUMMAN ---------------- */
+{
+id:"NOC", ticker:"NOC", exchange:"NYSE", name:{zh:"Northrop Grumman 諾斯洛普·格魯曼",en:"Northrop Grumman Corporation"}, subsector:"aerospace", batch:3, added:"2026-07-21",
+tagline:{zh:"B-21 隱形轟炸機與陸基核威懾的獨家承包商——積壓今晨創紀錄 1,047 億美元",
+         en:"Sole builder of the B-21 stealth bomber and America's land-based nuclear deterrent — backlog hit a record $104.7B this morning"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國維吉尼亞州 Falls Church",en:"Falls Church, VA, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"1994(Northrop 併 Grumman)",en:"1994 (Northrop + Grumman merger)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 95,000 人",en:"~95,000"}],
+ [{zh:"CEO",en:"CEO"},"Kathy Warden"],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:{zh:"約 US$501(7/21 盤中)",en:"~US$501 (Jul 21 intraday)"}, mcap:{zh:"約 US$730 億",en:"~US$73B"}, pe:{zh:"前瞻約 17x(2026 上修指引)",en:"Fwd ~17x (raised 2026 guide)"}, asOf:"2026-07-21" },
+priceHistory:[["2026-07-20",526.1],["2026-07-21",501.2]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$73B"], [{zh:"股價",en:"PRICE"},"$501"], [{zh:"TTM營收",en:"TTM REV"},"$42.4B"] ],
+financials:[
+ [{zh:"2026Q2(7/21 公佈)",en:"Q2 2026 (out Jul 21)"},{zh:"營收 US$108.8 億(+5%);EPS US$7.68 大勝預期(~6.85)",en:"Rev US$10.88B (+5%); EPS US$7.68, big beat (~6.85 est.)"}],
+ [{zh:"淨額獲單/積壓",en:"Net awards / backlog"},{zh:"Q2 獲單 US$200 億、book-to-bill 1.84x;積壓創紀錄 US$1,047 億",en:"Q2 awards US$20B, book-to-bill 1.84x; record backlog US$104.7B"}],
+ [{zh:"重大新約",en:"Major awards"},{zh:"Sentinel US$76 億、機密專案 US$43 億、F-35 US$10 億、GPI US$8 億",en:"Sentinel US$7.6B, restricted US$4.3B, F-35 US$1.0B, GPI US$0.8B"}],
+ [{zh:"FY2026 指引(上修)",en:"FY2026 guidance (raised)"},{zh:"營收 US$437.5–442.5 億;調整後 EPS US$28.60–29.10(+US$1.20)",en:"Rev US$43.75–44.25B; adj. EPS US$28.60–29.10 (+US$1.20)"}],
+ [{zh:"自由現金流指引",en:"FCF guidance"},{zh:"US$31–35 億(重申)",en:"US$3.1–3.5B (reaffirmed)"}],
+ [{zh:"2026Q1",en:"Q1 2026"},{zh:"營收 US$99 億(+4%);EPS US$6.14;積壓 US$960 億",en:"Rev US$9.9B (+4%); EPS US$6.14; backlog US$96B"}],
+ [{zh:"利潤率隱憂",en:"Margin watch"},{zh:"防衛系統 SiAW 與太空 GEM 63XL 出現不利 EAC 調整",en:"Unfavorable EACs on Defense Systems' SiAW and Space's GEM 63XL"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[39.3,41.0,42.0], approx:[false,false,true], note:{zh:"*2025 為約值;2026 指引中值約 44.0",en:"*2025 approx.; 2026 guide mid ~44.0"} },
+segments:{ title:{zh:"板塊營收佔比(約)",en:"Revenue mix (approx.)"}, labels:[{zh:"航空系統(B-21)",en:"Aeronautics Systems"},{zh:"任務系統",en:"Mission Systems"},{zh:"太空系統",en:"Space Systems"},{zh:"防衛系統",en:"Defense Systems"}], values:[29,27,25,19] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Northrop Grumman 由 Northrop 與 Grumman 於 1994 年合併而成,總部位於維州 Falls Church,約 9.5 萬名員工,是美國第三大國防承包商。四大板塊:航空系統(B-21、B-2 轟炸機、無人機)、任務系統(雷達、電戰、微電子)、太空系統(飛彈預警衛星、太空發展局星鏈、Sentinel 洲際飛彈)與防衛系統(武器與彈藥)。其標誌性的飛翼技術(B-2/B-21)與在雷達、太空領域的深厚積累,使它成為美國核威懾現代化的核心承包商。",
+ en:"Formed by the 1994 merger of Northrop and Grumman and headquartered in Falls Church, Virginia with ~95,000 employees, Northrop Grumman is America's third-largest defense contractor. Four segments: Aeronautics Systems (B-21 and B-2 bombers, drones), Mission Systems (radar, electronic warfare, microelectronics), Space Systems (missile-warning satellites, SDA constellations, the Sentinel ICBM) and Defense Systems (weapons and munitions). Its signature flying-wing technology (B-2/B-21) and deep radar and space heritage make it the core contractor of America's nuclear-deterrent modernization."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"NOC 的模式是「押注下一世代平台的獨家地位」:B-21 Raider 是美軍未來唯一的戰略轟炸機(規劃逾百架),Sentinel 是陸基洲際飛彈汰換案(全案上看千億美元規模)——兩案皆為獨家承包,鎖定未來三十年收入。代價是開發期的固定價格風險:B-21 早期批次曾認列鉅額虧損,Sentinel 一度因超支重組;如今兩案先後轉正(Q1 與空軍達成 B-21 增產與 Sentinel 加速協議),風險曲線正從「吃虧的開發」走向「賺錢的量產」。任務系統的雷達與微電子則是高利潤率的隱形冠軍業務。",
+ en:"NOC's model is a bet on sole-source positions in next-generation platforms: the B-21 Raider is the U.S. military's only future strategic bomber (100+ planned) and Sentinel is the land-based ICBM replacement (a program worth well over $100B) — both sole-source, locking in three decades of revenue. The price is fixed-price development risk: early B-21 lots booked heavy losses and Sentinel was restructured over cost overruns; both have since inflected (Q1 brought Air Force agreements to expand B-21 production and accelerate Sentinel), shifting the risk curve from money-losing development toward profitable production. Mission Systems' radar and microelectronics are the quiet high-margin champion underneath."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在戰略轟炸機與陸基核威懾領域,NOC 是無可替代的獨家玩家;太空防禦(飛彈預警與追蹤衛星)居領導地位,也是「金穹」飛彈防禦架構的關鍵候選承包商之一。與 LMT(戰機+防空飛彈)、RTX(引擎+攔截彈)相比,NOC 的組合最偏「核三位一體與太空」,對美國戰略預算的曝險最深。今晨公佈的 Q2 讓地位再進一步:單季獲單 200 億美元、book-to-bill 高達 1.84 倍,積壓 1,047 億美元約當 2.4 年營收,NATO 的 Triton 無人機與中東飛彈防禦需求則打開國際市場。",
+ en:"In strategic bombers and land-based nuclear deterrence NOC is the irreplaceable sole player; it leads in space defense (missile-warning and tracking satellites) and is a key candidate contractor for the 'Golden Dome' missile-defense architecture. Versus LMT (fighters + air defense) and RTX (engines + interceptors), NOC's portfolio tilts hardest toward the nuclear triad and space, giving it the deepest exposure to U.S. strategic budgets. This morning's Q2 extended the lead: $20B of quarterly awards, a 1.84x book-to-bill, and a $104.7B backlog worth ~2.4 years of revenue, while NATO Triton drone and Middle East missile-defense demand open international markets."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026/7/21(今晨)公佈 Q2:營收 108.8 億美元(+5%)、EPS 7.68 美元大勝預期約 11%,積壓創紀錄 1,047 億美元(Sentinel 新增 76 億、機密專案 43 億);全年指引上修至營收 437.5–442.5 億、調整後 EPS 28.60–29.10 美元。但股價開盤反跌約 4% 至 501 美元——市場緊盯防衛系統 SiAW 與太空 GEM 63XL 的不利成本調整,以及「利多出盡」的估值消化;管理層承諾下半年利潤率改善。前瞻僅約 17 倍,與 LMT 同屬國防板塊的估值窪地,催化劑在 B-21 量產爬坡與金穹大單落地。",
+ en:"Q2 landed this morning (Jul 21, 2026): revenue of $10.88B (+5%) and EPS of $7.68 beat by ~11%, with backlog at a record $104.7B (Sentinel +$7.6B, restricted +$4.3B); full-year guidance was raised to $43.75–44.25B revenue and $28.60–29.10 adjusted EPS. Yet the stock opened down ~4% to $501 — the market is watching unfavorable cost adjustments on Defense Systems' SiAW and Space's GEM 63XL, plus good-news-priced-in digestion; management promises H2 margin improvement. At ~17x forward it sits with LMT in defense's valuation trough, with catalysts in the B-21 production ramp and a potential Golden Dome award."}]
+]
+},
+
+/* ---------------- 13. CUMMINS ---------------- */
+{
+id:"CMI", ticker:"CMI", exchange:"NYSE", name:{zh:"Cummins 康明斯",en:"Cummins Inc."}, subsector:"machinery", batch:3, added:"2026-07-21",
+tagline:{zh:"從卡車引擎到 AI 電力——Power Systems 創紀錄、股價一年翻倍的百年動力公司",
+         en:"From truck engines to AI power — a century-old engine maker with record Power Systems results and a stock that doubled in a year"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國印第安納州 Columbus",en:"Columbus, IN, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1919"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 70,000 人",en:"~70,000"}],
+ [{zh:"CEO",en:"CEO"},{zh:"Jennifer Rumsey(董事長兼 CEO)",en:"Jennifer Rumsey (Chair & CEO)"}],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$682.33", mcap:{zh:"約 US$942 億",en:"~US$94.2B"}, pe:{zh:"前瞻約 26x(概算)",en:"Fwd ~26x (est.)"}, asOf:"2026-07-20" },
+priceHistory:[["2026-05-05",671.0],["2026-07-20",682.3]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$94B"], [{zh:"股價",en:"PRICE"},"$682"], [{zh:"TTM營收",en:"TTM REV"},"$33.9B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$339 億",en:"US$33.9B"}],
+ [{zh:"2026Q1 營收",en:"Q1 2026 revenue"},{zh:"US$84 億(+3%);調整後 EPS US$6.15(勝預期 9.8%)",en:"US$8.4B (+3%); adj. EPS US$6.15 (9.8% beat)"}],
+ [{zh:"Power Systems(亮點)",en:"Power Systems (star)"},{zh:"Q1 創紀錄 US$19.6 億(+19%);EBITDA 利潤率 29.5%,貢獻約 39% 獲利",en:"Record US$1.96B (+19%); 29.5% EBITDA margin, ~39% of profit"}],
+ [{zh:"引擎板塊",en:"Engine segment"},{zh:"US$26.7 億(-4%);北美重卡量 -20%,谷底回升中",en:"US$2.67B (-4%); NA HD truck volumes -20%, off the bottom"}],
+ [{zh:"FY2026 指引(上修)",en:"FY2026 guidance (raised)"},{zh:"營收 +8–11%;Power Systems +14–19%、利潤率 25–26%",en:"Rev +8–11%; Power Systems +14–19% at 25–26% margins"}],
+ [{zh:"資料中心佈局",en:"Data-center push"},{zh:"新 4MW 天然氣引擎;Circe Energy 約 2GW 供應協議(2026–30)",en:"New 4MW gas engine; ~2GW Circe Energy deal (2026–30)"}],
+ [{zh:"Accelera 重組",en:"Accelera restructuring"},{zh:"出售低壓燃料電池、認列 US$1.99 億;聚焦電池電動/氫",en:"Sold low-pressure fuel cells, US$199M charge; focus on BEV/H2"}],
+ [{zh:"股東回饋",en:"Capital returns"},{zh:"Q1 US$5.19 億(股利+庫藏股)",en:"US$519M in Q1 (dividends + buybacks)"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[34.1,34.1,33.9], approx:[false,false,true], note:{zh:"*2025 為約值;2026 指引 +8–11%",en:"*2025 approx.; 2026 guide +8–11%"} },
+segments:{ title:{zh:"板塊營收佔比(總額,約)",en:"Segment revenue mix (gross, approx.)"}, labels:[{zh:"配銷",en:"Distribution"},{zh:"引擎",en:"Engine"},{zh:"零組件",en:"Components"},{zh:"電力系統",en:"Power Systems"},{zh:"Accelera",en:"Accelera"}], values:[30,26,24,19,1] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Cummins 創立於 1919 年,總部位於印第安納州 Columbus,是全球最大的獨立引擎製造商,約七萬名員工。五大板塊:引擎(重型/中型卡車與越野柴油引擎)、零組件(渦輪、濾清、排放後處理)、配銷(全球銷售與服務網)、電力系統(發電機組與高馬力引擎)與 Accelera(電池電動與氫能)。客戶涵蓋 PACCAR、Daimler Truck、Stellantis 等整車廠——Cummins 是「賣引擎給所有人」的中立軍火商。",
+ en:"Founded in 1919 and headquartered in Columbus, Indiana, Cummins is the world's largest independent engine maker with ~70,000 employees. Five segments: Engine (heavy/medium-duty truck and off-highway diesels), Components (turbos, filtration, aftertreatment), Distribution (global sales and service), Power Systems (generator sets and high-horsepower engines) and Accelera (battery-electric and hydrogen). Customers span PACCAR, Daimler Truck, Stellantis and more — Cummins is the neutral arms dealer that sells engines to everyone."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"傳統上 Cummins 是「北美卡車週期」的同義詞:引擎隨 Class 8 卡車景氣大起大落,靠龐大的零件與服務後市場平滑週期。但 2026 年的敘事已改寫——資料中心備援與主力電源需求引爆 Power Systems:Q1 營收創紀錄 19.6 億美元、EBITDA 利潤率 29.5%,以 23% 的營收貢獻近四成獲利,成為全公司利潤率最高的板塊。公司押注雙引擎:2027 年 EPA 新規帶動的卡車換購潮(X15/X10 新平台),與資料中心電力的長期結構性需求(4MW 天然氣引擎、Circe 2GW 協議)。",
+ en:"Cummins was traditionally synonymous with the North American truck cycle: engines rose and fell with Class 8 demand, smoothed by a vast parts-and-service aftermarket. The 2026 narrative has been rewritten — data-center backup and prime power demand has ignited Power Systems: record Q1 revenue of $1.96B at a 29.5% EBITDA margin, contributing nearly 40% of profit on 23% of revenue, the company's most profitable segment. The bet is on twin engines: the EPA-2027-driven truck replacement wave (new X15/X10 platforms) and the structural long-term demand of data-center power (the 4MW gas engine, the ~2GW Circe deal)."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在中重型柴油引擎領域,Cummins 是全球市佔第一的獨立供應商;發電機組與高馬力引擎則與 Caterpillar、Rolls-Royce Power Systems(MTU)、Generac 同場競逐資料中心備援電力這塊爆發市場——與知識庫內的 CAT 形成最直接的對照組(CAT Q1 發電營收 +41%,CMI 北美發電 +23%)。在零排放轉型上,Accelera 經歷戰略收縮(出售低壓燃料電池、認列 1.99 億美元重組),反映全行業對氫能節奏的重新校準;短期護城河仍是柴油與天然氣的規模經濟。",
+ en:"In medium/heavy-duty diesel, Cummins is the world's No. 1 independent supplier; in gensets and high-horsepower engines it battles Caterpillar, Rolls-Royce Power Systems (MTU) and Generac for the exploding data-center backup market — making it the most direct comp to CAT in this KB (CAT Q1 power-gen revenue +41%, CMI NA power gen +23%). In zero-emissions, Accelera has strategically retrenched (selling low-pressure fuel cells with a $199M charge), reflecting an industry-wide recalibration of the hydrogen timeline; the near-term moat remains diesel and natural-gas scale economics."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026Q1(5/5 公佈)營收 84 億美元(+3%)、調整後 EPS 6.15 美元勝預期近 10%,並上修全年:營收 +8–11%、Power Systems 營收 +14–19%(利潤率 25–26%);國際營收 +16%(中國資料中心需求 +19%)抵銷北美卡車 -20% 的疲弱。管理層預期下半年出現 EPA 2027 前的溫和預購潮,X15/X10 如期 2027 上市。股價一年翻倍、接近歷史高點(7/20 收 682.33 美元),市場已把「AI 電力第二受益者」的劇本計入不少;Q2 財報 8/4 公佈,觀察 Power Systems 利潤率能否守住 29% 級距。",
+ en:"Q1 2026 (May 5) delivered $8.4B revenue (+3%) and $6.15 adjusted EPS, a near-10% beat, with full-year guidance raised: revenue +8–11% and Power Systems +14–19% at 25–26% margins; international revenue +16% (China data-center demand +19%) offset North American truck weakness (-20%). Management expects a modest H2 pre-buy ahead of EPA 2027, with X15/X10 launching on schedule in 2027. The stock has doubled in a year to near record highs ($682.33 on Jul 20), pricing in much of the 'second-order AI power beneficiary' script; Q2 results land Aug 4, with the key watch on whether Power Systems holds ~29% margins."}]
+]
+},
+
+/* ---------------- 14. VERTIV ---------------- */
+{
+id:"VRT", ticker:"VRT", exchange:"NYSE", name:{zh:"Vertiv 維諦",en:"Vertiv Holdings Co"}, subsector:"power", batch:3, added:"2026-07-21",
+tagline:{zh:"AI 時代的「公用事業公司」——資料中心電力與液冷的純度最高標的",
+         en:"The 'utility company' of the AI era — the purest play on data-center power and liquid cooling"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國俄亥俄州 Westerville",en:"Westerville, OH, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"2016 自 Emerson 分出(Liebert 創於 1965)",en:"2016, carved out of Emerson (Liebert est. 1965)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 31,000 人(概)",en:"~31,000 (est.)"}],
+ [{zh:"CEO",en:"CEO"},"Giordano Albertazzi"],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$331.44", mcap:{zh:"約 US$1,273 億",en:"~US$127.3B"}, pe:{zh:"前瞻約 50x(2026 指引概算)",en:"Fwd ~50x (2026 guide est.)"}, asOf:"2026-07-20" },
+priceHistory:[["2026-06-18",333.1],["2026-07-20",331.4]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$127B"], [{zh:"股價",en:"PRICE"},"$331"], [{zh:"TTM營收",en:"TTM REV"},"$10.8B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$108 億",en:"US$10.8B"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"2025 底 US$150 億(+109%,Q4 book-to-bill 近 2.9x);2026Q1 約 US$125 億(+81%)",en:"US$15.0B at YE25 (+109%, Q4 book-to-bill ~2.9x); ~US$12.5B in Q1 (+81%)"}],
+ [{zh:"2026Q1",en:"Q1 2026"},{zh:"營收 US$26.5 億;調整後 EPS 年增 83%;淨利 US$3.9 億",en:"Rev US$2.65B; adj. EPS +83%; net income US$390M"}],
+ [{zh:"FY2026 指引(上修)",en:"FY2026 guidance (raised)"},{zh:"營收 US$135–140 億;EPS 成長約 50%(約 US$6.35)",en:"Rev US$13.5–14.0B; EPS growth ~50% (~US$6.35)"}],
+ [{zh:"中期目標",en:"Mid-term target"},{zh:"2029 年營業利益率 25%",en:"25% operating margin by 2029"}],
+ [{zh:"Q2 財報",en:"Q2 earnings"},{zh:"7/29 公佈;市場預期 EPS 約 US$1.43",en:"Jul 29; consensus EPS ~US$1.43"}],
+ [{zh:"風險備忘",en:"Risk memo"},{zh:"2022 年曾因通膨定價失誤重挫 71%;客戶集中於超大規模雲商",en:"Fell 71% in 2022 on pricing missteps; hyperscaler concentration"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[6.9,8.0,9.9], approx:[false,false,true], note:{zh:"*2025 為約值;2026 指引 13.5–14.0",en:"*2025 approx.; 2026 guide 13.5–14.0"} },
+segments:{ title:{zh:"產品/服務營收佔比(約)",en:"Product / service mix (approx.)"}, labels:[{zh:"產品與整合方案",en:"Products & integrated solutions"},{zh:"服務與備品",en:"Services & spares"}], values:[78,22] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Vertiv 的血統可追溯至 1965 年創立的精密空調先驅 Liebert;2016 年 Emerson 把網絡能源事業(Emerson Network Power)出售給私募基金後更名 Vertiv,2020 年借殼上市,總部位於俄亥俄州 Westerville——與 Emerson 是知識庫內的「母子對照組」。產品覆蓋資料中心的電力鏈(UPS 不斷電系統、配電、母線槽、開關設備)與熱管理鏈(精密空調、液冷 CDU、冷板),再加上機櫃與全球服務網,是資料中心關鍵基礎設施覆蓋面最完整的獨立供應商。",
+ en:"Vertiv's lineage traces to Liebert, the precision-cooling pioneer founded in 1965; in 2016 Emerson sold its Network Power business to private equity, which renamed it Vertiv, and it listed via SPAC in 2020 — making it the parent-child comparison pair with Emerson in this KB. Headquartered in Westerville, Ohio, its products span the data-center power chain (UPS, power distribution, busway, switchgear) and thermal chain (precision cooling, liquid-cooling CDUs, cold plates), plus racks and a global service network — the most complete independent supplier of data-center critical infrastructure."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"Vertiv 賣的是「讓晶片不停機的物理層」:AI 晶片功耗與發熱暴衝,氣冷已到極限,液冷成為新建 AI 資料中心的預設架構——而 Vertiv 是少數能把電力+散熱+機櫃整包交付、並與 NVIDIA 共同定義參考設計的廠商。積壓訂單是理解這家公司的鑰匙:2025 年底達 150 億美元(年增 109%、Q4 book-to-bill 近 2.9 倍),等於鎖定未來 12–18 個月營收;售後服務與備品(約 22% 營收)則提供跨週期的黏性現金流。2029 年營業利益率目標 25%,槓桿在規模化與整合方案佔比提升。",
+ en:"Vertiv sells the physical layer that keeps chips running: AI silicon's power draw and heat output have pushed air cooling to its limits, making liquid cooling the default for new AI data centers — and Vertiv is one of the few able to deliver power + thermal + racks as an integrated package, co-defining reference designs with NVIDIA. Backlog is the key to this company: $15.0B at year-end 2025 (+109%, Q4 book-to-bill ~2.9x) locks in 12–18 months of revenue, while services and spares (~22% of revenue) provide sticky through-cycle cash flow. The 2029 target of 25% operating margins leans on scale and a rising integrated-solutions mix."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在資料中心關鍵基礎設施(電力+熱管理)領域,Vertiv 與 Schneider Electric 並列全球雙雄,液冷領域居領先集團;主要對手還包括剛以 Boyd 液冷補課的 Eaton(知識庫第 2 批)、Modine 與台達電等。它是四家「AI 電力鏈」收錄公司中純度最高者:GEV 賣渦輪機(發電)、ETN 賣配電(電網到機房)、CMI 賣備援引擎,Vertiv 則守住「機房到晶片」最後一哩。代價是最高的估值(前瞻約 50 倍)與最集中的客戶結構——超大規模雲商的資本支出一旦喘息,回檔也會最劇烈。",
+ en:"In data-center critical infrastructure (power + thermal), Vertiv and Schneider Electric are the global duopoly, with Vertiv in the leading pack for liquid cooling; other rivals include Eaton (batch 2, which bought Boyd to catch up in liquid cooling), Modine and Delta Electronics. Among the four 'AI power chain' companies in this KB it is the purest play: GEV sells turbines (generation), ETN sells distribution (grid to room), CMI sells backup engines — Vertiv owns the last mile from room to chip. The price is the richest multiple (~50x forward) and the most concentrated customer base — if hyperscaler capex pauses, the drawdown will be the sharpest."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026Q1(4 月底公佈)營收 26.5 億美元、調整後 EPS 年增 83%,全年營收指引上修至 135–140 億美元、EPS 成長約 50%;積壓維持 125–150 億美元高檔。6/18 股價收 333.05 美元、一週大漲 12%,市值約 1,280 億;7/20 收 331.44 美元,在歷史高位附近整理。多空焦點清晰:多方看液冷滲透率與 2029 年 25% 利潤率路徑,空方提醒 2022 年定價失誤重挫 71% 的前科與約 50 倍的前瞻本益比。Q2 財報 7/29 公佈(預期 EPS 約 1.43 美元),訂單與積壓數字將是 AI 資本支出的即時風向球。",
+ en:"Q1 2026 (late April) delivered $2.65B revenue with adjusted EPS up 83%; full-year revenue guidance rose to $13.5–14.0B with ~50% EPS growth, and backlog held at an elevated $12.5–15B. The stock closed at $333.05 on Jun 18 (+12% that week, ~$128B market cap) and at $331.44 on Jul 20, consolidating near all-time highs. The debate is crisp: bulls see liquid-cooling penetration and the path to 25% margins by 2029; bears point to the 2022 pricing debacle (-71%) and a ~50x forward multiple. Q2 results land Jul 29 (consensus EPS ~$1.43) — the order and backlog prints will be a real-time barometer of AI capex."}]
+]
+},
+
+/* ---------------- 15. GE AEROSPACE ---------------- */
+{
+id:"GE", ticker:"GE", exchange:"NYSE", name:{zh:"GE Aerospace 奇異航太",en:"GE Aerospace"}, subsector:"aerospace", batch:3, added:"2026-07-21",
+tagline:{zh:"全球引擎之王——七成客機靠它推進,售後長尾撐起 2,100 億美元積壓",
+         en:"The king of jet engines — powering most of the world's commercial fleet, with an aftermarket long tail behind a $210B+ backlog"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國俄亥俄州辛辛那提(Evendale)",en:"Cincinnati (Evendale), OH, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"1892(GE);2024/4 獨立上市",en:"1892 (GE); standalone since Apr 2024"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 53,000 人",en:"~53,000"}],
+ [{zh:"CEO",en:"CEO"},"H. Lawrence Culp Jr."],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$314.64", mcap:{zh:"約 US$3,283 億",en:"~US$328.3B"}, pe:{zh:"前瞻約 41x(2026 上修指引)",en:"Fwd ~41x (raised 2026 guide)"}, asOf:"2026-07-20" },
+priceHistory:[["2026-07-15",328.0],["2026-07-20",314.6]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$328B"], [{zh:"股價",en:"PRICE"},"$315"], [{zh:"TTM營收",en:"TTM REV"},"$48.3B"] ],
+financials:[
+ [{zh:"2026Q2(7/16 公佈)",en:"Q2 2026 (out Jul 16)"},{zh:"GAAP 營收 US$133.5 億(+21%,調整後 +24%);調整後 EPS US$2.02(勝 8.6%)",en:"GAAP rev US$13.35B (+21%; adj. +24%); adj. EPS US$2.02 (8.6% beat)"}],
+ [{zh:"訂單/現金流",en:"Orders / cash flow"},{zh:"Q2 訂單 US$165 億(+17%);自由現金流 US$30 億(+43%)",en:"Q2 orders US$16.5B (+17%); FCF US$3.0B (+43%)"}],
+ [{zh:"板塊表現",en:"Segments"},{zh:"商用引擎與服務 US$97 億(+27%);國防與推進 US$34 億(+16%)",en:"CES US$9.7B (+27%); Defense & Propulsion US$3.4B (+16%)"}],
+ [{zh:"FY2026 指引(大幅上修)",en:"FY2026 guidance (big raise)"},{zh:"調整後營收高十位數成長;EPS US$7.65–7.85;FCF US$89–92 億",en:"Adj. rev high-teens growth; EPS US$7.65–7.85; FCF US$8.9–9.2B"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"總積壓逾 US$2,100 億;商用服務積壓約 US$1,700 億",en:">US$210B total; ~US$170B commercial services"}],
+ [{zh:"利潤率",en:"Margin"},{zh:"Q2 營業利益率 21.7%(-130bps;GE9X 爬坡投資)",en:"Q2 op margin 21.7% (-130bps; GE9X ramp costs)"}],
+ [{zh:"營運亮點",en:"Ops highlights"},{zh:"FLIGHT DECK 精實:F110 交期 -60%;LEAP 停飛機隊近乎歸零",en:"FLIGHT DECK lean: F110 lead time -60%; LEAP AOGs near zero"}]
+],
+revTrend:{ unit:{zh:"十億美元(調整後營收)",en:"US$B (adjusted revenue)"}, labels:["2023","2024","2025"], values:[31.8,35.1,40.7], approx:[true,false,true], note:{zh:"*2023/25 為約值",en:"*2023/25 approximate"} },
+segments:{ title:{zh:"2026Q2 板塊營收佔比",en:"Q2 2026 revenue mix"}, labels:[{zh:"商用引擎與服務",en:"Commercial Engines & Services"},{zh:"國防與推進技術",en:"Defense & Propulsion"}], values:[74,26] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"GE Aerospace 是 1892 年創立的奇異(GE)在 2024 年 4 月完成世紀分拆(能源分出 GE Vernova、醫療分出 GE HealthCare)後留下的核心本體,續用 GE 代碼,總部位於俄亥俄州辛辛那提 Evendale,由帶領整場改造的 Larry Culp 掌舵。兩大板塊:商用引擎與服務(CFM56/LEAP 窄體、GEnx/GE90/GE9X 寬體引擎)與國防及推進技術(戰機與直升機引擎、極音速推進)。全球約有七成商用航班由 GE 及合資的 CFM 引擎推動,安裝基礎約 4.5 萬具。",
+ en:"GE Aerospace is what remains of the General Electric founded in 1892 after its epochal 2024 breakup (energy became GE Vernova, healthcare GE HealthCare) — keeping the GE ticker, headquartered in Evendale, Cincinnati, and led by transformation architect Larry Culp. Two segments: Commercial Engines & Services (CFM56/LEAP narrowbody, GEnx/GE90/GE9X widebody engines) and Defense & Propulsion Technologies (fighter and helicopter engines, hypersonics). Roughly seven of ten commercial flights worldwide are powered by GE or its CFM joint venture, on an installed base of ~45,000 engines."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"噴射引擎是工業界最極致的「刮鬍刀+刀片」模式:新引擎近乎成本價甚至虧本賣(GE9X 爬坡期虧損 2028 年才觸頂),真正的利潤在其後 20–40 年的維修、翻修與備件——每具引擎生命週期的售後收入可達售價數倍。約 1,700 億美元的商用服務積壓,意味未來多年的高利潤率收入已被預訂;與 Safran 各半持股的 CFM 合資(LEAP 引擎)則壟斷波音 737 MAX、分食空巴 A320neo。Culp 的 FLIGHT DECK 精實體系是執行面的核心:F110 關鍵件交期 -60%、CFM56 總裝時間 -50%。",
+ en:"Jet engines are industry's ultimate razor-and-blades model: new engines sell near cost or at a loss (GE9X ramp losses peak by 2028), while the real profit sits in 20–40 years of maintenance, overhaul and spares — lifetime aftermarket revenue can run several times the sale price. The ~$170B commercial-services backlog means years of high-margin revenue is pre-booked; the 50/50 CFM joint venture with Safran (LEAP) monopolizes the Boeing 737 MAX and splits the Airbus A320neo. Culp's FLIGHT DECK lean operating system is the execution engine: F110 critical-part lead times down 60%, CFM56 final-assembly time down 50%."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"以商用引擎裝機量計,GE+CFM 是無可爭議的世界第一,對手僅 Pratt & Whitney(RTX 旗下,GTF 引擎)與 Rolls-Royce(寬體);窄體市場實質上是 CFM 與 P&W 的雙寡頭。在知識庫的航太板塊裡,GE 與 RTX 是「引擎雙雄」的直接對照:GE 更純(無飛彈與航電稀釋)、利潤率與現金流更強,估值也因此更高(前瞻約 41 倍 vs RTX 約 28 倍)。供應鏈仍是全行業瓶頸——備件交付延遲量 Q2 環比 +20%,說明需求仍遠大於供給。",
+ en:"By commercial installed base, GE+CFM is the undisputed world No. 1, with only Pratt & Whitney (RTX's GTF) and Rolls-Royce (widebody) as rivals; the narrowbody market is effectively a CFM–P&W duopoly. Within this KB's aerospace shelf, GE and RTX form the direct 'engine duo' comparison: GE is purer (no missiles or avionics dilution) with stronger margins and cash flow — and a richer multiple to match (~41x forward vs RTX's ~28x). Supply chains remain the industry bottleneck — spare-parts delinquencies rose 20% sequentially in Q2, evidence that demand still far exceeds supply."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026Q2(7/16 公佈)全面超標:調整後營收 +24%、EPS 2.02 美元(+22%)、自由現金流 +43%,訂單 165 億美元;全年指引大幅上修(調整後營收高十位數成長、EPS 7.65–7.85、FCF 89–92 億美元),Jefferies、RBC、Bernstein 一致按讚。但股價財報後回落約 4% 至 315 美元附近——市場消化「訂單成長趨緩」與已然偏高的預期,GE9X(777-9 用)爬坡也壓低利潤率 130bps。中東衝突暫未改變客戶行為,上半年航班起降大致持平,管理層仍預期下半年溫和回升;約 2,100 億美元總積壓是最深的護城河。",
+ en:"Q2 2026 (out Jul 16) beat across the board: adjusted revenue +24%, EPS of $2.02 (+22%), free cash flow +43%, and $16.5B of orders; full-year guidance was raised sharply (high-teens adjusted revenue growth, $7.65–7.85 EPS, $8.9–9.2B FCF), with Jefferies, RBC and Bernstein applauding. Yet the stock eased ~4% to ~$315 post-print as the market digested moderating order growth against elevated expectations, while the GE9X ramp (for the 777-9) shaved 130bps off margins. The Middle East conflict hasn't changed customer behavior — H1 departures were roughly flat, with a modest H2 recovery still expected; the $210B+ total backlog remains the deepest moat."}]
+]
+},
+
+/* ---------------- 16. BOMBARDIER ---------------- */
+{
+id:"BBD", ticker:"BBD", exchange:"TSX", name:{zh:"Bombardier 龐巴迪",en:"Bombardier Inc."}, subsector:"aerospace", batch:3, added:"2026-07-21",
+tagline:{zh:"加拿大公務機純血玩家的重生——積壓 203 億美元、book-to-bill 3.6 倍的轉型完成式",
+         en:"Canada's pure-play business-jet phoenix — turnaround complete, with a $20.3B backlog and a 3.6x book-to-bill"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"加拿大魁北克省蒙特婁",en:"Montreal, QC, Canada"}],
+ [{zh:"成立",en:"FOUNDED"},"1942"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 18,000 人",en:"~18,000"}],
+ [{zh:"CEO",en:"CEO"},{zh:"Éric Martel(2020/3 上任)",en:"Éric Martel (since Mar 2020)"}],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止(報表以美元計)",en:"Ends Dec (reports in US$)"}]
+],
+valuation:{ price:{zh:"—(下批刷新)",en:"— (refresh next batch)"}, mcap:{zh:"—(下批刷新)",en:"— (refresh next batch)"}, pe:{zh:"—",en:"—"}, asOf:{zh:"待更新",en:"pending"} },
+cardStats:[ [{zh:"積壓訂單",en:"BACKLOG"},"$20.3B"], [{zh:"FY25營收",en:"FY25 REV"},"$9.6B"], [{zh:"FCF指引",en:"FCF GUIDE"},">$1B"] ],
+financials:[
+ [{zh:"FY2025(轉型收官)",en:"FY2025 (turnaround done)"},{zh:"營收 US$95.5 億(+10%);交付 157 架;全數超越指引",en:"Rev US$9.55B (+10%); 157 deliveries; beat all guidance"}],
+ [{zh:"服務業務",en:"Services"},{zh:"FY25 US$23 億(+13%);2026Q1 US$6.17 億(+25%)",en:"FY25 US$2.3B (+13%); Q1 2026 US$617M (+25%)"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"2026Q1 達 US$203 億(+43% YoY);單位 book-to-bill 3.6x",en:"US$20.3B in Q1 2026 (+43% YoY); unit book-to-bill 3.6x"}],
+ [{zh:"2026Q1",en:"Q1 2026"},{zh:"營收 US$16 億(+5%);自由現金流 US$3.6 億(近 20 年最佳 Q1)",en:"Rev US$1.6B (+5%); FCF US$360M (best Q1 in ~2 decades)"}],
+ [{zh:"FY2026 指引",en:"FY2026 guidance"},{zh:"FCF 上修至 >US$10 億;營收 >US$100 億;調整後 EBITDA >US$16.25 億",en:"FCF raised to >US$1.0B; rev >US$10.0B; adj. EBITDA >US$1.625B"}],
+ [{zh:"去槓桿",en:"Deleveraging"},{zh:"上半年償債 US$8.6 億;淨槓桿 1.8x;S&P 展望轉正",en:"US$860M repaid in H1; net leverage 1.8x; S&P outlook positive"}],
+ [{zh:"新機/併購",en:"New jet / M&A"},{zh:"Global 8000(Mach 0.95 最速民用機)2025/12 服役;收購 Velocity MRO",en:"Global 8000 (Mach 0.95, fastest civil jet) EIS Dec 2025; acquired Velocity MRO"}],
+ [{zh:"風險備忘",en:"Risk memo"},{zh:"美國關稅/認證威脅(現受 USMCA 豁免保護)",en:"U.S. tariff/certification threats (currently USMCA-exempt)"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[8.05,8.7,9.55], approx:[false,false,false], note:{zh:"2026 指引 >10.0",en:"2026 guide >10.0"} },
+segments:{ title:{zh:"營收結構(約)",en:"Revenue mix (approx.)"}, labels:[{zh:"公務機製造與其他",en:"Jet manufacturing & other"},{zh:"售後服務",en:"Aftermarket services"}], values:[76,24] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Bombardier 1942 年由 Joseph-Armand Bombardier 以雪上摩托車起家,曾橫跨鐵路、支線客機與公務機的加拿大工業巨頭,在債務危機後斷臂求生:鐵路售予 Alstom(2021)、CRJ 客機售予三菱、航空結構業務出清,如今是純公務機公司,總部蒙特婁、約 1.8 萬名員工,於多倫多證交所以 BBD 交易。產品線:Challenger 350/3500/650 中型機與旗艦 Global 5500/6500/7500/8000 超遠程機,另以 Global 平台衍生軍用特種任務機切入國防市場。",
+ en:"Founded in 1942 by Joseph-Armand Bombardier with the snowmobile, Bombardier was once a Canadian industrial giant spanning rail, regional jets and business jets — until a debt crisis forced radical surgery: rail sold to Alstom (2021), the CRJ to Mitsubishi, aerostructures divested. Today it is a pure business-jet company headquartered in Montreal with ~18,000 employees, trading as BBD on the TSX. The lineup: Challenger 350/3500/650 mid-size jets and the flagship Global 5500/6500/7500/8000 ultra-long-range family, with Global-based special-mission military derivatives opening a defense lane."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"公務機是航太業中「訂單先行、現金前置」的生意:客戶下訂支付訂金,積壓訂單直接決定產線能見度——203 億美元積壓約當兩年產能,Q1 單位 book-to-bill 高達 3.6 倍(機隊營運商大單+Global 8000 熱銷)。Martel 的轉型三部曲已完成:一是聚焦高毛利的大型公務機;二是服務網絡全球擴張(FY25 服務營收 23 億、+13%,Q1 再 +25%,並收購 Velocity MRO),把一次性賣機變成機隊生命週期收入;三是去槓桿——淨槓桿降至 1.8 倍、年省利息逾 5,200 萬美元,信評展望接連轉正。",
+ en:"Business jets are aerospace's order-first, cash-up-front business: customers pay deposits at signing, and backlog directly sets production visibility — the $20.3B backlog covers roughly two years of output, with Q1's unit book-to-bill at a striking 3.6x (fleet-operator orders plus a hot Global 8000). Martel's three-act turnaround is complete: focus on high-margin large-cabin jets; expand the global service network (FY25 services revenue $2.3B, +13%, then +25% in Q1, plus the Velocity MRO acquisition) to convert one-time sales into fleet-lifecycle revenue; and deleverage — net leverage down to 1.8x, $52M+ of annual interest saved, and successive positive ratings-outlook moves."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在大型/超遠程公務機市場,Bombardier 與 Gulfstream(General Dynamics 旗下)、Dassault Falcon 構成三強,以交付量計居全球公務機製造商前列;2025 年 12 月服役的 Global 8000 以 Mach 0.95 成為全球最快民用飛機,正面迎戰 Gulfstream G700/G800。它是知識庫繼 CAE、ATS 後第三家加拿大公司,也是「利基全球冠軍」路線的又一例證——不做民航大飛機,專吃高淨值與企業機隊這塊高毛利蛋糕;富豪財富效應與企業機隊更新是需求底盤,美國關稅與認證政治風險則是懸頂之劍(現受 USMCA 豁免)。",
+ en:"In large-cabin and ultra-long-range business jets, Bombardier forms the big three with Gulfstream (General Dynamics) and Dassault Falcon, ranking among the top business-jet makers by deliveries; the Global 8000, in service since December 2025 at Mach 0.95, is the world's fastest civil aircraft, squaring off against Gulfstream's G700/G800. It is the KB's third Canadian company after CAE and ATS, and another proof of the niche-global-champion path — skipping commercial airliners to feast on the high-margin wealth-and-corporate-fleet segment. Wealth effects and fleet renewal underpin demand; U.S. tariff and certification politics hang overhead (currently USMCA-exempt)."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"FY2025 以「全數指標超越指引」為轉型畫下句點:營收 95.5 億美元(+10%)、交付 157 架、積壓 175 億(+22%)。2026Q1(4/30 公佈)再上層樓:積壓衝上 203 億美元(+43%)、自由現金流 3.6 億創近二十年最佳 Q1,全年 FCF 指引上修至逾 10 億美元;上半年累計償債 8.6 億,S&P 展望轉正。供應商短暫斷鏈影響部分交機時程,全年交付仍指引逾 157 架。本庫尚缺可靠即時報價(TSX: BBD),下批更新補齊;屆時亦將建立 52 週區間與價格紀錄。",
+ en:"FY2025 closed the turnaround with every metric beating guidance: revenue of $9.55B (+10%), 157 deliveries, and a $17.5B backlog (+22%). Q1 2026 (Apr 30) went further: backlog surged to $20.3B (+43%), free cash flow of $360M was the best Q1 in nearly two decades, and full-year FCF guidance was raised above $1.0B; $860M of debt was repaid in H1 and S&P turned its outlook positive. A temporary supplier disruption shifted some delivery timing, but the >157-unit full-year target stands. This KB still lacks a reliable live quote (TSX: BBD) — it will be added next batch, along with the 52-week range and price log."}]
+]
+},
+
+/* ---------------- 17. PARKER-HANNIFIN ---------------- */
+{
+id:"PH", ticker:"PH", exchange:"NYSE", name:{zh:"Parker-Hannifin 派克漢尼汾",en:"Parker-Hannifin Corporation"}, subsector:"machinery", batch:3, added:"2026-07-21",
+tagline:{zh:"「運動與控制」的隱形冠軍——液壓帝國變身航太現金機器,FY26Q3 全面創紀錄",
+         en:"The hidden champion of motion & control — a hydraulics empire turned aerospace cash machine, with records across the board in FY26 Q3"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國俄亥俄州克里夫蘭",en:"Cleveland, OH, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1917"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 60,000 人",en:"~60,000"}],
+ [{zh:"CEO",en:"CEO"},{zh:"Jenny Parmentier(董事長兼 CEO)",en:"Jenny Parmentier (Chairman & CEO)"}],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"6 月止",en:"Ends Jun"}]
+],
+valuation:{ price:"US$850.76", mcap:{zh:"約 US$1,073 億",en:"~US$107.3B"}, pe:{zh:"前瞻約 27x(FY26 調整後指引)",en:"Fwd ~27x (FY26 adj. guide)"}, asOf:"2026-07-20" },
+priceHistory:[["2026-07-20",850.8]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$107B"], [{zh:"股價",en:"PRICE"},"$851"], [{zh:"TTM營收",en:"TTM REV"},"$21.0B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$210 億",en:"US$21.0B"}],
+ [{zh:"FY26Q3(3 月止)",en:"FY26 Q3 (Mar-end)"},{zh:"創紀錄營收 US$54.9 億(+10.6%)",en:"Record sales US$5.49B (+10.6%)"}],
+ [{zh:"航太系統板塊",en:"Aerospace Systems"},{zh:"營收 US$18.1 億(+15.5%);利潤率 29.5%(+80bps)",en:"Rev US$1.81B (+15.5%); margin 29.5% (+80bps)"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"總積壓創紀錄 US$125 億;其中航太 US$84 億(+15%)",en:"Record US$12.5B total; aerospace US$8.4B (+15%)"}],
+ [{zh:"FY2026 指引",en:"FY2026 guidance"},{zh:"營收 +7%;調整後板塊利潤率 27.2%;調整後 EPS US$31.20",en:"Sales +7%; adj. segment margin 27.2%; adj. EPS US$31.20"}],
+ [{zh:"併購",en:"M&A"},{zh:"Q2 宣布收購 CIRCOR 商用與國防航太業務",en:"Announced acquisition of CIRCOR's commercial & defense aerospace unit"}],
+ [{zh:"營運系統",en:"Operating system"},{zh:"The Win Strategy™;Meggitt(2022)整合完成推升利潤率",en:"The Win Strategy™; Meggitt (2022) integration lifting margins"}]
+],
+revTrend:{ unit:{zh:"十億美元(財年 6 月止)",en:"US$B (FY ends Jun)"}, labels:["FY23","FY24","FY25"], values:[19.1,19.9,19.9], approx:[false,false,true], note:{zh:"*FY25 為約值(含資產出售影響);FY26 指引 +7%",en:"*FY25 approx. (divestiture effects); FY26 guide +7%"} },
+segments:{ title:{zh:"板塊營收佔比(約)",en:"Segment revenue mix (approx.)"}, labels:[{zh:"多元工業・北美",en:"Diversified Industrial · N.A."},{zh:"多元工業・國際",en:"Diversified Industrial · Intl"},{zh:"航太系統",en:"Aerospace Systems"}], values:[44,23,33] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Parker-Hannifin 創立於 1917 年,總部位於克里夫蘭,是「運動與控制(motion & control)」技術的全球領導者:液壓、氣動、過濾、密封、流體連接件與航太系統,產品滲透在幾乎所有會動的機器裡——從工程機械、工廠設備到飛機。約六萬名員工,兩大板塊:多元工業(北美+國際)與航太系統。近十年透過 Clarcor(過濾)、Lord(減震)、Exotic Metals 與 2022 年 63 億英鎊收購英國 Meggitt(航太),把航太佔比一路推升至三分之一。",
+ en:"Founded in 1917 and headquartered in Cleveland, Parker-Hannifin is the global leader in motion & control technologies: hydraulics, pneumatics, filtration, sealing, fluid connectors and aerospace systems — components embedded in almost everything that moves, from construction machinery and factory equipment to aircraft. With ~60,000 employees, it runs two segments: Diversified Industrial (North America + International) and Aerospace Systems. A decade of deals — Clarcor (filtration), Lord (vibration control), Exotic Metals, and the £6.3B Meggitt acquisition in 2022 — has lifted aerospace to a third of revenue."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"Parker 的護城河是「無所不在的小零件」:單一零件價值不高、卻是設備停擺的關鍵,客戶對價格不敏感、對交期與可靠度極敏感;數十萬個 SKU 加上全球分銷網絡(工業界的「便利店」),構成極分散、極難複製的長尾生意。The Win Strategy 營運系統則是利潤率引擎——調整後板塊利潤率從十年前的約 15% 一路推升至 27%。航太系統(引擎零件、液壓、燃油與煞車系統,OEM+售後各半)是新的利潤率之王:FY26Q3 達 29.5%,積壓 84 億美元,再宣布收購 CIRCOR 航太業務加碼。",
+ en:"Parker's moat is the ubiquitous small part: individually low-value components that nonetheless ground equipment when they fail, making customers price-insensitive but ruthless about lead time and reliability; hundreds of thousands of SKUs plus a global distribution network (industry's convenience store) create a fragmented, hard-to-replicate long-tail business. The Win Strategy operating system is the margin engine — adjusted segment margins have climbed from ~15% a decade ago to 27%. Aerospace Systems (engine components, hydraulics, fuel and braking systems, split evenly OEM/aftermarket) is the new margin king: 29.5% in FY26 Q3 on an $8.4B backlog, with the CIRCOR aerospace acquisition adding more."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在工業液壓與流體動力領域,Parker 全球市佔第一,領先 Bosch Rexroth、Eaton(液壓已售予 Danfoss)與 SMC(氣動);航太液壓與燃油系統則與 Moog、Woodward、Safran 同列第一梯隊。它是本庫「多元工業」原型的最佳樣本:終端市場橫跨航太、工程機械(供貨 CAT、DE)、卡車(供貨 CMI 客戶)、半導體與生命科學,景氣感應度全面但分散。當前的組合槓桿清晰:航太(33% 營收)高速成長+工業緩步復甦(北美訂單轉正、重卡 OEM 訂單回升),雙引擎正在交棒。",
+ en:"In industrial hydraulics and fluid power Parker holds the global No. 1 share, ahead of Bosch Rexroth, Eaton (whose hydraulics went to Danfoss) and SMC (pneumatics); in aerospace hydraulics and fuel systems it sits in the first tier with Moog, Woodward and Safran. It is this KB's best specimen of the diversified-industrial archetype: end markets span aerospace, construction equipment (supplying CAT and DE), trucks (supplying CMI's customers), semiconductors and life sciences — broad cyclicality, but dispersed. The current portfolio lever is clear: aerospace (33% of revenue) growing fast while industrial slowly recovers (North American orders turning positive, heavy-truck OEM orders rising) — a twin-engine handoff in progress."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"FY26Q3(3 月止,4/30 公佈)交出「五創紀錄」:營收 54.9 億美元(+10.6%)、調整後板塊營業利益/利潤率/EPS 與年初至今營運現金流皆創新高;航太營收 +15.5%、利潤率 29.5%,總積壓 125 億美元創紀錄。全年指引:營收 +7%、調整後 EPS 31.20 美元、調整後利潤率 27.2%。1 月底宣布收購 CIRCOR 商用與國防航太業務,延續「以航太換利潤率」的併購劇本;運輸市場展望由中個位數下滑改善至低個位數下滑。股價 850.76 美元(7/20)、前瞻約 27 倍;FY26Q4(6 月止)財報預計 8 月初公佈。",
+ en:"FY26 Q3 (Mar-end, reported Apr 30) delivered five records: sales of $5.49B (+10.6%), plus all-time-high adjusted segment operating income, margin, EPS and YTD operating cash flow; aerospace grew 15.5% at a 29.5% margin, and total backlog hit a record $12.5B. Full-year guidance: sales +7%, adjusted EPS $31.20, adjusted margin 27.2%. The late-January deal for CIRCOR's commercial and defense aerospace business extends the buy-aerospace-for-margin playbook; the transportation outlook improved from mid- to low-single-digit organic decline. At $850.76 (Jul 20) the stock trades ~27x forward; FY26 Q4 (Jun-end) results are due in early August."}]
+]
+},
+
+/* ---------------- 18. QUANTA SERVICES ---------------- */
+{
+id:"PWR", ticker:"PWR", exchange:"NYSE", name:{zh:"Quanta Services",en:"Quanta Services, Inc."}, subsector:"power", batch:3, added:"2026-07-21",
+tagline:{zh:"電網大建設的「鏟子股」——六萬技工大軍、積壓 485 億美元的基建執行者",
+         en:"The picks-and-shovels of the grid buildout — a 60,000-strong craft-labor army executing a $48.5B backlog"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國德州休士頓",en:"Houston, TX, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1997"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 60,000 人(以技術工人為主)",en:"~60,000 (mostly craft-skilled)"}],
+ [{zh:"CEO",en:"CEO"},"Duke Austin"],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$715.67", mcap:{zh:"約 US$1,074 億",en:"~US$107.4B"}, pe:{zh:"前瞻約 51x(2026 指引概算)",en:"Fwd ~51x (2026 guide est.)"}, asOf:"2026-07-20" },
+priceHistory:[["2026-06-03",700.0],["2026-07-20",715.7]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$107B"], [{zh:"股價",en:"PRICE"},"$716"], [{zh:"TTM營收",en:"TTM REV"},"$30.1B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$301 億",en:"US$30.1B"}],
+ [{zh:"2026Q1",en:"Q1 2026"},{zh:"營收 US$78.7 億(+26.3%);調整後 EPS US$2.68(+51%,大勝 31%)",en:"Rev US$7.87B (+26.3%); adj. EPS US$2.68 (+51%, 31% beat)"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"創紀錄 US$485 億(2025 底 US$440 億);電力板塊佔 US$401 億",en:"Record US$48.5B (vs US$44.0B YE25); Electric US$40.1B"}],
+ [{zh:"FY2026 指引(上修)",en:"FY2026 guidance (raised)"},{zh:"營收 US$347–352 億;調整後 EPS US$13.55–14.25",en:"Rev US$34.7–35.2B; adj. EPS US$13.55–14.25"}],
+ [{zh:"現金流/回饋",en:"Cash flow / returns"},{zh:"FCF 指引 US$15.5–20.5 億;新增 US$10 億庫藏股",en:"FCF guide US$1.55–2.05B; new US$1B buyback"}],
+ [{zh:"板塊利潤率",en:"Segment margins"},{zh:"Q1 電力 8.7%、地下管線 7.5%",en:"Q1 Electric 8.7%, Underground 7.5%"}],
+ [{zh:"2030 目標",en:"2030 targets"},{zh:"有機成長 7–10%;調整後 EPS US$21.6–26.75",en:"Organic growth 7–10%; adj. EPS US$21.6–26.75"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[20.9,23.7,28.5], approx:[false,false,true], note:{zh:"*2025 為約值;2026 指引中值約 35.0",en:"*2025 approx.; 2026 guide mid ~35.0"} },
+segments:{ title:{zh:"板塊營收佔比(約)",en:"Segment revenue mix (approx.)"}, labels:[{zh:"電力基礎設施方案",en:"Electric Infrastructure Solutions"},{zh:"地下管線與基建",en:"Underground Utility & Infra"}], values:[75,25] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Quanta Services 創立於 1997 年,總部位於休士頓,是北美最大的電力基礎設施「專業承包商」:輸電線路、變電站、配電網、再生能源電站(旗下 Blattner 是美國最大再生能源 EPC 之一)與地下管線的工程、施工與維護。它的核心資產不是廠房而是人——約六萬名以技術工人(craft labor)為主的隊伍,在缺工的美國,這支能爬電塔、拉高壓線的大軍本身就是稀缺資源。客戶是公用事業、發電商、雲端巨頭與管線公司。",
+ en:"Founded in 1997 and headquartered in Houston, Quanta Services is North America's largest specialty contractor for electric infrastructure: engineering, construction and maintenance of transmission lines, substations, distribution networks, renewable plants (its Blattner unit is among America's largest renewables EPCs) and underground utilities. Its core asset is not factories but people — a ~60,000-strong, craft-labor-heavy workforce; in a labor-short America, an army that can climb towers and string high-voltage line is itself the scarce resource. Customers are utilities, generators, hyperscalers and pipeline operators."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"Quanta 是「電力超級週期」裡最純粹的執行層:GEV 賣渦輪機、ETN 賣配電設備,但把電從電廠送到資料中心的塔、線、站,得靠 Quanta 的人去蓋。收入結構以框架協議與多年期計畫型合約(MSA)為主,與大型公用事業形成長期綁定,平滑了單案風險;自建變壓器供應與預製工廠則對沖行業最緊的物料瓶頸。積壓訂單 485 億美元創紀錄、其中電力板塊 401 億,約 159 億將於 12 個月內轉化——這是全庫最能直接量化「電網投資落地速度」的數字。",
+ en:"Quanta is the purest execution layer of the power supercycle: GEV sells turbines and ETN sells distribution gear, but the towers, lines and substations that carry electricity from plant to data center must be built by Quanta's crews. Revenue is anchored in framework agreements and multi-year programmatic MSAs with major utilities, smoothing single-project risk, while in-house transformer supply and off-site manufacturing hedge the industry's tightest material bottlenecks. The record $48.5B backlog — $40.1B of it Electric, with ~$15.9B converting within 12 months — is this KB's most direct gauge of how fast grid investment is actually landing."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在電力輸配電承包領域,Quanta 規模居北美第一,領先 MasTec、Primoris 等同業;再生能源 EPC(Blattner)與地下管線亦居前列。它與 GEV、ETN、VRT 構成本庫「AI 電力鏈」的四個層次:發電(GEV)→ 輸配電施工(PWR)→ 配電設備(ETN)→ 機房內(VRT)。需求端三箭齊發:電網老化更新、再生能源併網、資料中心接電——超大規模雲商如今直接成為其客戶。風險同樣清晰:約 51 倍的前瞻本益比隱含極高成長預期,勞動力成本、審批延宕與專案執行是永恆變數。",
+ en:"In electric transmission and distribution contracting, Quanta is North America's No. 1 by scale, ahead of MasTec and Primoris; it also ranks top-tier in renewables EPC (Blattner) and underground utilities. With GEV, ETN and VRT it completes this KB's four-layer AI power chain: generation (GEV) → T&D construction (PWR) → distribution equipment (ETN) → inside the data hall (VRT). Demand fires on three fronts — grid-aging replacement, renewables interconnection, and data-center hookups, with hyperscalers now direct customers. The risks are equally clear: a ~51x forward multiple embeds lofty growth expectations, while labor costs, permitting delays and project execution are perpetual variables."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026Q1(4/30 公佈)全面引爆:營收 78.7 億美元(+26.3%)、調整後 EPS 2.68 美元大勝預期 31%,積壓創紀錄 485 億美元;全年指引上修至營收 347–352 億、調整後 EPS 13.55–14.25 美元,並宣布 10 億美元庫藏股——隔日股價暴漲逾 17%。5 月 Oppenheimer 升評至優於大盤、目標價 800 美元;6 月股價站上 700 美元後,分析師開始辯論估值(Seeking Alpha 直言「好公司、但成長多已入價」)。7/20 收 715.67 美元、前瞻約 51 倍。Q2 財報預計 7 月底公佈,積壓與電力板塊利潤率是關鍵讀數。",
+ en:"Q1 2026 (Apr 30) detonated: revenue of $7.87B (+26.3%) and adjusted EPS of $2.68 beat by 31%, with backlog at a record $48.5B; full-year guidance rose to $34.7–35.2B revenue and $13.55–14.25 adjusted EPS alongside a new $1B buyback — and the stock surged 17%+ the next day. Oppenheimer upgraded to Outperform in May with an $800 target; after shares crossed $700 in June, analysts began debating valuation (Seeking Alpha: 'great business, but much growth already priced in'). At $715.67 on Jul 20 it trades ~51x forward. Q2 results are due late July — backlog and Electric-segment margins are the key reads."}]
+]
+},
+
+/* ---------------- 19. TRANE TECHNOLOGIES ---------------- */
+{
+id:"TT", ticker:"TT", exchange:"NYSE", name:{zh:"Trane 特靈科技",en:"Trane Technologies plc"}, subsector:"machinery", batch:3, added:"2026-07-21",
+tagline:{zh:"商用空調之王撞上資料中心散熱潮——訂單 +24%、Applied 訂單連三季翻倍",
+         en:"The king of commercial HVAC meets the data-center cooling wave — bookings +24%, applied bookings doubling for three straight quarters"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"愛爾蘭 Swords(營運:北卡 Davidson)",en:"Swords, Ireland (ops: Davidson, NC)"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"2020 更名(Trane 品牌溯至 1913;IR 溯至 1871)",en:"Renamed 2020 (Trane brand 1913; I-R roots 1871)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 45,000 人(概)",en:"~45,000 (est.)"}],
+ [{zh:"CEO",en:"CEO"},{zh:"Dave Regnery(董事長兼 CEO)",en:"Dave Regnery (Chair & CEO)"}],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$465.84", mcap:{zh:"約 US$1,030 億",en:"~US$103.0B"}, pe:{zh:"前瞻約 31x(2026 指引)",en:"Fwd ~31x (2026 guide)"}, asOf:"2026-07-20" },
+priceHistory:[["2026-05-05",477.5],["2026-07-20",465.8]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$103B"], [{zh:"股價",en:"PRICE"},"$466"], [{zh:"TTM營收",en:"TTM REV"},"$21.6B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$216 億",en:"US$21.6B"}],
+ [{zh:"2026Q1",en:"Q1 2026"},{zh:"營收 US$49.7 億(+6%);調整後 EPS US$2.63(+7%)",en:"Rev US$4.97B (+6%); adj. EPS US$2.63 (+7%)"}],
+ [{zh:"訂單動能",en:"Bookings momentum"},{zh:"整體有機訂單 +24%;美洲商用 HVAC 約 +40%;Applied +160%(連三季 >100%)",en:"Organic bookings +24%; Americas CHVAC ~+40%; Applied +160% (3rd qtr >100%)"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"創紀錄 US$107 億(較 2025 底 +30%)",en:"Record US$10.7B (+30% vs YE25)"}],
+ [{zh:"Stellar Energy 收購",en:"Stellar Energy deal"},{zh:"模組化資料中心冷卻;為積壓貢獻約 US$10 億",en:"Modular data-center cooling; ~US$1B added to backlog"}],
+ [{zh:"FY2026 指引(上修)",en:"FY2026 guidance (raised)"},{zh:"有機營收約 +7%;調整後 EPS US$14.75–14.95",en:"Organic rev ~+7%; adj. EPS US$14.75–14.95"}],
+ [{zh:"Q1 book-to-bill",en:"Q1 book-to-bill"},{zh:"約 135%;自由現金流 US$5.73 億",en:"~135%; FCF US$573M"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[17.7,19.8,21.1], approx:[false,false,true], note:{zh:"*2025 為約值",en:"*2025 approximate"} },
+segments:{ title:{zh:"區域營收佔比(約)",en:"Regional revenue mix (approx.)"}, labels:[{zh:"美洲",en:"Americas"},{zh:"歐洲中東非洲",en:"EMEA"},{zh:"亞太",en:"Asia Pacific"}], values:[80,12,8] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Trane Technologies 的前身是 1871 年創立的 Ingersoll-Rand,2020 年將工業業務分拆後,以旗下商用空調王牌品牌 Trane(1913)更名為純「氣候公司」,法定總部在愛爾蘭 Swords、營運中心在北卡 Davidson。三大區域板塊(美洲/EMEA/亞太)涵蓋:商用暖通空調(冰水主機、空氣處理、樓宇控制)、住宅空調,以及 Thermo King 運輸冷凍(冷鏈卡車與貨櫃)。美洲貢獻約八成營收,商用 HVAC 是絕對核心。",
+ en:"Trane Technologies descends from Ingersoll-Rand (founded 1871); after spinning off its industrial businesses in 2020 it renamed itself around its flagship commercial-HVAC brand Trane (1913) as a pure climate company, legally domiciled in Swords, Ireland with operations in Davidson, NC. Three regional segments (Americas / EMEA / Asia Pacific) cover commercial HVAC (chillers, air handling, building controls), residential HVAC, and Thermo King transport refrigeration (cold-chain trucks and containers). The Americas contribute ~80% of revenue, with commercial HVAC the absolute core."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"商用 HVAC 是「設備+長尾服務」的經典組合:冰水主機一裝二十年,後續的保養、維修、能效改造與樓宇控制升級構成雙位數成長的服務年金(全球服務連年雙位數成長)。資料中心是新的成長主軸——大型冰水機組與 2026 年初收購的 Stellar Energy(模組化資料中心冷卻,一舉貢獻約 10 億美元積壓)讓 Trane 直接卡位機房外圍的冷卻鏈,與 Vertiv 的機房內液冷形成上下游互補。「Applied(應用型大型系統)」訂單連續三季成長逾 100%,是資料中心與製造業回流需求最直接的證據。",
+ en:"Commercial HVAC is the classic equipment-plus-long-tail-services combination: a chiller runs for twenty years, and the maintenance, repair, efficiency retrofits and controls upgrades that follow form a double-digit-growth services annuity (global services have compounded at double digits). Data centers are the new growth axis — large chillers plus the early-2026 acquisition of Stellar Energy (modular data-center cooling, instantly adding ~$1B of backlog) position Trane in the cooling chain outside the data hall, complementing Vertiv's liquid cooling inside it. 'Applied' large-system bookings growing 100%+ for three straight quarters are the most direct evidence of data-center and reshoring demand."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在北美商用 HVAC 市場,Trane 與 Carrier、Johnson Controls(約克)、Daikin 四強鼎立,Trane 於大型商用與應用型系統居領導地位;Thermo King 與 Carrier 的 Transicold 則是運輸冷凍雙寡頭。相對 Carrier 偏住宅與全球分散,Trane 更集中於北美商用——這正是本輪資料中心與製造業回流資本支出的震央,也解釋其訂單動能領先同業。永續法規(冷媒轉換、建築能效)是長期順風;住宅與運輸冷凍短期仍疲弱,是組合中的拖累項。",
+ en:"In North American commercial HVAC, Trane stands among the big four with Carrier, Johnson Controls (York) and Daikin, leading in large commercial and applied systems; Thermo King and Carrier's Transicold form the transport-refrigeration duopoly. Where Carrier skews residential and globally dispersed, Trane concentrates on North American commercial — the epicenter of this cycle's data-center and reshoring capex, which explains its sector-leading bookings momentum. Sustainability regulation (refrigerant transitions, building-efficiency codes) is the long-term tailwind; residential and transport refrigeration remain the near-term drags in the mix."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026Q1(4/30 公佈)訂單全面引爆:整體有機訂單 +24%、美洲商用 HVAC 訂單創歷史新高(約 +40%)、Applied 訂單 +160%,book-to-bill 約 135%,積壓衝上創紀錄的 107 億美元(較年底 +30%);營收 49.7 億(+6%)、調整後 EPS 2.63 美元皆勝預期,全年指引上修至有機 +7%、EPS 14.75–14.95 美元。Stellar Energy 整合與關稅/通膨對利潤率的壓力是兩大觀察點(Q1 調整後營業利益率 -20bps)。股價 465.84 美元(7/20)、前瞻約 31 倍;Q2 財報預計 7 月底公佈。",
+ en:"Q1 2026 (Apr 30) was a bookings explosion: organic bookings +24%, Americas commercial-HVAC bookings at an all-time high (~+40%), applied bookings +160%, book-to-bill ~135%, and backlog at a record $10.7B (+30% vs year-end); revenue of $4.97B (+6%) and adjusted EPS of $2.63 both beat, with full-year guidance raised to ~7% organic growth and $14.75–14.95 EPS. The two watch items are Stellar Energy integration and tariff/inflation pressure on margins (Q1 adjusted operating margin -20bps). At $465.84 (Jul 20) the stock trades ~31x forward; Q2 results are due in late July."}]
+]
+},
+
+/* ---------------- 20. SYMBOTIC ---------------- */
+{
+id:"SYM", ticker:"SYM", exchange:"NASDAQ", name:{zh:"Symbotic",en:"Symbotic Inc."}, subsector:"automation", batch:3, added:"2026-07-21",
+tagline:{zh:"倉儲機器人的沃爾瑪賭注——積壓 227 億美元、約當十年營收的 AI 物流自動化",
+         en:"The Walmart bet on warehouse robots — AI logistics automation with a $22.7B backlog worth ~ten years of revenue"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國麻州 Wilmington",en:"Wilmington, MA, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"2007(2022 SPAC 上市)",en:"2007 (SPAC-listed 2022)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 2,000 人(概)",en:"~2,000 (est.)"}],
+ [{zh:"CEO",en:"CEO"},{zh:"Rick Cohen(創辦人兼 CEO)",en:"Rick Cohen (founder & CEO)"}],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"9 月止",en:"Ends Sep"}]
+],
+valuation:{ price:"US$47.21", mcap:{zh:"約 US$285 億(全稀釋)",en:"~US$28.5B (fully diluted)"}, pe:{zh:"—(甫轉虧為盈)",en:"— (newly profitable)"}, asOf:"2026-07-20" },
+priceHistory:[["2026-05-07",59.8],["2026-07-20",47.2]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$28B"], [{zh:"股價",en:"PRICE"},"$47"], [{zh:"積壓訂單",en:"BACKLOG"},"$22.7B"] ],
+financials:[
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"US$227 億(約當十年營收)",en:"US$22.7B (~10x annual revenue)"}],
+ [{zh:"FY26Q2(3 月止)",en:"FY26 Q2 (Mar-end)"},{zh:"營收 US$6.76 億(+23%);GAAP 淨利 US$900 萬(轉盈)",en:"Rev US$676M (+23%); GAAP net income US$9M (turned profitable)"}],
+ [{zh:"調整後 EBITDA",en:"Adj. EBITDA"},{zh:"Q2 US$7,800 萬(年增逾一倍);調整後毛利率 24.5%",en:"US$78M in Q2 (2x+ YoY); adj. gross margin 24.5%"}],
+ [{zh:"部署規模",en:"Deployments"},{zh:"70 個系統據點部署中",en:"70 system sites in deployment"}],
+ [{zh:"FY2025",en:"FY2025"},{zh:"營收約 US$22.6 億(+26%)",en:"Rev ~US$2.26B (+26%)"}],
+ [{zh:"沃爾瑪深化",en:"Walmart deepening"},{zh:"收購 Walmart 先進系統與機器人業務+新商業協議;墨西哥沃爾瑪擴展",en:"Acquired Walmart's Advanced Systems & Robotics + new agreement; Walmex expansion"}],
+ [{zh:"生態擴張",en:"Ecosystem expansion"},{zh:"GreenBox(與軟銀合資倉儲即服務);收購 Fox Robotics;投資 Nyobolt 電池",en:"GreenBox JV with SoftBank (warehouse-as-a-service); Fox Robotics; Nyobolt battery stake"}],
+ [{zh:"客戶",en:"Customers"},{zh:"Walmart(高度集中)、Target、Albertsons 等",en:"Walmart (heavy concentration), Target, Albertsons, etc."}]
+],
+revTrend:{ unit:{zh:"十億美元(財年 9 月止)",en:"US$B (FY ends Sep)"}, labels:["FY23","FY24","FY25"], values:[1.18,1.82,2.26], approx:[false,false,true], note:{zh:"*FY25 為約值",en:"*FY25 approximate"} },
+segments:{ title:{zh:"營收結構(約)",en:"Revenue mix (approx.)"}, labels:[{zh:"系統部署",en:"System deployments"},{zh:"軟體維運與營運服務",en:"Software & operation services"}], values:[91,9] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Symbotic 由美國最大食品批發商 C&S Wholesale 的掌門人 Rick Cohen 於 2007 年創立——源起是他想解決自家倉庫的效率問題,總部位於麻州 Wilmington,2022 年透過 SPAC 上市。核心產品是「AI 驅動的倉儲自動化系統」:自主移動機器人(Symbot)在多層鋼構中高速穿梭,配合視覺辨識與編排軟體,把配送中心的收貨、存取、堆疊、出貨全流程自動化。它是本庫第一家「純機器人」公司,填上自動化子行業的最後一塊拼圖。",
+ en:"Symbotic was founded in 2007 by Rick Cohen, the owner of C&S Wholesale — America's largest food wholesaler — originally to fix his own warehouses' efficiency; headquartered in Wilmington, MA, it listed via SPAC in 2022. The core product is an AI-driven warehouse automation system: autonomous Symbot robots racing through multi-level steel structures, paired with machine vision and orchestration software to automate a distribution center's entire inbound-storage-palletizing-outbound flow. It is this KB's first pure robotics company, completing the automation sub-sector's final puzzle piece."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"模式是「巨型系統建置+終身軟體年金」:單一倉庫系統合約規模可達數千萬至上億美元,建置期數年認列收入(目前約九成營收),完工後轉入軟體維護與營運服務的經常性收入(佔比逐步提升)。227 億美元積壓約當十年營收,能見度冠絕本庫——但也高度綁定單一客戶:沃爾瑪承諾將其全美區域配送中心全面自動化,2025 年更直接把自家機器人部門賣給 Symbotic 並簽新協議,深度綁定同時也放大集中度風險。GreenBox(與軟銀合資)嘗試把系統變成「倉儲即服務」向中型客戶輸出。",
+ en:"The model is mega-system deployment plus a lifetime software annuity: a single warehouse system can run tens of millions to $100M+, recognized over multi-year construction (now ~90% of revenue), then converting to recurring software maintenance and operation services (a rising mix). The $22.7B backlog — roughly ten years of revenue — gives the best visibility in this KB, but it is tightly bound to one customer: Walmart has committed to automating all its U.S. regional distribution centers, and in 2025 sold its own robotics unit to Symbotic under a new agreement — deepening the bond while magnifying concentration risk. GreenBox, the SoftBank JV, aims to repackage the system as warehouse-as-a-service for mid-size customers."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在「案例級」大型倉儲自動化領域,Symbotic 的部署規模(70 個據點)與積壓量居美國之冠,對手包括 AutoStore(挪威)、Dematic(KION 旗下)、Honeywell 智慧物流(將隨組合調整出售)與 Amazon 自研體系。相對 ATS(第 1 批)的多產業客製自動化,Symbotic 是單一產品、單一場景(零售配送中心)的極致專注派——爆發力與風險同樣極端。倉儲勞動力短缺與電商滲透是長期需求底盤;執行(部署速度、新一代儲存系統移轉)則是估值的生死線。",
+ en:"In case-level, large-scale warehouse automation, Symbotic leads the U.S. in deployment scale (70 sites) and backlog, against AutoStore (Norway), Dematic (KION), Honeywell's intralogistics unit (being divested) and Amazon's in-house systems. Versus ATS (batch 1) with its multi-industry custom automation, Symbotic is the extreme specialist — one product, one setting (retail distribution centers) — with equally extreme upside and risk. Warehouse labor shortages and e-commerce penetration form the structural demand base; execution (deployment velocity, the next-gen storage-system migration) is the make-or-break line for the valuation."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"FY26Q2(3 月止,5 月初公佈)首度繳出 GAAP 獲利:營收 6.76 億美元(+23%)、淨利 900 萬、調整後 EBITDA 7,800 萬(年增逾一倍),積壓維持 227 億美元;但股價自 5 月初約 60 美元一路回落至 7/20 的 47.21 美元——市場焦點轉向積壓「停滯」、部署時程遞延與沃爾瑪依賴度(收購其機器人部門後集中度不降反升),Q1 財報後的失望情緒延續。多方(TD Cowen 目標 75 美元)看軟體年金與 GreenBox 打開第二曲線;空方緊盯自由現金流波動與新儲存技術移轉的執行風險。分析師平均目標價約 52.5 美元。",
+ en:"FY26 Q2 (Mar-end, reported early May) delivered the first GAAP profit: revenue of $676M (+23%), net income of $9M, adjusted EBITDA of $78M (2x+ YoY), with backlog steady at $22.7B; yet the stock slid from ~$60 in early May to $47.21 by Jul 20 as attention shifted to a 'stalled' backlog, deployment-timing slips and Walmart dependence (which the robotics-unit acquisition deepened rather than diluted), extending post-Q1 disappointment. Bulls (TD Cowen, $75 target) see the software annuity and GreenBox opening a second curve; bears watch free-cash-flow volatility and next-gen storage-migration execution. The average analyst target sits near $52.5."}]
+]
+}
+
 /* __INSERT_NEW_COMPANIES_HERE__(新公司加在此標記之前,勿刪除此行 / add new companies ABOVE this marker)*/
 ]
 };
@@ -916,9 +1347,10 @@ function openDetail(id){
     +'<div class="basics">'+basics+'</div>'
     +'<div class="val">'+val+'</div>'
     +'<div class="p-body">'
-    +(c.price52w? '<div class="sec-h"><span class="no" style="color:'+s.color+'">§</span><span class="t">'+esc(T("priceSec"))+'</span></div>'
-      +'<div class="ch-box"><div class="ch-cap">'+esc(T("rangeCap"))+'</div>'+rangeSVG(c.price52w,s.color)
-      +((c.priceHistory&&c.priceHistory.length>1)?'<div class="ch-cap" style="margin-top:12px;border-top:1px solid var(--line-soft);padding-top:10px">'+esc(T("histCap"))+'</div>'+sparkSVG(c.priceHistory,s.color):'')
+    +((c.price52w||(c.priceHistory&&c.priceHistory.length>1))? '<div class="sec-h"><span class="no" style="color:'+s.color+'">§</span><span class="t">'+esc(T("priceSec"))+'</span></div>'
+      +'<div class="ch-box">'
+      +(c.price52w? '<div class="ch-cap">'+esc(T("rangeCap"))+'</div>'+rangeSVG(c.price52w,s.color) : '')
+      +((c.priceHistory&&c.priceHistory.length>1)?'<div class="ch-cap" style="'+(c.price52w?'margin-top:12px;border-top:1px solid var(--line-soft);padding-top:10px':'')+'">'+esc(T("histCap"))+'</div>'+sparkSVG(c.priceHistory,s.color):'')
       +'</div>' : '')
     +'<div class="sec-h"><span class="no" style="color:'+s.color+'">§</span><span class="t">'+esc(T("finTitle"))+'</span></div>'
     +'<table class="fin-table">'+fin+'</table>'
