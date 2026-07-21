@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北美工業公司商業模式知識庫</title>
+<style>
+:root{
+  --paper:#EDF0F3;
+  --ink:#1B2530;
+  --plate:#FAFBFC;
+  --line:#C3CCD5;
+  --line-soft:#DEE4EA;
+  --muted:#5B6875;
+  --c-power:#C1521B;
+  --c-machinery:#96700D;
+  --c-aerospace:#2C5C8F;
+  --c-automation:#167265;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,"Courier New",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans TC","Helvetica Neue",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+
+/* ===== 工程圖紙外框 ===== */
+.sheet{max-width:1150px;margin:18px auto;border:1px solid var(--ink);padding:4px;background:var(--paper)}
+.sheet-inner{border:2px solid var(--ink);background:var(--plate)}
+@media(max-width:640px){.sheet{margin:6px}}
+
+/* ===== 標題欄(title block) ===== */
+.titleblock{display:grid;grid-template-columns:1fr repeat(2,minmax(96px,140px));border-bottom:2px solid var(--ink)}
+.tb-main{padding:20px 22px 16px;border-right:1px solid var(--ink);position:relative}
+.lang-btn{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;border:1.5px solid var(--ink);background:var(--plate);color:var(--ink);padding:5px 11px;cursor:pointer}
+.lang-btn:hover{background:var(--ink);color:var(--plate)}
+@media(max-width:640px){.lang-btn{top:10px;right:10px}}
+.tb-en{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.tb-title{font-size:24px;font-weight:800;letter-spacing:.06em;line-height:1.3}
+.tb-sub{font-size:12px;color:var(--muted);margin-top:6px}
+.tb-cell{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:8px 10px 7px;display:flex;flex-direction:column;justify-content:center}
+.tb-cell:nth-child(odd){border-right:0}
+.tb-cell .k{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--muted)}
+.tb-cell .v{font-family:var(--mono);font-size:16px;font-weight:700;margin-top:2px}
+.tb-grid{display:grid;grid-template-rows:1fr 1fr;grid-column:span 2;grid-template-columns:subgrid}
+@media(max-width:640px){
+  .titleblock{grid-template-columns:1fr}
+  .tb-main{border-right:0;border-bottom:1px solid var(--ink)}
+  .tb-grid{grid-template-columns:1fr 1fr}
+  .tb-cell{border-right:1px solid var(--ink)}
+  .tb-cell:nth-child(even){border-right:0}
+}
+
+/* ===== 導覽列:子行業籤 + 搜尋 ===== */
+.nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:14px 22px;border-bottom:1px solid var(--ink);background:var(--plate)}
+.tab{font-family:var(--mono);font-size:12px;letter-spacing:.04em;border:1.5px solid var(--ink);background:var(--plate);color:var(--ink);padding:6px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .12s,color .12s}
+.tab .sw{width:9px;height:9px;border:1px solid var(--ink);display:inline-block}
+.tab .ct{color:var(--muted);font-size:11px}
+.tab.active{background:var(--ink);color:var(--plate)}
+.tab.active .ct{color:var(--line)}
+.tab:focus-visible,.card:focus-visible,.close-btn:focus-visible{outline:2px dashed var(--ink);outline-offset:2px}
+.search{margin-left:auto;flex:0 1 240px;min-width:170px}
+.search input{width:100%;font-family:var(--mono);font-size:13px;padding:7px 10px;border:1.5px solid var(--ink);background:var(--plate);color:var(--ink)}
+.search input::placeholder{color:var(--muted)}
+@media(max-width:640px){.nav{padding:12px 12px}.search{flex:1 1 100%;margin-left:0}}
+
+/* ===== 銘牌卡片格 ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;padding:20px 22px 26px}
+@media(max-width:640px){.grid{padding:14px 12px 20px;gap:12px}}
+.card{position:relative;border:1.5px solid var(--ink);background:var(--plate);padding:16px 16px 13px;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%;transition:transform .12s,box-shadow .12s;
+  background-image:
+    radial-gradient(circle 2.6px at 9px 9px,var(--line) 2.2px,transparent 2.7px),
+    radial-gradient(circle 2.6px at calc(100% - 9px) 9px,var(--line) 2.2px,transparent 2.7px),
+    radial-gradient(circle 2.6px at 9px calc(100% - 9px),var(--line) 2.2px,transparent 2.7px),
+    radial-gradient(circle 2.6px at calc(100% - 9px) calc(100% - 9px),var(--line) 2.2px,transparent 2.7px);}
+.card:hover{transform:translateY(-2px);box-shadow:3px 3px 0 0 var(--ink)}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.tk{font-family:var(--mono);font-size:22px;font-weight:800;letter-spacing:.05em}
+.tk .ex{font-size:10px;font-weight:400;color:var(--muted);letter-spacing:.14em;display:block;margin-top:1px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;border:1px solid;padding:3px 7px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.chip .sw{width:8px;height:8px;display:inline-block}
+.card-name{font-size:16.5px;font-weight:700;margin-top:9px}
+.card-tag{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.6;min-height:40px}
+.card-specs{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line);margin-top:11px;padding-top:9px;gap:6px}
+.spec .k{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--muted)}
+.spec .v{font-family:var(--mono);font-size:13px;font-weight:700;margin-top:1px}
+.empty{padding:40px 22px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:13px}
+
+/* ===== 詳細頁(overlay) ===== */
+.overlay{position:fixed;inset:0;background:rgba(27,37,48,.55);display:none;z-index:50;overflow-y:auto;padding:26px 14px}
+.overlay.open{display:block}
+.panel{max-width:880px;margin:0 auto;background:var(--plate);border:2px solid var(--ink);animation:rise .18s ease-out}
+@keyframes rise{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){.panel{animation:none}.card{transition:none}.tab{transition:none}}
+.p-head{padding:20px 24px 16px;border-bottom:2px solid var(--ink);position:relative}
+.p-head .tk{font-size:30px}
+.close-btn{position:absolute;top:14px;right:14px;width:34px;height:34px;border:1.5px solid var(--ink);background:var(--plate);color:var(--ink);font-family:var(--mono);font-size:16px;cursor:pointer}
+.close-btn:hover{background:var(--ink);color:var(--plate)}
+.p-name{font-size:21px;font-weight:800;margin-top:8px}
+.p-tag{font-size:13.5px;color:var(--muted);margin-top:4px}
+.basics{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--ink)}
+.basics .b{padding:10px 12px;border-right:1px solid var(--line)}
+.basics .b:last-child{border-right:0}
+.basics .k{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--muted)}
+.basics .v{font-size:12.5px;font-weight:600;margin-top:3px;line-height:1.45}
+@media(max-width:700px){.basics{grid-template-columns:repeat(2,1fr)}.basics .b{border-bottom:1px solid var(--line-soft)}}
+.val{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--ink);background:#F2F5F7}
+.val .b{padding:12px;border-right:1px solid var(--line);border-left:4px solid transparent}
+.val .b:first-child{border-left-width:4px}
+.val .b:last-child{border-right:0}
+.val .k{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--muted)}
+.val .v{font-family:var(--mono);font-size:15.5px;font-weight:800;margin-top:3px}
+@media(max-width:700px){.val{grid-template-columns:repeat(2,1fr)}.val .b{border-bottom:1px solid var(--line-soft)}}
+.p-body{padding:20px 24px 24px}
+.sec-h{display:flex;align-items:baseline;gap:10px;margin:26px 0 10px;border-bottom:1px solid var(--ink);padding-bottom:6px}
+.sec-h:first-child{margin-top:0}
+.sec-h .no{font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.1em}
+.sec-h .t{font-size:16px;font-weight:800;letter-spacing:.05em}
+.fin-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.fin-table td{padding:7px 4px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.fin-table td.k{color:var(--muted);width:44%}
+.fin-table td.v{font-family:var(--mono);font-weight:700}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.charts{grid-template-columns:1fr}}
+.ch-box{border:1px solid var(--ink);padding:12px}
+.ch-cap{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.chart-svg{width:100%;height:auto;display:block}
+.ch-val{font-family:var(--mono);font-size:10px;font-weight:700;fill:var(--ink)}
+.ch-lab{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.ch-note{font-size:11px;color:var(--muted);margin-top:6px}
+.donut-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.donut-svg{width:132px;height:132px;flex:0 0 auto}
+.legend{list-style:none;flex:1;min-width:150px}
+.legend li{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:3px 0}
+.legend .sw{width:10px;height:10px;flex:0 0 auto;border:1px solid rgba(27,37,48,.25)}
+.legend .pc{font-family:var(--mono);font-weight:700;margin-left:auto}
+.prose p{margin:0 0 10px;text-align:justify}
+.p-foot{padding:12px 24px;border-top:1px solid var(--ink);font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em;display:flex;flex-wrap:wrap;gap:6px 18px}
+
+/* ===== 頁尾:進度紀錄 ===== */
+.footer{border-top:2px solid var(--ink);padding:20px 22px 24px;background:#F2F5F7}
+.f-h{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);margin-bottom:12px}
+.f-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+@media(max-width:760px){.f-grid{grid-template-columns:1fr}}
+.f-box{border:1px solid var(--ink);background:var(--plate);padding:14px 16px}
+.f-box h4{font-size:13px;letter-spacing:.06em;margin-bottom:8px}
+.f-box ul{list-style:none;font-size:12.5px}
+.f-box li{padding:3px 0;border-bottom:1px dashed var(--line-soft)}
+.f-box li:last-child{border-bottom:0}
+.f-box .mono{font-family:var(--mono)}
+.next-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.next-chips span{font-family:var(--mono);font-size:11px;border:1px dashed var(--ink);padding:3px 8px}
+.howto{font-size:12.5px;line-height:1.8;color:var(--ink)}
+.f-note{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:14px;letter-spacing:.04em}
+body.lock{overflow:hidden}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+  進度紀錄(machine-readable)— 每批更新時整段替換
+  下次接續:上傳本檔案並指示「繼續工業公司知識庫,新增 5 家」
+================================================================= -->
+<script type="application/json" id="progress-log">
+{
+  "project": "北美工業公司商業模式知識庫 / North American Industrials KB",
+  "schemaVersion": 2,
+  "lastUpdated": "2026-07-21",
+  "batchesCompleted": 2,
+  "totalCompanies": 10,
+  "completed": {
+    "power": ["GEV", "ETN"],
+    "machinery": ["CAT", "DE"],
+    "aerospace": ["RTX", "LMT", "CAE"],
+    "automation": ["ROK", "ATS", "EMR"]
+  },
+  "nextSuggested": [
+    {"zh": "HON 漢威聯合(自動化/多元工業)", "en": "HON Honeywell (Automation/Diversified)"},
+    {"zh": "NOC 諾斯洛普·格魯曼(航太國防)", "en": "NOC Northrop Grumman (A&D)"},
+    {"zh": "CMI 康明斯(機械/動力)", "en": "CMI Cummins (Machinery/Power)"},
+    {"zh": "VRT Vertiv(電力/資料中心)", "en": "VRT Vertiv (Power/Data centers)"},
+    {"zh": "BBD 龐巴迪(加拿大・公務機)", "en": "BBD Bombardier (Canada · business jets)"}
+  ],
+  "updateRoutine": {
+    "zh": "每批更新例行:1) 刷新全部公司估值列(股價/市值/P/E/截至日)、52 週區間與卡片統計 2) priceHistory 各追加一筆當期價 3) 檢查各公司自上次後的新財報與重大事件,以「▸ 更新」段落附加於近期動態 4) 新增 5 家雙語條目 5) 同步 meta 與本紀錄。",
+    "en": "Per-batch routine: 1) refresh every company's valuation strip (price/mkt cap/P-E/as-of), 52-week range and card stats 2) append one priceHistory point each 3) check for new earnings/major events since last session and append dated update paragraphs 4) add 5 new bilingual entries 5) sync meta and this log."
+  },
+  "earningsCalendar": [
+    {"zh": "GEV 7/22 · LMT+RTX 7/23 · ROK 7/27 · ETN 7/31 · CAT+EMR 8/4 · CAE 8/11-12 · ATS 8/12 · DE 8/20", "en": "GEV Jul 22 · LMT+RTX Jul 23 · ROK Jul 27 · ETN Jul 31 · CAT+EMR Aug 4 · CAE Aug 11-12 · ATS Aug 12 · DE Aug 20"}
+  ],
+  "dataNotes": [
+    {"zh": "全部報價、市值與 52 週區間刷新至 2026-07-17~20(依各公司標註);priceHistory 為各批次紀錄價,將隨每次更新累積", "en": "All quotes, mkt caps and 52-week ranges refreshed to 2026-07-17~20 (per-company as-of); priceHistory logs one point per session and accumulates"},
+    {"zh": "約值:ETN 2025、DE FY25、EMR FY25、CAE FY23 營收;CAT FY2025 依 TTM 推算;板塊佔比多為概算;部分 P/E 為 TTM 與前瞻並列概算", "en": "Approximate: ETN 2025, DE FY25, EMR FY25, CAE FY23 revenue; CAT FY2025 from TTM; segment mixes and some P/E figures are estimates"},
+    {"zh": "接下來兩週為財報密集期(見 earningsCalendar),下批更新時 GEV/LMT/RTX/ROK/ETN 的 Q2 數據應優先刷新", "en": "Heavy earnings fortnight ahead (see earningsCalendar); prioritize refreshing GEV/LMT/RTX/ROK/ETN Q2 figures next session"},
+    {"zh": "ATS 已完成 CEO 交接(Doug Wright);Schema v2:所有內容欄位為雙語物件 {zh, en}", "en": "ATS CEO transition complete (Doug Wright); Schema v2: all content fields are bilingual {zh, en} objects"}
+  ],
+  "howToContinue": {
+    "zh": "在新對話上傳本 HTML 並指示『繼續工業公司知識庫,新增 5 家』。Claude 應:1) 讀取本進度紀錄 2) 執行上方例行更新 3) 搜尋新公司即時財報與行情 4) 在 APP_DATA.companies 的 INSERT 標記前新增「雙語」條目 5) 更新 APP_DATA.meta 與本 progress-log 6) 回傳更新版檔案。",
+    "en": "In a new conversation, upload this HTML and say 'Continue the industrials KB, add 5 companies'. Claude should: 1) read this log 2) run the update routine above 3) research fresh filings & quotes 4) insert new BILINGUAL entries before the INSERT marker in APP_DATA.companies 5) update APP_DATA.meta and this progress-log 6) return the updated file."
+  }
+}
+</script>
+
+<div class="sheet"><div class="sheet-inner">
+
+  <!-- 標題欄 -->
+  <header class="titleblock">
+    <div class="tb-main">
+      <button class="lang-btn" id="lang-btn" aria-label="Switch language">EN</button>
+      <div class="tb-en" id="tb-en">North American Industrials · Business Model Compendium</div>
+      <h1 class="tb-title" id="tb-title">北美工業公司商業模式知識庫</h1>
+      <div class="tb-sub" id="tb-sub">美股+加股 · 依子行業分類 · 每批新增 5 家 · 深度分析+財務數據</div>
+    </div>
+    <div class="tb-grid">
+      <div class="tb-cell"><span class="k" id="k-count">公司數 NO.</span><span class="v" id="stat-count">—</span></div>
+      <div class="tb-cell"><span class="k" id="k-batch">批次 BATCH</span><span class="v" id="stat-batch">—</span></div>
+      <div class="tb-cell"><span class="k" id="k-date">更新 REV.</span><span class="v" id="stat-date" style="font-size:12.5px">—</span></div>
+      <div class="tb-cell"><span class="k" id="k-sub">子行業 SEC.</span><span class="v" id="stat-sub">—</span></div>
+    </div>
+  </header>
+
+  <!-- 導覽 -->
+  <nav class="nav" id="nav"></nav>
+
+  <!-- 卡片格 -->
+  <main class="grid" id="grid"></main>
+
+  <!-- 頁尾進度紀錄 -->
+  <footer class="footer" id="footer"></footer>
+
+</div></div>
+
+<!-- 詳細頁 overlay -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true">
+  <div class="panel" id="panel"></div>
+</div>
+
+<script id="app">
+/* ================================================================
+   APP_DATA — 公司資料庫(雙語 schema v2:內容欄位為 {zh, en})
+   新增公司:在 __INSERT_NEW_COMPANIES_HERE__ 標記「之前」加入物件
+================================================================= */
+const APP_DATA = {
+meta:{ project:"北美工業公司商業模式知識庫", lastUpdated:"2026-07-21", batch:2 },
+
+subsectors:[
+ { id:"power",      name:{zh:"電力／能源設備",en:"Power & Energy Equipment"}, en:"POWER & ENERGY",   color:"#C1521B" },
+ { id:"machinery",  name:{zh:"機械設備",en:"Machinery"},                      en:"MACHINERY",        color:"#96700D" },
+ { id:"aerospace",  name:{zh:"航太國防",en:"Aerospace & Defense"},            en:"AEROSPACE & DEF.", color:"#2C5C8F" },
+ { id:"automation", name:{zh:"自動化／機器人",en:"Automation & Robotics"},    en:"AUTOMATION",       color:"#167265" }
+],
+
+companies:[
+
+/* ---------------- 1. GE VERNOVA ---------------- */
+{
+id:"GEV", ticker:"GEV", exchange:"NYSE", name:{zh:"GE Vernova",en:"GE Vernova"}, subsector:"power", batch:1, added:"2026-07-12",
+tagline:{zh:"AI 電力超級週期的核心供應商——燃氣輪機、核電、電網設備三箭齊發",
+         en:"Core supplier of the AI power supercycle — gas turbines, nuclear and grid equipment firing on all fronts"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國麻州劍橋",en:"Cambridge, MA, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"2024(自 GE 分拆)",en:"2024 (GE spin-off)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 75,000 人",en:"~75,000"}],
+ [{zh:"CEO",en:"CEO"},"Scott Strazik"],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:{zh:"約 US$1,061",en:"~US$1,061"}, mcap:{zh:"約 US$2,850 億",en:"~US$285B"}, pe:{zh:"約 31x(TTM)",en:"~31x (TTM)"}, asOf:"2026-07-17/20" },
+price52w:{ low:530.16, high:1195.94, cur:1061, lowDate:"25/11/21" },
+priceHistory:[["2026-07-15",1057.4],["2026-07-16",1036.2],["2026-07-17",1061.5]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$285B"], [{zh:"股價",en:"PRICE"},"$1,061"], [{zh:"TTM營收",en:"TTM REV"},"$39.4B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$394 億",en:"US$39.4B"}],
+ [{zh:"FY2025 營收",en:"FY2025 revenue"},{zh:"US$380 億(全年訂單 US$593 億)",en:"US$38.0B (FY orders US$59.3B)"}],
+ [{zh:"2026Q1 營收",en:"Q1 2026 revenue"},{zh:"US$93 億(+16%)",en:"US$9.3B (+16%)"}],
+ [{zh:"2026Q1 訂單",en:"Q1 2026 orders"},{zh:"US$183 億(有機 +71%)",en:"US$18.3B (+71% organic)"}],
+ [{zh:"積壓訂單(RPO)",en:"Backlog (RPO)"},{zh:"US$1,630 億(創新高,含 Prolec GE)",en:"US$163B (record; incl. Prolec GE)"}],
+ [{zh:"2026Q1 調整後 EBITDA 利潤率",en:"Q1 2026 adj. EBITDA margin"},{zh:"9.6%(年增 +390bps)",en:"9.6% (+390bps YoY)"}],
+ [{zh:"2026Q1 自由現金流",en:"Q1 2026 free cash flow"},{zh:"US$48 億(逾去年同期 4 倍)",en:"US$4.8B (4x+ prior year)"}],
+ [{zh:"現金部位",en:"Cash balance"},{zh:"US$102 億",en:"US$10.2B"}],
+ [{zh:"燃機積壓+預訂席位",en:"Gas turbine backlog + slots"},{zh:"100 GW(2026 底目標 ≥110 GW)",en:"100 GW (≥110 GW target by YE2026)"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[33.2,34.9,38.0], approx:[false,false,false], note:{zh:"來源:公司財報",en:"Source: company filings"} },
+segments:{ title:{zh:"FY2025 板塊營收佔比(約)",en:"FY2025 revenue mix (approx.)"}, labels:[{zh:"Power 發電",en:"Power"},{zh:"Wind 風電",en:"Wind"},{zh:"Electrification 電氣化",en:"Electrification"}], values:[52,23,25] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"GE Vernova 於 2024 年 4 月自通用電氣(GE)分拆獨立上市,總部位於麻州劍橋,是全球電力設備領域的純粹標的(pure-play)。旗下三大業務板塊:Power(燃氣、核能、水電、蒸汽發電設備與服務)、Wind(陸上與離岸風電)、Electrification(電網設備、變壓器、開關設備、HVDC 高壓直流輸電)。全球約有三分之一的電力由其設備發出,龐大的裝機基礎帶來深厚的服務收入長尾。",
+ en:"GE Vernova was spun off from General Electric in April 2024 and is headquartered in Cambridge, Massachusetts — the pure-play name in global power equipment. It operates three segments: Power (gas, nuclear, hydro and steam generation equipment and services), Wind (onshore and offshore), and Electrification (grid equipment, transformers, switchgear, HVDC). Roughly one-third of the world's electricity is generated with its equipment, and that vast installed base feeds a deep, long tail of service revenue."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"典型的「大型設備+數十年服務」模式:以重型燃氣輪機、核電與電網設備等長週期資本財切入,再透過維護、升級、零件更換創造高毛利的經常性收入。關鍵指標是積壓訂單(backlog):2025 年全年訂單 593 億美元、營收 380 億美元,年底積壓訂單 1,500 億美元,為未來多年營收提供高度可見性。因燃氣輪機產能極度稀缺,公司採「產能席位預訂協議(slot reservation)」讓客戶預付訂金鎖定交付席位——這在資本財行業是罕見的定價權象徵。",
+ en:"A classic 'big equipment + decades of services' model: heavy-duty gas turbines, nuclear and grid hardware are the long-cycle entry point, followed by high-margin recurring revenue from maintenance, upgrades and parts. The key metric is backlog: 2025 orders reached $59.3B against $38B of revenue, with year-end backlog at $150B — multi-year revenue visibility. With turbine capacity extremely scarce, the company sells 'slot reservation agreements', where customers pay deposits to lock in future delivery slots — a rare display of pricing power in capital goods."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"重型燃氣輪機領域與西門子能源、三菱重工形成全球三強寡占,GE Vernova 是美國市場的絕對龍頭,也是 AI 資料中心電力缺口的最大受益者之一。2026Q1 全板塊訂單有機成長 71%,燃機積壓+預訂席位達 100 GW(年底上看 110 GW);電氣化板塊訂單有機成長 86%,變壓器、開關設備供不應求,單位售價持續走升,管理層並預告 Q2 每 kW 報價將「非常健康地」成長。",
+ en:"Heavy-duty gas turbines are a global three-player oligopoly with Siemens Energy and Mitsubishi Heavy Industries, and GE Vernova is the clear U.S. leader — one of the biggest beneficiaries of the AI data-center power gap. Q1 2026 orders grew 71% organically across all segments; turbine backlog plus slot reservations hit 100 GW (heading to 110 GW by year end). Electrification orders grew 86% organically, with transformers and switchgear in short supply and management guiding to 'very healthy' $/kW price growth in Q2."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 年 4 月公佈 Q1 財報並上調全年營收、EBITDA 利潤率與自由現金流指引:電氣化板塊單季獲得 24 億美元資料中心設備訂單,已超過 2025 全年;完成收購電網設備商 Prolec GE 剩餘 50% 股權,總積壓訂單達創紀錄的 1,630 億美元,管理層稱將提前達成 2,000 億美元目標。2030 年前燃機產能僅剩約 10 GW,已開始接受 2031 年之後的訂單;核電設備訂單與服務(含電廠升級大單)明顯上升。弱點在風電:受陸上風電量縮、關稅與離岸風電合約損失影響,板塊虧損擴大。\n▸ 2026/7/21 更新:Q2 財報 7/22 公佈,市場預期 EPS 3.17 美元、營收 107.7 億;7 月上旬股價曾單日重挫 10% 後迅速收復,52 週區間 530–1,196 美元展現高波動。",
+ en:"In April 2026 the company reported Q1 results and raised full-year guidance for revenue, EBITDA margin and free cash flow: Electrification booked $2.4B of data-center equipment orders in a single quarter — more than all of 2025 — and the acquisition of the remaining 50% of grid-equipment maker Prolec GE closed, lifting total backlog to a record $163B; management says the $200B backlog target will be reached ahead of plan. Only ~10 GW of turbine capacity remains through 2030, with orders now being taken for 2031 and beyond; nuclear equipment orders and services (including large plant-upgrade awards) are rising sharply. The weak spot remains Wind, where losses widened on lower onshore volume, tariffs and offshore contract losses.\n▸ Update (Jul 21, 2026): Q2 results land Jul 22 (consensus EPS $3.17 on $10.77B revenue); the stock plunged 10% in a single early-July session before recovering — a 52-week range of $530–1,196 speaks to the volatility."}]
+]
+},
+
+/* ---------------- 2. CATERPILLAR ---------------- */
+{
+id:"CAT", ticker:"CAT", exchange:"NYSE", name:{zh:"Caterpillar 開拓重工",en:"Caterpillar Inc."}, subsector:"machinery", batch:1, added:"2026-07-12",
+tagline:{zh:"工程機械霸主變身資料中心電力供應商——積壓訂單 630 億美元創紀錄",
+         en:"The construction-machinery hegemon turned data-center power supplier — record US$63B backlog"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國德州 Irving",en:"Irving, TX, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1925"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 110,000 人",en:"~110,000"}],
+ [{zh:"CEO",en:"CEO"},{zh:"Joseph Creed(2025/5 上任)",en:"Joseph Creed (since May 2025)"}],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$864.30", mcap:{zh:"約 US$3,980 億",en:"~US$398B"}, pe:{zh:"約 43x(TTM);前瞻約 34x",en:"~43x TTM; fwd ~34x"}, asOf:"2026-07-20" },
+price52w:{ low:405.46, high:1073.46, cur:864.3, lowDate:"25/8/18", highDate:"26/6/30" },
+priceHistory:[["2026-06-10",909.8],["2026-06-30",1064.9],["2026-07-20",864.3]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$398B"], [{zh:"股價",en:"PRICE"},"$864"], [{zh:"TTM營收",en:"TTM REV"},"$70.8B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$708 億",en:"US$70.8B"}],
+ [{zh:"2026Q1 營收",en:"Q1 2026 revenue"},{zh:"US$174 億(+22%)",en:"US$17.4B (+22%)"}],
+ [{zh:"2026Q1 調整後 EPS",en:"Q1 2026 adj. EPS"},{zh:"US$5.54(+30%,大幅優於預期 4.62)",en:"US$5.54 (+30%, vs US$4.62 est.)"}],
+ [{zh:"2026Q1 調整後營業利益率",en:"Q1 2026 adj. operating margin"},"18.0%"],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"US$630 億(YoY +79%,創紀錄)",en:"US$63B (+79% YoY, record)"}],
+ [{zh:"FY2026 指引",en:"FY2026 guidance"},{zh:"營收低雙位數成長(上修)",en:"Low-double-digit sales growth (raised)"}],
+ [{zh:"2030 長期目標",en:"2030 targets"},{zh:"營收 CAGR 6–9%;發電業務 >3× 2024 水準",en:"Revenue CAGR 6–9%; power gen >3x 2024"}],
+ [{zh:"2026 全年關稅成本估",en:"FY2026 tariff cost est."},{zh:"US$22–24 億",en:"US$2.2–2.4B"}],
+ [{zh:"Q1 股東回饋",en:"Q1 shareholder returns"},{zh:"US$57 億(庫藏股+股利)",en:"US$5.7B (buybacks + dividends)"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2022","2023","2024","2025"], values:[59.4,67.1,64.8,67.5], approx:[false,false,false,true], note:{zh:"*2025 為依 TTM 推算之約值",en:"*2025 approximated from TTM"} },
+segments:{ title:{zh:"FY2025 設備板塊營收佔比(約)",en:"FY2025 machinery revenue mix (approx.)"}, labels:[{zh:"能源與運輸",en:"Energy & Transportation"},{zh:"建築產業",en:"Construction Industries"},{zh:"資源產業",en:"Resource Industries"}], values:[43,38,19] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Caterpillar 創立於 1925 年,總部位於德州 Irving,是全球最大的工程機械與礦業設備製造商、道瓊工業指數成分股。三大設備板塊:建築產業(挖掘機、推土機、裝載機)、資源產業(大型礦車、電鏟)、能源與運輸(往復式引擎、發電機組、燃氣輪機、鐵路機車),外加金融服務部門 Cat Financial。黃色塗裝的 CAT 機械是全球基礎建設的代名詞。",
+ en:"Founded in 1925 and headquartered in Irving, Texas, Caterpillar is the world's largest maker of construction and mining equipment and a Dow Jones Industrial Average component. Three equipment segments — Construction Industries (excavators, dozers, loaders), Resource Industries (large mining trucks, shovels) and Energy & Transportation (reciprocating engines, gensets, gas turbines, locomotives) — are complemented by Cat Financial. The yellow CAT machine is shorthand for global infrastructure."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"「經銷商網絡+設備銷售+售後服務+融資」四位一體:不直接賣給終端客戶,而是透過全球獨立經銷商體系銷售與服務,這張網絡是對手數十年難以複製的護城河;設備售出後的零件、維修與翻新(rebuild)貢獻穩定高毛利;Cat Financial 提供設備融資,黏住客戶並平滑景氣循環。近年最大的模式演變:能源與運輸板塊的大型往復式引擎與發電機組,正從備援電源轉型為資料中心「主要電源(prime power)」供應商,使公司從純景氣循環股逐漸帶上成長股色彩。",
+ en:"A four-in-one model: dealer network + equipment sales + aftermarket + financing. Caterpillar does not sell directly to end users; a global network of independent dealers handles sales and service — a moat rivals have failed to replicate for decades. Parts, repairs and rebuilds deliver steady high-margin revenue after the sale, while Cat Financial finances purchases, deepening loyalty and smoothing the cycle. The biggest recent evolution: large reciprocating engines and gensets in Energy & Transportation are shifting from backup power to prime power for data centers, layering growth-stock character onto a classic cyclical."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"工程機械行業無可爭議的全球第一,領先小松(Komatsu)、迪爾、沃爾沃建築設備等對手。在 AI 電力缺口下,能源與電力板塊已成為公司最大且成長最快的部門(Q4'25 利潤年增 25%),大型燃氣發電機組與 Cummins、GE Vernova 形成既互補又競爭的格局;2026Q1 積壓訂單 630 億美元、年增 79%,並創下歷史最高的第一季訂單。",
+ en:"The undisputed global No. 1 in construction machinery, ahead of Komatsu, Deere and Volvo CE. Amid the AI power gap, the power/energy business has become Caterpillar's largest and fastest-growing segment (Q4'25 profit +25%); its large gas gensets sit in a complementary-yet-competitive relationship with Cummins and GE Vernova. Q1 2026 backlog reached $63B, +79% YoY, alongside an all-time record for first-quarter orders."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026Q1 營收 174 億美元(+22%)、調整後 EPS 5.54 美元(+30%),股價應聲創歷史新高。宣布與 ProPetro 旗下 PROPWR 簽訂至多 2.1 GW 大型燃氣發電機組框架協議——已是第六個超過 1 GW 的主要電源協議;全年營收指引上調至低雙位數成長,2030 年營收 CAGR 目標上調至 6–9%、發電業務銷售目標上調至 2024 年的 3 倍以上,並宣布大型往復式引擎產能擴張計畫。風險面:2026 全年關稅成本估 22–24 億美元,資源產業板塊利潤下滑 39%、利潤率掉約 700bps,是需持續追蹤的隱憂。\n▸ 2026/7/21 更新:股價 6/30 觸及 52 週高點 1,073 美元後回檔至約 870;7/7 宣布收購 Skycatch 強化礦業無人機測繪科技;Q1 發電營收年增 41% 至 28.2 億美元;Q2 財報 8/4 公佈。",
+ en:"Q1 2026 revenue was $17.4B (+22%) with adjusted EPS of $5.54 (+30%), sending the stock to record highs. A framework agreement with ProPetro's PROPWR unit covers up to 2.1 GW of large gas gensets — the sixth prime-power agreement of at least 1 GW. Full-year guidance was raised to low-double-digit growth; the 2030 revenue CAGR target rose to 6–9%, the power-generation sales target to more than 3x 2024 levels, and a major capacity expansion for large reciprocating engines was announced. Risks: FY2026 tariff costs of $2.2–2.4B, and Resource Industries profit fell 39% with margins down ~700bps — worth monitoring.\n▸ Update (Jul 21, 2026): the stock touched a 52-week high of $1,073 on Jun 30 before pulling back to ~$870; on Jul 7 CAT announced the Skycatch acquisition to bolster mining drone-mapping tech; Q1 power-generation revenue rose 41% to $2.82B; Q2 results land Aug 4."}]
+]
+},
+
+/* ---------------- 3. RTX ---------------- */
+{
+id:"RTX", ticker:"RTX", exchange:"NYSE", name:{zh:"RTX Corporation",en:"RTX Corporation"}, subsector:"aerospace", batch:1, added:"2026-07-12",
+tagline:{zh:"商用引擎後市場 × 飛彈防空雙引擎,坐擁 2,710 億美元積壓訂單",
+         en:"Twin engines of commercial aftermarket and missile defense, sitting on a US$271B backlog"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國維州阿靈頓",en:"Arlington, VA, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"2020(UTC+Raytheon 合併)",en:"2020 (UTC–Raytheon merger)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 180,000 人",en:"~180,000"}],
+ [{zh:"CEO",en:"CEO"},"Chris Calio"],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:{zh:"約 US$194",en:"~US$194"}, mcap:{zh:"約 US$2,625 億",en:"~US$262.5B"}, pe:{zh:"約 37x(TTM);前瞻約 28x",en:"~37x TTM; fwd ~28x"}, asOf:"2026-07-17/20" },
+price52w:{ low:143.56, high:214.50, cur:194.4, lowDate:"25/7/22", highDate:"26/3/3" },
+priceHistory:[["2025-12-26",185.2],["2026-06-23",186.6],["2026-07-17",194.4]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$263B"], [{zh:"股價",en:"PRICE"},"$194"], [{zh:"TTM營收",en:"TTM REV"},"$90.4B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$904 億",en:"US$90.4B"}],
+ [{zh:"FY2025 營收",en:"FY2025 revenue"},{zh:"US$886 億(+10%)",en:"US$88.6B (+10%)"}],
+ [{zh:"FY2025 調整後 EPS",en:"FY2025 adj. EPS"},{zh:"US$6.29(+10%)",en:"US$6.29 (+10%)"}],
+ [{zh:"FY2025 自由現金流",en:"FY2025 free cash flow"},{zh:"US$79 億(年增 US$34 億)",en:"US$7.9B (+US$3.4B YoY)"}],
+ [{zh:"總積壓訂單",en:"Total backlog"},{zh:"US$2,710 億(商用約 1,610 億/國防約 1,070 億)",en:"US$271B (~$161B commercial / ~$107B defense)"}],
+ [{zh:"2026Q1 調整後營收",en:"Q1 2026 adj. revenue"},{zh:"US$221 億(+9%)",en:"US$22.1B (+9%)"}],
+ [{zh:"2026Q1 調整後 EPS",en:"Q1 2026 adj. EPS"},{zh:"US$1.78(+21%)",en:"US$1.78 (+21%)"}],
+ [{zh:"FY2026 指引(上修)",en:"FY2026 guidance (raised)"},{zh:"營收 US$925–935 億;EPS US$6.70–6.90;FCF US$82.5–87.5 億",en:"Rev US$92.5–93.5B; EPS US$6.70–6.90; FCF US$8.25–8.75B"}],
+ [{zh:"關稅逆風",en:"Tariff headwind"},{zh:"約 US$8.5 億營業利潤(未計入指引)",en:"~US$850M op profit (excl. from guidance)"}],
+ [{zh:"彈藥產出",en:"Munitions output"},{zh:"YoY +40% 以上",en:"+40%+ YoY"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2022","2023","2024","2025"], values:[67.1,68.9,80.7,88.6], approx:[false,false,false,false], note:{zh:"來源:公司財報",en:"Source: company filings"} },
+segments:{ title:{zh:"FY2025 板塊營收佔比(約)",en:"FY2025 revenue mix (approx.)"}, labels:[{zh:"Collins Aerospace",en:"Collins Aerospace"},{zh:"Pratt & Whitney",en:"Pratt & Whitney"},{zh:"Raytheon",en:"Raytheon"}], values:[35,35,30] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"RTX(前身 Raytheon Technologies)由聯合技術(UTC)與雷神(Raytheon)於 2020 年合併而成,總部位於維吉尼亞州阿靈頓,全球員工逾 18 萬人,是營收規模最大的航太國防公司之一。三大事業部:Pratt & Whitney 普惠(飛機引擎)、Collins Aerospace 柯林斯(航空系統與航電)、Raytheon 雷神(飛彈與防空:愛國者、AMRAAM、戰斧、標準飛彈系列)。",
+ en:"RTX (formerly Raytheon Technologies) was formed by the 2020 merger of United Technologies and Raytheon. Headquartered in Arlington, Virginia, with over 180,000 employees worldwide, it is one of the largest aerospace and defense companies by revenue. Three units: Pratt & Whitney (aircraft engines), Collins Aerospace (aircraft systems and avionics) and Raytheon (missiles and air defense: Patriot, AMRAAM, Tomahawk, the Standard Missile family)."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"「商用航空+國防」雙引擎。商用端是經典的剃刀與刀片:普惠 GTF 齒輪傳動渦扇引擎以微利甚至虧損售出,真正利潤來自其後 20–30 年的維修後市場(aftermarket);Collins 有 70% 產品品類居市場首位、裝機基礎達 1,050 億美元;GTF 引擎積壓 8,000 台。國防端為長週期政府合約,系統部署逾 50 國,受益於美國國防預算突破一兆美元與 NATO 數十年來最快的擴軍步伐;與五角大廈的長期彈藥框架協議提供七年期確定需求,支撐供應鏈投資。",
+ en:"A dual engine of commercial aviation and defense. The commercial side is classic razor-and-blades: GTF geared turbofans are sold at thin or negative margins, with the real profit in 20–30 years of aftermarket service; Collins holds the No. 1 position in 70% of its portfolio with a $105B installed base, and the GTF backlog stands at 8,000 engines. Defense is long-cycle government contracting, with systems fielded in 50+ countries, benefiting from a $1T+ U.S. defense budget and NATO's fastest rearmament in decades; long-term munitions framework agreements with the Pentagon provide seven years of firm demand, underpinning supply-chain investment."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"與洛克希德·馬丁、波音、諾斯洛普·格魯曼並列美國國防四巨頭,但在防空與飛彈攔截(愛國者、標準飛彈、SM-3)幾乎沒有對等競爭者;商用引擎端普惠與 GE Aerospace/CFM 形成雙寡頭。2025 年營收 886 億美元(2021 年為 644 億),總積壓訂單由 2,680 億增至 2,710 億美元,規模與技術壁壘俱佳。",
+ en:"One of America's Big Four defense primes alongside Lockheed Martin, Boeing and Northrop Grumman — yet in air and missile defense (Patriot, Standard Missile, SM-3) it has almost no peer competitor; in commercial engines Pratt forms a duopoly with GE Aerospace/CFM. Revenue reached $88.6B in 2025 (vs $64.4B in 2021) and total backlog grew from $268B to $271B — scale and technical barriers both intact."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026Q1 調整後營收 221 億美元(+9%)、EPS 1.78 美元(+21%),三大板塊營收與利潤全面成長;Raytheon 有機成長 9%、營業利益率擴張 150bps 至 12.2%、彈藥產出年增逾 40%。隨即上修全年指引:營收 925–935 億、EPS 6.70–6.90 美元。涵蓋戰斧、AMRAAM 與標準飛彈家族的五項框架協議尚未計入積壓訂單,代表額外約十年的需求能見度。風險:約 8.5 億美元關稅利潤逆風未計入指引(Q1 Collins 已承受 130bps 拖累);GTF Advantage 需如期在 2026 年內投入服務,火箭發動機、鑄件與微電子供應鏈仍偏緊。\n▸ 2026/7/21 更新:7/7 與 NATO 推進 AMRAAM 產能大擴張、Stinger 飛彈產量將倍增;股價自 6 月下旬約 186 美元回升至約 194;Q2 財報 7/23 公佈。",
+ en:"Q1 2026 adjusted revenue was $22.1B (+9%) and EPS $1.78 (+21%), with sales and profit growth across all three segments; Raytheon grew 9% organically, expanded margins 150bps to 12.2%, and lifted munitions output 40%+. Full-year guidance was promptly raised to $92.5–93.5B revenue and $6.70–6.90 EPS. Five framework agreements covering Tomahawk, AMRAAM and the Standard Missile family are not yet in backlog — roughly a decade of extra demand visibility. Risks: an ~$850M tariff profit headwind excluded from guidance (Collins absorbed a 130bps margin drag in Q1); GTF Advantage must enter service on schedule in 2026; rocket motors, castings and microelectronics remain tight.\n▸ Update (Jul 21, 2026): on Jul 7 RTX and NATO advanced a major AMRAAM capacity expansion and Raytheon is doubling Stinger output; the stock recovered from ~$186 in late June to ~$194; Q2 results land Jul 23."}]
+]
+},
+
+/* ---------------- 4. ROCKWELL AUTOMATION ---------------- */
+{
+id:"ROK", ticker:"ROK", exchange:"NYSE", name:{zh:"Rockwell Automation",en:"Rockwell Automation"}, subsector:"automation", batch:1, added:"2026-07-12",
+tagline:{zh:"北美離散自動化之王——資料中心業務年增逾一倍,ARR 轉型進行中",
+         en:"King of North American discrete automation — data-center vertical more than doubled, ARR transition underway"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國威州密爾瓦基",en:"Milwaukee, WI, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"1903(Allen-Bradley 起家)",en:"1903 (Allen-Bradley roots)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 26,000 人",en:"~26,000"}],
+ [{zh:"CEO",en:"CEO"},"Blake Moret"],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"9 月止",en:"Ends Sep"}]
+],
+valuation:{ price:{zh:"約 US$462",en:"~US$462"}, mcap:{zh:"約 US$511 億",en:"~US$51.1B"}, pe:{zh:"約 48x(TTM);前瞻約 33x",en:"~48x TTM; fwd ~33x"}, asOf:"2026-07-17" },
+price52w:{ low:305.44, high:497.36, cur:461.9, lowDate:"25/8/6", highDate:"26/6/30" },
+priceHistory:[["2026-05-05",440.0],["2026-07-12",472.1],["2026-07-17",461.9]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$51B"], [{zh:"股價",en:"PRICE"},"$462"], [{zh:"52週高",en:"52W HIGH"},"$497"] ],
+financials:[
+ [{zh:"FY2026Q2 調整後 EPS",en:"FY26 Q2 adj. EPS"},{zh:"US$3.30(預期 2.88,YoY +35%)",en:"US$3.30 (vs 2.88 est., +35% YoY)"}],
+ [{zh:"Q2 智慧裝置板塊",en:"Q2 Intelligent Devices"},{zh:"US$10.0 億(+13%,利潤率 20.9%)",en:"US$1.00B (+13%, 20.9% margin)"}],
+ [{zh:"Q2 軟體與控制板塊",en:"Q2 Software & Control"},{zh:"US$6.84 億(+20%,利潤率 34.9%)",en:"US$684M (+20%, 34.9% margin)"}],
+ [{zh:"Q2 生命週期服務板塊",en:"Q2 Lifecycle Services"},{zh:"US$5.47 億(+2%)",en:"US$547M (+2%)"}],
+ [{zh:"FY2026Q1 總板塊營業利益率",en:"FY26 Q1 segment op margin"},{zh:"20.7%(去年同期 17.1%)",en:"20.7% (vs 17.1% a year ago)"}],
+ [{zh:"ARR 年度經常性收入",en:"Annual recurring revenue"},{zh:"YoY +6%",en:"+6% YoY"}],
+ [{zh:"FY2026 指引(上修)",en:"FY2026 guidance (raised)"},{zh:"有機銷售 +5~9%;企業營業利益率 21.5%",en:"Organic sales +5–9%; op margin 21.5%"}],
+ [{zh:"全年增量利潤率",en:"FY incremental margins"},{zh:"預期 >50%",en:">50% expected"}],
+ [{zh:"資料中心垂直領域",en:"Data-center vertical"},{zh:"YoY 成長逾 100%",en:">100% YoY"}]
+],
+revTrend:{ unit:{zh:"十億美元(財年 9 月止)",en:"US$B (FY ends Sep)"}, labels:["FY22","FY23","FY24","FY25"], values:[7.76,9.06,8.26,8.2], approx:[false,false,false,true], note:{zh:"*FY25 為約值",en:"*FY25 approximate"} },
+segments:{ title:{zh:"FY2026 上半年板塊營收佔比(約)",en:"FY2026 H1 revenue mix (approx.)"}, labels:[{zh:"智慧裝置",en:"Intelligent Devices"},{zh:"軟體與控制",en:"Software & Control"},{zh:"生命週期服務",en:"Lifecycle Services"}], values:[45,30,25] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Rockwell Automation 總部位於威斯康辛州密爾瓦基,源自 1903 年創立的 Allen-Bradley,是全球最大的「純工業自動化」上市公司。旗艦品牌 Allen-Bradley(PLC 可程式邏輯控制器)與 FactoryTalk(工業軟體)。三大板塊:智慧裝置(變頻器、馬達控制、感測與物料搬運)、軟體與控制(PLC、視覺化與數位孿生軟體)、生命週期服務(諮詢、維護、網路安全)。",
+ en:"Headquartered in Milwaukee, Wisconsin, and tracing its roots to Allen-Bradley (founded 1903), Rockwell Automation is the world's largest pure-play industrial automation company. Flagship brands are Allen-Bradley (programmable logic controllers) and FactoryTalk (industrial software). Three segments: Intelligent Devices (drives, motor control, sensing, material handling), Software & Control (PLCs, visualization and digital-twin software) and Lifecycle Services (consulting, maintenance, cybersecurity)."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"核心是「安裝基礎的鎖定效應」:工廠一旦採用 Allen-Bradley 控制平台,整條產線的硬體、軟體與工程師技能都圍繞該生態系建立,轉換成本極高。公司正推動「硬體+軟體+年度經常性收入(ARR)」轉型,把一次性設備銷售升級為訂閱制軟體與服務(ARR 年增 6%);獲利結構上軟體與控制板塊利潤率最高(31%~35%),是整體利潤率上行的關鍵引擎。銷售透過獨立經銷商體系,北美通路密度為對手所不及。",
+ en:"The core is installed-base lock-in: once a plant standardizes on the Allen-Bradley control platform, its hardware, software and engineering skills are all built around that ecosystem, making switching costs prohibitive. The company is driving a hardware + software + ARR transition, converting one-time equipment sales into subscription software and services (ARR +6% YoY); Software & Control carries the highest margins (31–35%) and is the key engine of margin expansion. Sales run through independent distributors, with North American channel density unmatched by rivals."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"北美離散自動化市場龍頭,全球與西門子、施耐德電機、ABB、三菱電機競爭。最大優勢是北美製造業回流(reshoring)的直接受益者——美國新建工廠優先採用本土 Rockwell 平台,2026 財年 Q2 美國有機銷售 +10%,管理層預期北美持續為最強區域。公司曾支援 NASA Artemis II 載人繞月任務的地面控制系統,是關鍵任務級可靠性的口碑背書。",
+ en:"The leader in North American discrete automation, competing globally with Siemens, Schneider Electric, ABB and Mitsubishi Electric. Its biggest edge is being the direct beneficiary of U.S. reshoring — new American plants default to the home-grown Rockwell platform; U.S. organic sales rose 10% in FY26 Q2 and management expects North America to remain the strongest region. Rockwell also supported ground-control systems for NASA's Artemis II crewed lunar mission — a mission-critical reliability endorsement."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 財年 Q2 調整後 EPS 3.30 美元,大幅超越預期的 2.88,股價單日一度大漲近 10%。需求擴散至電商、倉儲自動化、資料中心與半導體;資料中心垂直年增逾一倍,客戶為求快速擴容與能源優化,正從商規轉向工業級控制設備。全年有機銷售指引上調至 +5~9%、企業營業利益率上調至 21.5%;完成 Sensia 合資解散,收回油氣流程自動化主導權;6 月再宣布 10 億美元庫藏股計畫,並規劃於威斯康辛州東南部興建多年來最大的新製造廠。留意下半年記憶體成本與供應商通膨的數千萬美元逆風,以及汽車、消費品大型資本支出仍因貿易波動延後。\n▸ 2026/7/21 更新:Citi 將目標價由 500 上調至 555 美元;獲核能新創 Aalo Atomics 選用其控制系統;威州 New Berlin 巨型新廠取得初步核准;Q3 財報 7/27 公佈。",
+ en:"FY26 Q2 adjusted EPS of $3.30 crushed the $2.88 estimate and the stock jumped nearly 10% intraday. Demand is broadening across e-commerce, warehouse automation, data centers and semiconductors; the data-center vertical more than doubled YoY as customers shift from commercial-grade to industrial-grade controls for speed-to-capacity and energy optimization. Full-year organic growth guidance was raised to +5–9% with 21.5% op margin; the Sensia JV dissolution completed, returning oil & gas process automation in-house; in June the company announced a $1B buyback and plans for its largest new plant in years in southeast Wisconsin. Watch second-half headwinds from memory costs and supplier inflation (tens of millions of dollars), plus still-delayed auto and CPG capex.\n▸ Update (Jul 21, 2026): Citi raised its target from $500 to $555; nuclear startup Aalo Atomics selected Rockwell for control systems; the New Berlin, WI mega-plant won early approvals; Q3 results land Jul 27."}]
+]
+},
+
+/* ---------------- 5. ATS CORPORATION ---------------- */
+{
+id:"ATS", ticker:"ATS", exchange:"TSX / NYSE", name:{zh:"ATS Corporation",en:"ATS Corporation"}, subsector:"automation", batch:1, added:"2026-07-12",
+tagline:{zh:"全球客製化自動化整合龍頭——生命科學是最深護城河(加拿大)",
+         en:"Global leader in custom automation integration — life sciences is the deepest moat (Canada)"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"加拿大安大略省 Cambridge",en:"Cambridge, ON, Canada"}],
+ [{zh:"成立",en:"FOUNDED"},"1978"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 7,500 人",en:"~7,500"}],
+ [{zh:"CEO",en:"CEO"},{zh:"Doug Wright(2026 年接任)",en:"Doug Wright (took over in 2026)"}],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"3 月止",en:"Ends Mar"}]
+],
+valuation:{ price:{zh:"約 C$38.7",en:"~C$38.7"}, mcap:{zh:"約 C$38 億",en:"~C$3.8B"}, pe:{zh:"前瞻約 28x(FY27 共識)",en:"Fwd ~28x (FY27 consensus)"}, asOf:"2026-07-17" },
+price52w:{ low:33.72, high:49.48, cur:38.7, lowDate:"25/11/24", unit:"C$" },
+priceHistory:[["2026-07-07",41.9],["2026-07-17",38.7]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"C$3.8B"], [{zh:"股價",en:"PRICE"},"C$38.7"], [{zh:"目標價",en:"PX TARGET"},"~C$50"] ],
+financials:[
+ [{zh:"FY2026 營收(3 月止)",en:"FY2026 revenue (Mar-end)"},{zh:"YoY +11%",en:"+11% YoY"}],
+ [{zh:"FY2026Q2 營收",en:"FY26 Q2 revenue"},{zh:"C$7.29 億(+19%)",en:"C$728.5M (+19%)"}],
+ [{zh:"FY2026Q2 EPS",en:"FY26 Q2 EPS"},{zh:"C$0.34(去年同期 -0.01)",en:"C$0.34 (vs -0.01 a year ago)"}],
+ [{zh:"FY2027 分析師共識",en:"FY2027 consensus"},{zh:"營收 C$30.3 億;EPS C$1.38(由 1.62 下修)",en:"Rev C$3.03B; EPS C$1.38 (cut from 1.62)"}],
+ [{zh:"分析師平均目標價",en:"Avg. analyst target"},{zh:"約 C$49(樂觀估 C$57;RBC 目標 C$50)",en:"~C$49 (bull C$57; RBC C$50)"}],
+ [{zh:"股利政策",en:"Dividend policy"},{zh:"不配息,全數再投資成長與併購",en:"None — all cash reinvested in growth & M&A"}],
+ [{zh:"近一週股價",en:"Past week"},{zh:"-6.5%(至約 C$39.3)",en:"-6.5% (to ~C$39.3)"}],
+ [{zh:"內部人動向",en:"Insider activity"},{zh:"CEO Hider 於 7/7 加碼約 3.8 萬股(約 C$41.9/股)",en:"CEO Hider bought ~38k shares on Jul 7 (~C$41.9)"}]
+],
+revTrend:{ unit:{zh:"十億加元(財年 3 月止)",en:"C$B (FY ends Mar)"}, labels:["FY23","FY24","FY25","FY26"], values:[2.58,3.03,2.57,2.85], approx:[false,false,true,true], note:{zh:"*FY25–26 為約值",en:"*FY25–26 approximate"} },
+segments:{ title:{zh:"終端市場營收佔比(約)",en:"Revenue mix by end market (approx.)"}, labels:[{zh:"生命科學",en:"Life sciences"},{zh:"食品飲料",en:"Food & beverage"},{zh:"運輸與移動",en:"Transportation"},{zh:"消費品",en:"Consumer products"},{zh:"能源與其他",en:"Energy & other"}], values:[55,13,12,10,10] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"ATS 創立於 1978 年,總部位於加拿大安大略省 Cambridge,於多倫多與紐約雙重上市,是加拿大工業科技的旗艦企業。全球約 40 個據點、員工約 7,500 人,提供整廠交鑰匙(turn-key)自動化製造系統、測試系統與整合控制方案,服務生命科學、運輸與移動、食品飲料、消費品、核能與能源等市場的跨國客戶。",
+ en:"Founded in 1978 and headquartered in Cambridge, Ontario, ATS is dual-listed in Toronto and New York and is the flagship of Canadian industrial technology. With ~40 sites and ~7,500 employees worldwide, it delivers turn-key automated manufacturing systems, test systems and integrated controls to multinational customers across life sciences, transportation & mobility, food & beverage, consumer products, nuclear and energy."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"與販售標準化元件的 Rockwell 不同,ATS 是「客製化自動化系統整合商」:從零開始為客戶設計、建造並交付整條自動化產線,再以前期規劃(pre-automation)、售後服務與連網廠房管理軟體(擷取即時機台數據、預防停機、提升 OEE)延伸價值鏈。成長策略高度依賴併購擴張能力版圖;不配發股利,資金全數再投入成長、創新與收購。專案制收入波動較大,「訂單積壓+服務收入」提供能見度;生命科學(製藥、醫材組裝)的法規與驗證壁壘是最深護城河。",
+ en:"Unlike component vendors such as Rockwell, ATS is a custom automation systems integrator: it designs, builds and delivers entire automated production lines from scratch, then extends the value chain with pre-automation planning, after-sales services and connected factory-floor software (real-time machine data, downtime prevention, OEE gains). Growth leans heavily on M&A to add capabilities; the company pays no dividend, reinvesting everything into growth, innovation and acquisitions. Project-based revenue is lumpy, so backlog plus services provide visibility; the regulatory and validation barriers of life sciences (pharma, medical devices) form the deepest moat."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在「客製化自動化系統整合」利基領域是全球規模最大的上市公司之一,生命科學自動化具深厚專業壁壘,並在電動車零組件與核能自動化累積實績。分析師普遍看好其高進入門檻與自動化製造的結構性需求,平均目標價約 C$49–52;2026 年以來股價跑贏多倫多綜合指數,反映行業結構性強勢而非大盤驅動。加拿大技術勞工短缺持續強化自動化的長期需求邏輯。",
+ en:"In the custom automation integration niche it is among the largest listed players globally, with deep life-sciences expertise plus a track record in EV components and nuclear automation. Analysts broadly like the high barriers to entry and structural automation demand, with average targets around C$49–52; the stock has outperformed the TSX Composite in 2026 — sector-specific strength rather than market beta. Canada's skilled-labour shortage keeps reinforcing the long-term automation thesis."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"正經歷重大管理層更迭:CFO Ryan McLeod 於 2026 年 1 月宣布離職,CEO Andrew Hider 亦宣布將於 8 月底前卸任、轉赴自動化行業以外的新職(值得注意的是他 7 月 7 日仍以約 C$41.9 在公開市場加碼 3.8 萬股,過去一年淨買入約 C$170 萬)。FY2026(3 月止)營收年增 11%,並展開一系列改善利潤率、現金產生與資本效率的重組行動,為 FY2027 鋪路;但 FY2027 共識 EPS 由 C$1.62 下修至 C$1.38,近一週股價下跌 6.5% 至約 C$39,顯示市場對執行力仍持觀望。\n▸ 2026/7/21 更新:接班底定——新任 CEO Doug Wright 已上任(臨時 CFO 為 Anne Cybulski),策略聚焦利潤率擴張、紀律性併購與生命科學/核能優勢;FY2027 指引為溫和營收成長、利潤率擴張 50–75bps,訂單積壓約 20 億加元;Q1 財報 8/12 公佈。",
+ en:"A major leadership transition is underway: CFO Ryan McLeod announced his departure in January 2026, and CEO Andrew Hider will step down by end of August for a role outside automation (notably, he still bought ~38k shares at ~C$41.9 on July 7 and has been a net buyer of ~C$1.7M over the past year). FY2026 (March-end) revenue rose 11%, and a restructuring program targeting margins, cash generation and capital efficiency is underway ahead of FY2027; but FY2027 consensus EPS was cut from C$1.62 to C$1.38 and the stock fell 6.5% in a week to ~C$39 — the market remains in wait-and-see mode on execution.\n▸ Update (Jul 21, 2026): succession settled — new CEO Doug Wright has taken over (Anne Cybulski as interim CFO), focusing on margin expansion, disciplined M&A, and strengths in life sciences and nuclear; FY2027 guidance calls for modest revenue growth with 50–75bps of margin expansion on a ~C$2B order backlog; Q1 results land Aug 12."}]
+]
+}
+
+,
+
+/* ---------------- 6. EATON ---------------- */
+{
+id:"ETN", ticker:"ETN", exchange:"NYSE", name:{zh:"Eaton 伊頓",en:"Eaton Corporation plc"}, subsector:"power", batch:2, added:"2026-07-21",
+tagline:{zh:"AI 電力基建的「從電網到晶片」軍火商——資料中心訂單暴增 240%",
+         en:"The grid-to-chip arms dealer of AI power infrastructure — data-center orders up 240%"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"愛爾蘭都柏林(營運:美國俄亥俄州)",en:"Dublin, IE (ops: Ohio, USA)"}],
+ [{zh:"成立",en:"FOUNDED"},"1911"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 92,000 人",en:"~92,000"}],
+ [{zh:"CEO",en:"CEO"},{zh:"Paulo Ruiz(2025/6 上任)",en:"Paulo Ruiz (since Jun 2025)"}],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:{zh:"約 US$402",en:"~US$402"}, mcap:{zh:"約 US$1,560 億",en:"~US$156B"}, pe:{zh:"約 39x(TTM);前瞻約 28x",en:"~39x TTM; fwd ~28x"}, asOf:{zh:"2026-07 中旬",en:"Mid-Jul 2026"} },
+price52w:{ low:311.92, high:436.74, cur:402, lowDate:"25/12/17", highDate:"26/6/22" },
+priceHistory:[["2026-05-30",400.6],["2026-07-15",402.4]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$156B"], [{zh:"股價",en:"PRICE"},"$402"], [{zh:"TTM營收",en:"TTM REV"},"$28.5B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$285 億",en:"US$28.5B"}],
+ [{zh:"2026Q1 營收",en:"Q1 2026 revenue"},{zh:"US$74.5 億(+17%,創 Q1 紀錄)",en:"US$7.45B (+17%, Q1 record)"}],
+ [{zh:"2026Q1 調整後 EPS",en:"Q1 2026 adj. EPS"},{zh:"US$2.81(創 Q1 紀錄)",en:"US$2.81 (Q1 record)"}],
+ [{zh:"2026Q1 板塊利潤率",en:"Q1 2026 segment margin"},{zh:"22.7%(年減 120bps)",en:"22.7% (-120bps YoY)"}],
+ [{zh:"電氣板塊積壓訂單",en:"Electrical backlog"},{zh:"YoY +48%;滾動 book-to-bill 1.2",en:"+48% YoY; rolling book-to-bill 1.2"}],
+ [{zh:"資料中心訂單",en:"Data-center orders"},{zh:"2026Q1 約 +240%;營收約 +50%",en:"~+240% YoY in Q1; revenue ~+50%"}],
+ [{zh:"FY2026 指引(上修)",en:"FY2026 guidance (raised)"},{zh:"有機成長 9–11%;調整後 EPS US$13.05–13.50",en:"Organic +9–11%; adj. EPS US$13.05–13.50"}],
+ [{zh:"FY2025 全年",en:"FY2025 results"},{zh:"調整後 EPS US$12.07(+12%);有機成長 8%",en:"Adj. EPS US$12.07 (+12%); organic +8%"}],
+ [{zh:"2026Q1 完成併購",en:"Q1 2026 acquisitions"},{zh:"US$110 億(Boyd Thermal+Ultra PCS)",en:"US$11B closed (Boyd Thermal + Ultra PCS)"}],
+ [{zh:"自由現金流",en:"Free cash flow"},{zh:"2026Q1 YoY +245%",en:"+245% YoY in Q1"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2022","2023","2024","2025"], values:[20.8,23.2,24.9,27.4], approx:[false,false,false,true], note:{zh:"*2025 為依 TTM 推算之約值",en:"*2025 approximated from TTM"} },
+segments:{ title:{zh:"FY2025 板塊營收佔比(約)",en:"FY2025 revenue mix (approx.)"}, labels:[{zh:"電氣美洲",en:"Electrical Americas"},{zh:"電氣全球",en:"Electrical Global"},{zh:"航太",en:"Aerospace"},{zh:"車輛",en:"Vehicle"},{zh:"eMobility",en:"eMobility"}], values:[46,24,15,11,4] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Eaton(伊頓)創立於 1911 年,法定總部位於愛爾蘭都柏林、營運中心在美國俄亥俄州,是全球智慧電力管理(intelligent power management)龍頭。五大板塊:電氣美洲、電氣全球、航太、車輛與 eMobility,產品從配電設備、不斷電系統(UPS)、斷路器,到航太液壓與燃油系統。電氣業務貢獻約七成營收,是公司絕對核心;車輛板塊已規劃於 2027 年第一季前分拆,使 Eaton 更聚焦電氣化與航太。",
+ en:"Founded in 1911, Eaton is legally domiciled in Dublin, Ireland, with its operational center in Ohio — the global leader in intelligent power management. Five segments: Electrical Americas, Electrical Global, Aerospace, Vehicle and eMobility, with products ranging from power distribution gear, UPS systems and circuit breakers to aerospace hydraulics and fuel systems. Electrical contributes roughly 70% of revenue and is the absolute core; the Vehicle business is slated for spin-off by Q1 2027, sharpening Eaton's focus on electrification and aerospace."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"Eaton 賣的是「電力流動的每一個節點」:從電網變電、建築配電、資料中心供電到晶片端的散熱與電源品質,即所謂 grid-to-chip 全鏈路佈局。獲利模式結合大型專案設備銷售與龐大安裝基礎的更換/服務需求;電氣產品的規格認證與工程師指定習慣構成黏性。2026Q1 斥資 110 億美元收購 Boyd Thermal(液冷)與 Ultra PCS,補上 AI 資料中心散熱與電源品質拼圖,冷卻業務 2026 年營收上看 17 億美元;與 NVIDIA 合作開發固態變壓器,卡位下一代資料中心電力架構。",
+ en:"Eaton sells every node of power flow: from grid substations, building distribution and data-center power to chip-level cooling and power quality — the 'grid-to-chip' full-chain play. The profit model combines large project equipment sales with replacement and service demand from a vast installed base; electrical spec-in certifications and engineer preferences create stickiness. In Q1 2026 it deployed $11B on Boyd Thermal (liquid cooling) and Ultra PCS, completing its AI data-center cooling and power-quality puzzle — the cooling business could reach $1.7B of 2026 revenue — while an NVIDIA collaboration on solid-state transformers positions it for next-gen data-center power architecture."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在中低壓配電與電力管理領域,Eaton 與 Schneider Electric、ABB、Siemens 並列全球四強,北美市佔尤其領先,是資料中心電力鏈的關鍵供應商。2026Q1 資料中心訂單暴增約 240%、營收成長約 50%;電氣板塊總積壓訂單年增 48%、滾動 book-to-bill 達 1.2。管理層估算美國在建資料中心容量 32 GW(約 70% 與 AI 相關),全行業資料中心待建規模 228 GW——相當於以 2025 年建設速度還要蓋 12 年,是對「AI 電力超級週期」最直觀的量化註腳。",
+ en:"In low/medium-voltage distribution and power management, Eaton ranks among the global big four with Schneider Electric, ABB and Siemens, with particular strength in North America — a critical supplier in the data-center power chain. Q1 2026 data-center orders surged ~240% with revenue up ~50%; total Electrical backlog grew 48% YoY with a rolling book-to-bill of 1.2. Management estimates 32 GW of U.S. data-center capacity under construction (~70% AI-related) and a 228 GW industry pipeline — 12 years of building at 2025 rates, the most vivid quantification of the AI power supercycle."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026Q1 營收 74.5 億美元(+17%)、調整後 EPS 2.81 美元皆創第一季紀錄,自由現金流年增 245%;全年有機成長指引由 8% 上調至 9–11%、調整後 EPS 上調至 13.05–13.50 美元。不過市場反應複雜:因投入成本與擴產費用,板塊利潤率年減 120bps 至 22.7%,Q2 EPS 指引亦略低於預期,財報後股價一度回檔;管理層強調 4 月已調漲售價,利潤率下半年將逐季回升。新 CEO Paulo Ruiz 上任後首個完整年度,執行力(整併 Boyd、產能爬坡、固態變壓器下半年接單)是 2026 下半年的觀察重點。\n▸ 2026/7/21 更新:7/8 任命 Dan Simpson 出任全球能源基礎設施方案總裁;股價自 6/22 的 52 週高點 436.7 美元回檔至約 402;Q2 財報 7/31 公佈。",
+ en:"Q1 2026 revenue of $7.45B (+17%) and adjusted EPS of $2.81 were both first-quarter records, with free cash flow up 245%; full-year organic growth guidance was raised from 8% to 9–11% and adjusted EPS to $13.05–13.50. Yet the market's reaction was mixed: segment margins fell 120bps YoY to 22.7% on input costs and capacity ramp-up, Q2 EPS guidance came in slightly light, and the stock pulled back after the print; management stresses April price increases will rebuild margins through the year. In new CEO Paulo Ruiz's first full year, execution — integrating Boyd, ramping capacity, booking solid-state transformer orders in H2 — is the key watch item.\n▸ Update (Jul 21, 2026): Dan Simpson was named president of Global Energy Infrastructure Solutions on Jul 8; the stock has eased from its Jun 22 52-week high of $436.7 to ~$402; Q2 results land Jul 31."}]
+]
+},
+
+/* ---------------- 7. DEERE ---------------- */
+{
+id:"DE", ticker:"DE", exchange:"NYSE", name:{zh:"Deere 迪爾(約翰迪爾)",en:"Deere & Company"}, subsector:"machinery", batch:2, added:"2026-07-21",
+tagline:{zh:"精準農業帝國穿越農機谷底——營建與林業扛起成長大旗",
+         en:"The precision-ag empire riding out the farm-cycle trough — construction now carries the flag"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國伊利諾州 Moline",en:"Moline, IL, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1837"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 75,000 人",en:"~75,000"}],
+ [{zh:"CEO",en:"CEO"},"John May"],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"10 月底止",en:"Ends late Oct"}]
+],
+valuation:{ price:"US$586.00", mcap:{zh:"約 US$1,582 億",en:"~US$158.2B"}, pe:{zh:"約 33x(TTM)",en:"~33x (TTM)"}, asOf:"2026-07-20" },
+price52w:{ low:433.00, high:674.19, cur:586, lowDate:"25/10/14", highDate:"26/2/19" },
+priceHistory:[["2026-02-20",658.9],["2026-07-20",586.0]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$158B"], [{zh:"股價",en:"PRICE"},"$586"], [{zh:"TTM營收",en:"TTM REV"},"$47.3B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$473 億",en:"US$47.3B"}],
+ [{zh:"FY2026Q2 營收",en:"FY26 Q2 revenue"},{zh:"US$133.7 億(+5%)",en:"US$13.37B (+5%)"}],
+ [{zh:"FY2026Q2 EPS",en:"FY26 Q2 EPS"},{zh:"US$6.55(連四季優於預期)",en:"US$6.55 (4th straight beat)"}],
+ [{zh:"設備營運利潤率",en:"Equipment ops margin"},{zh:"16.9%(含 IEEPA 退稅 +2.5pts)",en:"16.9% (incl. +2.5pts IEEPA refund)"}],
+ [{zh:"IEEPA 關稅退稅",en:"IEEPA tariff refund"},{zh:"US$2.72 億(最高法院裁定關稅無效)",en:"US$272M (Supreme Court ruling)"}],
+ [{zh:"FY2026 淨利指引",en:"FY2026 net income guide"},{zh:"US$45–50 億(維持)",en:"US$4.5–5.0B (maintained)"}],
+ [{zh:"營建與林業展望(上修)",en:"C&F outlook (raised)"},{zh:"全年銷售約 +20%;美加訂單簿自 11 月 +60%",en:"FY sales ~+20%; order book +60% since Nov"}],
+ [{zh:"全年關稅逆風",en:"FY tariff headwind"},{zh:"約 US$12 億(不加徵附加費)",en:"~US$1.2B (no surcharges)"}],
+ [{zh:"美國製造投資承諾",en:"U.S. mfg commitment"},{zh:"未來十年 US$200 億",en:"US$20B over next decade"}],
+ [{zh:"精準農業",en:"Precision ag"},{zh:"See & Spray 500 萬英畝;營運中心月活近 44 萬",en:"See & Spray on 5M acres; ~440k MAU"}]
+],
+revTrend:{ unit:{zh:"十億美元(財年 10 月止)",en:"US$B (FY ends Oct)"}, labels:["FY22","FY23","FY24","FY25"], values:[52.8,61.3,51.7,45.7], approx:[false,false,false,true], note:{zh:"*FY25 為約值",en:"*FY25 approximate"} },
+segments:{ title:{zh:"FY2026Q2 設備板塊營收佔比(約)",en:"FY26 Q2 equipment revenue mix (approx.)"}, labels:[{zh:"生產與精準農業",en:"Production & Precision Ag"},{zh:"營建與林業",en:"Construction & Forestry"},{zh:"小型農業與草坪",en:"Small Ag & Turf"}], values:[38,32,30] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Deere(迪爾/約翰迪爾)創立於 1837 年,總部位於伊利諾州 Moline,是全球最大的農業機械製造商,綠黃塗裝的 John Deere 拖拉機是美國農業的文化符號。四大板塊:生產與精準農業(大型拖拉機、聯合收割機)、小型農業與草坪、營建與林業,以及金融服務(John Deere Financial)。與 Caterpillar 類似,Deere 透過強大的獨立經銷商網絡銷售與服務,並以自家金融部門提供設備融資。",
+ en:"Founded in 1837 and headquartered in Moline, Illinois, Deere is the world's largest agricultural equipment maker — the green-and-yellow John Deere tractor is a cultural icon of American farming. Four segments: Production & Precision Agriculture (large tractors, combines), Small Agriculture & Turf, Construction & Forestry, and Financial Services (John Deere Financial). Like Caterpillar, Deere sells and services through a powerful independent dealer network, with its own captive finance arm funding equipment purchases."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"Deere 的商業模式正從「賣鐵」走向「賣科技與訂閱」:See & Spray 精準噴灑技術已在 500 萬英畝農地運行,John Deere Operations Center 月活躍用戶近 44 萬,自動駕駛拖拉機與衛星導引構成 Solutions-as-a-Service 藍圖,目標把軟體與服務變成經常性收入。設備售後的零件與維修、金融服務的利差收入平滑了農業景氣循環;「提前訂購計畫(EOP)」讓產能與需求對齊、降低庫存風險。管理層並承諾未來十年投資 200 億美元於美國製造(美國銷售整機約 80% 於美國生產、約 75% 零件在地採購)。",
+ en:"Deere's model is shifting from selling iron to selling technology and subscriptions: See & Spray precision spraying now runs on 5 million acres, the John Deere Operations Center has ~440,000 monthly active users, and autonomous tractors plus satellite guidance underpin a Solutions-as-a-Service roadmap turning software into recurring revenue. Aftermarket parts and service plus finance-arm spread income smooth the ag cycle, while Early Order Programs align production with demand and de-risk inventory. Management has committed $20B to U.S. manufacturing over the next decade (~80% of U.S. complete-goods sales are built in U.S. plants, ~75% of components sourced domestically)."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"農機領域無可爭議的全球第一,領先 CNH Industrial、AGCO、Kubota;在精準農業技術(自動駕駛、機器視覺)的軟硬整合上更是遙遙領先,構成「農業界的特斯拉+蘋果」式生態壁壘。營建設備位居北美前列,受惠基建與資料中心工程,美加訂單簿自去年 11 月以來成長逾 60%、全年產能檔期已排滿八成以上。CFO 明言 2026 財年是大型農機週期的谷底(大農機低於谷底水準、小農機接近循環中值、營建略高於中值),2027 年可望復甦。",
+ en:"The undisputed global No. 1 in farm machinery, ahead of CNH Industrial, AGCO and Kubota — and far ahead in precision-ag software-hardware integration (autonomy, machine vision), an ecosystem moat akin to 'the Tesla-plus-Apple of agriculture.' Its construction equipment ranks among North America's leaders, benefiting from infrastructure and data-center work: U.S./Canada order books are up 60%+ since November with 80%+ of production slots filled. The CFO explicitly called FY2026 the bottom of the large-ag cycle (large ag below trough, small ag near mid-cycle, construction slightly above), with recovery expected in 2027."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 財年 Q2(4 月止)營收 133.7 億美元(+5%)、EPS 6.55 美元,連四季擊敗預期;美國最高法院裁定 IEEPA 關稅無效帶來 2.72 億美元退稅,推升設備營運利潤率至 16.9%。板塊分化鮮明:生產與精準農業 -14%(利潤率 15.7%),小型農業與草坪 +16%,營建與林業 +29% 成為最大亮點,全年營建銷售展望上調至約 +20%。全年淨利指引維持 45–50 億美元,關稅逆風全年仍達 12 億美元但不加徵附加費;另以 4.39 億美元收購營建科技公司 Tenna。市場焦點:2027 年大農機復甦的斜率,以及超低的新機+二手庫存能否轉化為訂價權。\n▸ 2026/7/21 更新:7/8 與 FTC 及五州就「維修權」達成和解,將開放維修軟體與工具;Citi 7/14 升評至持有、目標價 610 美元(Truist 看多至 812);Q3 財報 8/20 公佈。",
+ en:"FY2026 Q2 (April-end) revenue was $13.37B (+5%) with EPS of $6.55 — a fourth straight beat; the Supreme Court's invalidation of IEEPA tariffs delivered a $272M refund, lifting equipment operating margin to 16.9%. Segment divergence was stark: Production & Precision Ag fell 14% (15.7% margin), Small Ag & Turf rose 16%, and Construction & Forestry surged 29% to become the standout, with FY construction sales guidance raised to ~+20%. Full-year net income guidance held at $4.5–5.0B; tariff headwinds remain $1.2B with no surcharges imposed; Deere also paid $439M for construction-tech firm Tenna. The market's focus: the slope of the 2027 large-ag recovery, and whether lean new-and-used inventories convert into pricing power.\n▸ Update (Jul 21, 2026): on Jul 8 Deere settled with the FTC and five states on right-to-repair, opening up repair software and tools; Citi upgraded to Hold on Jul 14 with a $610 target (Truist's bull case: $812); Q3 results land Aug 20."}]
+]
+},
+
+/* ---------------- 8. LOCKHEED MARTIN ---------------- */
+{
+id:"LMT", ticker:"LMT", exchange:"NYSE", name:{zh:"Lockheed Martin 洛克希德·馬丁",en:"Lockheed Martin Corporation"}, subsector:"aerospace", batch:2, added:"2026-07-21",
+tagline:{zh:"全球最大國防承包商——F-35 與飛彈防禦的 1,900 億美元積壓帝國",
+         en:"The world's largest defense contractor — an F-35 and missile-defense empire on a ~$190B backlog"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國馬里蘭州 Bethesda",en:"Bethesda, MD, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"1995(合併;可溯至 1912)",en:"1995 merger (roots to 1912)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 121,000 人",en:"~121,000"}],
+ [{zh:"CEO",en:"CEO"},"Jim Taiclet"],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:{zh:"約 US$509",en:"~US$509"}, mcap:{zh:"約 US$1,173 億",en:"~US$117.3B"}, pe:{zh:"約 25x(TTM);前瞻約 17x",en:"~25x TTM; fwd ~17x"}, asOf:"2026-07-17" },
+price52w:{ low:410.11, high:692.00, cur:508.8, lowDate:"25/7/22", highDate:"26/3/2" },
+priceHistory:[["2026-03-02",672.3],["2026-05-15",516.3],["2026-07-17",508.8]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$117B"], [{zh:"股價",en:"PRICE"},"$509"], [{zh:"TTM營收",en:"TTM REV"},"$75.1B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$751 億",en:"US$75.1B"}],
+ [{zh:"FY2025 營收",en:"FY2025 revenue"},{zh:"US$750.5 億(+6%)",en:"US$75.05B (+6%)"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"2025 底創紀錄 US$1,940 億(約 2.5 倍年營收)→ 2026Q1 US$1,864 億",en:"Record US$194B at YE25 (~2.5x sales) → US$186.4B in Q1"}],
+ [{zh:"2026Q1",en:"Q1 2026"},{zh:"營收逾 US$180 億;EPS US$6.44(不及預期)",en:">US$18B revenue; EPS US$6.44 (miss)"}],
+ [{zh:"2026Q1 自由現金流",en:"Q1 2026 free cash flow"},{zh:"-US$2.91 億",en:"-US$291M"}],
+ [{zh:"FY2026 指引(維持)",en:"FY2026 guidance (held)"},{zh:"營收 US$775–800 億;EPS US$29.35–30.25;FCF US$65–68 億",en:"Rev US$77.5–80B; EPS US$29.35–30.25; FCF US$6.5–6.8B"}],
+ [{zh:"F-35 交付",en:"F-35 deliveries"},{zh:"2025 年 191 架(2024:110 架)",en:"191 jets in 2025 (vs 110 in 2024)"}],
+ [{zh:"彈藥產能目標",en:"Munitions ramp target"},{zh:"PAC-3/THAAD/PrSM 擴至 3–4 倍",en:"PAC-3/THAAD/PrSM to 3–4x rates"}],
+ [{zh:"股利紀錄",en:"Dividend record"},{zh:"連續 20 年以上成長",en:"20+ straight years of increases"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2022","2023","2024","2025"], values:[66.0,67.6,71.0,75.1], approx:[false,false,false,false], note:{zh:"來源:公司財報",en:"Source: company filings"} },
+segments:{ title:{zh:"FY2025 板塊營收佔比(約)",en:"FY2025 revenue mix (approx.)"}, labels:[{zh:"航空(F-35 等)",en:"Aeronautics"},{zh:"旋翼與任務系統",en:"Rotary & Mission Systems"},{zh:"飛彈與火控",en:"Missiles & Fire Control"},{zh:"太空",en:"Space"}], values:[39,25,19,17] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Lockheed Martin(洛克希德·馬丁)由 Lockheed 與 Martin Marietta 於 1995 年合併而成(前身可溯至 1912 年),總部位於馬里蘭州 Bethesda,是全球營收最大的純國防承包商,美國政府貢獻約七成營收。四大板塊:航空(F-35、F-22、F-16)、飛彈與火控(PAC-3 愛國者、THAAD、HIMARS、JASSM/LRASM)、旋翼與任務系統(Sikorsky 黑鷹/CH-53K、神盾戰鬥系統)、太空(Orion 太空船、飛彈預警衛星、GPS)。",
+ en:"Lockheed Martin was formed by the 1995 merger of Lockheed and Martin Marietta (roots to 1912) and is headquartered in Bethesda, Maryland — the world's largest pure-play defense contractor, with the U.S. government providing roughly 70% of revenue. Four segments: Aeronautics (F-35, F-22, F-16), Missiles & Fire Control (PAC-3 Patriot, THAAD, HIMARS, JASSM/LRASM), Rotary & Mission Systems (Sikorsky Black Hawk/CH-53K, the Aegis combat system) and Space (Orion spacecraft, missile-warning satellites, GPS)."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"商業模式是「平台壟斷+數十年生命週期」:F-35 是史上最大國防專案,規劃全球部署逾 3,000 架、生命週期價值上看數兆美元——賣飛機只是開端,其後數十年的升級(TR-3/Block 4、電戰系統)與維保才是長尾利潤。成本加成合約(cost-plus)提供穩定利潤,固定價格合約(fixed-price)則在通膨與供應鏈緊張時反噬利潤率,是近年虧損案(機密專案與部分固定價開發案)的根源。與五角大廈的多年期彈藥框架協議(PAC-3、THAAD、PrSM 產能目標 3–4 倍)正把「彈藥製造」變成成長業務。",
+ en:"The model is 'platform monopoly + multi-decade lifecycle': the F-35 is history's largest defense program, with 3,000+ jets planned globally and a lifecycle value in the trillions — selling the jet is just the opening act, with decades of upgrades (TR-3/Block 4, electronic warfare) and sustainment providing the long-tail profit. Cost-plus contracts deliver stable margins, while fixed-price contracts bite during inflation and supply-chain stress — the root of recent losses on classified and some fixed-price development programs. Multi-year Pentagon munitions frameworks (PAC-3, THAAD, PrSM targeting 3–4x output) are turning munitions manufacturing into a growth business."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"以營收計是全球最大國防公司(2025 年 750.5 億美元),在第五代戰機領域近乎獨占(F-35 為西方唯一量產五代機),防空攔截彈(PAC-3、THAAD)供不應求,神盾系統與海軍作戰系統亦居壟斷地位。2025 年底積壓訂單創紀錄的 1,940 億美元、約 2.5 倍年營收,book-to-bill 1.2、連續四年成長;F-35 年交付量由 2024 年的 110 架躍升至 2025 年的 191 架。與 RTX 相比,LMT 是更純粹的「平台+彈藥」國防標的,幾乎沒有商用航空曝險,估值也因此更低(前瞻約 17 倍)。",
+ en:"The world's largest defense company by revenue ($75.05B in 2025), with a near-monopoly in fifth-generation fighters (the F-35 is the West's only 5th-gen jet in mass production), sold-out air-defense interceptors (PAC-3, THAAD), and dominant positions in Aegis and naval combat systems. Year-end 2025 backlog hit a record $194B — about 2.5x annual revenue — with a 1.2 book-to-bill and four straight years of growth; F-35 deliveries jumped from 110 in 2024 to 191 in 2025. Versus RTX, LMT is the purer 'platforms + munitions' defense play with almost no commercial-aero exposure — and a lower multiple (~17x forward) to match."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026Q1 表現失色:營收逾 180 億美元符合預期,但 EPS 6.44 美元不及預期(受 F-16 專案 1.25 億美元不利調整拖累),自由現金流為 -2.91 億美元,積壓訂單自年底的 1,940 億回落至 1,864 億,財報後股價下跌約 5%;全年指引維持營收 775–800 億、EPS 29.35–30.25、FCF 65–68 億美元。成長敘事仍在:5 月再獲 9.91 億美元 F-35 電戰升級合約,彈藥產能擴張與「金穹(Golden Dome)」飛彈防禦架構是潛在大單來源;Q2 財報於 7 月下旬公佈,將檢驗積壓訂單轉化與現金流回補進度。觀察重點:固定價格專案的利潤率修復與 F-35 Block 4 升級時程。\n▸ 2026/7/21 更新:7/2 獲 Citi 升評「買進」帶動股價單日大漲 4.6%;7/16 一舉拿下 105.3 億美元的 12 年期特戰司令部(USSOCOM)合約與 16 億美元海軍訂單;7/21 發表低成本攔截彈 PAC-3 ACE 與反無人機系統 MORFIUS,迎擊國防新創競爭;Q2 財報 7/23 公佈。",
+ en:"Q1 2026 disappointed: revenue above $18B met expectations, but EPS of $6.44 missed (dragged by $125M of unfavorable F-16 adjustments), free cash flow was negative $291M, and backlog slipped from $194B at year-end to $186.4B — the stock fell ~5% on the print; full-year guidance was maintained at $77.5–80B revenue, $29.35–30.25 EPS and $6.5–6.8B FCF. The growth narrative persists: a $991M F-35 electronic-warfare upgrade award followed in May, and munitions capacity expansion plus the 'Golden Dome' missile-defense architecture are potential sources of major awards; Q2 results land in late July, testing backlog conversion and cash-flow recovery. Watch items: margin repair on fixed-price programs and the F-35 Block 4 timeline.\n▸ Update (Jul 21, 2026): a Citi upgrade to Buy on Jul 2 sent the stock up 4.6% in a day; on Jul 16 LMT landed a $10.53B, 12-year USSOCOM contract plus a $1.6B Navy order; on Jul 21 it unveiled the low-cost PAC-3 ACE interceptor and the MORFIUS counter-drone system to fend off defense startups; Q2 results land Jul 23."}]
+]
+},
+
+/* ---------------- 9. EMERSON ELECTRIC ---------------- */
+{
+id:"EMR", ticker:"EMR", exchange:"NYSE", name:{zh:"Emerson 艾默生",en:"Emerson Electric Co."}, subsector:"automation", batch:2, added:"2026-07-21",
+tagline:{zh:"流程自動化之王的軟體轉身——AspenTech 全資入袋、劍指 2028",
+         en:"Process automation's king pivots to software — AspenTech fully absorbed, eyes on 2028"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"美國密蘇里州聖路易",en:"St. Louis, MO, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1890"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 6.5 萬人",en:"~65,000"}],
+ [{zh:"CEO",en:"CEO"},"Lal Karsanbhai"],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"9 月止",en:"Ends Sep"}]
+],
+valuation:{ price:{zh:"約 US$135.4",en:"~US$135.4"}, mcap:{zh:"約 US$760 億",en:"~US$76B"}, pe:{zh:"約 32x(TTM);前瞻約 21x",en:"~32x TTM; fwd ~21x"}, asOf:"2026-07-20" },
+price52w:{ low:122.64, high:165.15, cur:135.4, lowDate:"26/3/30" },
+priceHistory:[["2026-03-30",122.6],["2026-07-20",135.4]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$76B"], [{zh:"股價",en:"PRICE"},"$135"], [{zh:"TTM營收",en:"TTM REV"},"$18.3B"] ],
+financials:[
+ [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$183 億",en:"US$18.3B"}],
+ [{zh:"FY2026Q1 調整後 EPS",en:"FY26 Q1 adj. EPS"},{zh:"US$1.54(+4%,近指引上緣)",en:"US$1.54 (+4%, near top of guide)"}],
+ [{zh:"調整後板塊 EBITA 利潤率",en:"Adj. segment EBITA margin"},"27.6%"],
+ [{zh:"軟體年度合約價值(ACV)",en:"Software ACV"},{zh:"US$16.4 億(+9%)",en:"US$1.64B (+9%)"}],
+ [{zh:"FY2026 指引",en:"FY2026 guidance"},{zh:"營收成長約 5.5%;調整後 EPS US$6.40–6.55",en:"~5.5% sales growth; adj. EPS US$6.40–6.55"}],
+ [{zh:"現金流指引",en:"Cash flow guidance"},{zh:"自由現金流 US$35–36 億;庫藏股約 US$10 億",en:"FCF US$3.5–3.6B; ~US$1.0B buybacks"}],
+ [{zh:"2028 中期目標",en:"2028 targets"},{zh:"營收 US$210 億;調整後板塊 EBITA 利潤率 30%",en:"US$21B revenue; 30% adj. EBITA margin"}],
+ [{zh:"AspenTech",en:"AspenTech"},{zh:"2025/3 全資收購;US$2 億綜效達標",en:"Wholly owned since Mar 2025; US$200M synergies delivered"}],
+ [{zh:"股利",en:"Dividend"},{zh:"連續近 70 年調升(股利之王)",en:"~70 straight years of increases (Dividend King)"}]
+],
+revTrend:{ unit:{zh:"十億美元(財年 9 月止)",en:"US$B (FY ends Sep)"}, labels:["FY23","FY24","FY25"], values:[15.2,17.5,18.1], approx:[false,false,true], note:{zh:"*FY25 為約值;歷經多次分拆與併購",en:"*FY25 approximate; reflects portfolio transformation"} },
+segments:{ title:{zh:"FY2025 板塊營收佔比(約)",en:"FY2025 revenue mix (approx.)"}, labels:[{zh:"最終控制(閥門)",en:"Final Control"},{zh:"量測與分析",en:"Measurement & Analytical"},{zh:"控制系統與軟體",en:"Control Systems & Software"},{zh:"離散自動化",en:"Discrete Automation"},{zh:"測試與量測(NI)",en:"Test & Measurement (NI)"},{zh:"AspenTech 與其他",en:"AspenTech & other"}], values:[23,21,15,13,9,19] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Emerson(艾默生)創立於 1890 年,總部位於密蘇里州聖路易,經過數年劇烈的組合重塑(出售 Copeland 壓縮機、剝離商用與住宅方案),已從多元工業集團蛻變為「純自動化」公司。業務橫跨流程自動化的量測儀表、閥門與最終控制(Fisher、Rosemount 等百年品牌)、控制系統(DeltaV)、離散自動化,以及軟體:2023 年併入 NI(國家儀器)強化測試量測,2025 年 3 月全資收購工業軟體龍頭 AspenTech,完成「硬體+軟體」雙平台架構。連續近 70 年調升股利,是著名的股利之王。",
+ en:"Founded in 1890 and headquartered in St. Louis, Missouri, Emerson has transformed through years of radical portfolio surgery (selling Copeland compressors, exiting commercial & residential) from a diversified conglomerate into a pure-play automation company. It spans process-automation instrumentation, valves and final control (century-old brands like Fisher and Rosemount), control systems (DeltaV), discrete automation, and software: NI (National Instruments) was added in 2023 for test & measurement, and industrial-software leader AspenTech became wholly owned in March 2025, completing the hardware-plus-software twin-platform architecture. A famed Dividend King with nearly 70 straight years of increases."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"Emerson 的商業模式建立在「流程工廠的神經系統」上:煉油、化工、LNG、製藥、電力工廠一旦採用 DeltaV 控制系統與 Rosemount 儀表,更換成本極高,後續的儀表校驗、閥門維修與軟體授權構成數十年黏性收入。策略主軸是「軟體定義自動化」:AspenTech 的模擬優化軟體疊加自家控制層,把一次性設備銷售轉化為訂閱制收入(軟體 ACV 16.4 億美元、年增 9%),並推出 AVA 等代理式 AI 顧問切入營運決策。獲利結構上,調整後板塊 EBITA 利潤率已達 27.6%,2028 年目標 30%、營收 210 億美元、EPS 上看 8 美元。",
+ en:"Emerson's model is built on being the nervous system of process plants: once a refinery, chemical, LNG, pharma or power facility standardizes on DeltaV control and Rosemount instrumentation, switching costs are prohibitive, and decades of calibration, valve service and software licensing follow. The strategic thrust is software-defined automation: AspenTech's simulation-and-optimization software atop Emerson's control layer converts one-time equipment sales into subscription revenue (software ACV of $1.64B, +9% YoY), with agentic-AI advisors like AVA moving into operational decision support. Adjusted segment EBITA margin has reached 27.6%, with 2028 targets of 30% margins, $21B revenue and $8+ EPS."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在流程自動化(process automation)領域與 ABB、Siemens、Honeywell、Schneider(AVEVA)並列全球領導者,量測儀表與控制閥居世界第一梯隊,DeltaV 在化工與生技製藥產業市佔領先。相對 Rockwell 聚焦離散製造(工廠組裝線),Emerson 主場在流程工業(連續生產),兩者是北美自動化的一體兩面;LNG 出口潮、電力投資與生命科學擴產是終端市場順風。軟體端 AspenTech 在流程模擬近乎壟斷,使 Emerson 成為傳統自動化商中軟體含量最高者之一。",
+ en:"In process automation Emerson ranks among the global leaders with ABB, Siemens, Honeywell and Schneider (AVEVA); its instrumentation and control valves sit in the world's top tier, and DeltaV leads in chemicals and life sciences. Where Rockwell focuses on discrete manufacturing (assembly lines), Emerson's home turf is process industries (continuous production) — the two are the twin faces of North American automation. LNG export waves, power investment and life-sciences expansion are end-market tailwinds; in software, AspenTech is near-monopolistic in process simulation, making Emerson one of the most software-rich traditional automation players."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 財年上半年穩健:Q1(12 月止)調整後 EPS 1.54 美元、年增 4%,調整後板塊 EBITA 利潤率 27.6%;Q2(3 月止)於 5 月初公佈,銷售與 EPS 續增並上調全年指引(全年營收成長約 5.5%、調整後 EPS 6.40–6.55 美元、自由現金流 35–36 億美元、庫藏股約 10 億美元)。3 月並發布 2028 年中期目標(營收 210 億、EBITA 利潤率 30%)。股價自 2026 年初高點一度回檔逾 20%,前瞻本益比由約 25 倍壓縮至 20–22 倍,市場辯論焦點在 AspenTech 整合成效與軟體利潤率兌現速度,分析師目標價分歧頗大(約 105–165 美元)。下一份財報(Q3)於 8 月 4 日公佈。\n▸ 2026/7/21 更新:Q2(3 月止)調整後 EPS 1.52 美元;近期獲 JPMorgan 升評,Citi 目標價 174 美元;股價自 3/30 的 52 週低點 122.6 美元回升至約 135。",
+ en:"H1 FY2026 was steady: Q1 (Dec-end) adjusted EPS of $1.54 rose 4% with a 27.6% adjusted segment EBITA margin; Q2 (Mar-end), reported in early May, delivered further sales and EPS growth with raised full-year guidance (~5.5% revenue growth, $6.40–6.55 adjusted EPS, $3.5–3.6B free cash flow, ~$1.0B of buybacks). March brought 2028 mid-term targets ($21B revenue, 30% EBITA margin). The stock at one point fell 20%+ from its early-2026 peak, compressing the forward multiple from ~25x to 20–22x; the market debate centers on AspenTech integration payoff and the pace of software-margin delivery, with analyst targets ranging widely (~$105–165). The next report (Q3) lands August 4.\n▸ Update (Jul 21, 2026): FY26 Q2 (Mar-end) adjusted EPS was $1.52; JPMorgan recently upgraded the stock and Citi's target sits at $174; shares have recovered from the Mar 30 52-week low of $122.6 to ~$135."}]
+]
+},
+
+/* ---------------- 10. CAE ---------------- */
+{
+id:"CAE", ticker:"CAE", exchange:"TSX / NYSE", name:{zh:"CAE",en:"CAE Inc."}, subsector:"aerospace", batch:2, added:"2026-07-21",
+tagline:{zh:"全球飛行模擬訓練霸主(加拿大)——民航逆風、國防起飛的轉型年",
+         en:"The global leader in flight simulation training (Canada) — civil headwinds, defense taking off in a reset year"},
+basics:[
+ [{zh:"總部",en:"HQ"},{zh:"加拿大魁北克省蒙特婁",en:"Montreal, QC, Canada"}],
+ [{zh:"成立",en:"FOUNDED"},"1947"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 13,000 人",en:"~13,000"}],
+ [{zh:"CEO",en:"CEO"},{zh:"Matthew Bromberg(2025/8 上任)",en:"Matthew Bromberg (since Aug 2025)"}],
+ [{zh:"財年",en:"FISCAL YR"},{zh:"3 月止",en:"Ends Mar"}]
+],
+valuation:{ price:{zh:"約 C$34.6 / US$24.6",en:"~C$34.6 / US$24.6"}, mcap:{zh:"約 C$111 億(US$80 億)",en:"~C$11.1B (US$8.0B)"}, pe:{zh:"約 36x(TTM);前瞻約 29x",en:"~36x TTM; fwd ~29x"}, asOf:"2026-07-17/20" },
+price52w:{ low:31.42, high:47.65, cur:34.6, lowDate:"26/5/22", highDate:"26/1/16", unit:"C$" },
+priceHistory:[["2026-01-16",47.7],["2026-05-25",32.0],["2026-07-17",34.6]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"US$8.0B"], [{zh:"股價",en:"PRICE"},"~C$35"], [{zh:"FY26營收",en:"FY26 REV"},"C$4.9B"] ],
+financials:[
+ [{zh:"FY2026 營收(3 月止)",en:"FY2026 revenue (Mar-end)"},{zh:"C$49.1 億(+4.4%)",en:"C$4.91B (+4.4%)"}],
+ [{zh:"FY2026 淨利",en:"FY2026 net income"},{zh:"C$3.13 億(-23%)",en:"C$313M (-23%)"}],
+ [{zh:"民航板塊",en:"Civil Aviation"},{zh:"營收 C$27.4 億(+1%);利潤率 18.6%",en:"Rev C$2.74B (+1%); margin 18.6%"}],
+ [{zh:"國防調整後積壓訂單",en:"Defense adj. backlog"},{zh:"逾 C$110 億;商機管線為其數倍",en:">C$11.0B; pipeline multiple times larger"}],
+ [{zh:"民航調整後積壓訂單",en:"Civil adj. backlog"},{zh:"C$84 億",en:"C$8.4B"}],
+ [{zh:"自由現金流",en:"Free cash flow"},{zh:"C$4.74 億(現金轉換率 123%)",en:"C$474M (123% conversion)"}],
+ [{zh:"淨負債/調整後 EBITDA",en:"Net debt / adj. EBITDA"},"2.29x"],
+ [{zh:"轉型目標",en:"Transformation targets"},{zh:"年化節省 C$1.25–1.5 億;2028 調整後板塊營業利益 C$9.5–10 億",en:"C$125–150M savings; C$950M–1B aSOI by 2028"}],
+ [{zh:"營運指標",en:"Operating metrics"},{zh:"FY2026 交付 52 台 FFS;訓練中心利用率 70%",en:"52 FFS delivered; 70% utilization"}],
+ [{zh:"分析師",en:"Analysts"},{zh:"平均評等買進;目標價約 US$32.6",en:"Avg. Buy; ~US$32.6 target"}]
+],
+revTrend:{ unit:{zh:"十億加元(財年 3 月止)",en:"C$B (FY ends Mar)"}, labels:["FY23","FY24","FY25","FY26"], values:[4.20,4.28,4.71,4.91], approx:[true,false,false,false], note:{zh:"*FY23 為約值",en:"*FY23 approximate"} },
+segments:{ title:{zh:"FY2026 板塊營收佔比",en:"FY2026 revenue mix"}, labels:[{zh:"民航",en:"Civil Aviation"},{zh:"國防與安全",en:"Defense & Security"}], values:[56,44] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"CAE 創立於 1947 年,總部位於魁北克省蒙特婁,於多倫多與紐約雙重上市,是全球飛行模擬與訓練的絕對龍頭、加拿大航太皇冠上的明珠。兩大板塊:民航(飛行員、機艙與維修人員訓練,擁有全球最大的全動飛行模擬器 FFS 網絡與航校體系)與國防安全(軍機飛行員與任務訓練、模擬系統)。商業模式圍繞「模擬器製造+訓練服務」雙輪:自製並銷售 FFS 模擬器,同時經營全球訓練中心網絡收取訓練服務費。",
+ en:"Founded in 1947 and headquartered in Montreal, Quebec, CAE is dual-listed in Toronto and New York — the undisputed global leader in flight simulation and training and a crown jewel of Canadian aerospace. Two segments: Civil Aviation (pilot, cabin and maintenance training, with the world's largest network of full-flight simulators and flight academies) and Defense & Security (military pilot and mission training, simulation systems). The model runs on twin wheels: building and selling FFS simulators while operating a global training-center network that charges for training services."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"CAE 的護城河來自法規與網絡效應的疊加:全球監管要求飛行員在「每一機型」上定期複訓,構成不受景氣影響的經常性需求底盤;航空公司自建模擬中心不符經濟效益,外包給規模與機型覆蓋最廣的 CAE 是自然選擇。訓練中心利用率(本年約 70%)與長約覆蓋率決定利潤;民航調整後積壓訂單 84 億加元、國防逾 110 億加元,合計約 195 億加元提供多年能見度。國防端受惠 NATO 各國軍費朝 GDP 5% 邁進,商機管線達現有國防積壓的數倍,多個潛在合約單筆規模逾十億加元。",
+ en:"CAE's moat stacks regulation on network effects: global rules require recurrent training on every aircraft type a pilot flies, creating a recession-resistant recurring-demand base; airlines find in-house simulator centers uneconomic, making outsourcing to CAE — with unmatched scale and fleet-type coverage — the natural choice. Training-center utilization (~70% this year) and long-term contract coverage drive margins; Civil adjusted backlog of C$8.4B plus Defense above C$11B — roughly C$19.5B combined — provide multi-year visibility. Defense benefits from NATO budgets marching toward 5% of GDP, with an opportunity pipeline multiple times the current defense backlog and several potential contracts exceeding C$1B each."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在民航全動模擬器與第三方飛行訓練市場,CAE 市佔全球第一,領先 L3Harris 與 FlightSafety(波克夏旗下);在軍用飛行訓練外包領域亦居前列。作為知識庫第 2 批唯一的加拿大公司,它與 ATS 同樣體現「利基全球冠軍」路線:不與平台巨頭正面競爭,而是壟斷高進入門檻的訓練環節。波音與空巴積壓訂單長達數年、全球未來十年需新增數十萬名飛行員,是民航訓練的長期結構性需求;短期則受新機交付延遲、飛機停飛與中東衝突干擾。",
+ en:"CAE holds the global No. 1 share in civil full-flight simulators and third-party pilot training, ahead of L3Harris and Berkshire-owned FlightSafety, and ranks among the leaders in outsourced military flight training. As the lone Canadian name in this batch, it mirrors ATS's 'niche global champion' path: rather than fighting platform giants head-on, it monopolizes the high-barrier training layer. Boeing and Airbus backlogs stretch years, and the world needs hundreds of thousands of new pilots over the next decade — the structural demand base for civil training; near term, delayed aircraft deliveries, groundings and the Middle East conflict are disruptions."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 財年(3 月止)是轉型陣痛年:營收 49.1 億加元(+4.4%)但淨利 3.13 億、年減 23%;民航營收僅 +1%、板塊利潤率降至 18.6%,國防則量價齊揚(Q2 利潤率由 4.7% 升至 8.2%)。新任 CEO Matthew Bromberg(2025 年 8 月上任)推動八大工作流轉型:裁減 10% 商用模擬器機隊、整併不動產、組織由七個總裁縮編為二,目標年化節省 1.25–1.5 億加元、2028 年調整後板塊營業利益上看 9.5–10 億加元。5 月 22 日財報公佈當日股價大跌 9.3% 至約 24.4 美元,市場將 2027 財年定調為「重置年」;分析師平均評等仍為買進、目標價約 32.6 美元,賭的是國防上行週期與 2028 年後的轉型紅利。\n▸ 2026/7/21 更新:5 月與 Saab 擴大戰略合作,支援加拿大 AEW&C 空中預警機專案;6 月重啟正常程序庫藏股(NCIB);Q1 FY2027 財報 8/12 公佈。",
+ en:"FY2026 (March-end) was a year of transformation pains: revenue of C$4.91B (+4.4%) but net income of C$313M, down 23%; Civil revenue rose just 1% with segment margin sliding to 18.6%, while Defense delivered volume and margin gains (Q2 margin up from 4.7% to 8.2%). New CEO Matthew Bromberg (since August 2025) is driving an eight-workstream transformation: cutting 10% of the commercial simulator fleet, consolidating real estate, and collapsing seven president roles into two — targeting C$125–150M of annualized savings and C$950M–1B of adjusted segment operating income by 2028. The stock plunged 9.3% to ~US$24.4 on the May 22 report as the market framed FY2027 as a 'reset year'; the average analyst rating remains Buy with a ~US$32.6 target — a bet on the defense upcycle and post-2028 transformation dividends.\n▸ Update (Jul 21, 2026): in May CAE expanded its strategic partnership with Saab to support Canada's AEW&C program; in June it renewed its NCIB share buyback; Q1 FY2027 results land Aug 12."}]
+]
+}
+
+/* __INSERT_NEW_COMPANIES_HERE__(新公司加在此標記之前,勿刪除此行 / add new companies ABOVE this marker)*/
+]
+};
+
+/* ================================================================
+   渲染邏輯(雙語)— 手刻 SVG 圖表,無外部依賴,可離線開啟
+   Bilingual render logic — hand-rolled SVG charts, zero dependencies
+================================================================= */
+const PROGRESS = JSON.parse(document.getElementById("progress-log").textContent);
+const SUB = Object.fromEntries(APP_DATA.subsectors.map(function(s){return [s.id,s];}));
+let LANG = "zh", activeTab = "all", query = "", openId = null;
+
+/* 語言取值器:雙語物件取當前語言,純字串直接回傳 */
+function L(x){ if(x && typeof x==="object" && !Array.isArray(x)) return (x[LANG]!==undefined? x[LANG] : x.zh); return x; }
+function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+/* 介面字典 */
+const UI = {
+zh:{ docTitle:"北美工業公司商業模式知識庫",
+  tbEn:"North American Industrials · Business Model Compendium",
+  tbTitle:"北美工業公司商業模式知識庫",
+  tbSub:"美股+加股 · 依子行業分類 · 每批新增 5 家 · 深度分析+財務數據",
+  kCount:"公司數 NO.", kBatch:"批次 BATCH", kDate:"更新 REV.", kSub:"子行業 SEC.",
+  all:"全部", search:"搜尋公司名或代號…", noMatch:"— 無符合項目 —",
+  vPrice:"股價 PRICE", vMcap:"市值 MKT CAP", vPe:"本益比 P/E", vAsOf:"數據截至 AS OF",
+  finTitle:"關鍵財務", chartsTitle:"圖表", revCap:"營收趨勢",
+  footBatch:"收錄:第 {b} 批 · {d}", footVal:"估值截至:", footDisc:"本頁為個人研究知識庫,非投資建議",
+  logHead:"PROJECT LOG · 專案進度紀錄 · 第 {b} 批 · 共 {n} 家 · 更新 {d}",
+  covered:"已收錄公司(依子行業)", next:"下一批建議", how:"如何接續更新", notes:"資料備註",
+  fnote:"SELF-CONTAINED SINGLE-FILE KNOWLEDGE BASE · 無外部依賴,可離線開啟 · 圖表為手刻 SVG",
+  coName:"家", langBtn:"EN",
+  priceSec:"股價區間與走勢", rangeCap:"52 週區間 · 52-WEEK RANGE", histCap:"各批次紀錄價(每次更新累積一筆)", lowL:"52週低", highL:"52週高", curL:"現價" },
+en:{ docTitle:"North American Industrials KB",
+  tbEn:"北美工業公司商業模式知識庫",
+  tbTitle:"North American Industrials — Business Model Knowledge Base",
+  tbSub:"US + Canadian equities · Organized by sub-sector · 5 new companies per batch · Deep analysis + financials",
+  kCount:"COMPANIES", kBatch:"BATCH", kDate:"REVISED", kSub:"SUB-SECTORS",
+  all:"All", search:"Search name or ticker…", noMatch:"— NO MATCH —",
+  vPrice:"PRICE", vMcap:"MKT CAP", vPe:"P/E", vAsOf:"AS OF",
+  finTitle:"Key Financials", chartsTitle:"Charts", revCap:"REVENUE TREND",
+  footBatch:"Added: Batch {b} · {d}", footVal:"Valuation as of: ", footDisc:"Personal research knowledge base — not investment advice",
+  logHead:"PROJECT LOG · Batch {b} · {n} companies · updated {d}",
+  covered:"Companies covered (by sub-sector)", next:"Suggested next batch", how:"How to continue", notes:"Data notes",
+  fnote:"SELF-CONTAINED SINGLE-FILE KNOWLEDGE BASE · Zero dependencies · Works offline · Hand-rolled SVG charts",
+  coName:"", langBtn:"中文",
+  priceSec:"Price Range & Trend", rangeCap:"52-WEEK RANGE", histCap:"Session price log (one point per update)", lowL:"52W LOW", highL:"52W HIGH", curL:"LAST" }
+};
+function T(k){ return UI[LANG][k]; }
+
+/* ---- 標題欄與統計 ---- */
+function renderChrome(){
+  document.title = T("docTitle");
+  document.documentElement.lang = (LANG==="zh"?"zh-Hant":"en");
+  document.getElementById("tb-en").textContent = T("tbEn");
+  document.getElementById("tb-title").textContent = T("tbTitle");
+  document.getElementById("tb-sub").textContent = T("tbSub");
+  document.getElementById("k-count").textContent = T("kCount");
+  document.getElementById("k-batch").textContent = T("kBatch");
+  document.getElementById("k-date").textContent = T("kDate");
+  document.getElementById("k-sub").textContent = T("kSub");
+  document.getElementById("lang-btn").textContent = T("langBtn");
+  document.getElementById("stat-count").textContent = String(APP_DATA.companies.length).padStart(2,"0");
+  document.getElementById("stat-batch").textContent = String(APP_DATA.meta.batch).padStart(2,"0");
+  document.getElementById("stat-date").textContent = APP_DATA.meta.lastUpdated;
+  document.getElementById("stat-sub").textContent = String(APP_DATA.subsectors.length).padStart(2,"0");
+}
+
+/* ---- 導覽籤 ---- */
+function renderNav(){
+  const n = document.getElementById("nav");
+  let h = tabBtn("all",T("all"),"#1B2530",APP_DATA.companies.length);
+  APP_DATA.subsectors.forEach(function(s){
+    const c = APP_DATA.companies.filter(function(x){return x.subsector===s.id;}).length;
+    h += tabBtn(s.id,L(s.name),s.color,c);
+  });
+  h += '<div class="search"><input id="q" type="search" placeholder="'+esc(T("search"))+'" aria-label="search"></div>';
+  n.innerHTML = h;
+  n.querySelectorAll(".tab").forEach(function(b){ b.addEventListener("click",function(){ activeTab=b.dataset.id; renderNav(); renderGrid(); }); });
+  const qi = document.getElementById("q");
+  qi.value = query;
+  qi.addEventListener("input",function(e){ query=e.target.value.trim().toLowerCase(); renderGrid(); });
+}
+function tabBtn(id,name,color,count){
+  const act = activeTab===id ? " active":"";
+  return '<button class="tab'+act+'" data-id="'+id+'"><span class="sw" style="background:'+color+'"></span>'+esc(name)+' <span class="ct">'+count+'</span></button>';
+}
+
+/* ---- 卡片格 ---- */
+function renderGrid(){
+  const g = document.getElementById("grid");
+  let list = APP_DATA.companies.filter(function(c){ return activeTab==="all" || c.subsector===activeTab; });
+  if(query) list = list.filter(function(c){ return (L(c.name)+c.name.zh+c.name.en+c.ticker+c.id).toLowerCase().includes(query); });
+  if(!list.length){ g.innerHTML = '<div class="empty">'+esc(T("noMatch"))+'</div>'; return; }
+  g.innerHTML = list.map(function(c){
+    const s = SUB[c.subsector];
+    const specs = c.cardStats.map(function(p){ return '<div class="spec"><div class="k">'+esc(L(p[0]))+'</div><div class="v">'+esc(L(p[1]))+'</div></div>'; }).join("");
+    return '<button class="card" data-id="'+c.id+'">'
+      +'<div class="card-top"><span class="tk">'+esc(c.ticker)+'<span class="ex">'+esc(c.exchange)+'</span></span>'
+      +'<span class="chip" style="color:'+s.color+';border-color:'+s.color+'"><span class="sw" style="background:'+s.color+'"></span>'+esc(L(s.name))+'</span></div>'
+      +'<div class="card-name">'+esc(L(c.name))+'</div>'
+      +'<div class="card-tag">'+esc(L(c.tagline))+'</div>'
+      +'<div class="card-specs">'+specs+'</div>'
+      +'</button>';
+  }).join("");
+  g.querySelectorAll(".card").forEach(function(b){ b.addEventListener("click",function(){ openDetail(b.dataset.id); }); });
+}
+
+/* ---- SVG 長條圖 ---- */
+function barSVG(rt,color){
+  const w=380,h=200,pl=10,pr=10,pt=20,pb=26;
+  const iw=w-pl-pr, ih=h-pt-pb;
+  const max=Math.max.apply(null,rt.values)*1.18;
+  const n=rt.values.length, slot=iw/n, bw=Math.min(52,slot*0.55);
+  let s='<svg viewBox="0 0 '+w+' '+h+'" class="chart-svg" role="img">';
+  s+='<line x1="'+pl+'" y1="'+(h-pb)+'" x2="'+(w-pr)+'" y2="'+(h-pb)+'" stroke="#1B2530" stroke-width="1.2"/>';
+  rt.values.forEach(function(v,i){
+    const cx=pl+slot*(i+0.5), x=cx-bw/2;
+    const bh=v/max*ih, y=h-pb-bh;
+    const ap=rt.approx && rt.approx[i];
+    s+='<rect x="'+x+'" y="'+y+'" width="'+bw+'" height="'+bh+'" fill="'+color+'"'+(ap?' fill-opacity="0.5" stroke="'+color+'" stroke-dasharray="3 2"':'')+'/>';
+    s+='<text x="'+cx+'" y="'+(y-6)+'" class="ch-val" text-anchor="middle">'+v+(ap?'*':'')+'</text>';
+    s+='<text x="'+cx+'" y="'+(h-pb+16)+'" class="ch-lab" text-anchor="middle">'+esc(rt.labels[i])+'</text>';
+  });
+  s+='</svg>';
+  return s;
+}
+
+/* ---- SVG 環圈圖 ---- */
+const ALPHAS=["FF","C4","8E","5C","38","24"];
+function donutHTML(seg,color){
+  const r=52, C=2*Math.PI*r, cx=66, cy=66, sw=26;
+  const total=seg.values.reduce(function(a,b){return a+b;},0);
+  let off=0, s='<svg viewBox="0 0 132 132" class="donut-svg" role="img">';
+  seg.values.forEach(function(v,i){
+    const len=v/total*C, col=color+ALPHAS[i%ALPHAS.length];
+    s+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="'+sw+'" stroke-dasharray="'+len.toFixed(2)+' '+(C-len).toFixed(2)+'" stroke-dashoffset="'+(-off).toFixed(2)+'" transform="rotate(-90 '+cx+' '+cy+')"/>';
+    off+=len;
+  });
+  s+='</svg>';
+  const lg='<ul class="legend">'+seg.labels.map(function(l,i){
+    return '<li><span class="sw" style="background:'+color+ALPHAS[i%ALPHAS.length]+'"></span>'+esc(L(l))+'<span class="pc">'+seg.values[i]+'%</span></li>';
+  }).join("")+'</ul>';
+  return '<div class="donut-wrap">'+s+lg+'</div>';
+}
+
+
+/* ---- SVG 52 週區間量表 ---- */
+function rangeSVG(p,color){
+  const w=560,h=92,x0=36,x1=w-36,ty=52;
+  const span=(p.high-p.low)||1;
+  const px=x0+(Math.min(Math.max(p.cur,p.low),p.high)-p.low)/span*(x1-x0);
+  let s='<svg viewBox="0 0 '+w+' '+h+'" class="chart-svg" role="img">';
+  s+='<line x1="'+x0+'" y1="'+ty+'" x2="'+x1+'" y2="'+ty+'" stroke="'+color+'" stroke-opacity="0.3" stroke-width="6" stroke-linecap="round"/>';
+  s+='<line x1="'+x0+'" y1="'+(ty-9)+'" x2="'+x0+'" y2="'+(ty+9)+'" stroke="#1B2530" stroke-width="1.5"/>';
+  s+='<line x1="'+x1+'" y1="'+(ty-9)+'" x2="'+x1+'" y2="'+(ty+9)+'" stroke="#1B2530" stroke-width="1.5"/>';
+  s+='<circle cx="'+px+'" cy="'+ty+'" r="7" fill="'+color+'" stroke="#FBFCFD" stroke-width="2"/>';
+  s+='<text x="'+px+'" y="'+(ty-16)+'" class="ch-val" text-anchor="middle" style="font-size:13px">'+p.cur+'</text>';
+  s+='<text x="'+px+'" y="'+(ty-31)+'" class="ch-lab" text-anchor="middle">'+esc(T("curL"))+(p.unit?' ('+esc(p.unit)+')':'')+'</text>';
+  s+='<text x="'+x0+'" y="'+(ty+26)+'" class="ch-val" text-anchor="start">'+p.low+'</text>';
+  s+='<text x="'+x0+'" y="'+(ty+40)+'" class="ch-lab" text-anchor="start">'+esc(T("lowL"))+(p.lowDate?' · '+esc(p.lowDate):'')+'</text>';
+  s+='<text x="'+x1+'" y="'+(ty+26)+'" class="ch-val" text-anchor="end">'+p.high+'</text>';
+  s+='<text x="'+x1+'" y="'+(ty+40)+'" class="ch-lab" text-anchor="end">'+esc(T("highL"))+(p.highDate?' · '+esc(p.highDate):'')+'</text>';
+  s+='</svg>';
+  return s;
+}
+
+/* ---- SVG 各批次紀錄價走勢 ---- */
+function sparkSVG(ph,color){
+  const w=560,h=170,pl=20,pr=20,pt=28,pb=32;
+  const vals=ph.map(function(p){return p[1];});
+  let mn=Math.min.apply(null,vals), mx=Math.max.apply(null,vals);
+  const pad=((mx-mn)*0.18)||(mx*0.05)||1; mn-=pad; mx+=pad;
+  const iw=w-pl-pr, ih=h-pt-pb, n=ph.length;
+  function X(i){ return n>1? pl+iw*i/(n-1) : w/2; }
+  function Y(v){ return pt+ih*(1-(v-mn)/(mx-mn)); }
+  let s='<svg viewBox="0 0 '+w+' '+h+'" class="chart-svg" role="img">';
+  if(n>1){ s+='<polyline fill="none" stroke="'+color+'" stroke-width="2" points="'+ph.map(function(p,i){return X(i).toFixed(1)+','+Y(p[1]).toFixed(1);}).join(' ')+'"/>'; }
+  ph.forEach(function(p,i){
+    const x=X(i), y=Y(p[1]);
+    s+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="4" fill="'+color+'" stroke="#FBFCFD" stroke-width="1.5"/>';
+    s+='<text x="'+x.toFixed(1)+'" y="'+(y-9).toFixed(1)+'" class="ch-val" text-anchor="middle">'+p[1]+'</text>';
+    s+='<text x="'+x.toFixed(1)+'" y="'+(h-10)+'" class="ch-lab" text-anchor="middle">'+esc(String(p[0]).slice(2).replace(/-/g,"/"))+'</text>';
+  });
+  s+='</svg>';
+  return s;
+}
+
+/* ---- 詳細頁 ---- */
+function openDetail(id){
+  const c = APP_DATA.companies.find(function(x){return x.id===id;});
+  if(!c) return;
+  openId = id;
+  const s = SUB[c.subsector];
+  const basics = c.basics.map(function(p){ return '<div class="b"><div class="k">'+esc(L(p[0]))+'</div><div class="v">'+esc(L(p[1]))+'</div></div>'; }).join("");
+  const val = [[T("vPrice"),c.valuation.price],[T("vMcap"),c.valuation.mcap],[T("vPe"),c.valuation.pe],[T("vAsOf"),c.valuation.asOf]]
+    .map(function(e){ return '<div class="b" style="border-left-color:'+s.color+'"><div class="k">'+esc(e[0])+'</div><div class="v">'+esc(L(e[1]))+'</div></div>'; }).join("");
+  const fin = c.financials.map(function(r){ return '<tr><td class="k">'+esc(L(r[0]))+'</td><td class="v">'+esc(L(r[1]))+'</td></tr>'; }).join("");
+  const secs = c.sections.map(function(sec,i){
+    const ps = String(L(sec[1])).split(/\n+/).map(function(p){return '<p>'+esc(p)+'</p>';}).join("");
+    return '<div class="sec-h"><span class="no" style="color:'+s.color+'">'+String(i+1).padStart(2,"0")+'</span><span class="t">'+esc(L(sec[0]))+'</span></div><div class="prose">'+ps+'</div>';
+  }).join("");
+  const chipTxt = LANG==="zh" ? (L(s.name)+' · '+s.en) : L(s.name);
+  document.getElementById("panel").innerHTML =
+    '<div class="p-head"><button class="close-btn" id="close" aria-label="close">✕</button>'
+    +'<span class="tk">'+esc(c.ticker)+'<span class="ex">'+esc(c.exchange)+'</span></span>'
+    +'<div style="margin-top:6px"><span class="chip" style="color:'+s.color+';border-color:'+s.color+'"><span class="sw" style="background:'+s.color+'"></span>'+esc(chipTxt)+'</span></div>'
+    +'<div class="p-name">'+esc(L(c.name))+'</div><div class="p-tag">'+esc(L(c.tagline))+'</div></div>'
+    +'<div class="basics">'+basics+'</div>'
+    +'<div class="val">'+val+'</div>'
+    +'<div class="p-body">'
+    +(c.price52w? '<div class="sec-h"><span class="no" style="color:'+s.color+'">§</span><span class="t">'+esc(T("priceSec"))+'</span></div>'
+      +'<div class="ch-box"><div class="ch-cap">'+esc(T("rangeCap"))+'</div>'+rangeSVG(c.price52w,s.color)
+      +((c.priceHistory&&c.priceHistory.length>1)?'<div class="ch-cap" style="margin-top:12px;border-top:1px solid var(--line-soft);padding-top:10px">'+esc(T("histCap"))+'</div>'+sparkSVG(c.priceHistory,s.color):'')
+      +'</div>' : '')
+    +'<div class="sec-h"><span class="no" style="color:'+s.color+'">§</span><span class="t">'+esc(T("finTitle"))+'</span></div>'
+    +'<table class="fin-table">'+fin+'</table>'
+    +'<div class="sec-h" style="margin-top:24px"><span class="no" style="color:'+s.color+'">§</span><span class="t">'+esc(T("chartsTitle"))+'</span></div>'
+    +'<div class="charts">'
+    +'<div class="ch-box"><div class="ch-cap">'+esc(T("revCap"))+' · '+esc(L(c.revTrend.unit))+'</div>'+barSVG(c.revTrend,s.color)+'<div class="ch-note">'+esc(L(c.revTrend.note)||"")+'</div></div>'
+    +'<div class="ch-box"><div class="ch-cap">'+esc(L(c.segments.title))+'</div>'+donutHTML(c.segments,s.color)+'</div>'
+    +'</div>'
+    +secs
+    +'</div>'
+    +'<div class="p-foot"><span>'+esc(T("footBatch").replace("{b}",c.batch).replace("{d}",c.added))+'</span><span>'+esc(T("footVal"))+esc(L(c.valuation.asOf))+'</span><span>'+esc(T("footDisc"))+'</span></div>';
+  const ov=document.getElementById("overlay");
+  ov.classList.add("open"); document.body.classList.add("lock");
+  document.getElementById("close").addEventListener("click",closeDetail);
+  document.getElementById("close").focus();
+}
+function closeDetail(){ openId=null; document.getElementById("overlay").classList.remove("open"); document.body.classList.remove("lock"); }
+document.getElementById("overlay").addEventListener("click",function(e){ if(e.target===this) closeDetail(); });
+document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeDetail(); });
+
+/* ---- 頁尾進度紀錄 ---- */
+function renderFooter(){
+  const byS = APP_DATA.subsectors.map(function(s){
+    const arr=(PROGRESS.completed[s.id]||[]);
+    return '<li><span class="mono" style="color:'+s.color+'">■</span> '+esc(L(s.name))+':<span class="mono"> '+(arr.length?arr.join(", "):"—")+'</span>('+arr.length+(LANG==="zh"?" 家":"")+')</li>';
+  }).join("");
+  const notes = PROGRESS.dataNotes.map(function(n){return '<li>'+esc(L(n))+'</li>';}).join("");
+  const next = PROGRESS.nextSuggested.map(function(n){return '<span>'+esc(L(n))+'</span>';}).join("");
+  document.getElementById("footer").innerHTML =
+    '<div class="f-h">'+esc(T("logHead").replace("{b}",PROGRESS.batchesCompleted).replace("{n}",PROGRESS.totalCompanies).replace("{d}",PROGRESS.lastUpdated))+'</div>'
+    +'<div class="f-grid">'
+    +'<div class="f-box"><h4>'+esc(T("covered"))+'</h4><ul>'+byS+'</ul>'
+    +'<h4 style="margin-top:14px">'+esc(T("next"))+'</h4><div class="next-chips">'+next+'</div></div>'
+    +'<div class="f-box"><h4>'+esc(T("how"))+'</h4><div class="howto">'+esc(L(PROGRESS.howToContinue))+'</div>'+(PROGRESS.updateRoutine?'<div class="howto" style="margin-top:8px;border-top:1px dashed var(--line-soft);padding-top:8px">'+esc(L(PROGRESS.updateRoutine))+'</div>':'')
+    +'<h4 style="margin-top:14px">'+esc(T("notes"))+'</h4><ul>'+notes+'</ul></div>'
+    +'</div>'
+    +'<div class="f-note">'+esc(T("fnote"))+'</div>';
+}
+
+/* ---- 語言切換 ---- */
+function renderAll(){ renderChrome(); renderNav(); renderGrid(); renderFooter(); if(openId) openDetail(openId); }
+document.getElementById("lang-btn").addEventListener("click",function(){ LANG = (LANG==="zh"?"en":"zh"); renderAll(); });
+
+renderAll();
+</script>
+</body>
+</html>
