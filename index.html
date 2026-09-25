@@ -164,47 +164,130 @@ body.lock{overflow:hidden}
 {
   "project": "北美工業公司商業模式知識庫 / North American Industrials KB",
   "schemaVersion": 2,
-  "lastUpdated": "2026-07-21",
-  "batchesCompleted": 3,
-  "totalCompanies": 20,
+  "lastUpdated": "2026-09-25",
+  "batchesCompleted": 4,
+  "totalCompanies": 30,
   "completed": {
-    "power": ["GEV", "ETN", "VRT", "PWR"],
-    "machinery": ["CAT", "DE", "CMI", "PH", "TT"],
-    "aerospace": ["RTX", "LMT", "CAE", "NOC", "GE", "BBD"],
-    "automation": ["ROK", "ATS", "EMR", "HON", "SYM"]
+    "power": [
+      "GEV",
+      "ETN",
+      "VRT",
+      "PWR",
+      "BKR",
+      "HUBB",
+      "HPS"
+    ],
+    "machinery": [
+      "CAT",
+      "DE",
+      "CMI",
+      "PH",
+      "TT",
+      "ITW",
+      "CARR",
+      "URI"
+    ],
+    "aerospace": [
+      "RTX",
+      "LMT",
+      "CAE",
+      "NOC",
+      "GE",
+      "BBD",
+      "TDG",
+      "HWM"
+    ],
+    "automation": [
+      "ROK",
+      "ATS",
+      "EMR",
+      "HON",
+      "SYM",
+      "JCI",
+      "AME"
+    ]
   },
   "nextSuggested": [
-    {"zh": "HONA 漢威航太(航太・新分拆)", "en": "HONA Honeywell Aerospace (A&D, new spin)"},
-    {"zh": "GD 通用動力(航太國防・Gulfstream)", "en": "GD General Dynamics (A&D · Gulfstream)"},
-    {"zh": "LHX L3Harris(航太國防)", "en": "LHX L3Harris (A&D)"},
-    {"zh": "TDG TransDigm(航太零組件)", "en": "TDG TransDigm (Aero components)"},
-    {"zh": "HWM Howmet(航太結構件)", "en": "HWM Howmet Aerospace"},
-    {"zh": "ITW 伊利諾工具(多元機械)", "en": "ITW Illinois Tool Works"},
-    {"zh": "CARR 開利(HVAC)", "en": "CARR Carrier Global (HVAC)"},
-    {"zh": "JCI 江森自控(樓宇)", "en": "JCI Johnson Controls (Buildings)"},
-    {"zh": "URI 聯合租賃(設備租賃)", "en": "URI United Rentals"},
-    {"zh": "WSP Global(加拿大・工程顧問)", "en": "WSP Global (Canada · engineering)"}
+    {
+      "zh": "HONA 漢威航太(航太,新分拆)",
+      "en": "HONA Honeywell Aerospace (aerospace, new spin off)"
+    },
+    {
+      "zh": "GD 通用動力(國防,Gulfstream 公務機)",
+      "en": "GD General Dynamics (defense, Gulfstream jets)"
+    },
+    {
+      "zh": "LHX L3Harris(國防電子)",
+      "en": "LHX L3Harris (defense electronics)"
+    },
+    {
+      "zh": "MDA MDA Space(加拿大,太空)",
+      "en": "MDA MDA Space (Canada, space)"
+    },
+    {
+      "zh": "NVT nVent(電力,資料中心液冷與配電)",
+      "en": "NVT nVent (power, data center cooling and electrical)"
+    },
+    {
+      "zh": "GNRC Generac(電力,備援發電機)",
+      "en": "GNRC Generac (power, backup generators)"
+    },
+    {
+      "zh": "PCAR PACCAR(機械,重型卡車)",
+      "en": "PCAR PACCAR (machinery, heavy trucks)"
+    },
+    {
+      "zh": "TIH Toromont(加拿大,Caterpillar 經銷商)",
+      "en": "TIH Toromont (Canada, Caterpillar dealer)"
+    },
+    {
+      "zh": "ZBRA Zebra Technologies(自動化,條碼與機器視覺)",
+      "en": "ZBRA Zebra Technologies (automation, scanning and machine vision)"
+    },
+    {
+      "zh": "TER Teradyne(自動化,協作機器人)",
+      "en": "TER Teradyne (automation, collaborative robots)"
+    }
   ],
   "updateRoutine": {
-    "zh": "「更新」= 每批例行:1) 刷新全部公司估值列(股價/市值/P-E/截至日)、52 週區間與卡片統計 2) priceHistory 各追加一筆當期價 3) 檢查各公司新財報與重大事件,以「▸ 日期更新」段落附加於近期動態 4) 新增 10 家雙語條目 5) 同步 meta 與本紀錄 6) 推送至 GitHub Pages。",
-    "en": "'Update' = per-batch routine: 1) refresh every company's valuation strip (price/mkt cap/P-E/as-of), 52-week range and card stats 2) append one priceHistory point each 3) check for new earnings/major events and append dated update paragraphs 4) add 10 new bilingual entries 5) sync meta and this log 6) push to GitHub Pages."
+    "zh": "「更新」= 每批例行:1) 刷新全部公司估值列(股價、市值、本益比、截至日)、52 週區間與卡片統計 2) 價格紀錄各追加一筆當期價 3) 檢查各公司新財報與重大事件,以「▸ 日期更新」段落附加於近期動態 4) 新增 10 家雙語條目 5) 同步 meta 與本紀錄 6) 推送至 GitHub Pages。",
+    "en": "'Update' = per batch routine: 1) refresh every company's valuation strip (price, market cap, price to earnings, as of date), 52 week range and card stats 2) append one price log point each 3) check for new earnings and major events and append dated update paragraphs 4) add 10 new bilingual entries 5) sync meta and this log 6) push to GitHub Pages."
   },
   "deployment": {
-    "zh": "已部署於 GitHub Pages:repo Jonathan057/industrials-kb(branch main,檔名 index.html);更新時以 GitHub API PUT 推送(需用戶提供權杖,權杖不儲存)",
-    "en": "Deployed on GitHub Pages: repo Jonathan057/industrials-kb (branch main, index.html); push updates via GitHub API PUT (user supplies token each conversation; never stored)"
+    "zh": "網站:https://jonathan057.github.io/industrials-kb/;repo Jonathan057/industrials-kb(branch main,檔名 index.html);以 GitHub 應用程式介面推送,權杖由用戶提供且不儲存",
+    "en": "Site: https://jonathan057.github.io/industrials-kb/ ; repo Jonathan057/industrials-kb (branch main, index.html); pushed via the GitHub application programming interface with a user supplied token that is never stored"
   },
   "earningsCalendar": [
-    {"zh": "GEV 7/22 · LMT+RTX 7/23 · ROK 7/27 · VRT 7/29 · ETN 7/31 · PWR+TT 7月底 · PH 8月初 · CAT+EMR 8/4 · SYM 8月上旬 · CAE 8/11-12 · ATS 8/12 · DE 8/20", "en": "GEV Jul 22 · LMT+RTX Jul 23 · ROK Jul 27 · VRT Jul 29 · ETN Jul 31 · PWR+TT late Jul · PH early Aug · CAT+EMR Aug 4 · SYM early Aug · CAE Aug 11-12 · ATS Aug 12 · DE Aug 20"}
+    {
+      "zh": "第三季財報季:RTX、GE Aerospace、Northrop 約 10/20 · 聯合租賃 10/21 · 貝克休斯 10/22 · GE Vernova 10/27 · 哈伯 10/28 · 卡特彼勒約 10/29 · Trane、江森自控約 11/4 · 龐巴迪 11/5 · CAE 約 11/11 · Symbotic 11/16 · 其餘多在 10 月下旬至 11 月上旬",
+      "en": "Q3 season: RTX, GE Aerospace, Northrop around Oct 20 · United Rentals Oct 21 · Baker Hughes Oct 22 · GE Vernova Oct 27 · Hubbell Oct 28 · Caterpillar around Oct 29 · Trane and Johnson Controls around Nov 4 · Bombardier Nov 5 · CAE around Nov 11 · Symbotic Nov 16 · most others late October to early November"
+    }
   ],
   "dataNotes": [
-    {"zh": "第 1–2 批報價刷新至 2026-07-17~20;第 3 批多為 2026-07-20 快照;NOC 為 7/21 盤中(今晨 Q2 後 -4%)", "en": "Batches 1–2 quotes as of 2026-07-17~20; batch 3 mostly Jul 20 snapshots; NOC intraday Jul 21 (-4% post-Q2)"},
-    {"zh": "待補:HON 分拆後(6/29)股價/市值、BBD 報價——下批確認;第 3 批十家的 52 週區間亦於下批補齊", "en": "Pending: HON post-spin (Jun 29) price/mkt cap and BBD quote — confirm next batch; batch-3 52-week ranges to be backfilled next session"},
-    {"zh": "約值:多家 2025/FY25 營收與板塊佔比為概算(各圖已標注);VRT 積壓各方報導介於 US$125–150 億", "en": "Approximate: several 2025/FY25 revenues and segment mixes are estimates (flagged on charts); VRT backlog reported between US$12.5–15B"},
-    {"zh": "Schema v2:所有內容欄位為雙語物件 {zh, en};近期動態的「▸ 更新」段落隨批次累積", "en": "Schema v2: all content fields bilingual {zh, en}; dated update paragraphs accumulate per batch"}
+    {
+      "zh": "第 1 至 3 批 20 家的報價、市值與 52 週區間刷新至 2026-09-16 至 09-25(依各公司標註);第 4 批 10 家為同期快照",
+      "en": "Quotes, market caps and 52 week ranges for the first 20 companies refreshed to Sep 16 to 25, 2026 (per company as of dates); batch 4 uses snapshots from the same window"
+    },
+    {
+      "zh": "更正:龐巴迪多倫多代號為 BBD.B;CAE 美國掛牌改為那斯達克;漢威分拆後每股盈餘指引推測僅涵蓋下半年(已加註);派克漢尼汾 7/20 紀錄價查證有誤,已自價格紀錄移除",
+      "en": "Corrections: Bombardier's Toronto ticker is BBD.B; CAE's U.S. listing moved to Nasdaq; Honeywell's post spin earnings guidance likely covers only the second half (annotated); Parker-Hannifin's Jul 20 log price failed verification and was removed"
+    },
+    {
+      "zh": "漢威 52 週區間為分拆調整後數據;江森自控 52 週區間待下批補齊;Hammond Power 與康明斯的最新價為 9 月下旬概值;TransDigm 市值為概算",
+      "en": "Honeywell's 52 week range is spin adjusted; Johnson Controls' 52 week range comes next batch; latest Hammond Power and Cummins prices are late September approximations; TransDigm market cap is estimated"
+    },
+    {
+      "zh": "約值:多家 2025 與 FY25 營收及板塊佔比為概算(各圖已標注)",
+      "en": "Approximate: several 2025 and FY25 revenues and segment mixes are estimates (flagged on charts)"
+    },
+    {
+      "zh": "Schema v2:所有內容欄位為雙語物件 {zh, en};近期動態的「▸ 更新」段落隨批次累積",
+      "en": "Schema v2: all content fields are bilingual {zh, en} objects; dated update paragraphs accumulate per batch"
+    }
   ],
   "howToContinue": {
-    "zh": "新對話請上傳最新 index.html(或本檔)並說「更新」。Claude 應:1) 讀取本紀錄 2) 執行上方例行更新(含刷新既有 20 家報價) 3) 研究新 10 家財報與行情 4) 於 INSERT 標記前新增雙語條目 5) 更新 meta 與本紀錄 6) 請用戶提供 GitHub 權杖後推送。",
-    "en": "In a new conversation, upload the latest index.html (or this file) and say 'update'. Claude should: 1) read this log 2) run the routine above (incl. refreshing all 20 quotes) 3) research 10 new companies 4) insert bilingual entries before the INSERT marker 5) update meta and this log 6) ask for the GitHub token and push."
+    "zh": "新對話請上傳最新 index.html(或讓 Claude 從 repo 讀取)並說「更新」。Claude 應:1) 讀取本紀錄 2) 執行上方例行更新(含刷新既有 30 家報價) 3) 研究新 10 家財報與行情 4) 於 INSERT 標記前新增雙語條目 5) 更新 meta 與本紀錄 6) 取得用戶提供的 GitHub 權杖後推送。",
+    "en": "In a new conversation, upload the latest index.html (or let Claude read it from the repo) and say 'update'. Claude should: 1) read this log 2) run the routine above (including refreshing all 30 quotes) 3) research 10 new companies 4) insert bilingual entries before the INSERT marker 5) update meta and this log 6) push after the user supplies a GitHub token."
   }
 }
 </script>
@@ -249,7 +332,7 @@ body.lock{overflow:hidden}
    新增公司:在 __INSERT_NEW_COMPANIES_HERE__ 標記「之前」加入物件
 ================================================================= */
 const APP_DATA = {
-meta:{ project:"北美工業公司商業模式知識庫", lastUpdated:"2026-07-21", batch:3 },
+meta:{ project:"北美工業公司商業模式知識庫", lastUpdated:"2026-09-25", batch:4 },
 
 subsectors:[
  { id:"power",      name:{zh:"電力／能源設備",en:"Power & Energy Equipment"}, en:"POWER & ENERGY",   color:"#C1521B" },
@@ -272,10 +355,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},"Scott Strazik"],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:{zh:"約 US$1,061",en:"~US$1,061"}, mcap:{zh:"約 US$2,850 億",en:"~US$285B"}, pe:{zh:"約 31x(TTM)",en:"~31x (TTM)"}, asOf:"2026-07-17/20" },
-price52w:{ low:530.16, high:1195.94, cur:1061, lowDate:"25/11/21" },
-priceHistory:[["2026-07-15",1057.4],["2026-07-16",1036.2],["2026-07-17",1061.5]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$285B"], [{zh:"股價",en:"PRICE"},"$1,061"], [{zh:"TTM營收",en:"TTM REV"},"$39.4B"] ],
+valuation:{ price:"US$946.22", mcap:{zh:"約 US$2,520 億",en:"~US$252B"}, pe:{zh:"約 28x(近四季,含一次性收益)",en:"~28x trailing (incl. one time gains)"}, asOf:"2026-09-21" },
+price52w:{ low:530.16, high:1195.94, cur:946.2, lowDate:"25/11/21", highDate:"26/7" },
+priceHistory:[["2026-07-15",1057.4],["2026-07-16",1036.2],["2026-07-17",1061.5],["2026-09-21",946.2]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$252B"], [{zh:"股價",en:"PRICE"},"$946"], [{zh:"TTM營收",en:"TTM REV"},"$39.4B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$394 億",en:"US$39.4B"}],
  [{zh:"FY2025 營收",en:"FY2025 revenue"},{zh:"US$380 億(全年訂單 US$593 億)",en:"US$38.0B (FY orders US$59.3B)"}],
@@ -300,8 +383,8 @@ sections:[
 {zh:"重型燃氣輪機領域與西門子能源、三菱重工形成全球三強寡占,GE Vernova 是美國市場的絕對龍頭,也是 AI 資料中心電力缺口的最大受益者之一。2026Q1 全板塊訂單有機成長 71%,燃機積壓+預訂席位達 100 GW(年底上看 110 GW);電氣化板塊訂單有機成長 86%,變壓器、開關設備供不應求,單位售價持續走升,管理層並預告 Q2 每 kW 報價將「非常健康地」成長。",
  en:"Heavy-duty gas turbines are a global three-player oligopoly with Siemens Energy and Mitsubishi Heavy Industries, and GE Vernova is the clear U.S. leader — one of the biggest beneficiaries of the AI data-center power gap. Q1 2026 orders grew 71% organically across all segments; turbine backlog plus slot reservations hit 100 GW (heading to 110 GW by year end). Electrification orders grew 86% organically, with transformers and switchgear in short supply and management guiding to 'very healthy' $/kW price growth in Q2."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026 年 4 月公佈 Q1 財報並上調全年營收、EBITDA 利潤率與自由現金流指引:電氣化板塊單季獲得 24 億美元資料中心設備訂單,已超過 2025 全年;完成收購電網設備商 Prolec GE 剩餘 50% 股權,總積壓訂單達創紀錄的 1,630 億美元,管理層稱將提前達成 2,000 億美元目標。2030 年前燃機產能僅剩約 10 GW,已開始接受 2031 年之後的訂單;核電設備訂單與服務(含電廠升級大單)明顯上升。弱點在風電:受陸上風電量縮、關稅與離岸風電合約損失影響,板塊虧損擴大。\n▸ 2026/7/21 更新:Q2 財報 7/22 公佈,市場預期 EPS 3.17 美元、營收 107.7 億;7 月上旬股價曾單日重挫 10% 後迅速收復,52 週區間 530–1,196 美元展現高波動。",
- en:"In April 2026 the company reported Q1 results and raised full-year guidance for revenue, EBITDA margin and free cash flow: Electrification booked $2.4B of data-center equipment orders in a single quarter — more than all of 2025 — and the acquisition of the remaining 50% of grid-equipment maker Prolec GE closed, lifting total backlog to a record $163B; management says the $200B backlog target will be reached ahead of plan. Only ~10 GW of turbine capacity remains through 2030, with orders now being taken for 2031 and beyond; nuclear equipment orders and services (including large plant-upgrade awards) are rising sharply. The weak spot remains Wind, where losses widened on lower onshore volume, tariffs and offshore contract losses.\n▸ Update (Jul 21, 2026): Q2 results land Jul 22 (consensus EPS $3.17 on $10.77B revenue); the stock plunged 10% in a single early-July session before recovering — a 52-week range of $530–1,196 speaks to the volatility."}]
+{zh:"2026 年 4 月公佈 Q1 財報並上調全年營收、EBITDA 利潤率與自由現金流指引:電氣化板塊單季獲得 24 億美元資料中心設備訂單,已超過 2025 全年;完成收購電網設備商 Prolec GE 剩餘 50% 股權,總積壓訂單達創紀錄的 1,630 億美元,管理層稱將提前達成 2,000 億美元目標。2030 年前燃機產能僅剩約 10 GW,已開始接受 2031 年之後的訂單;核電設備訂單與服務(含電廠升級大單)明顯上升。弱點在風電:受陸上風電量縮、關稅與離岸風電合約損失影響,板塊虧損擴大。\n▸ 2026/7/21 更新:Q2 財報 7/22 公佈,市場預期 EPS 3.17 美元、營收 107.7 億;7 月上旬股價曾單日重挫 10% 後迅速收復,52 週區間 530–1,196 美元展現高波動。\n▸ 2026/9/25 更新:第二季(7/22)訂單 242 億美元、年增 88%,積壓訂單增至 1,760 億美元;單季自由現金流 51 億美元已超過 2025 全年,全年自由現金流指引近乎倍增至 115 億至 125 億美元。但調整後每股盈餘 2.47 美元低於預期約 0.6 美元。上半年資料中心訂單逾 50 億美元(2025 全年約 20 億),管理層預期 2027 年初積壓訂單達 2,000 億美元。9 月與 Vineyard Wind 風場糾紛和解;股價自 7 月初高點 1,196 美元回落至約 946 美元。下次財報 10/27。",
+ en:"In April 2026 the company reported Q1 results and raised full-year guidance for revenue, EBITDA margin and free cash flow: Electrification booked $2.4B of data-center equipment orders in a single quarter — more than all of 2025 — and the acquisition of the remaining 50% of grid-equipment maker Prolec GE closed, lifting total backlog to a record $163B; management says the $200B backlog target will be reached ahead of plan. Only ~10 GW of turbine capacity remains through 2030, with orders now being taken for 2031 and beyond; nuclear equipment orders and services (including large plant-upgrade awards) are rising sharply. The weak spot remains Wind, where losses widened on lower onshore volume, tariffs and offshore contract losses.\n▸ Update (Jul 21, 2026): Q2 results land Jul 22 (consensus EPS $3.17 on $10.77B revenue); the stock plunged 10% in a single early-July session before recovering — a 52-week range of $530–1,196 speaks to the volatility.\n▸ Update (Sep 25, 2026): Q2 (Jul 22) orders hit $24.2B, up 88%, lifting backlog to $176B; quarterly free cash flow of $5.1B already exceeded all of 2025, and full year free cash flow guidance nearly doubled to $11.5B to $12.5B. Adjusted earnings per share of $2.47, however, missed consensus by roughly $0.60. First half data center orders topped $5B (about $2B in all of 2025), and management expects backlog to reach $200B in early 2027. The Vineyard Wind dispute was settled in September; shares have eased from the early July high of $1,196 to about $946. Next report: Oct 27."}]
 ]
 },
 
@@ -317,10 +400,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},{zh:"Joseph Creed(2025/5 上任)",en:"Joseph Creed (since May 2025)"}],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:"US$864.30", mcap:{zh:"約 US$3,980 億",en:"~US$398B"}, pe:{zh:"約 43x(TTM);前瞻約 34x",en:"~43x TTM; fwd ~34x"}, asOf:"2026-07-20" },
-price52w:{ low:405.46, high:1073.46, cur:864.3, lowDate:"25/8/18", highDate:"26/6/30" },
-priceHistory:[["2026-06-10",909.8],["2026-06-30",1064.9],["2026-07-20",864.3]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$398B"], [{zh:"股價",en:"PRICE"},"$864"], [{zh:"TTM營收",en:"TTM REV"},"$70.8B"] ],
+valuation:{ price:"US$805.25", mcap:{zh:"約 US$3,702 億",en:"~US$370.2B"}, pe:{zh:"約 35x(近四季)",en:"~35x trailing"}, asOf:"2026-09-24" },
+price52w:{ low:459.58, high:1073.46, cur:805.3, lowDate:"25/9/25", highDate:"26/6/30" },
+priceHistory:[["2026-06-10",909.8],["2026-06-30",1064.9],["2026-07-20",864.3],["2026-09-24",805.3]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$370B"], [{zh:"股價",en:"PRICE"},"$805"], [{zh:"TTM營收",en:"TTM REV"},"$70.8B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$708 億",en:"US$70.8B"}],
  [{zh:"2026Q1 營收",en:"Q1 2026 revenue"},{zh:"US$174 億(+22%)",en:"US$17.4B (+22%)"}],
@@ -345,8 +428,8 @@ sections:[
 {zh:"工程機械行業無可爭議的全球第一,領先小松(Komatsu)、迪爾、沃爾沃建築設備等對手。在 AI 電力缺口下,能源與電力板塊已成為公司最大且成長最快的部門(Q4'25 利潤年增 25%),大型燃氣發電機組與 Cummins、GE Vernova 形成既互補又競爭的格局;2026Q1 積壓訂單 630 億美元、年增 79%,並創下歷史最高的第一季訂單。",
  en:"The undisputed global No. 1 in construction machinery, ahead of Komatsu, Deere and Volvo CE. Amid the AI power gap, the power/energy business has become Caterpillar's largest and fastest-growing segment (Q4'25 profit +25%); its large gas gensets sit in a complementary-yet-competitive relationship with Cummins and GE Vernova. Q1 2026 backlog reached $63B, +79% YoY, alongside an all-time record for first-quarter orders."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026Q1 營收 174 億美元(+22%)、調整後 EPS 5.54 美元(+30%),股價應聲創歷史新高。宣布與 ProPetro 旗下 PROPWR 簽訂至多 2.1 GW 大型燃氣發電機組框架協議——已是第六個超過 1 GW 的主要電源協議;全年營收指引上調至低雙位數成長,2030 年營收 CAGR 目標上調至 6–9%、發電業務銷售目標上調至 2024 年的 3 倍以上,並宣布大型往復式引擎產能擴張計畫。風險面:2026 全年關稅成本估 22–24 億美元,資源產業板塊利潤下滑 39%、利潤率掉約 700bps,是需持續追蹤的隱憂。\n▸ 2026/7/21 更新:股價 6/30 觸及 52 週高點 1,073 美元後回檔至約 870;7/7 宣布收購 Skycatch 強化礦業無人機測繪科技;Q1 發電營收年增 41% 至 28.2 億美元;Q2 財報 8/4 公佈。",
- en:"Q1 2026 revenue was $17.4B (+22%) with adjusted EPS of $5.54 (+30%), sending the stock to record highs. A framework agreement with ProPetro's PROPWR unit covers up to 2.1 GW of large gas gensets — the sixth prime-power agreement of at least 1 GW. Full-year guidance was raised to low-double-digit growth; the 2030 revenue CAGR target rose to 6–9%, the power-generation sales target to more than 3x 2024 levels, and a major capacity expansion for large reciprocating engines was announced. Risks: FY2026 tariff costs of $2.2–2.4B, and Resource Industries profit fell 39% with margins down ~700bps — worth monitoring.\n▸ Update (Jul 21, 2026): the stock touched a 52-week high of $1,073 on Jun 30 before pulling back to ~$870; on Jul 7 CAT announced the Skycatch acquisition to bolster mining drone-mapping tech; Q1 power-generation revenue rose 41% to $2.82B; Q2 results land Aug 4."}]
+{zh:"2026Q1 營收 174 億美元(+22%)、調整後 EPS 5.54 美元(+30%),股價應聲創歷史新高。宣布與 ProPetro 旗下 PROPWR 簽訂至多 2.1 GW 大型燃氣發電機組框架協議——已是第六個超過 1 GW 的主要電源協議;全年營收指引上調至低雙位數成長,2030 年營收 CAGR 目標上調至 6–9%、發電業務銷售目標上調至 2024 年的 3 倍以上,並宣布大型往復式引擎產能擴張計畫。風險面:2026 全年關稅成本估 22–24 億美元,資源產業板塊利潤下滑 39%、利潤率掉約 700bps,是需持續追蹤的隱憂。\n▸ 2026/7/21 更新:股價 6/30 觸及 52 週高點 1,073 美元後回檔至約 870;7/7 宣布收購 Skycatch 強化礦業無人機測繪科技;Q1 發電營收年增 41% 至 28.2 億美元;Q2 財報 8/4 公佈。\n▸ 2026/9/25 更新:第二季(8/4)營收 205 億美元、年增 24%,單季首度突破 200 億美元;調整後每股盈餘 8.17 美元、年增 73%,大幅優於預期;積壓訂單創紀錄 720 億美元、年增 92%,約 59% 將在 12 個月內交付;全年營收成長指引上修至十幾個百分點的中高段。股價仍較 6/30 高點 1,073 美元低約 25%,市場在高估值下觀望人工智慧電力需求能否延續。下次財報約 10/29。",
+ en:"Q1 2026 revenue was $17.4B (+22%) with adjusted EPS of $5.54 (+30%), sending the stock to record highs. A framework agreement with ProPetro's PROPWR unit covers up to 2.1 GW of large gas gensets — the sixth prime-power agreement of at least 1 GW. Full-year guidance was raised to low-double-digit growth; the 2030 revenue CAGR target rose to 6–9%, the power-generation sales target to more than 3x 2024 levels, and a major capacity expansion for large reciprocating engines was announced. Risks: FY2026 tariff costs of $2.2–2.4B, and Resource Industries profit fell 39% with margins down ~700bps — worth monitoring.\n▸ Update (Jul 21, 2026): the stock touched a 52-week high of $1,073 on Jun 30 before pulling back to ~$870; on Jul 7 CAT announced the Skycatch acquisition to bolster mining drone-mapping tech; Q1 power-generation revenue rose 41% to $2.82B; Q2 results land Aug 4.\n▸ Update (Sep 25, 2026): Q2 (Aug 4) sales reached $20.5B, up 24% and above $20B for the first time; adjusted earnings per share of $8.17 rose 73% and beat estimates by a wide margin; backlog hit a record $72B, up 92%, with about 59% due to ship within 12 months, and full year sales growth guidance was raised to the mid to high teens. Shares remain about 25% below the Jun 30 high of $1,073 as investors weigh a rich valuation against the durability of artificial intelligence power demand. Next report: around Oct 29."}]
 ]
 },
 
@@ -362,10 +445,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},"Chris Calio"],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:{zh:"約 US$194",en:"~US$194"}, mcap:{zh:"約 US$2,625 億",en:"~US$262.5B"}, pe:{zh:"約 37x(TTM);前瞻約 28x",en:"~37x TTM; fwd ~28x"}, asOf:"2026-07-17/20" },
-price52w:{ low:143.56, high:214.50, cur:194.4, lowDate:"25/7/22", highDate:"26/3/3" },
-priceHistory:[["2025-12-26",185.2],["2026-06-23",186.6],["2026-07-17",194.4]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$263B"], [{zh:"股價",en:"PRICE"},"$194"], [{zh:"TTM營收",en:"TTM REV"},"$90.4B"] ],
+valuation:{ price:"US$192.19", mcap:{zh:"約 US$2,590 億",en:"~US$259.0B"}, pe:{zh:"前瞻約 27x(2026 指引中值)",en:"Forward ~27x (2026 guidance midpoint)"}, asOf:"2026-09-23" },
+price52w:{ low:155.64, high:226.88, cur:192.2, highDate:"26/8" },
+priceHistory:[["2025-12-26",185.2],["2026-06-23",186.6],["2026-07-17",194.4],["2026-09-23",192.2]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$259B"], [{zh:"股價",en:"PRICE"},"$192"], [{zh:"TTM營收",en:"TTM REV"},"$90.4B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$904 億",en:"US$90.4B"}],
  [{zh:"FY2025 營收",en:"FY2025 revenue"},{zh:"US$886 億(+10%)",en:"US$88.6B (+10%)"}],
@@ -391,8 +474,8 @@ sections:[
 {zh:"與洛克希德·馬丁、波音、諾斯洛普·格魯曼並列美國國防四巨頭,但在防空與飛彈攔截(愛國者、標準飛彈、SM-3)幾乎沒有對等競爭者;商用引擎端普惠與 GE Aerospace/CFM 形成雙寡頭。2025 年營收 886 億美元(2021 年為 644 億),總積壓訂單由 2,680 億增至 2,710 億美元,規模與技術壁壘俱佳。",
  en:"One of America's Big Four defense primes alongside Lockheed Martin, Boeing and Northrop Grumman — yet in air and missile defense (Patriot, Standard Missile, SM-3) it has almost no peer competitor; in commercial engines Pratt forms a duopoly with GE Aerospace/CFM. Revenue reached $88.6B in 2025 (vs $64.4B in 2021) and total backlog grew from $268B to $271B — scale and technical barriers both intact."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026Q1 調整後營收 221 億美元(+9%)、EPS 1.78 美元(+21%),三大板塊營收與利潤全面成長;Raytheon 有機成長 9%、營業利益率擴張 150bps 至 12.2%、彈藥產出年增逾 40%。隨即上修全年指引:營收 925–935 億、EPS 6.70–6.90 美元。涵蓋戰斧、AMRAAM 與標準飛彈家族的五項框架協議尚未計入積壓訂單,代表額外約十年的需求能見度。風險:約 8.5 億美元關稅利潤逆風未計入指引(Q1 Collins 已承受 130bps 拖累);GTF Advantage 需如期在 2026 年內投入服務,火箭發動機、鑄件與微電子供應鏈仍偏緊。\n▸ 2026/7/21 更新:7/7 與 NATO 推進 AMRAAM 產能大擴張、Stinger 飛彈產量將倍增;股價自 6 月下旬約 186 美元回升至約 194;Q2 財報 7/23 公佈。",
- en:"Q1 2026 adjusted revenue was $22.1B (+9%) and EPS $1.78 (+21%), with sales and profit growth across all three segments; Raytheon grew 9% organically, expanded margins 150bps to 12.2%, and lifted munitions output 40%+. Full-year guidance was promptly raised to $92.5–93.5B revenue and $6.70–6.90 EPS. Five framework agreements covering Tomahawk, AMRAAM and the Standard Missile family are not yet in backlog — roughly a decade of extra demand visibility. Risks: an ~$850M tariff profit headwind excluded from guidance (Collins absorbed a 130bps margin drag in Q1); GTF Advantage must enter service on schedule in 2026; rocket motors, castings and microelectronics remain tight.\n▸ Update (Jul 21, 2026): on Jul 7 RTX and NATO advanced a major AMRAAM capacity expansion and Raytheon is doubling Stinger output; the stock recovered from ~$186 in late June to ~$194; Q2 results land Jul 23."}]
+{zh:"2026Q1 調整後營收 221 億美元(+9%)、EPS 1.78 美元(+21%),三大板塊營收與利潤全面成長;Raytheon 有機成長 9%、營業利益率擴張 150bps 至 12.2%、彈藥產出年增逾 40%。隨即上修全年指引:營收 925–935 億、EPS 6.70–6.90 美元。涵蓋戰斧、AMRAAM 與標準飛彈家族的五項框架協議尚未計入積壓訂單,代表額外約十年的需求能見度。風險:約 8.5 億美元關稅利潤逆風未計入指引(Q1 Collins 已承受 130bps 拖累);GTF Advantage 需如期在 2026 年內投入服務,火箭發動機、鑄件與微電子供應鏈仍偏緊。\n▸ 2026/7/21 更新:7/7 與 NATO 推進 AMRAAM 產能大擴張、Stinger 飛彈產量將倍增;股價自 6 月下旬約 186 美元回升至約 194;Q2 財報 7/23 公佈。\n▸ 2026/9/25 更新:第二季(7/23)銷售 247 億美元、年增 14%(有機 16%),調整後每股盈餘 1.89 美元、年增 21%,大勝預期;積壓訂單創紀錄 2,890 億美元(商用 1,700 億、國防 1,190 億),雷神單季訂單出貨比 2.42。全年指引全面上修:調整後銷售 950 億至 960 億美元、調整後每股盈餘 7.10 至 7.25 美元、自由現金流 85 億至 87.5 億美元。股價 8 月初衝上 226.88 美元的 52 週高點後回落約 15%。下次財報 10/20。",
+ en:"Q1 2026 adjusted revenue was $22.1B (+9%) and EPS $1.78 (+21%), with sales and profit growth across all three segments; Raytheon grew 9% organically, expanded margins 150bps to 12.2%, and lifted munitions output 40%+. Full-year guidance was promptly raised to $92.5–93.5B revenue and $6.70–6.90 EPS. Five framework agreements covering Tomahawk, AMRAAM and the Standard Missile family are not yet in backlog — roughly a decade of extra demand visibility. Risks: an ~$850M tariff profit headwind excluded from guidance (Collins absorbed a 130bps margin drag in Q1); GTF Advantage must enter service on schedule in 2026; rocket motors, castings and microelectronics remain tight.\n▸ Update (Jul 21, 2026): on Jul 7 RTX and NATO advanced a major AMRAAM capacity expansion and Raytheon is doubling Stinger output; the stock recovered from ~$186 in late June to ~$194; Q2 results land Jul 23.\n▸ Update (Sep 25, 2026): Q2 (Jul 23) sales of $24.7B rose 14% (16% organic) and adjusted earnings per share of $1.89 rose 21%, a clear beat; backlog reached a record $289B ($170B commercial, $119B defense), and Raytheon posted a 2.42 book to bill. Full year guidance was raised across the board: adjusted sales of $95B to $96B, adjusted earnings per share of $7.10 to $7.25 and free cash flow of $8.5B to $8.75B. Shares hit a 52 week high of $226.88 in early August before pulling back about 15%. Next report: Oct 20."}]
 ]
 },
 
@@ -408,10 +491,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},"Blake Moret"],
  [{zh:"財年",en:"FISCAL YR"},{zh:"9 月止",en:"Ends Sep"}]
 ],
-valuation:{ price:{zh:"約 US$462",en:"~US$462"}, mcap:{zh:"約 US$511 億",en:"~US$51.1B"}, pe:{zh:"約 48x(TTM);前瞻約 33x",en:"~48x TTM; fwd ~33x"}, asOf:"2026-07-17" },
-price52w:{ low:305.44, high:497.36, cur:461.9, lowDate:"25/8/6", highDate:"26/6/30" },
-priceHistory:[["2026-05-05",440.0],["2026-07-12",472.1],["2026-07-17",461.9]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$51B"], [{zh:"股價",en:"PRICE"},"$462"], [{zh:"52週高",en:"52W HIGH"},"$497"] ],
+valuation:{ price:"US$432.93", mcap:{zh:"約 US$482 億",en:"~US$48.2B"}, pe:{zh:"約 40x(近四季);前瞻約 30x",en:"~40x trailing; forward ~30x"}, asOf:"2026-09-24" },
+price52w:{ low:332.71, high:497.36, cur:432.9, lowDate:"25/10/10", highDate:"26/6/30" },
+priceHistory:[["2026-05-05",440.0],["2026-07-12",472.1],["2026-07-17",461.9],["2026-09-24",432.9]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$48B"], [{zh:"股價",en:"PRICE"},"$433"], [{zh:"52週高",en:"52W HIGH"},"$497"] ],
 financials:[
  [{zh:"FY2026Q2 調整後 EPS",en:"FY26 Q2 adj. EPS"},{zh:"US$3.30(預期 2.88,YoY +35%)",en:"US$3.30 (vs 2.88 est., +35% YoY)"}],
  [{zh:"Q2 智慧裝置板塊",en:"Q2 Intelligent Devices"},{zh:"US$10.0 億(+13%,利潤率 20.9%)",en:"US$1.00B (+13%, 20.9% margin)"}],
@@ -436,8 +519,8 @@ sections:[
 {zh:"北美離散自動化市場龍頭,全球與西門子、施耐德電機、ABB、三菱電機競爭。最大優勢是北美製造業回流(reshoring)的直接受益者——美國新建工廠優先採用本土 Rockwell 平台,2026 財年 Q2 美國有機銷售 +10%,管理層預期北美持續為最強區域。公司曾支援 NASA Artemis II 載人繞月任務的地面控制系統,是關鍵任務級可靠性的口碑背書。",
  en:"The leader in North American discrete automation, competing globally with Siemens, Schneider Electric, ABB and Mitsubishi Electric. Its biggest edge is being the direct beneficiary of U.S. reshoring — new American plants default to the home-grown Rockwell platform; U.S. organic sales rose 10% in FY26 Q2 and management expects North America to remain the strongest region. Rockwell also supported ground-control systems for NASA's Artemis II crewed lunar mission — a mission-critical reliability endorsement."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026 財年 Q2 調整後 EPS 3.30 美元,大幅超越預期的 2.88,股價單日一度大漲近 10%。需求擴散至電商、倉儲自動化、資料中心與半導體;資料中心垂直年增逾一倍,客戶為求快速擴容與能源優化,正從商規轉向工業級控制設備。全年有機銷售指引上調至 +5~9%、企業營業利益率上調至 21.5%;完成 Sensia 合資解散,收回油氣流程自動化主導權;6 月再宣布 10 億美元庫藏股計畫,並規劃於威斯康辛州東南部興建多年來最大的新製造廠。留意下半年記憶體成本與供應商通膨的數千萬美元逆風,以及汽車、消費品大型資本支出仍因貿易波動延後。\n▸ 2026/7/21 更新:Citi 將目標價由 500 上調至 555 美元;獲核能新創 Aalo Atomics 選用其控制系統;威州 New Berlin 巨型新廠取得初步核准;Q3 財報 7/27 公佈。",
- en:"FY26 Q2 adjusted EPS of $3.30 crushed the $2.88 estimate and the stock jumped nearly 10% intraday. Demand is broadening across e-commerce, warehouse automation, data centers and semiconductors; the data-center vertical more than doubled YoY as customers shift from commercial-grade to industrial-grade controls for speed-to-capacity and energy optimization. Full-year organic growth guidance was raised to +5–9% with 21.5% op margin; the Sensia JV dissolution completed, returning oil & gas process automation in-house; in June the company announced a $1B buyback and plans for its largest new plant in years in southeast Wisconsin. Watch second-half headwinds from memory costs and supplier inflation (tens of millions of dollars), plus still-delayed auto and CPG capex.\n▸ Update (Jul 21, 2026): Citi raised its target from $500 to $555; nuclear startup Aalo Atomics selected Rockwell for control systems; the New Berlin, WI mega-plant won early approvals; Q3 results land Jul 27."}]
+{zh:"2026 財年 Q2 調整後 EPS 3.30 美元,大幅超越預期的 2.88,股價單日一度大漲近 10%。需求擴散至電商、倉儲自動化、資料中心與半導體;資料中心垂直年增逾一倍,客戶為求快速擴容與能源優化,正從商規轉向工業級控制設備。全年有機銷售指引上調至 +5~9%、企業營業利益率上調至 21.5%;完成 Sensia 合資解散,收回油氣流程自動化主導權;6 月再宣布 10 億美元庫藏股計畫,並規劃於威斯康辛州東南部興建多年來最大的新製造廠。留意下半年記憶體成本與供應商通膨的數千萬美元逆風,以及汽車、消費品大型資本支出仍因貿易波動延後。\n▸ 2026/7/21 更新:Citi 將目標價由 500 上調至 555 美元;獲核能新創 Aalo Atomics 選用其控制系統;威州 New Berlin 巨型新廠取得初步核准;Q3 財報 7/27 公佈。\n▸ 2026/9/25 更新:第三財季(8/4)銷售 23.1 億美元、年增 8%(有機 10%),調整後每股盈餘 3.49 美元、年增約 24%,優於預期;軟體與控制板塊利潤率 34.8%、提升 320 個基點,年度經常性收入年增 6%。全年指引上修:銷售成長 7.5% 至 9.5%、調整後每股盈餘 13.00 至 13.30 美元,動能來自資料中心、半導體與倉儲自動化。摩根士丹利目標價調升至 545 美元;股價約 433 美元,距 6 月高點約低 13%。第四財季財報約 11 月初。",
+ en:"FY26 Q2 adjusted EPS of $3.30 crushed the $2.88 estimate and the stock jumped nearly 10% intraday. Demand is broadening across e-commerce, warehouse automation, data centers and semiconductors; the data-center vertical more than doubled YoY as customers shift from commercial-grade to industrial-grade controls for speed-to-capacity and energy optimization. Full-year organic growth guidance was raised to +5–9% with 21.5% op margin; the Sensia JV dissolution completed, returning oil & gas process automation in-house; in June the company announced a $1B buyback and plans for its largest new plant in years in southeast Wisconsin. Watch second-half headwinds from memory costs and supplier inflation (tens of millions of dollars), plus still-delayed auto and CPG capex.\n▸ Update (Jul 21, 2026): Citi raised its target from $500 to $555; nuclear startup Aalo Atomics selected Rockwell for control systems; the New Berlin, WI mega-plant won early approvals; Q3 results land Jul 27.\n▸ Update (Sep 25, 2026): Fiscal Q3 (Aug 4) sales of $2.31B rose 8% (10% organic) and adjusted earnings per share of $3.49 rose about 24%, ahead of estimates; the Software and Control margin reached 34.8%, up 320 basis points, and annual recurring revenue grew 6%. Full year guidance was raised to 7.5% to 9.5% sales growth and $13.00 to $13.30 adjusted earnings per share, powered by data centers, semiconductors and warehouse automation. Morgan Stanley lifted its target to $545; shares near $433 sit about 13% below the June high. Fiscal Q4 results arrive in early November."}]
 ]
 },
 
@@ -453,10 +536,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},{zh:"Doug Wright(2026 年接任)",en:"Doug Wright (took over in 2026)"}],
  [{zh:"財年",en:"FISCAL YR"},{zh:"3 月止",en:"Ends Mar"}]
 ],
-valuation:{ price:{zh:"約 C$38.7",en:"~C$38.7"}, mcap:{zh:"約 C$38 億",en:"~C$3.8B"}, pe:{zh:"前瞻約 28x(FY27 共識)",en:"Fwd ~28x (FY27 consensus)"}, asOf:"2026-07-17" },
-price52w:{ low:33.72, high:49.48, cur:38.7, lowDate:"25/11/24", unit:"C$" },
-priceHistory:[["2026-07-07",41.9],["2026-07-17",38.7]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"C$3.8B"], [{zh:"股價",en:"PRICE"},"C$38.7"], [{zh:"目標價",en:"PX TARGET"},"~C$50"] ],
+valuation:{ price:{zh:"約 C$26.8",en:"~C$26.8"}, mcap:{zh:"約 C$26 億",en:"~C$2.6B"}, pe:{zh:"不適用(獲利重整中)",en:"n/a (earnings reset)"}, asOf:"2026-09-24" },
+price52w:{ low:25.59, high:49.48, cur:26.8, lowDate:"26/9", unit:"C$" },
+priceHistory:[["2026-07-07",41.9],["2026-07-17",38.7],["2026-09-24",26.8]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"C$2.6B"], [{zh:"股價",en:"PRICE"},"C$26.8"], [{zh:"積壓訂單",en:"BACKLOG"},"C$1.9B"] ],
 financials:[
  [{zh:"FY2026 營收(3 月止)",en:"FY2026 revenue (Mar-end)"},{zh:"YoY +11%",en:"+11% YoY"}],
  [{zh:"FY2026Q2 營收",en:"FY26 Q2 revenue"},{zh:"C$7.29 億(+19%)",en:"C$728.5M (+19%)"}],
@@ -480,8 +563,8 @@ sections:[
 {zh:"在「客製化自動化系統整合」利基領域是全球規模最大的上市公司之一,生命科學自動化具深厚專業壁壘,並在電動車零組件與核能自動化累積實績。分析師普遍看好其高進入門檻與自動化製造的結構性需求,平均目標價約 C$49–52;2026 年以來股價跑贏多倫多綜合指數,反映行業結構性強勢而非大盤驅動。加拿大技術勞工短缺持續強化自動化的長期需求邏輯。",
  en:"In the custom automation integration niche it is among the largest listed players globally, with deep life-sciences expertise plus a track record in EV components and nuclear automation. Analysts broadly like the high barriers to entry and structural automation demand, with average targets around C$49–52; the stock has outperformed the TSX Composite in 2026 — sector-specific strength rather than market beta. Canada's skilled-labour shortage keeps reinforcing the long-term automation thesis."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"正經歷重大管理層更迭:CFO Ryan McLeod 於 2026 年 1 月宣布離職,CEO Andrew Hider 亦宣布將於 8 月底前卸任、轉赴自動化行業以外的新職(值得注意的是他 7 月 7 日仍以約 C$41.9 在公開市場加碼 3.8 萬股,過去一年淨買入約 C$170 萬)。FY2026(3 月止)營收年增 11%,並展開一系列改善利潤率、現金產生與資本效率的重組行動,為 FY2027 鋪路;但 FY2027 共識 EPS 由 C$1.62 下修至 C$1.38,近一週股價下跌 6.5% 至約 C$39,顯示市場對執行力仍持觀望。\n▸ 2026/7/21 更新:接班底定——新任 CEO Doug Wright 已上任(臨時 CFO 為 Anne Cybulski),策略聚焦利潤率擴張、紀律性併購與生命科學/核能優勢;FY2027 指引為溫和營收成長、利潤率擴張 50–75bps,訂單積壓約 20 億加元;Q1 財報 8/12 公佈。",
- en:"A major leadership transition is underway: CFO Ryan McLeod announced his departure in January 2026, and CEO Andrew Hider will step down by end of August for a role outside automation (notably, he still bought ~38k shares at ~C$41.9 on July 7 and has been a net buyer of ~C$1.7M over the past year). FY2026 (March-end) revenue rose 11%, and a restructuring program targeting margins, cash generation and capital efficiency is underway ahead of FY2027; but FY2027 consensus EPS was cut from C$1.62 to C$1.38 and the stock fell 6.5% in a week to ~C$39 — the market remains in wait-and-see mode on execution.\n▸ Update (Jul 21, 2026): succession settled — new CEO Doug Wright has taken over (Anne Cybulski as interim CFO), focusing on margin expansion, disciplined M&A, and strengths in life sciences and nuclear; FY2027 guidance calls for modest revenue growth with 50–75bps of margin expansion on a ~C$2B order backlog; Q1 results land Aug 12."}]
+{zh:"正經歷重大管理層更迭:CFO Ryan McLeod 於 2026 年 1 月宣布離職,CEO Andrew Hider 亦宣布將於 8 月底前卸任、轉赴自動化行業以外的新職(值得注意的是他 7 月 7 日仍以約 C$41.9 在公開市場加碼 3.8 萬股,過去一年淨買入約 C$170 萬)。FY2026(3 月止)營收年增 11%,並展開一系列改善利潤率、現金產生與資本效率的重組行動,為 FY2027 鋪路;但 FY2027 共識 EPS 由 C$1.62 下修至 C$1.38,近一週股價下跌 6.5% 至約 C$39,顯示市場對執行力仍持觀望。\n▸ 2026/7/21 更新:接班底定——新任 CEO Doug Wright 已上任(臨時 CFO 為 Anne Cybulski),策略聚焦利潤率擴張、紀律性併購與生命科學/核能優勢;FY2027 指引為溫和營收成長、利潤率擴張 50–75bps,訂單積壓約 20 億加元;Q1 財報 8/12 公佈。\n▸ 2026/9/25 更新:第一財季(8/6)營收 6.94 億加元、年減 5.8%,調整後每股盈餘 0.35 加元(去年同期 0.41);訂單 6.56 億加元、年減 5.3%(去年同期有大型核能訂單墊高基期),積壓訂單降至 18.9 億加元。新任執行長 Doug Wright 完成組合檢討,宣布 18 個月「固定成本轉型計畫」並重整運輸相關業務。財報當天股價單日重挫 26.5%,目前約 26.8 加元,接近 52 週低點;生命科學與食品飲料訂單仍在成長,是轉型能否奏效的觀察重點。",
+ en:"A major leadership transition is underway: CFO Ryan McLeod announced his departure in January 2026, and CEO Andrew Hider will step down by end of August for a role outside automation (notably, he still bought ~38k shares at ~C$41.9 on July 7 and has been a net buyer of ~C$1.7M over the past year). FY2026 (March-end) revenue rose 11%, and a restructuring program targeting margins, cash generation and capital efficiency is underway ahead of FY2027; but FY2027 consensus EPS was cut from C$1.62 to C$1.38 and the stock fell 6.5% in a week to ~C$39 — the market remains in wait-and-see mode on execution.\n▸ Update (Jul 21, 2026): succession settled — new CEO Doug Wright has taken over (Anne Cybulski as interim CFO), focusing on margin expansion, disciplined M&A, and strengths in life sciences and nuclear; FY2027 guidance calls for modest revenue growth with 50–75bps of margin expansion on a ~C$2B order backlog; Q1 results land Aug 12.\n▸ Update (Sep 25, 2026): Fiscal Q1 (Aug 6) revenue of C$694M fell 5.8% and adjusted earnings per share were C$0.35 (C$0.41 a year ago); bookings of C$656M fell 5.3% against a prior year lifted by large nuclear awards, taking backlog down to C$1.89B. After completing his portfolio review, CEO Doug Wright launched an 18 month Fixed Cost Transformation Program and is restructuring the transportation businesses. The stock fell 26.5% on results day and now trades near C$26.8, close to its 52 week low; life sciences and food and beverage bookings still grew, the key signal for whether the turnaround works."}]
 ]
 }
 
@@ -499,10 +582,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},{zh:"Paulo Ruiz(2025/6 上任)",en:"Paulo Ruiz (since Jun 2025)"}],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:{zh:"約 US$402",en:"~US$402"}, mcap:{zh:"約 US$1,560 億",en:"~US$156B"}, pe:{zh:"約 39x(TTM);前瞻約 28x",en:"~39x TTM; fwd ~28x"}, asOf:{zh:"2026-07 中旬",en:"Mid-Jul 2026"} },
-price52w:{ low:311.92, high:436.74, cur:402, lowDate:"25/12/17", highDate:"26/6/22" },
-priceHistory:[["2026-05-30",400.6],["2026-07-15",402.4]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$156B"], [{zh:"股價",en:"PRICE"},"$402"], [{zh:"TTM營收",en:"TTM REV"},"$28.5B"] ],
+valuation:{ price:"US$438.15", mcap:{zh:"約 US$1,709 億",en:"~US$170.9B"}, pe:{zh:"約 45x(近四季);前瞻約 32x",en:"~45x trailing; forward ~32x"}, asOf:"2026-09-24" },
+price52w:{ low:311.92, high:478.0, cur:438.2, lowDate:"25/12/17" },
+priceHistory:[["2026-05-30",400.6],["2026-07-15",402.4],["2026-09-24",438.2]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$171B"], [{zh:"股價",en:"PRICE"},"$438"], [{zh:"TTM營收",en:"TTM REV"},"$28.5B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$285 億",en:"US$28.5B"}],
  [{zh:"2026Q1 營收",en:"Q1 2026 revenue"},{zh:"US$74.5 億(+17%,創 Q1 紀錄)",en:"US$7.45B (+17%, Q1 record)"}],
@@ -528,8 +611,8 @@ sections:[
 {zh:"在中低壓配電與電力管理領域,Eaton 與 Schneider Electric、ABB、Siemens 並列全球四強,北美市佔尤其領先,是資料中心電力鏈的關鍵供應商。2026Q1 資料中心訂單暴增約 240%、營收成長約 50%;電氣板塊總積壓訂單年增 48%、滾動 book-to-bill 達 1.2。管理層估算美國在建資料中心容量 32 GW(約 70% 與 AI 相關),全行業資料中心待建規模 228 GW——相當於以 2025 年建設速度還要蓋 12 年,是對「AI 電力超級週期」最直觀的量化註腳。",
  en:"In low/medium-voltage distribution and power management, Eaton ranks among the global big four with Schneider Electric, ABB and Siemens, with particular strength in North America — a critical supplier in the data-center power chain. Q1 2026 data-center orders surged ~240% with revenue up ~50%; total Electrical backlog grew 48% YoY with a rolling book-to-bill of 1.2. Management estimates 32 GW of U.S. data-center capacity under construction (~70% AI-related) and a 228 GW industry pipeline — 12 years of building at 2025 rates, the most vivid quantification of the AI power supercycle."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026Q1 營收 74.5 億美元(+17%)、調整後 EPS 2.81 美元皆創第一季紀錄,自由現金流年增 245%;全年有機成長指引由 8% 上調至 9–11%、調整後 EPS 上調至 13.05–13.50 美元。不過市場反應複雜:因投入成本與擴產費用,板塊利潤率年減 120bps 至 22.7%,Q2 EPS 指引亦略低於預期,財報後股價一度回檔;管理層強調 4 月已調漲售價,利潤率下半年將逐季回升。新 CEO Paulo Ruiz 上任後首個完整年度,執行力(整併 Boyd、產能爬坡、固態變壓器下半年接單)是 2026 下半年的觀察重點。\n▸ 2026/7/21 更新:7/8 任命 Dan Simpson 出任全球能源基礎設施方案總裁;股價自 6/22 的 52 週高點 436.7 美元回檔至約 402;Q2 財報 7/31 公佈。",
- en:"Q1 2026 revenue of $7.45B (+17%) and adjusted EPS of $2.81 were both first-quarter records, with free cash flow up 245%; full-year organic growth guidance was raised from 8% to 9–11% and adjusted EPS to $13.05–13.50. Yet the market's reaction was mixed: segment margins fell 120bps YoY to 22.7% on input costs and capacity ramp-up, Q2 EPS guidance came in slightly light, and the stock pulled back after the print; management stresses April price increases will rebuild margins through the year. In new CEO Paulo Ruiz's first full year, execution — integrating Boyd, ramping capacity, booking solid-state transformer orders in H2 — is the key watch item.\n▸ Update (Jul 21, 2026): Dan Simpson was named president of Global Energy Infrastructure Solutions on Jul 8; the stock has eased from its Jun 22 52-week high of $436.7 to ~$402; Q2 results land Jul 31."}]
+{zh:"2026Q1 營收 74.5 億美元(+17%)、調整後 EPS 2.81 美元皆創第一季紀錄,自由現金流年增 245%;全年有機成長指引由 8% 上調至 9–11%、調整後 EPS 上調至 13.05–13.50 美元。不過市場反應複雜:因投入成本與擴產費用,板塊利潤率年減 120bps 至 22.7%,Q2 EPS 指引亦略低於預期,財報後股價一度回檔;管理層強調 4 月已調漲售價,利潤率下半年將逐季回升。新 CEO Paulo Ruiz 上任後首個完整年度,執行力(整併 Boyd、產能爬坡、固態變壓器下半年接單)是 2026 下半年的觀察重點。\n▸ 2026/7/21 更新:7/8 任命 Dan Simpson 出任全球能源基礎設施方案總裁;股價自 6/22 的 52 週高點 436.7 美元回檔至約 402;Q2 財報 7/31 公佈。\n▸ 2026/9/25 更新:第二季(7/31)銷售創紀錄 85 億美元、年增 21%(有機 14%),調整後每股盈餘 3.15 美元創同期新高;資料中心訂單年增約 85%、營收年增約 65%,電氣積壓訂單年增 43%。全年指引上修:有機成長 11% 至 13%、調整後每股盈餘 13.40 至 13.60 美元。管理層估算美國資料中心待建容量達 307 吉瓦,相當於以 2025 年速度蓋 15 年,並投入 10 億美元推動 24 項擴產計畫;近期也與 Trane 合作推出人工智慧資料中心參考設計。股價由財報前約 387 美元升至約 438 美元。",
+ en:"Q1 2026 revenue of $7.45B (+17%) and adjusted EPS of $2.81 were both first-quarter records, with free cash flow up 245%; full-year organic growth guidance was raised from 8% to 9–11% and adjusted EPS to $13.05–13.50. Yet the market's reaction was mixed: segment margins fell 120bps YoY to 22.7% on input costs and capacity ramp-up, Q2 EPS guidance came in slightly light, and the stock pulled back after the print; management stresses April price increases will rebuild margins through the year. In new CEO Paulo Ruiz's first full year, execution — integrating Boyd, ramping capacity, booking solid-state transformer orders in H2 — is the key watch item.\n▸ Update (Jul 21, 2026): Dan Simpson was named president of Global Energy Infrastructure Solutions on Jul 8; the stock has eased from its Jun 22 52-week high of $436.7 to ~$402; Q2 results land Jul 31.\n▸ Update (Sep 25, 2026): Q2 (Jul 31) sales hit a record $8.5B, up 21% (14% organic), with record Q2 adjusted earnings per share of $3.15; data center orders rose about 85% and revenue about 65%, and Electrical backlog grew 43%. Full year guidance rose to 11% to 13% organic growth and $13.40 to $13.60 adjusted earnings per share. Management now sizes the U.S. data center pipeline at 307 gigawatts, about 15 years of building at 2025 rates, and is investing $1B across 24 capacity projects; it also launched an artificial intelligence data center reference design with Trane. Shares climbed from about $387 before the print to roughly $438."}]
 ]
 },
 
@@ -545,10 +628,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},"John May"],
  [{zh:"財年",en:"FISCAL YR"},{zh:"10 月底止",en:"Ends late Oct"}]
 ],
-valuation:{ price:"US$586.00", mcap:{zh:"約 US$1,582 億",en:"~US$158.2B"}, pe:{zh:"約 33x(TTM)",en:"~33x (TTM)"}, asOf:"2026-07-20" },
-price52w:{ low:433.00, high:674.19, cur:586, lowDate:"25/10/14", highDate:"26/2/19" },
-priceHistory:[["2026-02-20",658.9],["2026-07-20",586.0]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$158B"], [{zh:"股價",en:"PRICE"},"$586"], [{zh:"TTM營收",en:"TTM REV"},"$47.3B"] ],
+valuation:{ price:"US$694.94", mcap:{zh:"約 US$1,876 億",en:"~US$187.6B"}, pe:{zh:"約 38x(2026 財年預估)",en:"~38x (FY26 estimate)"}, asOf:"2026-09-24" },
+price52w:{ low:433.0, high:721.22, cur:694.9, lowDate:"25/10/14", highDate:"26/9" },
+priceHistory:[["2026-02-20",658.9],["2026-07-20",586.0],["2026-09-24",694.9]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$188B"], [{zh:"股價",en:"PRICE"},"$695"], [{zh:"TTM營收",en:"TTM REV"},"$47.3B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$473 億",en:"US$47.3B"}],
  [{zh:"FY2026Q2 營收",en:"FY26 Q2 revenue"},{zh:"US$133.7 億(+5%)",en:"US$13.37B (+5%)"}],
@@ -574,8 +657,8 @@ sections:[
 {zh:"農機領域無可爭議的全球第一,領先 CNH Industrial、AGCO、Kubota;在精準農業技術(自動駕駛、機器視覺)的軟硬整合上更是遙遙領先,構成「農業界的特斯拉+蘋果」式生態壁壘。營建設備位居北美前列,受惠基建與資料中心工程,美加訂單簿自去年 11 月以來成長逾 60%、全年產能檔期已排滿八成以上。CFO 明言 2026 財年是大型農機週期的谷底(大農機低於谷底水準、小農機接近循環中值、營建略高於中值),2027 年可望復甦。",
  en:"The undisputed global No. 1 in farm machinery, ahead of CNH Industrial, AGCO and Kubota — and far ahead in precision-ag software-hardware integration (autonomy, machine vision), an ecosystem moat akin to 'the Tesla-plus-Apple of agriculture.' Its construction equipment ranks among North America's leaders, benefiting from infrastructure and data-center work: U.S./Canada order books are up 60%+ since November with 80%+ of production slots filled. The CFO explicitly called FY2026 the bottom of the large-ag cycle (large ag below trough, small ag near mid-cycle, construction slightly above), with recovery expected in 2027."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026 財年 Q2(4 月止)營收 133.7 億美元(+5%)、EPS 6.55 美元,連四季擊敗預期;美國最高法院裁定 IEEPA 關稅無效帶來 2.72 億美元退稅,推升設備營運利潤率至 16.9%。板塊分化鮮明:生產與精準農業 -14%(利潤率 15.7%),小型農業與草坪 +16%,營建與林業 +29% 成為最大亮點,全年營建銷售展望上調至約 +20%。全年淨利指引維持 45–50 億美元,關稅逆風全年仍達 12 億美元但不加徵附加費;另以 4.39 億美元收購營建科技公司 Tenna。市場焦點:2027 年大農機復甦的斜率,以及超低的新機+二手庫存能否轉化為訂價權。\n▸ 2026/7/21 更新:7/8 與 FTC 及五州就「維修權」達成和解,將開放維修軟體與工具;Citi 7/14 升評至持有、目標價 610 美元(Truist 看多至 812);Q3 財報 8/20 公佈。",
- en:"FY2026 Q2 (April-end) revenue was $13.37B (+5%) with EPS of $6.55 — a fourth straight beat; the Supreme Court's invalidation of IEEPA tariffs delivered a $272M refund, lifting equipment operating margin to 16.9%. Segment divergence was stark: Production & Precision Ag fell 14% (15.7% margin), Small Ag & Turf rose 16%, and Construction & Forestry surged 29% to become the standout, with FY construction sales guidance raised to ~+20%. Full-year net income guidance held at $4.5–5.0B; tariff headwinds remain $1.2B with no surcharges imposed; Deere also paid $439M for construction-tech firm Tenna. The market's focus: the slope of the 2027 large-ag recovery, and whether lean new-and-used inventories convert into pricing power.\n▸ Update (Jul 21, 2026): on Jul 8 Deere settled with the FTC and five states on right-to-repair, opening up repair software and tools; Citi upgraded to Hold on Jul 14 with a $610 target (Truist's bull case: $812); Q3 results land Aug 20."}]
+{zh:"2026 財年 Q2(4 月止)營收 133.7 億美元(+5%)、EPS 6.55 美元,連四季擊敗預期;美國最高法院裁定 IEEPA 關稅無效帶來 2.72 億美元退稅,推升設備營運利潤率至 16.9%。板塊分化鮮明:生產與精準農業 -14%(利潤率 15.7%),小型農業與草坪 +16%,營建與林業 +29% 成為最大亮點,全年營建銷售展望上調至約 +20%。全年淨利指引維持 45–50 億美元,關稅逆風全年仍達 12 億美元但不加徵附加費;另以 4.39 億美元收購營建科技公司 Tenna。市場焦點:2027 年大農機復甦的斜率,以及超低的新機+二手庫存能否轉化為訂價權。\n▸ 2026/7/21 更新:7/8 與 FTC 及五州就「維修權」達成和解,將開放維修軟體與工具;Citi 7/14 升評至持有、目標價 610 美元(Truist 看多至 812);Q3 財報 8/20 公佈。\n▸ 2026/9/25 更新:第三財季(8/20)營收 126.1 億美元、年增 5%,每股盈餘 5.10 美元,營收與獲利皆大幅優於預期;營建與小型農機持續強勁,大型農機仍疲弱。全年淨利指引下緣上調為 47.5 億至 50 億美元,設備營運現金流指引 50 億至 55 億美元,季配息調升至 1.62 美元。股價財報當天大漲約 9%,9 月下旬創下 52 週新高 721 美元,市場開始交易 2027 財年復甦;美國銀行目標價 715 美元。",
+ en:"FY2026 Q2 (April-end) revenue was $13.37B (+5%) with EPS of $6.55 — a fourth straight beat; the Supreme Court's invalidation of IEEPA tariffs delivered a $272M refund, lifting equipment operating margin to 16.9%. Segment divergence was stark: Production & Precision Ag fell 14% (15.7% margin), Small Ag & Turf rose 16%, and Construction & Forestry surged 29% to become the standout, with FY construction sales guidance raised to ~+20%. Full-year net income guidance held at $4.5–5.0B; tariff headwinds remain $1.2B with no surcharges imposed; Deere also paid $439M for construction-tech firm Tenna. The market's focus: the slope of the 2027 large-ag recovery, and whether lean new-and-used inventories convert into pricing power.\n▸ Update (Jul 21, 2026): on Jul 8 Deere settled with the FTC and five states on right-to-repair, opening up repair software and tools; Citi upgraded to Hold on Jul 14 with a $610 target (Truist's bull case: $812); Q3 results land Aug 20.\n▸ Update (Sep 25, 2026): Fiscal Q3 (Aug 20) revenue of $12.61B rose 5% and earnings per share of $5.10 beat estimates on both lines, with construction and small agriculture strong while large agriculture stayed weak. The full year net income outlook was raised at the low end to $4.75B to $5.0B, equipment operations cash flow is guided at $5.0B to $5.5B, and the quarterly dividend rose to $1.62. Shares jumped about 9% on the print and set a 52 week high of $721 in late September as investors began pricing a fiscal 2027 recovery; Bank of America's target is $715."}]
 ]
 },
 
@@ -591,10 +674,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},"Jim Taiclet"],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:{zh:"約 US$509",en:"~US$509"}, mcap:{zh:"約 US$1,173 億",en:"~US$117.3B"}, pe:{zh:"約 25x(TTM);前瞻約 17x",en:"~25x TTM; fwd ~17x"}, asOf:"2026-07-17" },
-price52w:{ low:410.11, high:692.00, cur:508.8, lowDate:"25/7/22", highDate:"26/3/2" },
-priceHistory:[["2026-03-02",672.3],["2026-05-15",516.3],["2026-07-17",508.8]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$117B"], [{zh:"股價",en:"PRICE"},"$509"], [{zh:"TTM營收",en:"TTM REV"},"$75.1B"] ],
+valuation:{ price:"US$522.96", mcap:{zh:"約 US$1,214 億",en:"~US$121.4B"}, pe:{zh:"前瞻約 17.5x(2026)",en:"Forward ~17.5x (2026)"}, asOf:"2026-09-24" },
+price52w:{ low:437.31, high:692.05, cur:523.0, lowDate:"25/12/2", highDate:"26/3/2" },
+priceHistory:[["2026-03-02",672.3],["2026-05-15",516.3],["2026-07-17",508.8],["2026-09-24",523.0]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$121B"], [{zh:"股價",en:"PRICE"},"$523"], [{zh:"TTM營收",en:"TTM REV"},"$75.1B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$751 億",en:"US$75.1B"}],
  [{zh:"FY2025 營收",en:"FY2025 revenue"},{zh:"US$750.5 億(+6%)",en:"US$75.05B (+6%)"}],
@@ -619,8 +702,8 @@ sections:[
 {zh:"以營收計是全球最大國防公司(2025 年 750.5 億美元),在第五代戰機領域近乎獨占(F-35 為西方唯一量產五代機),防空攔截彈(PAC-3、THAAD)供不應求,神盾系統與海軍作戰系統亦居壟斷地位。2025 年底積壓訂單創紀錄的 1,940 億美元、約 2.5 倍年營收,book-to-bill 1.2、連續四年成長;F-35 年交付量由 2024 年的 110 架躍升至 2025 年的 191 架。與 RTX 相比,LMT 是更純粹的「平台+彈藥」國防標的,幾乎沒有商用航空曝險,估值也因此更低(前瞻約 17 倍)。",
  en:"The world's largest defense company by revenue ($75.05B in 2025), with a near-monopoly in fifth-generation fighters (the F-35 is the West's only 5th-gen jet in mass production), sold-out air-defense interceptors (PAC-3, THAAD), and dominant positions in Aegis and naval combat systems. Year-end 2025 backlog hit a record $194B — about 2.5x annual revenue — with a 1.2 book-to-bill and four straight years of growth; F-35 deliveries jumped from 110 in 2024 to 191 in 2025. Versus RTX, LMT is the purer 'platforms + munitions' defense play with almost no commercial-aero exposure — and a lower multiple (~17x forward) to match."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026Q1 表現失色:營收逾 180 億美元符合預期,但 EPS 6.44 美元不及預期(受 F-16 專案 1.25 億美元不利調整拖累),自由現金流為 -2.91 億美元,積壓訂單自年底的 1,940 億回落至 1,864 億,財報後股價下跌約 5%;全年指引維持營收 775–800 億、EPS 29.35–30.25、FCF 65–68 億美元。成長敘事仍在:5 月再獲 9.91 億美元 F-35 電戰升級合約,彈藥產能擴張與「金穹(Golden Dome)」飛彈防禦架構是潛在大單來源;Q2 財報於 7 月下旬公佈,將檢驗積壓訂單轉化與現金流回補進度。觀察重點:固定價格專案的利潤率修復與 F-35 Block 4 升級時程。\n▸ 2026/7/21 更新:7/2 獲 Citi 升評「買進」帶動股價單日大漲 4.6%;7/16 一舉拿下 105.3 億美元的 12 年期特戰司令部(USSOCOM)合約與 16 億美元海軍訂單;7/21 發表低成本攔截彈 PAC-3 ACE 與反無人機系統 MORFIUS,迎擊國防新創競爭;Q2 財報 7/23 公佈。",
- en:"Q1 2026 disappointed: revenue above $18B met expectations, but EPS of $6.44 missed (dragged by $125M of unfavorable F-16 adjustments), free cash flow was negative $291M, and backlog slipped from $194B at year-end to $186.4B — the stock fell ~5% on the print; full-year guidance was maintained at $77.5–80B revenue, $29.35–30.25 EPS and $6.5–6.8B FCF. The growth narrative persists: a $991M F-35 electronic-warfare upgrade award followed in May, and munitions capacity expansion plus the 'Golden Dome' missile-defense architecture are potential sources of major awards; Q2 results land in late July, testing backlog conversion and cash-flow recovery. Watch items: margin repair on fixed-price programs and the F-35 Block 4 timeline.\n▸ Update (Jul 21, 2026): a Citi upgrade to Buy on Jul 2 sent the stock up 4.6% in a day; on Jul 16 LMT landed a $10.53B, 12-year USSOCOM contract plus a $1.6B Navy order; on Jul 21 it unveiled the low-cost PAC-3 ACE interceptor and the MORFIUS counter-drone system to fend off defense startups; Q2 results land Jul 23."}]
+{zh:"2026Q1 表現失色:營收逾 180 億美元符合預期,但 EPS 6.44 美元不及預期(受 F-16 專案 1.25 億美元不利調整拖累),自由現金流為 -2.91 億美元,積壓訂單自年底的 1,940 億回落至 1,864 億,財報後股價下跌約 5%;全年指引維持營收 775–800 億、EPS 29.35–30.25、FCF 65–68 億美元。成長敘事仍在:5 月再獲 9.91 億美元 F-35 電戰升級合約,彈藥產能擴張與「金穹(Golden Dome)」飛彈防禦架構是潛在大單來源;Q2 財報於 7 月下旬公佈,將檢驗積壓訂單轉化與現金流回補進度。觀察重點:固定價格專案的利潤率修復與 F-35 Block 4 升級時程。\n▸ 2026/7/21 更新:7/2 獲 Citi 升評「買進」帶動股價單日大漲 4.6%;7/16 一舉拿下 105.3 億美元的 12 年期特戰司令部(USSOCOM)合約與 16 億美元海軍訂單;7/21 發表低成本攔截彈 PAC-3 ACE 與反無人機系統 MORFIUS,迎擊國防新創競爭;Q2 財報 7/23 公佈。\n▸ 2026/9/25 更新:第二季(7/23)銷售 200.6 億美元、年增 10.5%,每股盈餘 7.94 美元、優於預期約 10%,自由現金流由去年同期負值轉為 29 億美元;積壓訂單創紀錄 2,304 億美元、年增 640 億美元,訂單出貨比 3.2 倍,包含一筆 350 億美元的薩德(終端高空區域防禦)攔截彈多年期合約。全年銷售指引上修至中值 807.5 億美元、自由現金流 70 億至 72 億美元。股價財報後一度升至約 608 美元,目前回落至約 523 美元,前瞻本益比約 17.5 倍;9 月彭博報導中國扣留 F-35 敏感零件,供應鏈風險浮上檯面。",
+ en:"Q1 2026 disappointed: revenue above $18B met expectations, but EPS of $6.44 missed (dragged by $125M of unfavorable F-16 adjustments), free cash flow was negative $291M, and backlog slipped from $194B at year-end to $186.4B — the stock fell ~5% on the print; full-year guidance was maintained at $77.5–80B revenue, $29.35–30.25 EPS and $6.5–6.8B FCF. The growth narrative persists: a $991M F-35 electronic-warfare upgrade award followed in May, and munitions capacity expansion plus the 'Golden Dome' missile-defense architecture are potential sources of major awards; Q2 results land in late July, testing backlog conversion and cash-flow recovery. Watch items: margin repair on fixed-price programs and the F-35 Block 4 timeline.\n▸ Update (Jul 21, 2026): a Citi upgrade to Buy on Jul 2 sent the stock up 4.6% in a day; on Jul 16 LMT landed a $10.53B, 12-year USSOCOM contract plus a $1.6B Navy order; on Jul 21 it unveiled the low-cost PAC-3 ACE interceptor and the MORFIUS counter-drone system to fend off defense startups; Q2 results land Jul 23.\n▸ Update (Sep 25, 2026): Q2 (Jul 23) sales of $20.06B rose 10.5% and earnings per share of $7.94 beat by about 10%, while free cash flow swung from negative a year ago to $2.9B; backlog hit a record $230.4B, up $64B, on a 3.2 book to bill that included a $35B multiyear Terminal High Altitude Area Defense interceptor contract. Full year sales guidance was raised to an $80.75B midpoint and free cash flow to $7.0B to $7.2B. Shares rallied to about $608 after the print but have eased to about $523, roughly 17.5 times 2026 earnings; in September Bloomberg reported China was holding sensitive F-35 parts, spotlighting supply chain risk."}]
 ]
 },
 
@@ -636,10 +719,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},"Lal Karsanbhai"],
  [{zh:"財年",en:"FISCAL YR"},{zh:"9 月止",en:"Ends Sep"}]
 ],
-valuation:{ price:{zh:"約 US$135.4",en:"~US$135.4"}, mcap:{zh:"約 US$760 億",en:"~US$76B"}, pe:{zh:"約 32x(TTM);前瞻約 21x",en:"~32x TTM; fwd ~21x"}, asOf:"2026-07-20" },
-price52w:{ low:122.64, high:165.15, cur:135.4, lowDate:"26/3/30" },
-priceHistory:[["2026-03-30",122.6],["2026-07-20",135.4]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$76B"], [{zh:"股價",en:"PRICE"},"$135"], [{zh:"TTM營收",en:"TTM REV"},"$18.3B"] ],
+valuation:{ price:"US$154.55", mcap:{zh:"約 US$866 億",en:"~US$86.6B"}, pe:{zh:"前瞻約 23.6x(2026 財年指引)",en:"Forward ~23.6x (FY26 guidance)"}, asOf:"2026-09-23" },
+price52w:{ low:122.64, high:166.35, cur:154.6, lowDate:"26/3/30", highDate:"26/8/12" },
+priceHistory:[["2026-03-30",122.6],["2026-07-20",135.4],["2026-09-23",154.6]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$87B"], [{zh:"股價",en:"PRICE"},"$155"], [{zh:"TTM營收",en:"TTM REV"},"$18.3B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$183 億",en:"US$18.3B"}],
  [{zh:"FY2026Q1 調整後 EPS",en:"FY26 Q1 adj. EPS"},{zh:"US$1.54(+4%,近指引上緣)",en:"US$1.54 (+4%, near top of guide)"}],
@@ -664,14 +747,14 @@ sections:[
 {zh:"在流程自動化(process automation)領域與 ABB、Siemens、Honeywell、Schneider(AVEVA)並列全球領導者,量測儀表與控制閥居世界第一梯隊,DeltaV 在化工與生技製藥產業市佔領先。相對 Rockwell 聚焦離散製造(工廠組裝線),Emerson 主場在流程工業(連續生產),兩者是北美自動化的一體兩面;LNG 出口潮、電力投資與生命科學擴產是終端市場順風。軟體端 AspenTech 在流程模擬近乎壟斷,使 Emerson 成為傳統自動化商中軟體含量最高者之一。",
  en:"In process automation Emerson ranks among the global leaders with ABB, Siemens, Honeywell and Schneider (AVEVA); its instrumentation and control valves sit in the world's top tier, and DeltaV leads in chemicals and life sciences. Where Rockwell focuses on discrete manufacturing (assembly lines), Emerson's home turf is process industries (continuous production) — the two are the twin faces of North American automation. LNG export waves, power investment and life-sciences expansion are end-market tailwinds; in software, AspenTech is near-monopolistic in process simulation, making Emerson one of the most software-rich traditional automation players."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026 財年上半年穩健:Q1(12 月止)調整後 EPS 1.54 美元、年增 4%,調整後板塊 EBITA 利潤率 27.6%;Q2(3 月止)於 5 月初公佈,銷售與 EPS 續增並上調全年指引(全年營收成長約 5.5%、調整後 EPS 6.40–6.55 美元、自由現金流 35–36 億美元、庫藏股約 10 億美元)。3 月並發布 2028 年中期目標(營收 210 億、EBITA 利潤率 30%)。股價自 2026 年初高點一度回檔逾 20%,前瞻本益比由約 25 倍壓縮至 20–22 倍,市場辯論焦點在 AspenTech 整合成效與軟體利潤率兌現速度,分析師目標價分歧頗大(約 105–165 美元)。下一份財報(Q3)於 8 月 4 日公佈。\n▸ 2026/7/21 更新:Q2(3 月止)調整後 EPS 1.52 美元;近期獲 JPMorgan 升評,Citi 目標價 174 美元;股價自 3/30 的 52 週低點 122.6 美元回升至約 135。",
- en:"H1 FY2026 was steady: Q1 (Dec-end) adjusted EPS of $1.54 rose 4% with a 27.6% adjusted segment EBITA margin; Q2 (Mar-end), reported in early May, delivered further sales and EPS growth with raised full-year guidance (~5.5% revenue growth, $6.40–6.55 adjusted EPS, $3.5–3.6B free cash flow, ~$1.0B of buybacks). March brought 2028 mid-term targets ($21B revenue, 30% EBITA margin). The stock at one point fell 20%+ from its early-2026 peak, compressing the forward multiple from ~25x to 20–22x; the market debate centers on AspenTech integration payoff and the pace of software-margin delivery, with analyst targets ranging widely (~$105–165). The next report (Q3) lands August 4.\n▸ Update (Jul 21, 2026): FY26 Q2 (Mar-end) adjusted EPS was $1.52; JPMorgan recently upgraded the stock and Citi's target sits at $174; shares have recovered from the Mar 30 52-week low of $122.6 to ~$135."}]
+{zh:"2026 財年上半年穩健:Q1(12 月止)調整後 EPS 1.54 美元、年增 4%,調整後板塊 EBITA 利潤率 27.6%;Q2(3 月止)於 5 月初公佈,銷售與 EPS 續增並上調全年指引(全年營收成長約 5.5%、調整後 EPS 6.40–6.55 美元、自由現金流 35–36 億美元、庫藏股約 10 億美元)。3 月並發布 2028 年中期目標(營收 210 億、EBITA 利潤率 30%)。股價自 2026 年初高點一度回檔逾 20%,前瞻本益比由約 25 倍壓縮至 20–22 倍,市場辯論焦點在 AspenTech 整合成效與軟體利潤率兌現速度,分析師目標價分歧頗大(約 105–165 美元)。下一份財報(Q3)於 8 月 4 日公佈。\n▸ 2026/7/21 更新:Q2(3 月止)調整後 EPS 1.52 美元;近期獲 JPMorgan 升評,Citi 目標價 174 美元;股價自 3/30 的 52 週低點 122.6 美元回升至約 135。\n▸ 2026/9/25 更新:第三財季(8/4)銷售 48.7 億美元、年增 7%(基礎成長 6%),訂單年增 7%;調整後板塊息稅攤銷前利潤率 28.5%、提升 140 個基點,調整後每股盈餘 1.71 美元、年增 13%,高於指引上緣;自由現金流 13.2 億美元、年增 36%。測試量測與 Ovation 電力控制系統皆成長 23%,軟體年度合約價值增至 16.8 億美元。全年調整後每股盈餘指引上修至約 6.55 美元,全年將回饋股東約 22 億美元。股價 8/12 創 52 週高點 166.35 美元,目前約 154.55 美元。",
+ en:"H1 FY2026 was steady: Q1 (Dec-end) adjusted EPS of $1.54 rose 4% with a 27.6% adjusted segment EBITA margin; Q2 (Mar-end), reported in early May, delivered further sales and EPS growth with raised full-year guidance (~5.5% revenue growth, $6.40–6.55 adjusted EPS, $3.5–3.6B free cash flow, ~$1.0B of buybacks). March brought 2028 mid-term targets ($21B revenue, 30% EBITA margin). The stock at one point fell 20%+ from its early-2026 peak, compressing the forward multiple from ~25x to 20–22x; the market debate centers on AspenTech integration payoff and the pace of software-margin delivery, with analyst targets ranging widely (~$105–165). The next report (Q3) lands August 4.\n▸ Update (Jul 21, 2026): FY26 Q2 (Mar-end) adjusted EPS was $1.52; JPMorgan recently upgraded the stock and Citi's target sits at $174; shares have recovered from the Mar 30 52-week low of $122.6 to ~$135.\n▸ Update (Sep 25, 2026): Fiscal Q3 (Aug 4) sales of $4.87B rose 7% (6% underlying) with orders up 7%; the adjusted segment margin on earnings before interest, taxes and amortization reached 28.5%, up 140 basis points, adjusted earnings per share of $1.71 rose 13% and topped guidance, and free cash flow jumped 36% to $1.32B. Test and Measurement and the Ovation power control business each grew 23%, and software annual contract value rose to $1.68B. Full year adjusted earnings per share guidance rose to about $6.55, with about $2.2B returned to shareholders. Shares set a 52 week high of $166.35 on Aug 12 and now sit near $154.55."}]
 ]
 },
 
 /* ---------------- 10. CAE ---------------- */
 {
-id:"CAE", ticker:"CAE", exchange:"TSX / NYSE", name:{zh:"CAE",en:"CAE Inc."}, subsector:"aerospace", batch:2, added:"2026-07-21",
+id:"CAE", ticker:"CAE", exchange:"TSX / NASDAQ", name:{zh:"CAE",en:"CAE Inc."}, subsector:"aerospace", batch:2, added:"2026-07-21",
 tagline:{zh:"全球飛行模擬訓練霸主(加拿大)——民航逆風、國防起飛的轉型年",
          en:"The global leader in flight simulation training (Canada) — civil headwinds, defense taking off in a reset year"},
 basics:[
@@ -681,10 +764,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},{zh:"Matthew Bromberg(2025/8 上任)",en:"Matthew Bromberg (since Aug 2025)"}],
  [{zh:"財年",en:"FISCAL YR"},{zh:"3 月止",en:"Ends Mar"}]
 ],
-valuation:{ price:{zh:"約 C$34.6 / US$24.6",en:"~C$34.6 / US$24.6"}, mcap:{zh:"約 C$111 億(US$80 億)",en:"~C$11.1B (US$8.0B)"}, pe:{zh:"約 36x(TTM);前瞻約 29x",en:"~36x TTM; fwd ~29x"}, asOf:"2026-07-17/20" },
+valuation:{ price:{zh:"約 C$34.6",en:"~C$34.6"}, mcap:{zh:"約 C$111 億",en:"~C$11.1B"}, pe:{zh:"約 39x(近四季);前瞻約 26x",en:"~39x trailing; forward ~26x"}, asOf:"2026-09-22" },
 price52w:{ low:31.42, high:47.65, cur:34.6, lowDate:"26/5/22", highDate:"26/1/16", unit:"C$" },
-priceHistory:[["2026-01-16",47.7],["2026-05-25",32.0],["2026-07-17",34.6]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"US$8.0B"], [{zh:"股價",en:"PRICE"},"~C$35"], [{zh:"FY26營收",en:"FY26 REV"},"C$4.9B"] ],
+priceHistory:[["2026-01-16",47.7],["2026-05-25",32.0],["2026-07-17",34.6],["2026-09-22",34.6]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"C$11.1B"], [{zh:"股價",en:"PRICE"},"C$34.6"], [{zh:"FY26營收",en:"FY26 REV"},"C$4.9B"] ],
 financials:[
  [{zh:"FY2026 營收(3 月止)",en:"FY2026 revenue (Mar-end)"},{zh:"C$49.1 億(+4.4%)",en:"C$4.91B (+4.4%)"}],
  [{zh:"FY2026 淨利",en:"FY2026 net income"},{zh:"C$3.13 億(-23%)",en:"C$313M (-23%)"}],
@@ -710,8 +793,8 @@ sections:[
 {zh:"在民航全動模擬器與第三方飛行訓練市場,CAE 市佔全球第一,領先 L3Harris 與 FlightSafety(波克夏旗下);在軍用飛行訓練外包領域亦居前列。作為知識庫第 2 批唯一的加拿大公司,它與 ATS 同樣體現「利基全球冠軍」路線:不與平台巨頭正面競爭,而是壟斷高進入門檻的訓練環節。波音與空巴積壓訂單長達數年、全球未來十年需新增數十萬名飛行員,是民航訓練的長期結構性需求;短期則受新機交付延遲、飛機停飛與中東衝突干擾。",
  en:"CAE holds the global No. 1 share in civil full-flight simulators and third-party pilot training, ahead of L3Harris and Berkshire-owned FlightSafety, and ranks among the leaders in outsourced military flight training. As the lone Canadian name in this batch, it mirrors ATS's 'niche global champion' path: rather than fighting platform giants head-on, it monopolizes the high-barrier training layer. Boeing and Airbus backlogs stretch years, and the world needs hundreds of thousands of new pilots over the next decade — the structural demand base for civil training; near term, delayed aircraft deliveries, groundings and the Middle East conflict are disruptions."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026 財年(3 月止)是轉型陣痛年:營收 49.1 億加元(+4.4%)但淨利 3.13 億、年減 23%;民航營收僅 +1%、板塊利潤率降至 18.6%,國防則量價齊揚(Q2 利潤率由 4.7% 升至 8.2%)。新任 CEO Matthew Bromberg(2025 年 8 月上任)推動八大工作流轉型:裁減 10% 商用模擬器機隊、整併不動產、組織由七個總裁縮編為二,目標年化節省 1.25–1.5 億加元、2028 年調整後板塊營業利益上看 9.5–10 億加元。5 月 22 日財報公佈當日股價大跌 9.3% 至約 24.4 美元,市場將 2027 財年定調為「重置年」;分析師平均評等仍為買進、目標價約 32.6 美元,賭的是國防上行週期與 2028 年後的轉型紅利。\n▸ 2026/7/21 更新:5 月與 Saab 擴大戰略合作,支援加拿大 AEW&C 空中預警機專案;6 月重啟正常程序庫藏股(NCIB);Q1 FY2027 財報 8/12 公佈。",
- en:"FY2026 (March-end) was a year of transformation pains: revenue of C$4.91B (+4.4%) but net income of C$313M, down 23%; Civil revenue rose just 1% with segment margin sliding to 18.6%, while Defense delivered volume and margin gains (Q2 margin up from 4.7% to 8.2%). New CEO Matthew Bromberg (since August 2025) is driving an eight-workstream transformation: cutting 10% of the commercial simulator fleet, consolidating real estate, and collapsing seven president roles into two — targeting C$125–150M of annualized savings and C$950M–1B of adjusted segment operating income by 2028. The stock plunged 9.3% to ~US$24.4 on the May 22 report as the market framed FY2027 as a 'reset year'; the average analyst rating remains Buy with a ~US$32.6 target — a bet on the defense upcycle and post-2028 transformation dividends.\n▸ Update (Jul 21, 2026): in May CAE expanded its strategic partnership with Saab to support Canada's AEW&C program; in June it renewed its NCIB share buyback; Q1 FY2027 results land Aug 12."}]
+{zh:"2026 財年(3 月止)是轉型陣痛年:營收 49.1 億加元(+4.4%)但淨利 3.13 億、年減 23%;民航營收僅 +1%、板塊利潤率降至 18.6%,國防則量價齊揚(Q2 利潤率由 4.7% 升至 8.2%)。新任 CEO Matthew Bromberg(2025 年 8 月上任)推動八大工作流轉型:裁減 10% 商用模擬器機隊、整併不動產、組織由七個總裁縮編為二,目標年化節省 1.25–1.5 億加元、2028 年調整後板塊營業利益上看 9.5–10 億加元。5 月 22 日財報公佈當日股價大跌 9.3% 至約 24.4 美元,市場將 2027 財年定調為「重置年」;分析師平均評等仍為買進、目標價約 32.6 美元,賭的是國防上行週期與 2028 年後的轉型紅利。\n▸ 2026/7/21 更新:5 月與 Saab 擴大戰略合作,支援加拿大 AEW&C 空中預警機專案;6 月重啟正常程序庫藏股(NCIB);Q1 FY2027 財報 8/12 公佈。\n▸ 2026/9/25 更新:2027 財年第一季(8/12)營收 11.73 億加元、年增 6.8%,調整後每股盈餘 0.26 加元持平但優於預期;民航營收年增 5.6%,惟受中東衝突與成本上升拖累獲利,國防營收年增 8.3% 且利潤率持續擴張。自由現金流 1.04 億加元,淨負債對調整後稅息折舊攤銷前利潤比 2.27 倍,訂單出貨比 1.10;全年指引(調整後每股盈餘 1.21 至 1.28 加元)不變,1.25 億至 1.5 億加元的轉型節省目標按計畫推進。股價財報後自約 37.8 加元回落,目前約 34.6 加元;美國掛牌已改至那斯達克。下次財報約 11/11。",
+ en:"FY2026 (March-end) was a year of transformation pains: revenue of C$4.91B (+4.4%) but net income of C$313M, down 23%; Civil revenue rose just 1% with segment margin sliding to 18.6%, while Defense delivered volume and margin gains (Q2 margin up from 4.7% to 8.2%). New CEO Matthew Bromberg (since August 2025) is driving an eight-workstream transformation: cutting 10% of the commercial simulator fleet, consolidating real estate, and collapsing seven president roles into two — targeting C$125–150M of annualized savings and C$950M–1B of adjusted segment operating income by 2028. The stock plunged 9.3% to ~US$24.4 on the May 22 report as the market framed FY2027 as a 'reset year'; the average analyst rating remains Buy with a ~US$32.6 target — a bet on the defense upcycle and post-2028 transformation dividends.\n▸ Update (Jul 21, 2026): in May CAE expanded its strategic partnership with Saab to support Canada's AEW&C program; in June it renewed its NCIB share buyback; Q1 FY2027 results land Aug 12.\n▸ Update (Sep 25, 2026): Fiscal 2027 Q1 (Aug 12) revenue of C$1.17B rose 6.8% and adjusted earnings per share held at C$0.26, still ahead of estimates; Civil revenue grew 5.6% but profitability slipped on Middle East disruption and higher costs, while Defense revenue rose 8.3% with further margin expansion. Free cash flow was C$104M, net debt to adjusted earnings before interest, taxes, depreciation and amortization was 2.27 times, and book to sales was 1.10; full year guidance (adjusted earnings per share of C$1.21 to C$1.28) was unchanged and C$125M to C$150M of transformation savings remain on track. Shares slipped from about C$37.8 before the report to about C$34.6; the U.S. listing is now on Nasdaq. Next report: around Nov 11."}]
 ]
 }
 
@@ -729,11 +812,13 @@ basics:[
  [{zh:"CEO",en:"CEO"},"Vimal Kapur"],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:{zh:"—(分拆後,下批確認)",en:"— (post-spin; confirm next batch)"}, mcap:{zh:"—(下批確認)",en:"— (confirm next batch)"}, pe:{zh:"FY26 調整後 EPS 指引 US$3.95–4.15",en:"FY26 adj. EPS guide US$3.95–4.15"}, asOf:{zh:"待更新",en:"pending"} },
-cardStats:[ [{zh:"分拆前積壓",en:"BACKLOG (PRE-SPIN)"},"$38.3B"], [{zh:"FY26營收指引",en:"FY26 REV GUIDE"},"~$20B"], [{zh:"EPS指引",en:"EPS GUIDE"},"$3.95-4.15"] ],
+valuation:{ price:"US$212.57", mcap:{zh:"約 US$674 億",en:"~US$67.4B"}, pe:{zh:"約 27x(以第二季調整後每股盈餘年化)",en:"~27x (annualized Q2 adjusted earnings per share)"}, asOf:"2026-09-23" },
+price52w:{ low:195.77, high:260.15, cur:212.6, lowDate:"25/11/20", highDate:"26/3/2" },
+priceHistory:[["2026-07-23",248.0],["2026-09-23",212.6]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$67B"], [{zh:"股價",en:"PRICE"},"$213"], [{zh:"積壓訂單",en:"BACKLOG"},"~$20B"] ],
 financials:[
  [{zh:"分拆架構",en:"Breakup structure"},{zh:"Solstice(2025/10)→ Quantinuum IPO(2026/6/4)→ Honeywell Aerospace「HONA」(2026/6/29)",en:"Solstice (Oct 2025) → Quantinuum IPO (Jun 4, 2026) → Honeywell Aerospace 'HONA' (Jun 29, 2026)"}],
- [{zh:"分拆後 FY2026 指引",en:"Post-spin FY2026 guide"},{zh:"營收 US$199–202 億;調整後 EPS US$3.95–4.15",en:"Rev US$19.9–20.2B; adj. EPS US$3.95–4.15"}],
+ [{zh:"分拆後 FY2026 指引(6/9)",en:"Post spin FY2026 guidance (Jun 9)"},{zh:"營收 US$199 至 202 億;調整後每股盈餘 US$3.95 至 4.15(第二季單季已達 1.95 美元,推測僅涵蓋分拆後下半年;7/23 已上修)",en:"Revenue US$19.9B to 20.2B; adjusted earnings per share US$3.95 to 4.15 (Q2 alone was US$1.95, so this likely covers only the post spin second half; raised Jul 23)"}],
  [{zh:"分拆前 FY2026 指引",en:"Pre-spin FY2026 guide"},{zh:"營收 US$388–398 億;調整後 EPS US$10.35–10.65",en:"Rev US$38.8–39.8B; adj. EPS US$10.35–10.65"}],
  [{zh:"2026Q1(分拆前)",en:"Q1 2026 (pre-spin)"},{zh:"營收 US$91 億(+2% 有機);訂單 +7%;積壓 US$383 億",en:"Rev US$9.1B (+2% organic); orders +7%; backlog US$38.3B"}],
  [{zh:"2026Q1 調整後 EPS",en:"Q1 2026 adj. EPS"},{zh:"US$2.45(+11%);板塊利潤率 23.3%(+90bps)",en:"US$2.45 (+11%); segment margin 23.3% (+90bps)"}],
@@ -752,8 +837,8 @@ sections:[
 {zh:"分拆後的 HON 一躍成為與 Rockwell、Emerson、Siemens、Schneider 同場競技的純自動化巨頭:樓宇自動化全球前二(對手 Johnson Controls、Siemens),流程自動化全球前三(對手 Emerson、ABB),工業感測與安全設備居第一梯隊。相對 ROK 偏離散製造、EMR 偏流程工業,HON 的獨特之處是「樓宇+工業+流程」三線並進,終端市場最分散;知識庫內自動化板塊至此集齊北美四大天王(ROK、EMR、HON、ATS),可作完整對照。",
  en:"Post-spin, HON instantly becomes a pure-play automation giant competing with Rockwell, Emerson, Siemens and Schneider: top-two globally in building automation (vs Johnson Controls, Siemens), top-three in process automation (vs Emerson, ABB), and first-tier in industrial sensing and safety. Where ROK skews discrete and EMR skews process, HON's distinction is fighting on three fronts — buildings, industrial and process — with the most diversified end markets. With this entry, the KB's automation shelf now holds North America's big four (ROK, EMR, HON, ATS) for full comparison."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026Q1(分拆前)營收 91 億美元、有機 +2%,中東衝突干擾流程自動化收款與出貨;訂單 +7%、積壓升至 383 億美元,調整後 EPS 2.45 美元(+11%)。6/9 重申全年指引並首次給出分拆後展望:Honeywell Technologies 全年營收 199–202 億、調整後 EPS 3.95–4.15 美元;同時出售 PSS 與倉儲工作流方案完成最後瘦身。6/29 三分拆正式收官,HON、HONA 同日分開掛牌。分拆後股價與市值基期全變,本庫將於下批刷新確認;HONA(航太)亦列入未來新增候選。",
- en:"Pre-spin Q1 2026 revenue was $9.1B (+2% organic), with Middle East disruptions hitting Process Automation collections and shipments; orders rose 7%, backlog reached $38.3B, and adjusted EPS of $2.45 grew 11%. On June 9 the company reaffirmed guidance and gave its first post-spin outlook: Honeywell Technologies at $19.9–20.2B revenue and $3.95–4.15 adjusted EPS, while divesting PSS and Warehouse & Workflow Solutions as the final slimming step. The three-way breakup closed June 29 with HON and HONA trading separately the same day. Post-spin price and market-cap baselines have reset — this KB will confirm them next batch, and HONA (aerospace) joins the future-additions shortlist."}]
+{zh:"2026Q1(分拆前)營收 91 億美元、有機 +2%,中東衝突干擾流程自動化收款與出貨;訂單 +7%、積壓升至 383 億美元,調整後 EPS 2.45 美元(+11%)。6/9 重申全年指引並首次給出分拆後展望:Honeywell Technologies 全年營收 199–202 億、調整後 EPS 3.95–4.15 美元;同時出售 PSS 與倉儲工作流方案完成最後瘦身。6/29 三分拆正式收官,HON、HONA 同日分開掛牌。分拆後股價與市值基期全變,本庫將於下批刷新確認;HONA(航太)亦列入未來新增候選。\n▸ 2026/9/25 更新:分拆後首份財報(7/23):不含航太的 Honeywell Technologies 訂單年增 16%,積壓訂單約 200 億美元,銷售 51.9 億美元、有機成長 4%,調整後每股盈餘 1.95 美元;樓宇自動化銷售年增 10%、利潤率 27.1%,工業自動化利潤率升至 17.2%。公司全面上修全年指引並首度公布至 2029 年的三年目標,另以 17.5 億美元收購 Johnson Matthey 觸媒技術事業(7/17 完成)。股價財報日大漲 6.45% 至約 248 美元後回落,9/23 收約 212.6 美元、市值約 674 億美元;52 週區間已按分拆調整。",
+ en:"Pre-spin Q1 2026 revenue was $9.1B (+2% organic), with Middle East disruptions hitting Process Automation collections and shipments; orders rose 7%, backlog reached $38.3B, and adjusted EPS of $2.45 grew 11%. On June 9 the company reaffirmed guidance and gave its first post-spin outlook: Honeywell Technologies at $19.9–20.2B revenue and $3.95–4.15 adjusted EPS, while divesting PSS and Warehouse & Workflow Solutions as the final slimming step. The three-way breakup closed June 29 with HON and HONA trading separately the same day. Post-spin price and market-cap baselines have reset — this KB will confirm them next batch, and HONA (aerospace) joins the future-additions shortlist.\n▸ Update (Sep 25, 2026): In its first post spin report (Jul 23), Honeywell Technologies excluding Aerospace grew orders 16% to a backlog of about $20B, with sales of $5.19B (4% organic) and adjusted earnings per share of $1.95; Building Automation sales rose 10% at a 27.1% margin and Industrial Automation margin rose to 17.2%. Management raised full year guidance on every metric, unveiled three year targets through 2029, and closed the $1.75B purchase of Johnson Matthey's Catalyst Technologies on Jul 17. Shares jumped 6.45% to about $248 on the print before fading to about $212.6 by Sep 23, a market value near $67.4B; the 52 week range is spin adjusted."}]
 ]
 },
 
@@ -769,9 +854,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},"Kathy Warden"],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:{zh:"約 US$501(7/21 盤中)",en:"~US$501 (Jul 21 intraday)"}, mcap:{zh:"約 US$730 億",en:"~US$73B"}, pe:{zh:"前瞻約 17x(2026 上修指引)",en:"Fwd ~17x (raised 2026 guide)"}, asOf:"2026-07-21" },
-priceHistory:[["2026-07-20",526.1],["2026-07-21",501.2]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$73B"], [{zh:"股價",en:"PRICE"},"$501"], [{zh:"TTM營收",en:"TTM REV"},"$42.4B"] ],
+valuation:{ price:{zh:"約 US$514",en:"~US$514"}, mcap:{zh:"約 US$731 億",en:"~US$73.1B"}, pe:{zh:"約 16.7x(近四季);前瞻約 18x",en:"~16.7x trailing; forward ~18x"}, asOf:"2026-09-23" },
+price52w:{ low:479.02, high:774.0, cur:514.4, lowDate:"26/7/21", highDate:"26/3/2" },
+priceHistory:[["2026-07-20",526.1],["2026-07-21",501.2],["2026-09-23",514.4]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$73B"], [{zh:"股價",en:"PRICE"},"$514"], [{zh:"TTM營收",en:"TTM REV"},"$42.4B"] ],
 financials:[
  [{zh:"2026Q2(7/21 公佈)",en:"Q2 2026 (out Jul 21)"},{zh:"營收 US$108.8 億(+5%);EPS US$7.68 大勝預期(~6.85)",en:"Rev US$10.88B (+5%); EPS US$7.68, big beat (~6.85 est.)"}],
  [{zh:"淨額獲單/積壓",en:"Net awards / backlog"},{zh:"Q2 獲單 US$200 億、book-to-bill 1.84x;積壓創紀錄 US$1,047 億",en:"Q2 awards US$20B, book-to-bill 1.84x; record backlog US$104.7B"}],
@@ -794,8 +880,8 @@ sections:[
 {zh:"在戰略轟炸機與陸基核威懾領域,NOC 是無可替代的獨家玩家;太空防禦(飛彈預警與追蹤衛星)居領導地位,也是「金穹」飛彈防禦架構的關鍵候選承包商之一。與 LMT(戰機+防空飛彈)、RTX(引擎+攔截彈)相比,NOC 的組合最偏「核三位一體與太空」,對美國戰略預算的曝險最深。今晨公佈的 Q2 讓地位再進一步:單季獲單 200 億美元、book-to-bill 高達 1.84 倍,積壓 1,047 億美元約當 2.4 年營收,NATO 的 Triton 無人機與中東飛彈防禦需求則打開國際市場。",
  en:"In strategic bombers and land-based nuclear deterrence NOC is the irreplaceable sole player; it leads in space defense (missile-warning and tracking satellites) and is a key candidate contractor for the 'Golden Dome' missile-defense architecture. Versus LMT (fighters + air defense) and RTX (engines + interceptors), NOC's portfolio tilts hardest toward the nuclear triad and space, giving it the deepest exposure to U.S. strategic budgets. This morning's Q2 extended the lead: $20B of quarterly awards, a 1.84x book-to-bill, and a $104.7B backlog worth ~2.4 years of revenue, while NATO Triton drone and Middle East missile-defense demand open international markets."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026/7/21(今晨)公佈 Q2:營收 108.8 億美元(+5%)、EPS 7.68 美元大勝預期約 11%,積壓創紀錄 1,047 億美元(Sentinel 新增 76 億、機密專案 43 億);全年指引上修至營收 437.5–442.5 億、調整後 EPS 28.60–29.10 美元。但股價開盤反跌約 4% 至 501 美元——市場緊盯防衛系統 SiAW 與太空 GEM 63XL 的不利成本調整,以及「利多出盡」的估值消化;管理層承諾下半年利潤率改善。前瞻僅約 17 倍,與 LMT 同屬國防板塊的估值窪地,催化劑在 B-21 量產爬坡與金穹大單落地。",
- en:"Q2 landed this morning (Jul 21, 2026): revenue of $10.88B (+5%) and EPS of $7.68 beat by ~11%, with backlog at a record $104.7B (Sentinel +$7.6B, restricted +$4.3B); full-year guidance was raised to $43.75–44.25B revenue and $28.60–29.10 adjusted EPS. Yet the stock opened down ~4% to $501 — the market is watching unfavorable cost adjustments on Defense Systems' SiAW and Space's GEM 63XL, plus good-news-priced-in digestion; management promises H2 margin improvement. At ~17x forward it sits with LMT in defense's valuation trough, with catalysts in the B-21 production ramp and a potential Golden Dome award."}]
+{zh:"2026/7/21(今晨)公佈 Q2:營收 108.8 億美元(+5%)、EPS 7.68 美元大勝預期約 11%,積壓創紀錄 1,047 億美元(Sentinel 新增 76 億、機密專案 43 億);全年指引上修至營收 437.5–442.5 億、調整後 EPS 28.60–29.10 美元。但股價開盤反跌約 4% 至 501 美元——市場緊盯防衛系統 SiAW 與太空 GEM 63XL 的不利成本調整,以及「利多出盡」的估值消化;管理層承諾下半年利潤率改善。前瞻僅約 17 倍,與 LMT 同屬國防板塊的估值窪地,催化劑在 B-21 量產爬坡與金穹大單落地。\n▸ 2026/9/25 更新:7/21 財報日股價盤中一度跌至 479 美元,創 52 週低點;之後 8/3 取得約 30 億美元合約擴大飛彈防禦產能、9/3 再獲 8.63 億美元飛彈裝置合約,9/16 表示正就 8 項武器計畫進行積極討論。Guggenheim 9/14 以買進評等首次涵蓋,但 Bernstein 9/23 將目標價由 653 美元降至 620 美元。B-21 早期固定價格批次累計虧損約 20 億美元,仍是利潤率的主要疑慮。股價約 514 美元、年初至今下跌約 9%,近四季本益比約 16.7 倍,是本庫國防股中最便宜之一。下次財報約 10/20。",
+ en:"Q2 landed this morning (Jul 21, 2026): revenue of $10.88B (+5%) and EPS of $7.68 beat by ~11%, with backlog at a record $104.7B (Sentinel +$7.6B, restricted +$4.3B); full-year guidance was raised to $43.75–44.25B revenue and $28.60–29.10 adjusted EPS. Yet the stock opened down ~4% to $501 — the market is watching unfavorable cost adjustments on Defense Systems' SiAW and Space's GEM 63XL, plus good-news-priced-in digestion; management promises H2 margin improvement. At ~17x forward it sits with LMT in defense's valuation trough, with catalysts in the B-21 production ramp and a potential Golden Dome award.\n▸ Update (Sep 25, 2026): On the Jul 21 results day the stock touched $479 intraday, its 52 week low. Since then Northrop won about $3B of contracts to expand missile defense production (Aug 3) and an $863M missile device award (Sep 3), and on Sep 16 said it is in active discussions on eight weapons programs. Guggenheim initiated at Buy on Sep 14, but Bernstein cut its target from $653 to $620 on Sep 23. Cumulative losses of roughly $2B on early fixed price B-21 lots remain the main margin concern. At about $514 the shares are down about 9% year to date and trade near 16.7 times trailing earnings, among the cheapest defense names here. Next report: around Oct 20."}]
 ]
 },
 
@@ -811,9 +897,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},{zh:"Jennifer Rumsey(董事長兼 CEO)",en:"Jennifer Rumsey (Chair & CEO)"}],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:"US$682.33", mcap:{zh:"約 US$942 億",en:"~US$94.2B"}, pe:{zh:"前瞻約 26x(概算)",en:"Fwd ~26x (est.)"}, asOf:"2026-07-20" },
-priceHistory:[["2026-05-05",671.0],["2026-07-20",682.3]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$94B"], [{zh:"股價",en:"PRICE"},"$682"], [{zh:"TTM營收",en:"TTM REV"},"$33.9B"] ],
+valuation:{ price:{zh:"約 US$522",en:"~US$522"}, mcap:{zh:"約 US$720 億",en:"~US$72B"}, pe:{zh:"約 27x(近四季)",en:"~27x trailing"}, asOf:{zh:"2026-09 下旬",en:"Late Sep 2026"} },
+price52w:{ low:400.72, high:737.76, cur:522.1, highDate:"26/7" },
+priceHistory:[["2026-05-05",671.0],["2026-07-20",682.3],["2026-09-08",561.6],["2026-09-24",522.1]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$72B"], [{zh:"股價",en:"PRICE"},"$522"], [{zh:"TTM營收",en:"TTM REV"},"$33.9B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$339 億",en:"US$33.9B"}],
  [{zh:"2026Q1 營收",en:"Q1 2026 revenue"},{zh:"US$84 億(+3%);調整後 EPS US$6.15(勝預期 9.8%)",en:"US$8.4B (+3%); adj. EPS US$6.15 (9.8% beat)"}],
@@ -837,8 +924,8 @@ sections:[
 {zh:"在中重型柴油引擎領域,Cummins 是全球市佔第一的獨立供應商;發電機組與高馬力引擎則與 Caterpillar、Rolls-Royce Power Systems(MTU)、Generac 同場競逐資料中心備援電力這塊爆發市場——與知識庫內的 CAT 形成最直接的對照組(CAT Q1 發電營收 +41%,CMI 北美發電 +23%)。在零排放轉型上,Accelera 經歷戰略收縮(出售低壓燃料電池、認列 1.99 億美元重組),反映全行業對氫能節奏的重新校準;短期護城河仍是柴油與天然氣的規模經濟。",
  en:"In medium/heavy-duty diesel, Cummins is the world's No. 1 independent supplier; in gensets and high-horsepower engines it battles Caterpillar, Rolls-Royce Power Systems (MTU) and Generac for the exploding data-center backup market — making it the most direct comp to CAT in this KB (CAT Q1 power-gen revenue +41%, CMI NA power gen +23%). In zero-emissions, Accelera has strategically retrenched (selling low-pressure fuel cells with a $199M charge), reflecting an industry-wide recalibration of the hydrogen timeline; the near-term moat remains diesel and natural-gas scale economics."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026Q1(5/5 公佈)營收 84 億美元(+3%)、調整後 EPS 6.15 美元勝預期近 10%,並上修全年:營收 +8–11%、Power Systems 營收 +14–19%(利潤率 25–26%);國際營收 +16%(中國資料中心需求 +19%)抵銷北美卡車 -20% 的疲弱。管理層預期下半年出現 EPA 2027 前的溫和預購潮,X15/X10 如期 2027 上市。股價一年翻倍、接近歷史高點(7/20 收 682.33 美元),市場已把「AI 電力第二受益者」的劇本計入不少;Q2 財報 8/4 公佈,觀察 Power Systems 利潤率能否守住 29% 級距。",
- en:"Q1 2026 (May 5) delivered $8.4B revenue (+3%) and $6.15 adjusted EPS, a near-10% beat, with full-year guidance raised: revenue +8–11% and Power Systems +14–19% at 25–26% margins; international revenue +16% (China data-center demand +19%) offset North American truck weakness (-20%). Management expects a modest H2 pre-buy ahead of EPA 2027, with X15/X10 launching on schedule in 2027. The stock has doubled in a year to near record highs ($682.33 on Jul 20), pricing in much of the 'second-order AI power beneficiary' script; Q2 results land Aug 4, with the key watch on whether Power Systems holds ~29% margins."}]
+{zh:"2026Q1(5/5 公佈)營收 84 億美元(+3%)、調整後 EPS 6.15 美元勝預期近 10%,並上修全年:營收 +8–11%、Power Systems 營收 +14–19%(利潤率 25–26%);國際營收 +16%(中國資料中心需求 +19%)抵銷北美卡車 -20% 的疲弱。管理層預期下半年出現 EPA 2027 前的溫和預購潮,X15/X10 如期 2027 上市。股價一年翻倍、接近歷史高點(7/20 收 682.33 美元),市場已把「AI 電力第二受益者」的劇本計入不少;Q2 財報 8/4 公佈,觀察 Power Systems 利潤率能否守住 29% 級距。\n▸ 2026/9/25 更新:第二季(8/4)營收創同期紀錄 94.6 億美元,但每股盈餘 6.73 美元低於預期的 7.18 美元,稅息折舊攤銷前利潤率 17.5% 也低於去年同期 18.4%;全年營收成長指引上修至 10% 至 13%。公司與一家全球超大規模雲端業者簽下多年期協議,鎖定數吉瓦的資料中心備援電力需求,並連續第 17 年調升股利(+10%);但採礦引擎展望下修,Accelera 全年仍將虧損 2.6 億至 2.9 億美元。股價自 7 月高點 737.76 美元回落約三成至約 522 美元,部分基金已獲利了結。",
+ en:"Q1 2026 (May 5) delivered $8.4B revenue (+3%) and $6.15 adjusted EPS, a near-10% beat, with full-year guidance raised: revenue +8–11% and Power Systems +14–19% at 25–26% margins; international revenue +16% (China data-center demand +19%) offset North American truck weakness (-20%). Management expects a modest H2 pre-buy ahead of EPA 2027, with X15/X10 launching on schedule in 2027. The stock has doubled in a year to near record highs ($682.33 on Jul 20), pricing in much of the 'second-order AI power beneficiary' script; Q2 results land Aug 4, with the key watch on whether Power Systems holds ~29% margins.\n▸ Update (Sep 25, 2026): Q2 (Aug 4) revenue hit a Q2 record of $9.46B, but earnings per share of $6.73 missed the $7.18 consensus and the margin on earnings before interest, taxes, depreciation and amortization slipped to 17.5% from 18.4%; full year revenue growth guidance was raised to 10% to 13%. Cummins signed a multiyear agreement with a global hyperscaler covering several gigawatts of future backup power and raised its dividend 10% for a 17th straight year, while trimming its mining engine outlook and guiding to $260M to $290M of Accelera losses. Shares have fallen roughly 30% from the July high of $737.76 to about $522 as some funds took profits."}]
 ]
 },
 
@@ -854,9 +941,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},"Giordano Albertazzi"],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:"US$331.44", mcap:{zh:"約 US$1,273 億",en:"~US$127.3B"}, pe:{zh:"前瞻約 50x(2026 指引概算)",en:"Fwd ~50x (2026 guide est.)"}, asOf:"2026-07-20" },
-priceHistory:[["2026-06-18",333.1],["2026-07-20",331.4]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$127B"], [{zh:"股價",en:"PRICE"},"$331"], [{zh:"TTM營收",en:"TTM REV"},"$10.8B"] ],
+valuation:{ price:{zh:"約 US$251",en:"~US$251"}, mcap:{zh:"約 US$970 億",en:"~US$97B"}, pe:{zh:"前瞻約 37x(2026 指引中值)",en:"Forward ~37x (2026 guidance midpoint)"}, asOf:"2026-09-22" },
+price52w:{ low:133.85, high:379.94, cur:251.0, highDate:"26/7" },
+priceHistory:[["2026-06-18",333.1],["2026-07-20",331.4],["2026-09-22",251.0]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$97B"], [{zh:"股價",en:"PRICE"},"$251"], [{zh:"TTM營收",en:"TTM REV"},"$10.8B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$108 億",en:"US$10.8B"}],
  [{zh:"積壓訂單",en:"Backlog"},{zh:"2025 底 US$150 億(+109%,Q4 book-to-bill 近 2.9x);2026Q1 約 US$125 億(+81%)",en:"US$15.0B at YE25 (+109%, Q4 book-to-bill ~2.9x); ~US$12.5B in Q1 (+81%)"}],
@@ -879,8 +967,8 @@ sections:[
 {zh:"在資料中心關鍵基礎設施(電力+熱管理)領域,Vertiv 與 Schneider Electric 並列全球雙雄,液冷領域居領先集團;主要對手還包括剛以 Boyd 液冷補課的 Eaton(知識庫第 2 批)、Modine 與台達電等。它是四家「AI 電力鏈」收錄公司中純度最高者:GEV 賣渦輪機(發電)、ETN 賣配電(電網到機房)、CMI 賣備援引擎,Vertiv 則守住「機房到晶片」最後一哩。代價是最高的估值(前瞻約 50 倍)與最集中的客戶結構——超大規模雲商的資本支出一旦喘息,回檔也會最劇烈。",
  en:"In data-center critical infrastructure (power + thermal), Vertiv and Schneider Electric are the global duopoly, with Vertiv in the leading pack for liquid cooling; other rivals include Eaton (batch 2, which bought Boyd to catch up in liquid cooling), Modine and Delta Electronics. Among the four 'AI power chain' companies in this KB it is the purest play: GEV sells turbines (generation), ETN sells distribution (grid to room), CMI sells backup engines — Vertiv owns the last mile from room to chip. The price is the richest multiple (~50x forward) and the most concentrated customer base — if hyperscaler capex pauses, the drawdown will be the sharpest."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026Q1(4 月底公佈)營收 26.5 億美元、調整後 EPS 年增 83%,全年營收指引上修至 135–140 億美元、EPS 成長約 50%;積壓維持 125–150 億美元高檔。6/18 股價收 333.05 美元、一週大漲 12%,市值約 1,280 億;7/20 收 331.44 美元,在歷史高位附近整理。多空焦點清晰:多方看液冷滲透率與 2029 年 25% 利潤率路徑,空方提醒 2022 年定價失誤重挫 71% 的前科與約 50 倍的前瞻本益比。Q2 財報 7/29 公佈(預期 EPS 約 1.43 美元),訂單與積壓數字將是 AI 資本支出的即時風向球。",
- en:"Q1 2026 (late April) delivered $2.65B revenue with adjusted EPS up 83%; full-year revenue guidance rose to $13.5–14.0B with ~50% EPS growth, and backlog held at an elevated $12.5–15B. The stock closed at $333.05 on Jun 18 (+12% that week, ~$128B market cap) and at $331.44 on Jul 20, consolidating near all-time highs. The debate is crisp: bulls see liquid-cooling penetration and the path to 25% margins by 2029; bears point to the 2022 pricing debacle (-71%) and a ~50x forward multiple. Q2 results land Jul 29 (consensus EPS ~$1.43) — the order and backlog prints will be a real-time barometer of AI capex."}]
+{zh:"2026Q1(4 月底公佈)營收 26.5 億美元、調整後 EPS 年增 83%,全年營收指引上修至 135–140 億美元、EPS 成長約 50%;積壓維持 125–150 億美元高檔。6/18 股價收 333.05 美元、一週大漲 12%,市值約 1,280 億;7/20 收 331.44 美元,在歷史高位附近整理。多空焦點清晰:多方看液冷滲透率與 2029 年 25% 利潤率路徑,空方提醒 2022 年定價失誤重挫 71% 的前科與約 50 倍的前瞻本益比。Q2 財報 7/29 公佈(預期 EPS 約 1.43 美元),訂單與積壓數字將是 AI 資本支出的即時風向球。\n▸ 2026/9/25 更新:第二季(7/29)銷售 32.7 億美元、年增 24%,調整後每股盈餘 1.52 美元、年增 60%,調整後營業利益率 22.6%、提升 410 個基點,調整後自由現金流 9.25 億美元並轉為淨現金;但因供應鏈壅塞與大型分期專案,部分營收遞延到下半年,股價財報隔天單日重挫 17%。全年指引上修:銷售約 140 億美元(有機成長約 31%)、調整後每股盈餘 6.65 至 6.75 美元,第三季銷售指引年增約 40%;另收購 ThermoKey 與 Strategic Thermal Labs 強化散熱產品。股價約 251 美元,距 52 週高點約低三分之一。",
+ en:"Q1 2026 (late April) delivered $2.65B revenue with adjusted EPS up 83%; full-year revenue guidance rose to $13.5–14.0B with ~50% EPS growth, and backlog held at an elevated $12.5–15B. The stock closed at $333.05 on Jun 18 (+12% that week, ~$128B market cap) and at $331.44 on Jul 20, consolidating near all-time highs. The debate is crisp: bulls see liquid-cooling penetration and the path to 25% margins by 2029; bears point to the 2022 pricing debacle (-71%) and a ~50x forward multiple. Q2 results land Jul 29 (consensus EPS ~$1.43) — the order and backlog prints will be a real-time barometer of AI capex.\n▸ Update (Sep 25, 2026): Q2 (Jul 29) sales of $3.27B rose 24%, adjusted earnings per share of $1.52 rose 60%, adjusted operating margin reached 22.6% (up 410 basis points) and adjusted free cash flow of $925M moved Vertiv to net cash; still, supply chain congestion and phased megaprojects pushed some revenue into the second half and the stock fell 17% the next day. Full year guidance rose to about $14.0B of sales (about 31% organic growth) and $6.65 to $6.75 adjusted earnings per share, with Q3 sales guided up about 40%; the ThermoKey and Strategic Thermal Labs acquisitions deepen its thermal lineup. At about $251 the shares sit roughly a third below the 52 week high."}]
 ]
 },
 
@@ -896,9 +984,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},"H. Lawrence Culp Jr."],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:"US$314.64", mcap:{zh:"約 US$3,283 億",en:"~US$328.3B"}, pe:{zh:"前瞻約 41x(2026 上修指引)",en:"Fwd ~41x (raised 2026 guide)"}, asOf:"2026-07-20" },
-priceHistory:[["2026-07-15",328.0],["2026-07-20",314.6]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$328B"], [{zh:"股價",en:"PRICE"},"$315"], [{zh:"TTM營收",en:"TTM REV"},"$48.3B"] ],
+valuation:{ price:"US$326.84", mcap:{zh:"約 US$3,404 億",en:"~US$340.4B"}, pe:{zh:"前瞻約 42x(2026 指引中值)",en:"Forward ~42x (2026 guidance midpoint)"}, asOf:"2026-09-25" },
+price52w:{ low:268.91, high:388.84, cur:326.8, highDate:"26/8" },
+priceHistory:[["2026-07-15",328.0],["2026-07-20",314.6],["2026-09-25",326.8]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$340B"], [{zh:"股價",en:"PRICE"},"$327"], [{zh:"TTM營收",en:"TTM REV"},"$48.3B"] ],
 financials:[
  [{zh:"2026Q2(7/16 公佈)",en:"Q2 2026 (out Jul 16)"},{zh:"GAAP 營收 US$133.5 億(+21%,調整後 +24%);調整後 EPS US$2.02(勝 8.6%)",en:"GAAP rev US$13.35B (+21%; adj. +24%); adj. EPS US$2.02 (8.6% beat)"}],
  [{zh:"訂單/現金流",en:"Orders / cash flow"},{zh:"Q2 訂單 US$165 億(+17%);自由現金流 US$30 億(+43%)",en:"Q2 orders US$16.5B (+17%); FCF US$3.0B (+43%)"}],
@@ -921,14 +1010,14 @@ sections:[
 {zh:"以商用引擎裝機量計,GE+CFM 是無可爭議的世界第一,對手僅 Pratt & Whitney(RTX 旗下,GTF 引擎)與 Rolls-Royce(寬體);窄體市場實質上是 CFM 與 P&W 的雙寡頭。在知識庫的航太板塊裡,GE 與 RTX 是「引擎雙雄」的直接對照:GE 更純(無飛彈與航電稀釋)、利潤率與現金流更強,估值也因此更高(前瞻約 41 倍 vs RTX 約 28 倍)。供應鏈仍是全行業瓶頸——備件交付延遲量 Q2 環比 +20%,說明需求仍遠大於供給。",
  en:"By commercial installed base, GE+CFM is the undisputed world No. 1, with only Pratt & Whitney (RTX's GTF) and Rolls-Royce (widebody) as rivals; the narrowbody market is effectively a CFM–P&W duopoly. Within this KB's aerospace shelf, GE and RTX form the direct 'engine duo' comparison: GE is purer (no missiles or avionics dilution) with stronger margins and cash flow — and a richer multiple to match (~41x forward vs RTX's ~28x). Supply chains remain the industry bottleneck — spare-parts delinquencies rose 20% sequentially in Q2, evidence that demand still far exceeds supply."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026Q2(7/16 公佈)全面超標:調整後營收 +24%、EPS 2.02 美元(+22%)、自由現金流 +43%,訂單 165 億美元;全年指引大幅上修(調整後營收高十位數成長、EPS 7.65–7.85、FCF 89–92 億美元),Jefferies、RBC、Bernstein 一致按讚。但股價財報後回落約 4% 至 315 美元附近——市場消化「訂單成長趨緩」與已然偏高的預期,GE9X(777-9 用)爬坡也壓低利潤率 130bps。中東衝突暫未改變客戶行為,上半年航班起降大致持平,管理層仍預期下半年溫和回升;約 2,100 億美元總積壓是最深的護城河。",
- en:"Q2 2026 (out Jul 16) beat across the board: adjusted revenue +24%, EPS of $2.02 (+22%), free cash flow +43%, and $16.5B of orders; full-year guidance was raised sharply (high-teens adjusted revenue growth, $7.65–7.85 EPS, $8.9–9.2B FCF), with Jefferies, RBC and Bernstein applauding. Yet the stock eased ~4% to ~$315 post-print as the market digested moderating order growth against elevated expectations, while the GE9X ramp (for the 777-9) shaved 130bps off margins. The Middle East conflict hasn't changed customer behavior — H1 departures were roughly flat, with a modest H2 recovery still expected; the $210B+ total backlog remains the deepest moat."}]
+{zh:"2026Q2(7/16 公佈)全面超標:調整後營收 +24%、EPS 2.02 美元(+22%)、自由現金流 +43%,訂單 165 億美元;全年指引大幅上修(調整後營收高十位數成長、EPS 7.65–7.85、FCF 89–92 億美元),Jefferies、RBC、Bernstein 一致按讚。但股價財報後回落約 4% 至 315 美元附近——市場消化「訂單成長趨緩」與已然偏高的預期,GE9X(777-9 用)爬坡也壓低利潤率 130bps。中東衝突暫未改變客戶行為,上半年航班起降大致持平,管理層仍預期下半年溫和回升;約 2,100 億美元總積壓是最深的護城河。\n▸ 2026/9/25 更新:7 月范堡羅航展期間,IndiGo 與 CFM 簽署 1,000 具 LEAP-1A 引擎備忘錄,AerCap 選用 GEnx 驅動 15 架 787;今年 LEAP 交付量年增約 41%。9/8 宣布收購精密鑄件廠 Consolidated Precision Products(CPP)補強葉片鑄件產能,被視為改變 Howmet 等供應商競爭格局的關鍵一步。風險面:9 月波音執行長表示 777X 認證仍在等待 GE9X 引擎密封件修正。市場預估全年每股盈餘約 7.91 美元,已高於公司指引上緣;股價約 327 美元,距 52 週高點約低 16%。下次財報 10/20。",
+ en:"Q2 2026 (out Jul 16) beat across the board: adjusted revenue +24%, EPS of $2.02 (+22%), free cash flow +43%, and $16.5B of orders; full-year guidance was raised sharply (high-teens adjusted revenue growth, $7.65–7.85 EPS, $8.9–9.2B FCF), with Jefferies, RBC and Bernstein applauding. Yet the stock eased ~4% to ~$315 post-print as the market digested moderating order growth against elevated expectations, while the GE9X ramp (for the 777-9) shaved 130bps off margins. The Middle East conflict hasn't changed customer behavior — H1 departures were roughly flat, with a modest H2 recovery still expected; the $210B+ total backlog remains the deepest moat.\n▸ Update (Sep 25, 2026): Around the July Farnborough Airshow, IndiGo and CFM signed a memorandum for 1,000 LEAP-1A engines and AerCap picked GEnx for 15 more 787s; LEAP deliveries are up about 41% this year. On Sep 8 GE agreed to buy Consolidated Precision Products (CPP) to add blade and vane casting capacity, a move seen as reshaping supplier dynamics for Howmet and peers. On the risk side, Boeing's chief executive said in September that 777X certification still awaits a GE9X engine seal fix. Consensus now expects about $7.91 of full year earnings per share, above the top of guidance; shares near $327 sit about 16% below the 52 week high. Next report: Oct 20."}]
 ]
 },
 
 /* ---------------- 16. BOMBARDIER ---------------- */
 {
-id:"BBD", ticker:"BBD", exchange:"TSX", name:{zh:"Bombardier 龐巴迪",en:"Bombardier Inc."}, subsector:"aerospace", batch:3, added:"2026-07-21",
+id:"BBD", ticker:"BBD.B", exchange:"TSX", name:{zh:"Bombardier 龐巴迪",en:"Bombardier Inc."}, subsector:"aerospace", batch:3, added:"2026-07-21",
 tagline:{zh:"加拿大公務機純血玩家的重生——積壓 203 億美元、book-to-bill 3.6 倍的轉型完成式",
          en:"Canada's pure-play business-jet phoenix — turnaround complete, with a $20.3B backlog and a 3.6x book-to-bill"},
 basics:[
@@ -938,8 +1027,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},{zh:"Éric Martel(2020/3 上任)",en:"Éric Martel (since Mar 2020)"}],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止(報表以美元計)",en:"Ends Dec (reports in US$)"}]
 ],
-valuation:{ price:{zh:"—(下批刷新)",en:"— (refresh next batch)"}, mcap:{zh:"—(下批刷新)",en:"— (refresh next batch)"}, pe:{zh:"—",en:"—"}, asOf:{zh:"待更新",en:"pending"} },
-cardStats:[ [{zh:"積壓訂單",en:"BACKLOG"},"$20.3B"], [{zh:"FY25營收",en:"FY25 REV"},"$9.6B"], [{zh:"FCF指引",en:"FCF GUIDE"},">$1B"] ],
+valuation:{ price:{zh:"約 C$312",en:"~C$312"}, mcap:{zh:"約 C$310 億",en:"~C$31.0B"}, pe:{zh:"約 23x(近四季);前瞻約 22x",en:"~23x trailing; forward ~22x"}, asOf:"2026-09-24" },
+price52w:{ low:186.17, high:377.77, cur:312.2, highDate:"26/7", unit:"C$" },
+priceHistory:[["2026-07-30",358.3],["2026-09-04",315.1],["2026-09-24",312.2]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"C$31B"], [{zh:"股價",en:"PRICE"},"C$312"], [{zh:"積壓訂單",en:"BACKLOG"},"$21.8B"] ],
 financials:[
  [{zh:"FY2025(轉型收官)",en:"FY2025 (turnaround done)"},{zh:"營收 US$95.5 億(+10%);交付 157 架;全數超越指引",en:"Rev US$9.55B (+10%); 157 deliveries; beat all guidance"}],
  [{zh:"服務業務",en:"Services"},{zh:"FY25 US$23 億(+13%);2026Q1 US$6.17 億(+25%)",en:"FY25 US$2.3B (+13%); Q1 2026 US$617M (+25%)"}],
@@ -963,8 +1054,8 @@ sections:[
 {zh:"在大型/超遠程公務機市場,Bombardier 與 Gulfstream(General Dynamics 旗下)、Dassault Falcon 構成三強,以交付量計居全球公務機製造商前列;2025 年 12 月服役的 Global 8000 以 Mach 0.95 成為全球最快民用飛機,正面迎戰 Gulfstream G700/G800。它是知識庫繼 CAE、ATS 後第三家加拿大公司,也是「利基全球冠軍」路線的又一例證——不做民航大飛機,專吃高淨值與企業機隊這塊高毛利蛋糕;富豪財富效應與企業機隊更新是需求底盤,美國關稅與認證政治風險則是懸頂之劍(現受 USMCA 豁免)。",
  en:"In large-cabin and ultra-long-range business jets, Bombardier forms the big three with Gulfstream (General Dynamics) and Dassault Falcon, ranking among the top business-jet makers by deliveries; the Global 8000, in service since December 2025 at Mach 0.95, is the world's fastest civil aircraft, squaring off against Gulfstream's G700/G800. It is the KB's third Canadian company after CAE and ATS, and another proof of the niche-global-champion path — skipping commercial airliners to feast on the high-margin wealth-and-corporate-fleet segment. Wealth effects and fleet renewal underpin demand; U.S. tariff and certification politics hang overhead (currently USMCA-exempt)."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"FY2025 以「全數指標超越指引」為轉型畫下句點:營收 95.5 億美元(+10%)、交付 157 架、積壓 175 億(+22%)。2026Q1(4/30 公佈)再上層樓:積壓衝上 203 億美元(+43%)、自由現金流 3.6 億創近二十年最佳 Q1,全年 FCF 指引上修至逾 10 億美元;上半年累計償債 8.6 億,S&P 展望轉正。供應商短暫斷鏈影響部分交機時程,全年交付仍指引逾 157 架。本庫尚缺可靠即時報價(TSX: BBD),下批更新補齊;屆時亦將建立 52 週區間與價格紀錄。",
- en:"FY2025 closed the turnaround with every metric beating guidance: revenue of $9.55B (+10%), 157 deliveries, and a $17.5B backlog (+22%). Q1 2026 (Apr 30) went further: backlog surged to $20.3B (+43%), free cash flow of $360M was the best Q1 in nearly two decades, and full-year FCF guidance was raised above $1.0B; $860M of debt was repaid in H1 and S&P turned its outlook positive. A temporary supplier disruption shifted some delivery timing, but the >157-unit full-year target stands. This KB still lacks a reliable live quote (TSX: BBD) — it will be added next batch, along with the 52-week range and price log."}]
+{zh:"FY2025 以「全數指標超越指引」為轉型畫下句點:營收 95.5 億美元(+10%)、交付 157 架、積壓 175 億(+22%)。2026Q1(4/30 公佈)再上層樓:積壓衝上 203 億美元(+43%)、自由現金流 3.6 億創近二十年最佳 Q1,全年 FCF 指引上修至逾 10 億美元;上半年累計償債 8.6 億,S&P 展望轉正。供應商短暫斷鏈影響部分交機時程,全年交付仍指引逾 157 架。本庫尚缺可靠即時報價(TSX: BBD.B),下批更新補齊;屆時亦將建立 52 週區間與價格紀錄。\n▸ 2026/9/25 更新:第二季(7/30)營收 21.5 億美元、年增 6%,服務營收創紀錄 6.74 億美元、年增 14%,交付 32 架;調整後每股盈餘 2.50 美元,遠高於預期的 1.37 美元;自由現金流 2.28 億美元,上半年累計 5.88 億美元,全年自由現金流指引維持逾 10 億美元。積壓訂單增至 218 億美元(較年底增加 43 億),Global 8000 帶動單位訂單出貨比 1.5;償債 3.56 億美元,2030 年 11 月前無到期債務。9/8 美國總統威脅若不在美設廠將阻止其公務機銷往美國,股價自高點回落,目前約 312 加元。註:多倫多交易代號為 BBD.B。",
+ en:"FY2025 closed the turnaround with every metric beating guidance: revenue of $9.55B (+10%), 157 deliveries, and a $17.5B backlog (+22%). Q1 2026 (Apr 30) went further: backlog surged to $20.3B (+43%), free cash flow of $360M was the best Q1 in nearly two decades, and full-year FCF guidance was raised above $1.0B; $860M of debt was repaid in H1 and S&P turned its outlook positive. A temporary supplier disruption shifted some delivery timing, but the >157-unit full-year target stands. This KB still lacks a reliable live quote (TSX: BBD.B) — it will be added next batch, along with the 52-week range and price log.\n▸ Update (Sep 25, 2026): Q2 (Jul 30) revenue of $2.15B rose 6%, with record services revenue of $674M (up 14%) and 32 deliveries; adjusted earnings per share of $2.50 crushed the $1.37 consensus, free cash flow was $228M ($588M in the first half), and full year free cash flow guidance stays above $1B. Backlog grew to $21.8B (up $4.3B from year end) on a 1.5 unit book to bill led by the Global 8000; $356M of debt was retired, leaving no maturities before November 2030. On Sep 8 the U.S. president threatened to block Bombardier jet sales to U.S. customers unless it builds there, and shares have eased from their high to about C$312. Note: the Toronto ticker is BBD.B."}]
 ]
 },
 
@@ -980,9 +1071,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},{zh:"Jenny Parmentier(董事長兼 CEO)",en:"Jenny Parmentier (Chairman & CEO)"}],
  [{zh:"財年",en:"FISCAL YR"},{zh:"6 月止",en:"Ends Jun"}]
 ],
-valuation:{ price:"US$850.76", mcap:{zh:"約 US$1,073 億",en:"~US$107.3B"}, pe:{zh:"前瞻約 27x(FY26 調整後指引)",en:"Fwd ~27x (FY26 adj. guide)"}, asOf:"2026-07-20" },
-priceHistory:[["2026-07-20",850.8]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$107B"], [{zh:"股價",en:"PRICE"},"$851"], [{zh:"TTM營收",en:"TTM REV"},"$21.0B"] ],
+valuation:{ price:"US$974.91", mcap:{zh:"約 US$1,229 億",en:"~US$122.9B"}, pe:{zh:"約 34x(近四季);前瞻約 28x",en:"~34x trailing; forward ~28x"}, asOf:"2026-09-25" },
+price52w:{ low:715.37, high:1099.94, cur:974.9 },
+priceHistory:[["2026-08-05",996.9],["2026-09-25",974.9]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$123B"], [{zh:"股價",en:"PRICE"},"$975"], [{zh:"TTM營收",en:"TTM REV"},"$21.0B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$210 億",en:"US$21.0B"}],
  [{zh:"FY26Q3(3 月止)",en:"FY26 Q3 (Mar-end)"},{zh:"創紀錄營收 US$54.9 億(+10.6%)",en:"Record sales US$5.49B (+10.6%)"}],
@@ -1005,8 +1097,8 @@ sections:[
 {zh:"在工業液壓與流體動力領域,Parker 全球市佔第一,領先 Bosch Rexroth、Eaton(液壓已售予 Danfoss)與 SMC(氣動);航太液壓與燃油系統則與 Moog、Woodward、Safran 同列第一梯隊。它是本庫「多元工業」原型的最佳樣本:終端市場橫跨航太、工程機械(供貨 CAT、DE)、卡車(供貨 CMI 客戶)、半導體與生命科學,景氣感應度全面但分散。當前的組合槓桿清晰:航太(33% 營收)高速成長+工業緩步復甦(北美訂單轉正、重卡 OEM 訂單回升),雙引擎正在交棒。",
  en:"In industrial hydraulics and fluid power Parker holds the global No. 1 share, ahead of Bosch Rexroth, Eaton (whose hydraulics went to Danfoss) and SMC (pneumatics); in aerospace hydraulics and fuel systems it sits in the first tier with Moog, Woodward and Safran. It is this KB's best specimen of the diversified-industrial archetype: end markets span aerospace, construction equipment (supplying CAT and DE), trucks (supplying CMI's customers), semiconductors and life sciences — broad cyclicality, but dispersed. The current portfolio lever is clear: aerospace (33% of revenue) growing fast while industrial slowly recovers (North American orders turning positive, heavy-truck OEM orders rising) — a twin-engine handoff in progress."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"FY26Q3(3 月止,4/30 公佈)交出「五創紀錄」:營收 54.9 億美元(+10.6%)、調整後板塊營業利益/利潤率/EPS 與年初至今營運現金流皆創新高;航太營收 +15.5%、利潤率 29.5%,總積壓 125 億美元創紀錄。全年指引:營收 +7%、調整後 EPS 31.20 美元、調整後利潤率 27.2%。1 月底宣布收購 CIRCOR 商用與國防航太業務,延續「以航太換利潤率」的併購劇本;運輸市場展望由中個位數下滑改善至低個位數下滑。股價 850.76 美元(7/20)、前瞻約 27 倍;FY26Q4(6 月止)財報預計 8 月初公佈。",
- en:"FY26 Q3 (Mar-end, reported Apr 30) delivered five records: sales of $5.49B (+10.6%), plus all-time-high adjusted segment operating income, margin, EPS and YTD operating cash flow; aerospace grew 15.5% at a 29.5% margin, and total backlog hit a record $12.5B. Full-year guidance: sales +7%, adjusted EPS $31.20, adjusted margin 27.2%. The late-January deal for CIRCOR's commercial and defense aerospace business extends the buy-aerospace-for-margin playbook; the transportation outlook improved from mid- to low-single-digit organic decline. At $850.76 (Jul 20) the stock trades ~27x forward; FY26 Q4 (Jun-end) results are due in early August."}]
+{zh:"FY26Q3(3 月止,4/30 公佈)交出「五創紀錄」:營收 54.9 億美元(+10.6%)、調整後板塊營業利益/利潤率/EPS 與年初至今營運現金流皆創新高;航太營收 +15.5%、利潤率 29.5%,總積壓 125 億美元創紀錄。全年指引:營收 +7%、調整後 EPS 31.20 美元、調整後利潤率 27.2%。1 月底宣布收購 CIRCOR 商用與國防航太業務,延續「以航太換利潤率」的併購劇本;運輸市場展望由中個位數下滑改善至低個位數下滑。股價 850.76 美元(7/20)、前瞻約 27 倍;FY26Q4(6 月止)財報預計 8 月初公佈。\n▸ 2026/9/25 更新:2026 財年第四季(8/6)銷售創紀錄 57.6 億美元、年增 9.8%(有機 8%),調整後每股盈餘 9.27 美元、年增 21%;全年銷售 215 億美元首度突破 200 億,調整後板塊利潤率 27.3%、調整後每股盈餘 32.31 美元,營運現金流創紀錄 44 億美元。2027 財年指引:銷售成長 5.5% 至 8.5%、調整後每股盈餘 34.25 至 35.25 美元;長期利潤率目標由 27% 提高至 2031 財年 30%(舊目標提前一年達成)。也完成收購 Filtration Group,9 月簽訂 50 億美元循環信用額度。財報當天股價大漲約 6.7%;註:7/20 的舊紀錄價經查證有誤,已移除。",
+ en:"FY26 Q3 (Mar-end, reported Apr 30) delivered five records: sales of $5.49B (+10.6%), plus all-time-high adjusted segment operating income, margin, EPS and YTD operating cash flow; aerospace grew 15.5% at a 29.5% margin, and total backlog hit a record $12.5B. Full-year guidance: sales +7%, adjusted EPS $31.20, adjusted margin 27.2%. The late-January deal for CIRCOR's commercial and defense aerospace business extends the buy-aerospace-for-margin playbook; the transportation outlook improved from mid- to low-single-digit organic decline. At $850.76 (Jul 20) the stock trades ~27x forward; FY26 Q4 (Jun-end) results are due in early August.\n▸ Update (Sep 25, 2026): Fiscal 2026 Q4 (Aug 6) sales hit a record $5.76B, up 9.8% (8% organic), with adjusted earnings per share of $9.27, up 21%; full year sales of $21.5B crossed $20B for the first time, with a 27.3% adjusted segment margin, $32.31 adjusted earnings per share and record operating cash flow of $4.4B. Fiscal 2027 guidance calls for 5.5% to 8.5% sales growth and $34.25 to $35.25 adjusted earnings per share, and the long term margin target rose from 27% to 30% by fiscal 2031 after the old goal was hit a year early. Parker also closed the Filtration Group acquisition and signed a new $5B revolving credit facility in September. Shares rose about 6.7% on results day; note: the Jul 20 log price failed verification and was removed."}]
 ]
 },
 
@@ -1022,9 +1114,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},"Duke Austin"],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:"US$715.67", mcap:{zh:"約 US$1,074 億",en:"~US$107.4B"}, pe:{zh:"前瞻約 51x(2026 指引概算)",en:"Fwd ~51x (2026 guide est.)"}, asOf:"2026-07-20" },
-priceHistory:[["2026-06-03",700.0],["2026-07-20",715.7]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$107B"], [{zh:"股價",en:"PRICE"},"$716"], [{zh:"TTM營收",en:"TTM REV"},"$30.1B"] ],
+valuation:{ price:"US$649.50", mcap:{zh:"約 US$976 億",en:"~US$97.6B"}, pe:{zh:"前瞻約 39x(2026 指引中值)",en:"Forward ~39x (2026 guidance midpoint)"}, asOf:"2026-09-23" },
+price52w:{ low:390.01, high:788.62, cur:649.5 },
+priceHistory:[["2026-06-03",700.0],["2026-07-20",715.7],["2026-09-23",649.5]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$98B"], [{zh:"股價",en:"PRICE"},"$650"], [{zh:"TTM營收",en:"TTM REV"},"$30.1B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$301 億",en:"US$30.1B"}],
  [{zh:"2026Q1",en:"Q1 2026"},{zh:"營收 US$78.7 億(+26.3%);調整後 EPS US$2.68(+51%,大勝 31%)",en:"Rev US$7.87B (+26.3%); adj. EPS US$2.68 (+51%, 31% beat)"}],
@@ -1047,8 +1140,8 @@ sections:[
 {zh:"在電力輸配電承包領域,Quanta 規模居北美第一,領先 MasTec、Primoris 等同業;再生能源 EPC(Blattner)與地下管線亦居前列。它與 GEV、ETN、VRT 構成本庫「AI 電力鏈」的四個層次:發電(GEV)→ 輸配電施工(PWR)→ 配電設備(ETN)→ 機房內(VRT)。需求端三箭齊發:電網老化更新、再生能源併網、資料中心接電——超大規模雲商如今直接成為其客戶。風險同樣清晰:約 51 倍的前瞻本益比隱含極高成長預期,勞動力成本、審批延宕與專案執行是永恆變數。",
  en:"In electric transmission and distribution contracting, Quanta is North America's No. 1 by scale, ahead of MasTec and Primoris; it also ranks top-tier in renewables EPC (Blattner) and underground utilities. With GEV, ETN and VRT it completes this KB's four-layer AI power chain: generation (GEV) → T&D construction (PWR) → distribution equipment (ETN) → inside the data hall (VRT). Demand fires on three fronts — grid-aging replacement, renewables interconnection, and data-center hookups, with hyperscalers now direct customers. The risks are equally clear: a ~51x forward multiple embeds lofty growth expectations, while labor costs, permitting delays and project execution are perpetual variables."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026Q1(4/30 公佈)全面引爆:營收 78.7 億美元(+26.3%)、調整後 EPS 2.68 美元大勝預期 31%,積壓創紀錄 485 億美元;全年指引上修至營收 347–352 億、調整後 EPS 13.55–14.25 美元,並宣布 10 億美元庫藏股——隔日股價暴漲逾 17%。5 月 Oppenheimer 升評至優於大盤、目標價 800 美元;6 月股價站上 700 美元後,分析師開始辯論估值(Seeking Alpha 直言「好公司、但成長多已入價」)。7/20 收 715.67 美元、前瞻約 51 倍。Q2 財報預計 7 月底公佈,積壓與電力板塊利潤率是關鍵讀數。",
- en:"Q1 2026 (Apr 30) detonated: revenue of $7.87B (+26.3%) and adjusted EPS of $2.68 beat by 31%, with backlog at a record $48.5B; full-year guidance rose to $34.7–35.2B revenue and $13.55–14.25 adjusted EPS alongside a new $1B buyback — and the stock surged 17%+ the next day. Oppenheimer upgraded to Outperform in May with an $800 target; after shares crossed $700 in June, analysts began debating valuation (Seeking Alpha: 'great business, but much growth already priced in'). At $715.67 on Jul 20 it trades ~51x forward. Q2 results are due late July — backlog and Electric-segment margins are the key reads."}]
+{zh:"2026Q1(4/30 公佈)全面引爆:營收 78.7 億美元(+26.3%)、調整後 EPS 2.68 美元大勝預期 31%,積壓創紀錄 485 億美元;全年指引上修至營收 347–352 億、調整後 EPS 13.55–14.25 美元,並宣布 10 億美元庫藏股——隔日股價暴漲逾 17%。5 月 Oppenheimer 升評至優於大盤、目標價 800 美元;6 月股價站上 700 美元後,分析師開始辯論估值(Seeking Alpha 直言「好公司、但成長多已入價」)。7/20 收 715.67 美元、前瞻約 51 倍。Q2 財報預計 7 月底公佈,積壓與電力板塊利潤率是關鍵讀數。\n▸ 2026/9/25 更新:第二季(7/30)營收創紀錄 96 億美元、年增約 42%,調整後每股盈餘 4.24 美元創紀錄,自由現金流 9 億美元;總積壓訂單創新高 534 億美元。全年指引全面上修:營收 393 億至 397 億美元、調整後稅息折舊攤銷前利潤 40.9 億至 42.1 億美元、調整後每股盈餘 16.45 至 16.95 美元;並完成 Falcone、Interfab、Percheron、PSD 四項收購(約 12.4 億美元)擴充自有技工。股價 8 月一度逼近 789 美元,9/14 單日下跌 4.45%,目前約 650 美元,前瞻本益比約 39 倍。",
+ en:"Q1 2026 (Apr 30) detonated: revenue of $7.87B (+26.3%) and adjusted EPS of $2.68 beat by 31%, with backlog at a record $48.5B; full-year guidance rose to $34.7–35.2B revenue and $13.55–14.25 adjusted EPS alongside a new $1B buyback — and the stock surged 17%+ the next day. Oppenheimer upgraded to Outperform in May with an $800 target; after shares crossed $700 in June, analysts began debating valuation (Seeking Alpha: 'great business, but much growth already priced in'). At $715.67 on Jul 20 it trades ~51x forward. Q2 results are due late July — backlog and Electric-segment margins are the key reads.\n▸ Update (Sep 25, 2026): Q2 (Jul 30) revenue hit a record $9.6B, up about 42%, adjusted earnings per share reached a record $4.24 and free cash flow was $0.9B; total backlog set a new high of $53.4B. Full year guidance was raised on every line: revenue of $39.3B to $39.7B, adjusted earnings before interest, taxes, depreciation and amortization of $4.09B to $4.21B, and adjusted earnings per share of $16.45 to $16.95; Quanta also closed four acquisitions (Falcone, Interfab, Percheron, PSD) for about $1.24B to add self performing craft labor. Shares neared $789 in August, fell 4.45% on Sep 14, and now trade around $650, about 39 times forward earnings."}]
 ]
 },
 
@@ -1064,9 +1157,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},{zh:"Dave Regnery(董事長兼 CEO)",en:"Dave Regnery (Chair & CEO)"}],
  [{zh:"財年",en:"FISCAL YR"},{zh:"12 月止",en:"Ends Dec"}]
 ],
-valuation:{ price:"US$465.84", mcap:{zh:"約 US$1,030 億",en:"~US$103.0B"}, pe:{zh:"前瞻約 31x(2026 指引)",en:"Fwd ~31x (2026 guide)"}, asOf:"2026-07-20" },
-priceHistory:[["2026-05-05",477.5],["2026-07-20",465.8]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$103B"], [{zh:"股價",en:"PRICE"},"$466"], [{zh:"TTM營收",en:"TTM REV"},"$21.6B"] ],
+valuation:{ price:"US$436.82", mcap:{zh:"約 US$961 億",en:"~US$96.1B"}, pe:{zh:"前瞻約 28.6x(2026 指引中值)",en:"Forward ~28.6x (2026 guidance midpoint)"}, asOf:"2026-09-24" },
+price52w:{ low:348.06, high:505.87, cur:436.8 },
+priceHistory:[["2026-05-05",477.5],["2026-07-20",465.8],["2026-09-24",436.8]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$96B"], [{zh:"股價",en:"PRICE"},"$437"], [{zh:"TTM營收",en:"TTM REV"},"$21.6B"] ],
 financials:[
  [{zh:"TTM 營收",en:"TTM revenue"},{zh:"US$216 億",en:"US$21.6B"}],
  [{zh:"2026Q1",en:"Q1 2026"},{zh:"營收 US$49.7 億(+6%);調整後 EPS US$2.63(+7%)",en:"Rev US$4.97B (+6%); adj. EPS US$2.63 (+7%)"}],
@@ -1089,8 +1183,8 @@ sections:[
 {zh:"在北美商用 HVAC 市場,Trane 與 Carrier、Johnson Controls(約克)、Daikin 四強鼎立,Trane 於大型商用與應用型系統居領導地位;Thermo King 與 Carrier 的 Transicold 則是運輸冷凍雙寡頭。相對 Carrier 偏住宅與全球分散,Trane 更集中於北美商用——這正是本輪資料中心與製造業回流資本支出的震央,也解釋其訂單動能領先同業。永續法規(冷媒轉換、建築能效)是長期順風;住宅與運輸冷凍短期仍疲弱,是組合中的拖累項。",
  en:"In North American commercial HVAC, Trane stands among the big four with Carrier, Johnson Controls (York) and Daikin, leading in large commercial and applied systems; Thermo King and Carrier's Transicold form the transport-refrigeration duopoly. Where Carrier skews residential and globally dispersed, Trane concentrates on North American commercial — the epicenter of this cycle's data-center and reshoring capex, which explains its sector-leading bookings momentum. Sustainability regulation (refrigerant transitions, building-efficiency codes) is the long-term tailwind; residential and transport refrigeration remain the near-term drags in the mix."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"2026Q1(4/30 公佈)訂單全面引爆:整體有機訂單 +24%、美洲商用 HVAC 訂單創歷史新高(約 +40%)、Applied 訂單 +160%,book-to-bill 約 135%,積壓衝上創紀錄的 107 億美元(較年底 +30%);營收 49.7 億(+6%)、調整後 EPS 2.63 美元皆勝預期,全年指引上修至有機 +7%、EPS 14.75–14.95 美元。Stellar Energy 整合與關稅/通膨對利潤率的壓力是兩大觀察點(Q1 調整後營業利益率 -20bps)。股價 465.84 美元(7/20)、前瞻約 31 倍;Q2 財報預計 7 月底公佈。",
- en:"Q1 2026 (Apr 30) was a bookings explosion: organic bookings +24%, Americas commercial-HVAC bookings at an all-time high (~+40%), applied bookings +160%, book-to-bill ~135%, and backlog at a record $10.7B (+30% vs year-end); revenue of $4.97B (+6%) and adjusted EPS of $2.63 both beat, with full-year guidance raised to ~7% organic growth and $14.75–14.95 EPS. The two watch items are Stellar Energy integration and tariff/inflation pressure on margins (Q1 adjusted operating margin -20bps). At $465.84 (Jul 20) the stock trades ~31x forward; Q2 results are due in late July."}]
+{zh:"2026Q1(4/30 公佈)訂單全面引爆:整體有機訂單 +24%、美洲商用 HVAC 訂單創歷史新高(約 +40%)、Applied 訂單 +160%,book-to-bill 約 135%,積壓衝上創紀錄的 107 億美元(較年底 +30%);營收 49.7 億(+6%)、調整後 EPS 2.63 美元皆勝預期,全年指引上修至有機 +7%、EPS 14.75–14.95 美元。Stellar Energy 整合與關稅/通膨對利潤率的壓力是兩大觀察點(Q1 調整後營業利益率 -20bps)。股價 465.84 美元(7/20)、前瞻約 31 倍;Q2 財報預計 7 月底公佈。\n▸ 2026/9/25 更新:第二季(7/30)訂單創紀錄 78 億美元、年增 39%(有機 37%),營收 63.5 億美元、年增 11%,調整後每股盈餘 4.31 美元、年增 11%;積壓訂單創紀錄 121 億美元、年增 70%,其中約 60 億美元排在 2027 年以後。美洲商用暖通空調訂單年增 50% 創新高,Applied 大型系統訂單年增 130%,連續第四季翻倍以上,單季有四筆逾 1 億美元的訂單。全年調整後每股盈餘指引上修至 15.20 至 15.30 美元,下半年每股盈餘成長可望加速至約 23.5%。股價自夏季約 480 美元回落至約 437 美元;下次財報 11/4。",
+ en:"Q1 2026 (Apr 30) was a bookings explosion: organic bookings +24%, Americas commercial-HVAC bookings at an all-time high (~+40%), applied bookings +160%, book-to-bill ~135%, and backlog at a record $10.7B (+30% vs year-end); revenue of $4.97B (+6%) and adjusted EPS of $2.63 both beat, with full-year guidance raised to ~7% organic growth and $14.75–14.95 EPS. The two watch items are Stellar Energy integration and tariff/inflation pressure on margins (Q1 adjusted operating margin -20bps). At $465.84 (Jul 20) the stock trades ~31x forward; Q2 results are due in late July.\n▸ Update (Sep 25, 2026): Q2 (Jul 30) bookings hit a record $7.8B, up 39% (37% organic), revenue of $6.35B rose 11% and adjusted earnings per share of $4.31 rose 11%; backlog reached a record $12.1B, up 70%, with about $6B scheduled for 2027 and beyond. Americas commercial heating, ventilation and air conditioning bookings rose 50% to an all time high and Applied bookings jumped 130%, a fourth straight quarter above 100%, including four orders above $100M each. Full year adjusted earnings per share guidance rose to $15.20 to $15.30, implying second half growth of about 23.5%. Shares have eased from about $480 in the summer to about $437. Next report: Nov 4."}]
 ]
 },
 
@@ -1106,9 +1200,10 @@ basics:[
  [{zh:"CEO",en:"CEO"},{zh:"Rick Cohen(創辦人兼 CEO)",en:"Rick Cohen (founder & CEO)"}],
  [{zh:"財年",en:"FISCAL YR"},{zh:"9 月止",en:"Ends Sep"}]
 ],
-valuation:{ price:"US$47.21", mcap:{zh:"約 US$285 億(全稀釋)",en:"~US$28.5B (fully diluted)"}, pe:{zh:"—(甫轉虧為盈)",en:"— (newly profitable)"}, asOf:"2026-07-20" },
-priceHistory:[["2026-05-07",59.8],["2026-07-20",47.2]],
-cardStats:[ [{zh:"市值",en:"MKT CAP"},"$28B"], [{zh:"股價",en:"PRICE"},"$47"], [{zh:"積壓訂單",en:"BACKLOG"},"$22.7B"] ],
+valuation:{ price:{zh:"約 US$43.6",en:"~US$43.6"}, mcap:{zh:"約 US$264 億",en:"~US$26.4B"}, pe:{zh:"不適用(獲利剛轉正)",en:"n/a (newly profitable)"}, asOf:"2026-09-24" },
+price52w:{ low:37.68, high:87.88, cur:43.6, lowDate:"26/9/1", highDate:"25/11/26" },
+priceHistory:[["2026-05-07",59.8],["2026-07-20",47.2],["2026-09-24",43.6]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$26B"], [{zh:"股價",en:"PRICE"},"$44"], [{zh:"積壓訂單",en:"BACKLOG"},"$22.7B"] ],
 financials:[
  [{zh:"積壓訂單",en:"Backlog"},{zh:"US$227 億(約當十年營收)",en:"US$22.7B (~10x annual revenue)"}],
  [{zh:"FY26Q2(3 月止)",en:"FY26 Q2 (Mar-end)"},{zh:"營收 US$6.76 億(+23%);GAAP 淨利 US$900 萬(轉盈)",en:"Rev US$676M (+23%); GAAP net income US$9M (turned profitable)"}],
@@ -1132,8 +1227,442 @@ sections:[
 {zh:"在「案例級」大型倉儲自動化領域,Symbotic 的部署規模(70 個據點)與積壓量居美國之冠,對手包括 AutoStore(挪威)、Dematic(KION 旗下)、Honeywell 智慧物流(將隨組合調整出售)與 Amazon 自研體系。相對 ATS(第 1 批)的多產業客製自動化,Symbotic 是單一產品、單一場景(零售配送中心)的極致專注派——爆發力與風險同樣極端。倉儲勞動力短缺與電商滲透是長期需求底盤;執行(部署速度、新一代儲存系統移轉)則是估值的生死線。",
  en:"In case-level, large-scale warehouse automation, Symbotic leads the U.S. in deployment scale (70 sites) and backlog, against AutoStore (Norway), Dematic (KION), Honeywell's intralogistics unit (being divested) and Amazon's in-house systems. Versus ATS (batch 1) with its multi-industry custom automation, Symbotic is the extreme specialist — one product, one setting (retail distribution centers) — with equally extreme upside and risk. Warehouse labor shortages and e-commerce penetration form the structural demand base; execution (deployment velocity, the next-gen storage-system migration) is the make-or-break line for the valuation."}],
 [{zh:"近期動態",en:"Recent Developments"},
-{zh:"FY26Q2(3 月止,5 月初公佈)首度繳出 GAAP 獲利:營收 6.76 億美元(+23%)、淨利 900 萬、調整後 EBITDA 7,800 萬(年增逾一倍),積壓維持 227 億美元;但股價自 5 月初約 60 美元一路回落至 7/20 的 47.21 美元——市場焦點轉向積壓「停滯」、部署時程遞延與沃爾瑪依賴度(收購其機器人部門後集中度不降反升),Q1 財報後的失望情緒延續。多方(TD Cowen 目標 75 美元)看軟體年金與 GreenBox 打開第二曲線;空方緊盯自由現金流波動與新儲存技術移轉的執行風險。分析師平均目標價約 52.5 美元。",
- en:"FY26 Q2 (Mar-end, reported early May) delivered the first GAAP profit: revenue of $676M (+23%), net income of $9M, adjusted EBITDA of $78M (2x+ YoY), with backlog steady at $22.7B; yet the stock slid from ~$60 in early May to $47.21 by Jul 20 as attention shifted to a 'stalled' backlog, deployment-timing slips and Walmart dependence (which the robotics-unit acquisition deepened rather than diluted), extending post-Q1 disappointment. Bulls (TD Cowen, $75 target) see the software annuity and GreenBox opening a second curve; bears watch free-cash-flow volatility and next-gen storage-migration execution. The average analyst target sits near $52.5."}]
+{zh:"FY26Q2(3 月止,5 月初公佈)首度繳出 GAAP 獲利:營收 6.76 億美元(+23%)、淨利 900 萬、調整後 EBITDA 7,800 萬(年增逾一倍),積壓維持 227 億美元;但股價自 5 月初約 60 美元一路回落至 7/20 的 47.21 美元——市場焦點轉向積壓「停滯」、部署時程遞延與沃爾瑪依賴度(收購其機器人部門後集中度不降反升),Q1 財報後的失望情緒延續。多方(TD Cowen 目標 75 美元)看軟體年金與 GreenBox 打開第二曲線;空方緊盯自由現金流波動與新儲存技術移轉的執行風險。分析師平均目標價約 52.5 美元。\n▸ 2026/9/25 更新:第三財季(8/5)營收 7.21 億美元、年增 22%,依一般公認會計原則淨利 5,500 萬美元(去年同期虧損 2,100 萬),連續第二季獲利;調整後稅息折舊攤銷前利潤 9,500 萬美元、年增逾一倍,調整後毛利率 25%。軟體營收年增 57%、營運服務年增 49%,77 個系統部署中(56 個已營運)。但每股盈餘 0.09 美元低於預期的 0.13 美元,積壓訂單小降至 225 億美元,且未來 12 個月僅約 15% 可轉為營收,股價盤後下跌;9/1 觸及 52 週低點 37.68 美元,目前約 43.6 美元。Bain Capital 前共同主席 Steve Pagliuca 加入董事會;下次財報 11/16。",
+ en:"FY26 Q2 (Mar-end, reported early May) delivered the first GAAP profit: revenue of $676M (+23%), net income of $9M, adjusted EBITDA of $78M (2x+ YoY), with backlog steady at $22.7B; yet the stock slid from ~$60 in early May to $47.21 by Jul 20 as attention shifted to a 'stalled' backlog, deployment-timing slips and Walmart dependence (which the robotics-unit acquisition deepened rather than diluted), extending post-Q1 disappointment. Bulls (TD Cowen, $75 target) see the software annuity and GreenBox opening a second curve; bears watch free-cash-flow volatility and next-gen storage-migration execution. The average analyst target sits near $52.5.\n▸ Update (Sep 25, 2026): Fiscal Q3 (Aug 5) revenue of $721M rose 22% and net income under generally accepted accounting principles was $55M (a $21M loss a year ago), a second straight profitable quarter; adjusted earnings before interest, taxes, depreciation and amortization more than doubled to $95M and adjusted gross margin reached 25%. Software revenue grew 57% and operation services 49%, with 77 systems in deployment (56 operational). But earnings per share of $0.09 missed the $0.13 consensus, backlog dipped to $22.5B with only about 15% converting in the next 12 months, and shares slid after hours; the stock touched a 52 week low of $37.68 on Sep 1 and now sits near $43.6. Former Bain Capital co chair Steve Pagliuca joined the board. Next report: Nov 16."}]
+]
+}
+
+,
+
+/* ---------------- 21. BAKER HUGHES ---------------- */
+{
+id:"BKR", ticker:"BKR", exchange:"NASDAQ", name:{zh:"Baker Hughes 貝克休斯",en:"Baker Hughes Company"}, subsector:"power", batch:4, added:"2026-09-25",
+tagline:{zh:"油服巨頭變身能源科技公司:資料中心燃氣渦輪與液化天然氣設備訂單同創紀錄",
+         en:"An oilfield services giant turned energy technology company, with record orders for data center gas turbines and liquefied natural gas equipment"},
+basics:[
+ [{zh:"總部",en:"HEADQUARTERS"},{zh:"美國德州休士頓(另設倫敦)",en:"Houston, TX, USA (and London)"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"2017 年合併成立(前身 Baker 創於 1907、Hughes 創於 1909)",en:"2017 merger (Baker roots 1907, Hughes 1909)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 57,000 人",en:"~57,000"}],
+ [{zh:"執行長",en:"CHIEF EXECUTIVE"},"Lorenzo Simonelli"],
+ [{zh:"財年",en:"FISCAL YEAR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$57.29", mcap:{zh:"約 US$569 億",en:"~US$56.9B"}, pe:{zh:"約 18x(近四季)",en:"~18x trailing"}, asOf:"2026-09-24" },
+price52w:{ low:43.92, high:70.41, cur:57.3 },
+priceHistory:[["2026-09-09",63.6],["2026-09-24",57.3]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$57B"], [{zh:"股價",en:"PRICE"},"$57"], [{zh:"近四季營收",en:"TTM REV"},"$27.7B"] ],
+financials:[
+ [{zh:"近四季營收",en:"Trailing 12 month revenue"},{zh:"US$277 億",en:"US$27.7B"}],
+ [{zh:"2026 第二季訂單",en:"Q2 2026 orders"},{zh:"105 億美元,年增 49%",en:"US$10.5B, up 49%"}],
+ [{zh:"工業與能源科技訂單",en:"Industrial and Energy Technology orders"},{zh:"創紀錄 71 億美元(年增一倍),訂單出貨比 2.2",en:"Record US$7.1B (doubled), book to bill 2.2"}],
+ [{zh:"電力系統訂單",en:"Power Systems orders"},{zh:"26 億美元,含 2.7 吉瓦燃氣渦輪(資料中心 22 億美元)",en:"US$2.6B incl. 2.7 gigawatts of gas turbines (US$2.2B data centers)"}],
+ [{zh:"剩餘履約義務",en:"Remaining performance obligations"},{zh:"401 億美元(工業與能源科技創紀錄 371 億)",en:"US$40.1B (segment record US$37.1B)"}],
+ [{zh:"調整後稅息折舊攤銷前利潤",en:"Adjusted earnings before interest, taxes, depreciation and amortization"},{zh:"12.3 億美元,利潤率創紀錄 18.3%",en:"US$1.23B, record 18.3% margin"}],
+ [{zh:"自由現金流",en:"Free cash flow"},{zh:"第二季 11.1 億美元",en:"US$1.11B in Q2"}],
+ [{zh:"中期訂單目標",en:"Mid term order target"},{zh:"2026 至 2028 年工業與能源科技訂單至少 450 億美元",en:"At least US$45B of segment orders over 2026 to 2028"}],
+ [{zh:"組合調整",en:"Portfolio moves"},{zh:"2026/7 完成收購 Chart Industries;出售 Waygate 約 14.5 億美元",en:"Closed Chart Industries (Jul 2026); selling Waygate for ~US$1.45B"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[25.5,27.8,27.7], approx:[false,false,true], note:{zh:"*2025 為約值;Chart 自 2026/7 併入",en:"*2025 approximate; Chart consolidated from Jul 2026"} },
+segments:{ title:{zh:"2025 板塊營收佔比(約)",en:"2025 revenue mix (approx.)"}, labels:[{zh:"油田服務與設備",en:"Oilfield Services and Equipment"},{zh:"工業與能源科技",en:"Industrial and Energy Technology"}], values:[53,47] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Baker Hughes 在 2017 年由 GE 油氣事業與老牌油服公司 Baker Hughes 合併而成,前身可溯至 1907 年,總部位於休士頓與倫敦,與 SLB、Halliburton 並列全球三大油服公司。兩大板塊:油田服務與設備(鑽井、完井、油田化學與海底設備)以及工業與能源科技(燃氣渦輪、壓縮機、液化天然氣設備與數位解決方案)。執行長 Lorenzo Simonelli 近年推動能源科技轉型,2026 年 7 月完成收購 Chart Industries,同時出售 Waygate 等非核心業務。",
+ en:"Baker Hughes took its current form in 2017, when GE's oil and gas business merged with the storied oilfield services firm Baker Hughes, whose roots reach back to 1907. Headquartered in Houston and London, it ranks with SLB and Halliburton among the big three oilfield service companies. It runs two segments: Oilfield Services and Equipment (drilling, completions, production chemicals, subsea) and Industrial and Energy Technology (gas turbines, compressors, liquefied natural gas equipment and digital solutions). Chief Executive Lorenzo Simonelli is steering an energy technology pivot, closing the Chart Industries acquisition in July 2026 while selling noncore units such as Waygate."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"Baker Hughes 靠兩條腿走路:油田服務跟著上游資本支出循環起伏,工業與能源科技則是長週期設備加上數十年的售後服務。它繼承 GE 的航改型與工業燃氣渦輪技術(NovaLT、LM 系列),在液化天然氣廠的主冷劑壓縮機市佔全球領先;設備裝機後,維修、零件與升級帶來穩定的服務收入。人工智慧資料中心嚴重缺電,中小型燃氣渦輪成為「表後自建電廠」的熱門解方,讓這家油服公司也搭上了電力超級週期。",
+ en:"Baker Hughes stands on two legs: oilfield services follow the upstream spending cycle, while Industrial and Energy Technology sells long cycle equipment followed by decades of aftermarket service. It inherited GE's aeroderivative and industrial gas turbine technology (NovaLT, LM series) and leads the world in main refrigerant compressors for liquefaction plants; once equipment is installed, maintenance, parts and upgrades generate steady service revenue. Power hungry artificial intelligence data centers have made small and midsize gas turbines a favored behind the meter solution, pulling an oilfield services company into the power supercycle."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在本庫「電力/能源設備」板塊中,Baker Hughes 與 GE Vernova 代表燃氣渦輪的兩種典型:GE Vernova 主攻電廠級重型機組,Baker Hughes 則以數十兆瓦級的航改型與工業燃氣渦輪切入資料中心與行動電源等分散式需求,交期較短是其優勢。液化天然氣設備方面,它是全球液化廠壓縮機組的主要供應商之一,直接受惠美國液化天然氣出口潮;油田服務端則面臨油價與中東局勢的循環逆風。",
+ en:"Within this knowledge base's power shelf, Baker Hughes and GE Vernova illustrate two gas turbine archetypes: GE Vernova focuses on utility scale heavy duty units, while Baker Hughes targets distributed demand from data centers and mobile power with aeroderivative and industrial turbines in the tens of megawatts, where shorter lead times are an edge. In liquefied natural gas it is a leading supplier of liquefaction compressor trains and a direct beneficiary of the U.S. export boom; the oilfield services side faces cyclical headwinds from oil prices and Middle East conditions."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 年第二季(7/26)訂單 105 億美元、年增 49%,其中工業與能源科技訂單創紀錄 71 億美元、年增一倍,電力系統訂單 26 億美元(含 2.7 吉瓦燃氣渦輪,資料中心占 22 億美元),液化天然氣設備訂單 18 億美元;即使排除資料中心,該板塊訂單也追平前高。調整後稅息折舊攤銷前利潤 12.3 億美元、利潤率創紀錄 18.3%,自由現金流 11 億美元,並把 2026 至 2028 年板塊訂單目標提高到至少 450 億美元。9 月初上修全年營收與獲利區間並取得 Venture Global 液化天然氣合約,但股價自 9/9 約 63.6 美元回落至約 57.3 美元,距 52 週高點約低 19%。下次財報 10/22。",
+ en:"Q2 2026 (Jul 26) orders reached $10.5B, up 49%, with record Industrial and Energy Technology orders of $7.1B, double a year earlier; Power Systems booked $2.6B including 2.7 gigawatts of gas turbines ($2.2B for data centers), and liquefied natural gas equipment added $1.8B. Even excluding data centers, segment orders matched the prior record. Adjusted earnings before interest, taxes, depreciation and amortization reached $1.23B at a record 18.3% margin, free cash flow was $1.1B, and the 2026 to 2028 segment order target rose to at least $45B. Early September brought a raised full year outlook and a Venture Global liquefied natural gas award, yet shares eased from about $63.6 on Sep 9 to about $57.3, roughly 19% below the 52 week high. Next report: Oct 22."}]
+]
+},
+
+/* ---------------- 22. HUBBELL ---------------- */
+{
+id:"HUBB", ticker:"HUBB", exchange:"NYSE", name:{zh:"Hubbell 哈伯",en:"Hubbell Incorporated"}, subsector:"power", batch:4, added:"2026-09-25",
+tagline:{zh:"電網現代化的零件軍火庫:公用事業輸配電與資料中心電氣雙引擎",
+         en:"The component arsenal of grid modernization, powered by utility transmission and distribution plus data center electrical demand"},
+basics:[
+ [{zh:"總部",en:"HEADQUARTERS"},{zh:"美國康乃狄克州 Shelton",en:"Shelton, CT, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1888"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 19,400 人",en:"~19,400"}],
+ [{zh:"執行長",en:"CHIEF EXECUTIVE"},{zh:"Gerben Bakker(董事長、總裁兼執行長)",en:"Gerben Bakker (Chairman, President and CEO)"}],
+ [{zh:"財年",en:"FISCAL YEAR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:{zh:"約 US$464",en:"~US$464"}, mcap:{zh:"約 US$245 億",en:"~US$24.5B"}, pe:{zh:"前瞻約 22.8x(2026 指引中值)",en:"Forward ~22.8x (2026 guidance midpoint)"}, asOf:"2026-09-24" },
+price52w:{ low:403.82, high:565.5, cur:463.8 },
+priceHistory:[["2026-08-20",469.8],["2026-09-18",446.9],["2026-09-24",463.8]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$24.5B"], [{zh:"股價",en:"PRICE"},"$464"], [{zh:"近四季營收",en:"TTM REV"},"$6.2B"] ],
+financials:[
+ [{zh:"近四季營收",en:"Trailing 12 month revenue"},{zh:"US$62.2 億",en:"US$6.22B"}],
+ [{zh:"2026 第二季營收",en:"Q2 2026 revenue"},{zh:"17.1 億美元,年增 15%(有機 10%、併購 5%)",en:"US$1.71B, up 15% (10% organic, 5% acquisitions)"}],
+ [{zh:"第二季每股盈餘",en:"Q2 earnings per share"},{zh:"調整後 5.52 美元(年增 12%,優於預期);依一般公認會計原則 4.52 美元",en:"Adjusted US$5.52 (up 12%, a beat); US$4.52 under generally accepted accounting principles"}],
+ [{zh:"營業利益率",en:"Operating margin"},{zh:"調整後 23.9%(年減 50 個基點)",en:"Adjusted 23.9% (down 50 basis points)"}],
+ [{zh:"資料中心",en:"Data centers"},{zh:"第二季銷售年增約 65%",en:"Q2 sales up about 65%"}],
+ [{zh:"2026 指引(上修)",en:"2026 guidance (raised)"},{zh:"調整後每股盈餘 20.25 至 20.55 美元(原 19.30 至 19.85)",en:"Adjusted earnings per share US$20.25 to 20.55 (was 19.30 to 19.85)"}],
+ [{zh:"股利",en:"Dividend"},{zh:"連續 18 年調升、連續 56 年發放",en:"Raised 18 straight years; paid for 56 years"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[5.37,5.63,5.9], approx:[false,false,true], note:{zh:"*2025 為約值",en:"*2025 approximate"} },
+segments:{ title:{zh:"營收結構(約)",en:"Revenue mix (approx.)"}, labels:[{zh:"公用事業解決方案",en:"Utility Solutions"},{zh:"電氣解決方案",en:"Electrical Solutions"}], values:[62,38] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Hubbell 由發明拉線燈座與插頭插座的 Harvey Hubbell 於 1888 年創立,總部位於康乃狄克州 Shelton,約 1.94 萬名員工。兩大板塊:公用事業解決方案(輸配電線路金具、絕緣子、電錶與先進讀表、變電站元件與電網自動化)以及電氣解決方案(工商業配線器材、連接器,以及資料中心與重工業用電氣零件)。",
+ en:"Founded in 1888 by Harvey Hubbell, inventor of the pull chain lamp socket and the plug and receptacle, Hubbell is headquartered in Shelton, Connecticut, with about 19,400 employees. Its two segments are Utility Solutions (transmission and distribution line hardware, insulators, meters and advanced metering, substation components and grid automation) and Electrical Solutions (industrial and commercial wiring devices, connectors, and electrical components for data centers and heavy industry)."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"Hubbell 賣的是電網上數以百萬計的「小東西」:每一根電桿上的金具、每一座變電站裡的連接器與開關。單價低但品類極多,公用事業客戶重視規格認證與可靠度,一旦進入材料清單就很少更換,形成黏性很高的汰換需求。電網老化更新、再生能源併網與資料中心負載成長,讓公用事業資本支出進入長期上升週期,Hubbell 則持續以併購擴充高成長品類。",
+ en:"Hubbell sells the millions of small things that make up the grid: the hardware on every utility pole and the connectors and switches inside every substation. Individual items are cheap but the catalog is vast, and utility customers prize specifications and reliability, so once a part is on the bill of materials it rarely changes, creating sticky replacement demand. Aging grid replacement, renewable interconnection and data center load growth have put utility capital spending on a long upward path, and Hubbell keeps adding high growth product lines through acquisitions."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在北美公用事業輸配電零組件領域,Hubbell 是領導廠商之一,對手包括 Eaton、ABB、Preformed Line Products 與 MacLean Power;電氣解決方案則與 Eaton、Legrand、nVent 分食工商業市場。在本庫電力鏈中,它與 Quanta 形成「材料加施工」的互補:Quanta 派技工蓋電網,Hubbell 供應電網上的零件。相較 Eaton 偏向配電設備、Vertiv 偏向機房內,Hubbell 的曝險更集中在公用事業電網本身。",
+ en:"Hubbell is a leading North American supplier of utility transmission and distribution components, competing with Eaton, ABB, Preformed Line Products and MacLean Power, while Electrical Solutions vies with Eaton, Legrand and nVent. In this knowledge base's power chain it pairs naturally with Quanta: Quanta's crews build the grid and Hubbell supplies the parts on it. Compared with Eaton's distribution equipment focus and Vertiv's position inside the data hall, Hubbell's exposure is concentrated on the utility grid itself."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 年第二季(7/28)營收 17.1 億美元、年增 15%(有機 10%),調整後每股盈餘 5.52 美元、年增 12%,優於預期;資料中心銷售年增約 65%,電網現代化與負載成長推升公用事業需求。不過調整後營業利益率 23.9%、年減 50 個基點,市場擔心通膨、擴產支出與併購槓桿壓縮利潤率,財報後股價走弱。全年調整後每股盈餘指引上修至 20.25 至 20.55 美元,並連續第 18 年調升股利。股價約 464 美元,距 52 週高點 565.5 美元約低 18%;下次財報 10/28。",
+ en:"Q2 2026 (Jul 28) revenue of $1.71B rose 15% (10% organic) and adjusted earnings per share of $5.52 rose 12%, ahead of estimates; data center sales climbed about 65% while grid modernization and load growth lifted utility demand. Still, the adjusted operating margin slipped 50 basis points to 23.9%, and worries about inflation, capacity spending and acquisition leverage weighed on the shares after the print. Full year adjusted earnings per share guidance rose to $20.25 to $20.55, and the dividend has now risen 18 years in a row. At about $464 the stock sits roughly 18% below its 52 week high of $565.50. Next report: Oct 28."}]
+]
+},
+
+/* ---------------- 23. HAMMOND POWER SOLUTIONS ---------------- */
+{
+id:"HPS", ticker:"HPS.A", exchange:"TSX", name:{zh:"Hammond Power Solutions 哈蒙德電力",en:"Hammond Power Solutions Inc."}, subsector:"power", batch:4, added:"2026-09-25",
+tagline:{zh:"加拿大乾式變壓器冠軍:搭上資料中心與電網擴建引爆的變壓器短缺潮",
+         en:"Canada's dry type transformer champion, riding the transformer shortage created by data centers and grid expansion"},
+basics:[
+ [{zh:"總部",en:"HEADQUARTERS"},{zh:"加拿大安大略省 Guelph",en:"Guelph, ON, Canada"}],
+ [{zh:"成立",en:"FOUNDED"},"1917"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 2,000 人(概)",en:"~2,000 (est.)"}],
+ [{zh:"執行長",en:"CHIEF EXECUTIVE"},"Adrian Thomas"],
+ [{zh:"財年",en:"FISCAL YEAR"},{zh:"12 月止(以加幣報告)",en:"Ends Dec (reports in C$)"}]
+],
+valuation:{ price:{zh:"約 C$267(9 月下旬)",en:"~C$267 (late Sep)"}, mcap:{zh:"約 C$32 億(全部股類)",en:"~C$3.2B (all classes)"}, pe:{zh:"約 28x(以上半年調整後每股盈餘年化)",en:"~28x (annualized first half adjusted earnings per share)"}, asOf:{zh:"2026-09 下旬",en:"Late Sep 2026"} },
+price52w:{ low:111.09, high:365.12, cur:267, unit:"C$" },
+priceHistory:[["2026-09-24",267.4]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"C$3.2B"], [{zh:"股價",en:"PRICE"},"C$267"], [{zh:"第二季營收",en:"Q2 REV"},"C$325M"] ],
+financials:[
+ [{zh:"2026 第二季營收",en:"Q2 2026 revenue"},{zh:"創紀錄 3.25 億加元,年增 44.7%",en:"Record C$325M, up 44.7%"}],
+ [{zh:"毛利率",en:"Gross margin"},{zh:"31.5%(第一季 30.1%)",en:"31.5% (Q1: 30.1%)"}],
+ [{zh:"調整後稅息折舊攤銷前利潤",en:"Adjusted earnings before interest, taxes, depreciation and amortization"},{zh:"5,300 萬加元,佔銷售 16.4%(年增 59%)",en:"C$53M, 16.4% of sales (up 59%)"}],
+ [{zh:"每股盈餘",en:"Earnings per share"},{zh:"調整後 2.76 加元(去年 1.72);帳面 0.79 加元(股權激勵費用拖累)",en:"Adjusted C$2.76 (C$1.72 a year ago); reported C$0.79 (share based compensation)"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"年增 96.9%(因出貨創高,季減 6.9%)",en:"Up 96.9% year over year (down 6.9% sequentially on record shipments)"}],
+ [{zh:"資料中心",en:"Data centers"},{zh:"已佔營收逾 30%",en:"Now over 30% of revenue"}],
+ [{zh:"併購",en:"Acquisition"},{zh:"收購 AEG Power Solutions,切入關鍵電力系統與服務",en:"AEG Power Solutions: extends into critical power systems and services"}]
+],
+revTrend:{ unit:{zh:"百萬加元(曆年)",en:"C$M (calendar yr)"}, labels:["2023","2024","2025"], values:[711,788,900], approx:[false,false,true], note:{zh:"*2025 為約值;2026 上半年約 5.9 億加元",en:"*2025 approximate; first half 2026 about C$590M"} },
+segments:{ title:{zh:"營收地區結構(約)",en:"Revenue by region (approx.)"}, labels:[{zh:"美國",en:"United States"},{zh:"加拿大",en:"Canada"},{zh:"墨西哥、印度等",en:"Mexico, India and other"}], values:[67,25,8] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Hammond Power Solutions 創立於 1917 年,總部位於安大略省 Guelph,是北美乾式變壓器的領導廠商,也生產鑄樹脂與液浸式配電變壓器、電抗器與電源品質產品,工廠遍布加拿大、美國、墨西哥與印度。公司由 Hammond 家族透過多重表決權股控制,在多倫多證交所交易的是 A 類股(HPS.A)。",
+ en:"Founded in 1917 and headquartered in Guelph, Ontario, Hammond Power Solutions is a leading North American maker of dry type transformers that also produces cast resin and liquid filled distribution transformers, reactors and power quality products, with plants in Canada, the U.S., Mexico and India. The Hammond family controls the company through multiple voting shares; the Class A shares (HPS.A) trade on the Toronto Stock Exchange."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"變壓器是電力系統中最容易被忽略、卻最難快速擴產的設備:每一座資料中心、工廠與商業大樓都需要把中壓電降到可用電壓。Hammond 以標準品加客製設計的組合,透過配銷商與設備廠客戶銷售;近年把握北美變壓器短缺,大舉擴建美國與墨西哥產能,把長交期轉化為訂單能見度。2026 年收購 AEG Power Solutions,嘗試從單一元件延伸到關鍵電力系統與服務收入。",
+ en:"Transformers are among the most overlooked yet hardest to scale pieces of the power system: every data center, factory and commercial building needs to step medium voltage down to usable levels. Hammond sells a mix of standard and custom designs through distributors and equipment makers, and has used the North American transformer shortage to expand U.S. and Mexican capacity, turning long lead times into order visibility. Its 2026 purchase of AEG Power Solutions extends the business from single components toward critical power systems and service revenue."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在北美乾式低中壓變壓器市場,Hammond 與 Eaton、施耐德(Square D)、Siemens 等大廠競爭,是少數專注變壓器的上市公司。它是本庫第四家加拿大公司,也是「利基冠軍」路線的最新例子:規模雖小,卻卡在資料中心與電網擴建最緊的瓶頸之一。美國市場貢獻約三分之二營收,資料中心已佔營收逾三成;加拿大本土市場則較疲弱、競爭加劇。",
+ en:"In North American dry type low and medium voltage transformers, Hammond competes with giants such as Eaton, Schneider Electric (Square D) and Siemens, and is one of the few listed pure plays. As the fourth Canadian company in this knowledge base, it is the latest example of the niche champion path: small in scale, but sitting on one of the tightest bottlenecks in the data center and grid buildout. The U.S. contributes about two thirds of revenue and data centers now exceed 30% of sales, while the Canadian home market is softer and more competitive."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 年第二季(7/30)營收創紀錄 3.25 億加元、年增 44.7%,毛利率由第一季 30.1% 回升至 31.5%,調整後稅息折舊攤銷前利潤 5,300 萬加元、年增 59%,調整後每股盈餘 2.76 加元大幅優於預期;帳面每股盈餘僅 0.79 加元,主因股權激勵費用,營運現金流也為負值。積壓訂單仍比去年同期高 96.9%,季減 6.9% 主要反映出貨加速。股價 52 週區間從 111 加元飆升到 365 加元,波動極大;9/22 單日上漲 6.25%,9 月下旬約 267 加元。",
+ en:"Q2 2026 (Jul 30) revenue hit a record C$325M, up 44.7%, gross margin recovered from 30.1% in Q1 to 31.5%, adjusted earnings before interest, taxes, depreciation and amortization rose 59% to C$53M, and adjusted earnings per share of C$2.76 beat estimates handily; reported earnings per share were only C$0.79 because of share based compensation, and operating cash flow was negative. Backlog remains 96.9% above last year, with the 6.9% sequential dip reflecting faster shipments. The 52 week range runs from C$111 to C$365, underscoring extreme volatility; the stock jumped 6.25% on Sep 22 and traded near C$267 in late September."}]
+]
+},
+
+/* ---------------- 24. ILLINOIS TOOL WORKS ---------------- */
+{
+id:"ITW", ticker:"ITW", exchange:"NYSE", name:{zh:"Illinois Tool Works 伊利諾工具",en:"Illinois Tool Works Inc."}, subsector:"machinery", batch:4, added:"2026-09-25",
+tagline:{zh:"80/20 經營哲學的教科書:七大事業、營業利益率 26% 的多元工業典範",
+         en:"The textbook of 80/20 management: seven businesses and 26% operating margins in a model diversified industrial"},
+basics:[
+ [{zh:"總部",en:"HEADQUARTERS"},{zh:"美國伊利諾州 Glenview",en:"Glenview, IL, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1912"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 44,000 人",en:"~44,000"}],
+ [{zh:"執行長",en:"CHIEF EXECUTIVE"},{zh:"Christopher O'Herlihy(2024 年上任)",en:"Christopher O'Herlihy (since 2024)"}],
+ [{zh:"財年",en:"FISCAL YEAR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$273.42", mcap:{zh:"約 US$787 億",en:"~US$78.7B"}, pe:{zh:"約 24x(2026 指引)",en:"~24x (2026 guidance)"}, asOf:"2026-09-23" },
+price52w:{ low:238.82, high:303.16, cur:273.4 },
+priceHistory:[["2026-08-27",281.4],["2026-09-17",268.3],["2026-09-23",273.4]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$79B"], [{zh:"股價",en:"PRICE"},"$273"], [{zh:"近四季營收",en:"TTM REV"},"$16.3B"] ],
+financials:[
+ [{zh:"2026 第二季營收",en:"Q2 2026 revenue"},{zh:"43.0 億美元,年增 6.1%(有機 4.5%,北美 6.4%)",en:"US$4.30B, up 6.1% (4.5% organic; North America 6.4%)"}],
+ [{zh:"第二季每股盈餘",en:"Q2 earnings per share"},{zh:"2.84 美元,年增 10%,優於預期",en:"US$2.84, up 10%, a beat"}],
+ [{zh:"營業利益",en:"Operating income"},{zh:"創紀錄 11.5 億美元,利潤率 26.7%(企業改善計畫貢獻 120 個基點)",en:"Record US$1.15B, 26.7% margin (enterprise initiatives added 120 basis points)"}],
+ [{zh:"自由現金流",en:"Free cash flow"},{zh:"6.31 億美元,年增 41%",en:"US$631M, up 41%"}],
+ [{zh:"股東回饋",en:"Capital returns"},{zh:"第二季以均價約 255 美元回購 7.5 億美元;全年回購約 15 億美元",en:"US$750M bought back in Q2 near US$255; about US$1.5B planned for 2026"}],
+ [{zh:"2026 指引(上修)",en:"2026 guidance (raised)"},{zh:"每股盈餘約 11.45 美元(中值)",en:"Earnings per share about US$11.45 (midpoint)"}],
+ [{zh:"亮點事業",en:"Standouts"},{zh:"焊接、測試量測與電子有機成長雙位數",en:"Welding and Test and Measurement and Electronics grew organically by double digits"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[16.1,15.9,16.0], approx:[false,false,true], note:{zh:"*2025 為約值",en:"*2025 approximate"} },
+segments:{ title:{zh:"七大事業營收佔比(約)",en:"Seven segment revenue mix (approx.)"}, labels:[{zh:"汽車原廠零件",en:"Automotive original equipment"},{zh:"測試量測與電子",en:"Test and Measurement and Electronics"},{zh:"食品設備",en:"Food Equipment"},{zh:"專業產品",en:"Specialty Products"},{zh:"建築產品",en:"Construction Products"},{zh:"焊接",en:"Welding"},{zh:"聚合物與流體",en:"Polymers and Fluids"}], values:[20,17,16,14,12,11,10] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Illinois Tool Works 創立於 1912 年,總部位於伊利諾州 Glenview,約 4.4 萬名員工,是美國最具代表性的多元工業公司之一。七大事業:汽車原廠零件、食品設備(Hobart)、測試量測與電子(Instron)、焊接(Miller)、聚合物與流體、建築產品(Paslode)與專業產品。多數產品是不起眼的扣件、耗材與設備,卻在各自利基市場名列前茅。",
+ en:"Founded in 1912 and based in Glenview, Illinois, with about 44,000 employees, Illinois Tool Works is one of America's archetypal diversified industrials. Its seven businesses are Automotive original equipment components, Food Equipment (Hobart), Test and Measurement and Electronics (Instron), Welding (Miller), Polymers and Fluids, Construction Products (Paslode) and Specialty Products. Most products are unglamorous fasteners, consumables and equipment, yet they rank near the top of their niches."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"核心是「ITW 商業模式」:80/20 前後端流程(聚焦貢獻八成獲利的兩成客戶與產品,其餘大幅簡化)、以客戶為本的創新與高度分權的事業單位。它不追求規模,而是持續精簡產品線、提高每條線的獲利能力,營業利益率從十多年前約 15% 拉升到 26% 以上。穩定的自由現金流用於長期調升股利與大規模庫藏股,是「品質型複利股」的典型。",
+ en:"The core is the ITW Business Model: the 80/20 Front to Back process (focus on the 20% of customers and products that generate 80% of profit and simplify the rest), customer back innovation and decentralized business units. Rather than chase scale, ITW keeps pruning product lines and raising profitability per line, lifting operating margin from roughly 15% more than a decade ago to above 26%. Strong free cash flow funds steady dividend increases and large buybacks, making it a classic quality compounder."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"它與 Parker-Hannifin 同為本庫多元工業的標竿,但路線不同:Parker 以併購擴張航太與過濾,ITW 則以內部營運系統為主、併購為輔,更強調有機成長與利潤率紀律。景氣曝險分散在汽車、餐飲、建築與電子等市場,單一市場波動影響有限;代價是整體有機成長偏低(過去多在低個位數),估值主要反映穩定性而非成長性。",
+ en:"Alongside Parker-Hannifin it is this knowledge base's benchmark diversified industrial, but the paths differ: Parker grows through acquisitions in aerospace and filtration, while ITW relies primarily on its internal operating system with acquisitions in a supporting role, emphasizing organic growth and margin discipline. Exposure spreads across autos, food service, construction and electronics, so no single market dominates; the trade off is modest organic growth, historically in the low single digits, so the valuation mostly prices stability rather than growth."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 年第二季(7/28)營收 43 億美元、年增 6.1%,有機成長 4.5% 較上季加速,北美成長 6.4%;營業利益創紀錄 11.5 億美元,利潤率 26.7%,每股盈餘 2.84 美元、年增 10%,自由現金流年增 41%。焊接與測試量測電子事業有機成長雙位數。公司上修全年每股盈餘指引至約 11.45 美元,並在第二季提前以均價約 255 美元回購 7.5 億美元股票。財報後股價一度逼近 303 美元的 52 週高點,目前約 273 美元;管理層也暗示正常環境下 2027 年增量利潤率可望達 40% 以上。",
+ en:"Q2 2026 (Jul 28) revenue of $4.30B rose 6.1%, organic growth accelerated to 4.5% and North America grew 6.4%; operating income reached a record $1.15B at a 26.7% margin, earnings per share of $2.84 rose 10%, and free cash flow jumped 41%. Welding and Test and Measurement and Electronics posted double digit organic growth. Management raised full year earnings per share guidance to about $11.45 and pulled forward $750M of buybacks at an average near $255. Shares approached the $303 52 week high after the report and now trade near $273; management also suggested 2027 incremental margins could exceed 40% in a normal environment."}]
+]
+},
+
+/* ---------------- 25. CARRIER GLOBAL ---------------- */
+{
+id:"CARR", ticker:"CARR", exchange:"NYSE", name:{zh:"Carrier 開利",en:"Carrier Global Corporation"}, subsector:"machinery", batch:4, added:"2026-09-25",
+tagline:{zh:"發明現代空調的百年品牌:資料中心訂單暴增三倍以上,住宅景氣谷底待翻身",
+         en:"The century old brand that invented modern air conditioning, with data center orders up more than 300% while residential waits for a turn"},
+basics:[
+ [{zh:"總部",en:"HEADQUARTERS"},{zh:"美國佛州 Palm Beach Gardens",en:"Palm Beach Gardens, FL, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"1915(2020 年自聯合技術公司分拆)",en:"1915 (spun off from United Technologies in 2020)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 48,000 人(概)",en:"~48,000 (est.)"}],
+ [{zh:"執行長",en:"CHIEF EXECUTIVE"},{zh:"David Gitlin(董事長兼執行長)",en:"David Gitlin (Chairman and CEO)"}],
+ [{zh:"財年",en:"FISCAL YEAR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:{zh:"約 US$56.7",en:"~US$56.7"}, mcap:{zh:"約 US$467 億",en:"~US$46.7B"}, pe:{zh:"前瞻約 20x(2026 預估)",en:"Forward ~20x (2026 estimate)"}, asOf:"2026-09-24" },
+price52w:{ low:50.24, high:76.76, cur:56.7, highDate:"26/7" },
+priceHistory:[["2026-07-27",69.3],["2026-09-23",55.1],["2026-09-24",56.7]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$47B"], [{zh:"股價",en:"PRICE"},"$57"], [{zh:"近四季營收",en:"TTM REV"},"$22.1B"] ],
+financials:[
+ [{zh:"近四季營收",en:"Trailing 12 month revenue"},{zh:"US$221 億",en:"US$22.1B"}],
+ [{zh:"2026 第二季",en:"Q2 2026"},{zh:"營收 63.5 億美元,優於預期;調整後每股盈餘 0.86 美元(去年 0.92)",en:"Revenue US$6.35B, a beat; adjusted earnings per share US$0.86 (US$0.92 a year ago)"}],
+ [{zh:"訂單",en:"Orders"},{zh:"總訂單年增約 40%;商用暖通空調年增 65%;資料中心逾 300%",en:"Total up about 40%; commercial heating, ventilation and air conditioning up 65%; data centers up more than 300%"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"逾 80 億美元",en:"Above US$8B"}],
+ [{zh:"資料中心銷售指引",en:"Data center sales outlook"},{zh:"2026 年約 20 億美元(原 15 億),2027 年逾 30 億",en:"About US$2B in 2026 (was 1.5B); above US$3B in 2027"}],
+ [{zh:"利潤率",en:"Margin"},{zh:"營業利益率年減約 1.8 個百分點(關稅與產品組合)",en:"Operating margin down about 1.8 points (tariffs and mix)"}],
+ [{zh:"策略動作",en:"Strategic moves"},{zh:"收購 75F 補強智慧建築控制",en:"75F acquisition adds smart building controls"}]
+],
+revTrend:{ unit:{zh:"十億美元(持續營運)",en:"US$B (continuing operations)"}, labels:["2024","2025"], values:[22.5,21.8], approx:[true,true], note:{zh:"*約值;2024 起含 Viessmann",en:"*approximate; includes Viessmann from 2024"} },
+segments:{ title:{zh:"氣候解決方案四大板塊(約)",en:"Four climate solutions segments (approx.)"}, labels:[{zh:"美洲",en:"Americas"},{zh:"歐洲",en:"Europe"},{zh:"亞太、中東與非洲",en:"Asia Pacific, Middle East and Africa"},{zh:"運輸冷鏈",en:"Transportation"}], values:[52,23,16,9] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Carrier 的歷史始於 1902 年 Willis Carrier 發明現代空調,1915 年創立公司,2020 年自聯合技術公司分拆上市,總部位於佛州 Palm Beach Gardens。執行長 David Gitlin 主導組合大改造:2024 年以約 130 億美元收購德國熱泵與暖氣龍頭 Viessmann Climate Solutions,並出售消防保全(Kidde)與商用冷凍業務,讓 Carrier 成為專注「氣候解決方案」的純暖通空調公司。",
+ en:"Carrier traces its roots to Willis Carrier's 1902 invention of modern air conditioning; the company was founded in 1915 and spun off from United Technologies in 2020, with headquarters in Palm Beach Gardens, Florida. Chief Executive David Gitlin has remade the portfolio: in 2024 Carrier bought German heat pump and heating leader Viessmann Climate Solutions for roughly $13B and sold its fire and security (Kidde) and commercial refrigeration businesses, leaving a pure play climate solutions company."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"Carrier 一半以上營收來自美洲,由住宅空調(經銷商體系)、輕型商用與大型商用冰水主機組成,另有 Carrier Transicold 運輸冷鏈。住宅業務受房市與冷媒轉換週期影響大,是近兩年的拖累;大型商用暖通空調與資料中心冷卻(冰水主機、機房空調與液冷整合)則是成長引擎。公司正推動「設備加售後服務與數位化」的經常性收入,並以收購 75F 補強智慧建築控制。",
+ en:"More than half of revenue comes from the Americas, split among residential air conditioning (sold through dealers), light commercial and large commercial chillers, plus Carrier Transicold in transport refrigeration. Residential is highly sensitive to housing and refrigerant transition cycles and has been a drag for two years; large commercial heating, ventilation and air conditioning and data center cooling (chillers, computer room air handlers and liquid cooling integration) are the growth engines. Carrier is building recurring revenue from aftermarket service and digital offerings, adding smart building controls through the 75F acquisition."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在北美暖通空調市場,Carrier、Trane、Johnson Controls(York)、大金與 Lennox 並列主要玩家;Carrier 在住宅與輕型商用市佔領先,Trane 則在大型商用與 Applied 系統更強。本庫已收錄 Trane,Carrier 正好形成對照組:一邊是「住宅週期加資料中心成長」,一邊是「純商用成長」。同樣受惠資料中心散熱,Carrier 因住宅拖累,估值明顯較低。",
+ en:"In North American heating, ventilation and air conditioning, Carrier, Trane, Johnson Controls (York), Daikin and Lennox are the main players; Carrier leads in residential and light commercial, while Trane is stronger in large commercial and applied systems. With Trane already in this knowledge base, Carrier provides the contrast between a residential cycle plus data center growth story and a pure commercial growth story: both benefit from data center cooling, but Carrier's residential drag leaves it on a much lower multiple."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 年第二季(7/28)營收 63.5 億美元、調整後每股盈餘 0.86 美元,雙雙優於預期;總訂單年增約 40%,商用暖通空調訂單年增 65%,資料中心訂單暴增逾 300%,積壓訂單突破 80 億美元。全年資料中心銷售指引上調至約 20 億美元,2027 年上看 30 億美元以上。但營業利益率年減約 1.8 個百分點,關稅與產品組合壓力讓股價在財報當天重挫約 9%;之後持續走弱,9 月下旬約 56.7 美元,接近 52 週低點 50.24 美元。瑞銀 9/21 給予買進評等,市場等待住宅需求觸底回升。",
+ en:"Q2 2026 (Jul 28) revenue of $6.35B and adjusted earnings per share of $0.86 both beat estimates; total orders rose about 40%, commercial heating, ventilation and air conditioning orders 65% and data center orders more than 300%, pushing backlog above $8B. Full year data center sales guidance rose to about $2B, with more than $3B expected in 2027. Operating margin, however, fell about 1.8 points on tariffs and mix, and the stock dropped about 9% on results day; it has kept sliding to about $56.7 in late September, near the $50.24 52 week low. UBS rated it Buy on Sep 21 as investors wait for residential demand to bottom."}]
+]
+},
+
+/* ---------------- 26. UNITED RENTALS ---------------- */
+{
+id:"URI", ticker:"URI", exchange:"NYSE", name:{zh:"United Rentals 聯合租賃",en:"United Rentals, Inc."}, subsector:"machinery", batch:4, added:"2026-09-25",
+tagline:{zh:"全球最大設備租賃商:大型專案與資料中心工地的共享機隊平台",
+         en:"The world's largest equipment rental company, a shared fleet platform for megaprojects and data center job sites"},
+basics:[
+ [{zh:"總部",en:"HEADQUARTERS"},{zh:"美國康乃狄克州 Stamford",en:"Stamford, CT, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1997"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 28,000 人(概)",en:"~28,000 (est.)"}],
+ [{zh:"執行長",en:"CHIEF EXECUTIVE"},"Matthew Flannery"],
+ [{zh:"財年",en:"FISCAL YEAR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$1,050.01", mcap:{zh:"約 US$654 億",en:"~US$65.4B"}, pe:{zh:"約 25x(近四季);前瞻約 20x",en:"~25x trailing; forward ~20x"}, asOf:"2026-09-21" },
+price52w:{ low:701.59, high:1179.18, cur:1050 },
+priceHistory:[["2026-08-24",1083.6],["2026-09-11",989.1],["2026-09-21",1050.0]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$65B"], [{zh:"股價",en:"PRICE"},"$1,050"], [{zh:"近四季營收",en:"TTM REV"},"$16.8B"] ],
+financials:[
+ [{zh:"近四季營收",en:"Trailing 12 month revenue"},{zh:"US$168 億",en:"US$16.8B"}],
+ [{zh:"2026 第二季營收",en:"Q2 2026 revenue"},{zh:"44.1 億美元,年增 12%;租賃營收 38.5 億美元,年增 12.7%",en:"US$4.41B, up 12%; rental revenue US$3.85B, up 12.7%"}],
+ [{zh:"第二季每股盈餘",en:"Q2 earnings per share"},{zh:"調整後 12.76 美元,年增 22%(預期 11.57)",en:"Adjusted US$12.76, up 22% (consensus 11.57)"}],
+ [{zh:"調整後稅息折舊攤銷前利潤",en:"Adjusted earnings before interest, taxes, depreciation and amortization"},{zh:"20.6 億美元,利潤率創紀錄 46.6%",en:"US$2.06B, record 46.6% margin"}],
+ [{zh:"專業租賃",en:"Specialty rental"},{zh:"營收年增 25%,七條產品線全數雙位數成長",en:"Revenue up 25%, all seven lines up double digits"}],
+ [{zh:"2026 指引(上修)",en:"2026 guidance (raised)"},{zh:"營收 175 億至 178 億美元;調整後稅息折舊攤銷前利潤 79.75 億至 81.25 億美元",en:"Revenue US$17.5B to 17.8B; adjusted earnings before interest, taxes, depreciation and amortization US$7.975B to 8.125B"}],
+ [{zh:"資本配置",en:"Capital allocation"},{zh:"租賃資本支出 48.5 億至 52.5 億美元;回購 15 億美元;淨槓桿 1.8 倍",en:"Rental capital spending US$4.85B to 5.25B; US$1.5B buybacks; net leverage 1.8x"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[14.3,15.3,16.1], approx:[false,false,true], note:{zh:"*2025 為約值",en:"*2025 approximate"} },
+segments:{ title:{zh:"營收結構(約)",en:"Revenue mix (approx.)"}, labels:[{zh:"一般租賃",en:"General Rentals"},{zh:"專業租賃",en:"Specialty"}], values:[69,31] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"United Rentals 創立於 1997 年,總部位於康乃狄克州 Stamford,是全球最大的設備租賃公司,擁有約 1,600 個據點、原始成本逾 200 億美元的設備機隊。產品從高空作業車、挖土機、發電機、臨時電力與溫控設備,到溝槽支撐與流體處理等專業設備,客戶涵蓋非住宅營建、工業維修與大型基礎建設專案。",
+ en:"Founded in 1997 and headquartered in Stamford, Connecticut, United Rentals is the world's largest equipment rental company, with about 1,600 locations and a fleet worth more than $20B at original cost. Its equipment ranges from aerial work platforms, excavators and generators to temporary power, climate control, trench shoring and fluid solutions, serving nonresidential construction, industrial maintenance and large infrastructure projects."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"租賃的核心是「時間利用率乘以租金」:同一台設備可在不同工地重複出租,把客戶的資本支出變成營運支出。規模帶來三重優勢:向 Caterpillar、Deere 等原廠大量採購的議價力、密集據點網提升調度效率,以及為全國性大客戶提供一站式服務。設備使用數年後出售到二手市場回收資金,形成「買進、出租、出售」的循環;專業租賃(臨時電力、溫控、溝槽)毛利更高、成長更快,是近年重點。",
+ en:"Rental economics come down to time utilization multiplied by rate: the same machine can be rented to job after job, turning customers' capital spending into operating expense. Scale brings three edges: purchasing power with manufacturers such as Caterpillar and Deere, a dense branch network that improves fleet logistics, and one stop service for national accounts. After several years of use, equipment is sold into the used market to recycle capital, completing a buy, rent, sell loop; specialty rentals (temporary power, climate control, trench) carry higher margins and faster growth and are the recent focus."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"北美設備租賃市場由 United Rentals、Sunbelt(Ashtead)與 Herc 三強主導,United Rentals 市佔第一且領先幅度明顯;產業仍高度分散,大廠持續以併購整合小型租賃商。它是本庫機械板塊中唯一的服務型公司,位在 Caterpillar 與 Deere 的下游:原廠把設備賣給租賃商,租賃商再把設備分時提供給工地。資料中心、半導體廠、液化天然氣與電網等大型專案,正是其專業租賃成長最快的來源。",
+ en:"North American equipment rental is led by United Rentals, Sunbelt (Ashtead) and Herc, with United Rentals holding a clear lead in share, and the industry remains fragmented enough for continued consolidation. It is the only service business on this knowledge base's machinery shelf and sits downstream of Caterpillar and Deere: manufacturers sell to rental fleets, which then time share equipment to job sites. Data centers, semiconductor fabs, liquefied natural gas and grid megaprojects are the fastest growing sources of its specialty demand."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 年第二季(7/22)營收 44.1 億美元、年增 12%,租賃營收、稅息折舊攤銷前利潤與每股盈餘皆創同期紀錄:調整後每股盈餘 12.76 美元、年增 22%,調整後利潤率 46.6%,專業租賃營收年增 25%。受大型專案需求與設備時間利用率創新高帶動,全年營收指引上修 5 億美元至 175 億至 178 億美元,租賃資本支出也上調 4.5 億美元;標普將信評展望調為正向,有望升上投資等級。股價財報當天大漲約 13.5%,目前約 1,050 美元;下次財報 10/21。",
+ en:"Q2 2026 (Jul 22) revenue of $4.41B rose 12%, with record Q2 rental revenue, earnings before interest, taxes, depreciation and amortization and earnings per share: adjusted earnings per share of $12.76 rose 22%, the adjusted margin hit 46.6%, and specialty rental revenue grew 25%. With megaproject demand and record time utilization, full year revenue guidance rose $500M to $17.5B to $17.8B and rental capital spending was lifted by $450M; S&P moved its credit outlook to positive, opening a path to investment grade. Shares jumped about 13.5% on the print and now trade near $1,050. Next report: Oct 21."}]
+]
+},
+
+/* ---------------- 27. TRANSDIGM ---------------- */
+{
+id:"TDG", ticker:"TDG", exchange:"NYSE", name:{zh:"TransDigm",en:"TransDigm Group Incorporated"}, subsector:"aerospace", batch:4, added:"2026-09-25",
+tagline:{zh:"航太零件界的私募股權:專有零件加售後定價權,利潤率逾 50%",
+         en:"The private equity machine of aerospace parts: proprietary components plus aftermarket pricing power, with margins above 50%"},
+basics:[
+ [{zh:"總部",en:"HEADQUARTERS"},{zh:"美國俄亥俄州克里夫蘭",en:"Cleveland, OH, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1993"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 16,000 人(概)",en:"~16,000 (est.)"}],
+ [{zh:"執行長",en:"CHIEF EXECUTIVE"},{zh:"Mike Lisman(2025/10 接任)",en:"Mike Lisman (since Oct 2025)"}],
+ [{zh:"財年",en:"FISCAL YEAR"},{zh:"9 月止",en:"Ends Sep"}]
+],
+valuation:{ price:"US$1,085.00", mcap:{zh:"約 US$620 億(概算)",en:"~US$62B (est.)"}, pe:{zh:"前瞻約 26x(2026 財年指引中值)",en:"Forward ~26x (FY26 guidance midpoint)"}, asOf:"2026-09-16" },
+price52w:{ low:1082.4, high:1463.03, cur:1085, lowDate:"26/9/16" },
+priceHistory:[["2026-08-04",1254.7],["2026-09-16",1085.0]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$62B"], [{zh:"股價",en:"PRICE"},"$1,085"], [{zh:"財年營收指引",en:"FY26 REV GUIDE"},"$10.5B"] ],
+financials:[
+ [{zh:"2026 財年第三季銷售",en:"Fiscal Q3 2026 net sales"},{zh:"27.4 億美元,年增 23%(有機 13%)",en:"US$2.74B, up 23% (13% organic)"}],
+ [{zh:"調整後稅息折舊攤銷前利潤(公司定義)",en:"EBITDA As Defined (earnings before interest, taxes, depreciation and amortization)"},{zh:"14.5 億美元,利潤率 52.8%(併購稀釋逾 200 個基點)",en:"US$1.45B, 52.8% margin (over 200 basis points of acquisition dilution)"}],
+ [{zh:"第三季每股盈餘",en:"Fiscal Q3 earnings per share"},{zh:"調整後 10.87 美元,年增 13%,優於預期",en:"Adjusted US$10.87, up 13%, a beat"}],
+ [{zh:"終端市場成長",en:"End market growth"},{zh:"商用售後 17%、商用原廠 17%、國防 11%",en:"Commercial aftermarket 17%, commercial original equipment 17%, defense 11%"}],
+ [{zh:"2026 財年指引(上修)",en:"FY2026 guidance (raised)"},{zh:"銷售 104.7 億至 105.5 億美元;調整後每股盈餘 40.62 至 41.46 美元;自由現金流約 26 億美元",en:"Sales US$10.47B to 10.55B; adjusted earnings per share US$40.62 to 41.46; free cash flow about US$2.6B"}],
+ [{zh:"資本結構",en:"Capital structure"},{zh:"淨負債約為稅息折舊攤銷前利潤 5.8 倍;第三季回購約 9.8 億美元",en:"Net debt about 5.8x earnings before interest, taxes, depreciation and amortization; ~US$980M repurchased in fiscal Q3"}],
+ [{zh:"近期併購",en:"Recent acquisitions"},{zh:"Stellant Systems(約 9.6 億)、Jet Parts Engineering 與 Victor Sierra(約 22 億)、Simmonds Precision",en:"Stellant Systems (~US$960M), Jet Parts Engineering and Victor Sierra (~US$2.2B), Simmonds Precision"}]
+],
+revTrend:{ unit:{zh:"十億美元(財年 9 月止)",en:"US$B (FY ends Sep)"}, labels:["FY23","FY24","FY25"], values:[6.59,7.94,8.83], approx:[false,false,true], note:{zh:"*FY25 為約值;FY26 指引約 105 億",en:"*FY25 approximate; FY26 guidance about 10.5"} },
+segments:{ title:{zh:"板塊營收佔比(約)",en:"Segment revenue mix (approx.)"}, labels:[{zh:"動力與控制",en:"Power and Control"},{zh:"機體",en:"Airframe"},{zh:"非航空",en:"Non aviation"}], values:[55,43,2] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"TransDigm 由 Nicholas Howley 等人於 1993 年以槓桿收購起家,總部位於克里夫蘭,旗下擁有數十個獨立營運的航太零件事業,產品包括泵浦、閥門、點火系統、致動器、駕駛艙安全帶、機艙照明與各式專用零組件。約九成銷售來自專有設計零件,且多數為單一來源供應;2025 年 10 月由 Mike Lisman 接任執行長。",
+ en:"TransDigm was built through a 1993 leveraged buyout led by Nicholas Howley and partners and is headquartered in Cleveland. It owns dozens of independently run aerospace component businesses making pumps, valves, ignition systems, actuators, cockpit safety restraints, cabin lighting and other specialized parts. About 90% of sales come from proprietary designs, most of them sole source; Mike Lisman became chief executive in October 2025."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"TransDigm 常被稱為「航太版私募股權」:只收購擁有專有智慧財產、以售後市場為主的零件事業,收購後依三項價值驅動因子經營:爭取新業務、嚴控成本、以價值定價。飛機零件一旦取得適航認證,航空公司幾乎無法更換供應商,而單一零件占整體維修成本比重極低,使 TransDigm 在售後市場擁有極強定價權,利潤率長期超過 50%。公司刻意維持約 5 至 6 倍的高槓桿,並以特別股利與庫藏股回饋股東。",
+ en:"TransDigm is often called the private equity firm of aerospace: it buys only component businesses with proprietary intellectual property and heavy aftermarket exposure, then runs them on three value drivers: winning new business, tight cost control and value based pricing. Once a part is certified on an aircraft, airlines can hardly switch suppliers, and each part is a tiny share of total maintenance cost, giving TransDigm formidable aftermarket pricing power and margins that have long exceeded 50%. It deliberately runs leverage of roughly 5 to 6 times and returns capital through special dividends and buybacks."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在本庫航太板塊中,TransDigm 代表「零組件層」:在整機廠(波音、空巴)與引擎廠(GE Aerospace、RTX)之下,數以萬計的專有零件由它與 HEICO、Howmet、Parker 航太等供應。它的利潤率遠高於整機與引擎廠,原因正是售後市場的議價結構;但定價策略也曾引發美國國防部與國會對備品漲價的調查,是長期的政治風險。",
+ en:"On this knowledge base's aerospace shelf, TransDigm represents the component layer: beneath airframers (Boeing, Airbus) and engine makers (GE Aerospace, RTX), tens of thousands of proprietary parts come from TransDigm, HEICO, Howmet and Parker's aerospace arm. Its margins dwarf those of airframers and engine makers precisely because of the aftermarket bargaining structure, though its pricing has also drawn Pentagon and congressional scrutiny over spare part price hikes, a lasting political risk."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 財年第三季(8/4)淨銷售 27.4 億美元、年增 23%(有機 13%),商用售後與商用原廠皆成長 17%、國防成長 11%,三個通路的訂單都超過出貨;調整後每股盈餘 10.87 美元、年增 13%,利潤率 52.8%(併購稀釋逾 2 個百分點)。全年銷售指引中值上調至 105.1 億美元、調整後每股盈餘中值 41.04 美元,自由現金流約 26 億美元;第三季以均價約 1,208 美元回購約 9.8 億美元股票。儘管基本面強勁,股價受高估值與內部人賣股影響,9/16 收 1,085 美元,接近 52 週低點。",
+ en:"Fiscal Q3 2026 (Aug 4) net sales of $2.74B rose 23% (13% organic), with commercial aftermarket and commercial original equipment each up 17% and defense up 11%, and bookings outpaced shipments in all three channels; adjusted earnings per share of $10.87 rose 13% and the margin was 52.8% despite more than two points of acquisition dilution. The full year sales midpoint rose to $10.51B, adjusted earnings per share to a $41.04 midpoint and free cash flow to about $2.6B, and about $980M of stock was repurchased near $1,208. Despite strong fundamentals, valuation worries and insider selling left the shares at $1,085 on Sep 16, close to the 52 week low."}]
+]
+},
+
+/* ---------------- 28. HOWMET AEROSPACE ---------------- */
+{
+id:"HWM", ticker:"HWM", exchange:"NYSE", name:{zh:"Howmet Aerospace 豪梅特航太",en:"Howmet Aerospace Inc."}, subsector:"aerospace", batch:4, added:"2026-09-25",
+tagline:{zh:"噴射引擎葉片與扣件的寡占者:航太產量與燃氣渦輪的雙重超級週期",
+         en:"An oligopolist in jet engine airfoils and fasteners, riding twin supercycles in aerospace production and gas turbines"},
+basics:[
+ [{zh:"總部",en:"HEADQUARTERS"},{zh:"美國賓州匹茲堡",en:"Pittsburgh, PA, USA"}],
+ [{zh:"成立",en:"FOUNDED"},{zh:"2020 年自 Arconic 分拆(前身可溯至 1888 年的 Alcoa)",en:"2020 spin from Arconic (roots to Alcoa, 1888)"}],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 23,000 人(概)",en:"~23,000 (est.)"}],
+ [{zh:"執行長",en:"CHIEF EXECUTIVE"},{zh:"John Plant(執行董事長兼執行長)",en:"John Plant (Executive Chairman and CEO)"}],
+ [{zh:"財年",en:"FISCAL YEAR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$227.73", mcap:{zh:"約 US$896 億",en:"~US$89.6B"}, pe:{zh:"前瞻約 43x(2026 指引中值)",en:"Forward ~43x (2026 guidance midpoint)"}, asOf:"2026-09-16" },
+price52w:{ low:182.78, high:310.0, cur:227.7 },
+priceHistory:[["2026-08-07",290.6],["2026-09-16",227.7]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$90B"], [{zh:"股價",en:"PRICE"},"$228"], [{zh:"近四季營收",en:"TTM REV"},"$9.1B"] ],
+financials:[
+ [{zh:"近四季營收",en:"Trailing 12 month revenue"},{zh:"US$91.2 億",en:"US$9.12B"}],
+ [{zh:"2026 第二季營收",en:"Q2 2026 revenue"},{zh:"25.5 億美元,年增 24%(有機 21%)",en:"US$2.55B, up 24% (21% organic)"}],
+ [{zh:"第二季每股盈餘",en:"Q2 earnings per share"},{zh:"調整後 1.33 美元,年增 46%(預期 1.25)",en:"Adjusted US$1.33, up 46% (consensus 1.25)"}],
+ [{zh:"調整後稅息折舊攤銷前利潤",en:"Adjusted earnings before interest, taxes, depreciation and amortization"},{zh:"8.17 億美元,利潤率 32.1%;營業利益率 27.9%",en:"US$817M, 32.1% margin; operating margin 27.9%"}],
+ [{zh:"2026 指引(上修)",en:"2026 guidance (raised)"},{zh:"營收約 100.5 億美元(原 96.5 億);調整後每股盈餘中值約 5.27 美元",en:"Revenue about US$10.05B (was 9.65B); adjusted earnings per share midpoint about US$5.27"}],
+ [{zh:"併購",en:"Acquisition"},{zh:"4 月完成 18 億美元收購 CAM(航太扣件)",en:"Closed the US$1.8B CAM purchase (aerospace fasteners) in April"}],
+ [{zh:"股東回饋",en:"Capital returns"},{zh:"第二季回購 3 億美元並調升股利",en:"US$300M bought back in Q2; dividend raised"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[6.64,7.43,8.2], approx:[false,false,true], note:{zh:"*2025 為約值;2026 指引約 100.5 億",en:"*2025 approximate; 2026 guidance about 10.05"} },
+segments:{ title:{zh:"板塊營收佔比(約)",en:"Segment revenue mix (approx.)"}, labels:[{zh:"引擎產品",en:"Engine Products"},{zh:"扣件系統",en:"Fastening Systems"},{zh:"鍛造輪圈",en:"Forged Wheels"},{zh:"工程結構",en:"Engineered Structures"}], values:[53,21,14,12] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Howmet Aerospace 源自 1888 年的 Alcoa,2020 年由 Arconic 分拆而成,總部位於匹茲堡,由執行董事長兼執行長 John Plant 領軍。四大板塊:引擎產品(噴射引擎與工業燃氣渦輪用的單晶葉片與環件)、扣件系統(航太鈦合金扣件)、工程結構(鈦合金機體結構件)與鍛造輪圈(商用卡車鋁輪圈)。",
+ en:"Howmet Aerospace descends from Alcoa (1888) and was separated from Arconic in 2020; it is headquartered in Pittsburgh and led by Executive Chairman and Chief Executive John Plant. Its four segments are Engine Products (single crystal airfoils and rings for jet engines and industrial gas turbines), Fastening Systems (aerospace titanium fasteners), Engineered Structures (titanium airframe structures) and Forged Wheels (aluminum wheels for commercial trucks)."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"Howmet 最核心的是高溫合金精密鑄造:噴射引擎熱段的渦輪葉片必須承受超過金屬熔點的溫度,製程門檻極高,全球只有 Howmet 與波克夏旗下的 Precision Castparts 等少數廠商能大量供應。每具新引擎都需要葉片,引擎進廠大修時葉片也要更換,形成「原廠加售後」雙重需求;隨著 LEAP 與 GTF 等新一代引擎進入大修週期,備品需求快速成長。工業燃氣渦輪葉片則直接受惠資料中心發電熱潮。",
+ en:"Howmet's crown jewel is superalloy precision casting: turbine blades in a jet engine's hot section must withstand temperatures above the metal's melting point, a process so demanding that only a handful of suppliers such as Howmet and Precision Castparts (owned by Berkshire Hathaway) can produce at scale. Every new engine needs blades, and blades are replaced again at overhaul, creating both original equipment and aftermarket demand; as LEAP and GTF engines enter heavy maintenance cycles, spares demand is climbing fast. Industrial gas turbine blades, meanwhile, ride the data center power boom."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在本庫航太板塊中,Howmet 與 TransDigm 同屬零組件層但互補:TransDigm 是品類龐雜的專有零件,Howmet 則是高度集中、資本密集的關鍵材料與製程。它向 GE Aerospace 與 RTX 旗下普惠等引擎廠供應葉片,燃氣渦輪葉片也供應 GE Vernova 等發電設備商,等於同時卡位航太與電力兩條主線。9 月 GE Aerospace 宣布收購鑄件廠 CPP,市場開始討論引擎廠垂直整合對 Howmet 議價能力的影響。",
+ en:"On the aerospace shelf Howmet and TransDigm both sit in the component layer but complement each other: TransDigm offers a vast catalog of proprietary parts, while Howmet concentrates on capital intensive critical materials and processes. It supplies blades to engine makers such as GE Aerospace and RTX's Pratt and Whitney and gas turbine blades to power equipment makers such as GE Vernova, giving it a seat in both the aerospace and power themes. GE Aerospace's September deal to acquire casting supplier CPP has sparked debate about how engine maker vertical integration could affect Howmet's bargaining power."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 年第二季(8/6)營收 25.5 億美元、年增 24%(有機 21%),調整後每股盈餘 1.33 美元、年增 46%,調整後稅息折舊攤銷前利潤率 32.1%,營業利益率 27.9%,各項指標皆超越指引上緣;全年營收指引由 96.5 億上調至約 100.5 億美元、調整後每股盈餘中值 5.27 美元,成長來自飛機產量提升、備品需求與工業燃氣渦輪。財報時市值約 1,159 億美元,之後受 GE 收購 CPP 引發的競爭疑慮拖累,9/16 收 227.73 美元、距 52 週高點約低 27%;Guggenheim 9/14 以買進評等首次涵蓋。",
+ en:"Q2 2026 (Aug 6) revenue of $2.55B rose 24% (21% organic), adjusted earnings per share of $1.33 rose 46%, the adjusted margin on earnings before interest, taxes, depreciation and amortization was 32.1% and operating margin 27.9%, all above the top of guidance; full year revenue guidance rose from $9.65B to about $10.05B with a $5.27 adjusted earnings per share midpoint, driven by higher aircraft build rates, spares and industrial gas turbines. The market value stood near $116B at the report, but competition worries after GE's CPP deal dragged shares to $227.73 on Sep 16, about 27% below the 52 week high; Guggenheim initiated at Buy on Sep 14."}]
+]
+},
+
+/* ---------------- 29. JOHNSON CONTROLS ---------------- */
+{
+id:"JCI", ticker:"JCI", exchange:"NYSE", name:{zh:"Johnson Controls 江森自控",en:"Johnson Controls International plc"}, subsector:"automation", batch:4, added:"2026-09-25",
+tagline:{zh:"恆溫器的發明者:剝離住宅後的純商用樓宇科技,York 冰水主機搭上資料中心散熱潮",
+         en:"The inventor of the thermostat, now a pure commercial building technology company whose York chillers ride the data center cooling wave"},
+basics:[
+ [{zh:"總部",en:"HEADQUARTERS"},{zh:"愛爾蘭 Cork(營運:美國威州密爾瓦基)",en:"Cork, Ireland (ops: Milwaukee, WI)"}],
+ [{zh:"成立",en:"FOUNDED"},"1885"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 87,000 人",en:"~87,000"}],
+ [{zh:"執行長",en:"CHIEF EXECUTIVE"},{zh:"Joakim Weidemanis(2025 年上任)",en:"Joakim Weidemanis (since 2025)"}],
+ [{zh:"財年",en:"FISCAL YEAR"},{zh:"9 月止",en:"Ends Sep"}]
+],
+valuation:{ price:"US$146.44", mcap:{zh:"約 US$887 億",en:"~US$88.7B"}, pe:{zh:"約 25x(近四季調整後概算)",en:"~25x (trailing adjusted, est.)"}, asOf:"2026-09-22" },
+priceHistory:[["2026-07-29",142.0],["2026-09-22",146.4]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$89B"], [{zh:"股價",en:"PRICE"},"$146"], [{zh:"積壓訂單",en:"BACKLOG"},"$21.0B"] ],
+financials:[
+ [{zh:"2025 財年營收",en:"FY2025 revenue"},{zh:"約 236 億美元",en:"About US$23.6B"}],
+ [{zh:"2026 財年第三季銷售",en:"Fiscal Q3 2026 sales"},{zh:"66 億美元,年增 9%(有機 10%)",en:"US$6.6B, up 9% (10% organic)"}],
+ [{zh:"第三季每股盈餘",en:"Fiscal Q3 earnings per share"},{zh:"調整後 1.42 美元,年增 35%(預期 1.29)",en:"Adjusted US$1.42, up 35% (consensus 1.29)"}],
+ [{zh:"利潤率",en:"Margins"},{zh:"調整後息稅前利潤率 17%(提升 260 個基點);調整後板塊利潤率 20%",en:"Adjusted margin on earnings before interest and taxes 17% (up 260 basis points); adjusted segment margin 20%"}],
+ [{zh:"訂單",en:"Orders"},{zh:"有機年增 27%(系統 40%、服務 4%)",en:"Up 27% organically (Systems 40%, Service 4%)"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"創紀錄 210 億美元,年增 32%(美洲 159 億,年增 40%)",en:"Record US$21.0B, up 32% (Americas US$15.9B, up 40%)"}],
+ [{zh:"成長引擎",en:"Growth engine"},{zh:"Applied 暖通空調成長高十幾個百分點(資料中心冷卻)",en:"Applied heating, ventilation and air conditioning up high teens (data center cooling)"}]
+],
+revTrend:{ unit:{zh:"十億美元(財年 9 月止)",en:"US$B (FY ends Sep)"}, labels:["FY25","FY26Q3x4"], values:[23.6,26.4], approx:[false,true], note:{zh:"*FY26Q3x4 為第三季單季 66 億美元的年化值",en:"*FY26Q3x4 annualizes the US$6.6B fiscal Q3"} },
+segments:{ title:{zh:"2026 財年第三季地區營收佔比(約)",en:"Fiscal Q3 2026 revenue by region (approx.)"}, labels:[{zh:"美洲",en:"Americas"},{zh:"歐洲、中東與非洲",en:"Europe, Middle East and Africa"},{zh:"亞太",en:"Asia Pacific"}], values:[68,20,12] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"Johnson Controls 的起點是 1883 年 Warren Johnson 取得電子室溫恆溫器專利,1885 年成立公司,開啟了樓宇控制產業;2016 年與 Tyco 合併後將法定總部設於愛爾蘭 Cork。2025 年把住宅與輕型商用暖通空調業務賣給 Bosch 後,成為專注商用建築的樓宇科技公司:York 冰水主機與 Applied 暖通空調、Metasys 樓宇自動化與 OpenBlue 數位平台、消防與保全系統,以及大量服務合約。2025 年上任的執行長 Joakim Weidemanis 正導入自有的經營系統。",
+ en:"Johnson Controls began when Warren Johnson patented the electric room thermostat in 1883, founding the company in 1885 and launching the building controls industry; after merging with Tyco in 2016 it moved its legal domicile to Cork, Ireland. Having sold its residential and light commercial heating, ventilation and air conditioning business to Bosch in 2025, it is now a building technology company focused on commercial buildings: York chillers and applied systems, Metasys building automation and the OpenBlue digital platform, fire and security systems, and a large services book. Chief Executive Joakim Weidemanis, who took over in 2025, is rolling out a proprietary business system."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"營收分為「系統」(新建或改造工程的設備與整合)與「服務」(維護、維修與升級),服務占比高、黏性強,是穩定現金流的來源。它的差異化在於整合能力:從冰水主機、空調箱到控制系統與消防保全一次交付,再以 OpenBlue 軟體優化能耗。資料中心散熱是最大的成長引擎,大型 York 冰水主機與熱管理方案需求暴增,並投資 Accelsius 等晶片直接液冷新創,補齊機房內的液冷拼圖。",
+ en:"Revenue splits into Systems (equipment and integration for new builds and retrofits) and Service (maintenance, repair and upgrades); the high share of sticky service revenue anchors cash flow. Its differentiation is integration: chillers, air handlers, controls, fire and security delivered as one package, with OpenBlue software optimizing energy use. Data center cooling is the biggest growth engine, with demand for large York chillers and thermal management surging, and investments in startups such as Accelsius (two phase direct to chip liquid cooling) fill in the liquid cooling piece inside the data hall."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"在北美商用暖通空調與樓宇自動化市場,Johnson Controls 與 Trane、Carrier、Honeywell、Siemens 正面競爭。它被放在本庫的自動化板塊,是因為樓宇控制正是其技術源頭:與 Honeywell 的樓宇自動化直接對打,又與 Trane 在大型冰水主機、與 Vertiv 在資料中心散熱形成交集。與 Trane 相比,它過去的執行力較受質疑,但剝離住宅後組合更聚焦,積壓訂單的成長速度已追上甚至超越同業。",
+ en:"In North American commercial heating, ventilation and air conditioning and building automation, Johnson Controls competes head to head with Trane, Carrier, Honeywell and Siemens. It sits on this knowledge base's automation shelf because building controls are its technological origin: it fights Honeywell's Building Automation directly while overlapping with Trane in large chillers and with Vertiv in data center cooling. Versus Trane, its execution drew more skepticism in the past, but after exiting residential the portfolio is sharper and backlog growth now matches or exceeds peers."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 財年第三季(7/29)銷售 66 億美元、年增 9%(有機 10%),調整後每股盈餘 1.42 美元、年增 35%,大幅優於預期,調整後息稅前利潤率提升 260 個基點至 17%。訂單有機年增 27%,其中系統訂單年增 40%;積壓訂單創紀錄 210 億美元、年增 32%,美洲積壓 159 億美元、年增 40%,Applied 暖通空調在資料中心帶動下成長高十幾個百分點,中東衝突則拖累歐洲、中東與非洲地區。公司上修全年指引;股價財報後約 142 美元,9/22 收 146.44 美元,一年上漲約 34%;下次財報約 11/4。",
+ en:"Fiscal Q3 2026 (Jul 29) sales of $6.6B rose 9% (10% organic) and adjusted earnings per share of $1.42 jumped 35%, well ahead of estimates, as the adjusted margin on earnings before interest and taxes rose 260 basis points to 17%. Organic orders grew 27%, including 40% for Systems, and backlog hit a record $21B, up 32%, with the Americas at $15.9B, up 40%; applied heating, ventilation and air conditioning grew in the high teens on data centers, while the Middle East conflict weighed on Europe, the Middle East and Africa. Management raised full year guidance; shares traded near $142 after the report and closed at $146.44 on Sep 22, up about 34% over a year. Next report: around Nov 4."}]
+]
+},
+
+/* ---------------- 30. AMETEK ---------------- */
+{
+id:"AME", ticker:"AME", exchange:"NYSE", name:{zh:"AMETEK 阿美特克",en:"AMETEK, Inc."}, subsector:"automation", batch:4, added:"2026-09-25",
+tagline:{zh:"電子儀器與機電利基的併購複利機器:訂單年增 28% 創紀錄",
+         en:"An acquisition compounding machine in electronic instruments and electromechanical niches, with record orders up 28%"},
+basics:[
+ [{zh:"總部",en:"HEADQUARTERS"},{zh:"美國賓州 Berwyn",en:"Berwyn, PA, USA"}],
+ [{zh:"成立",en:"FOUNDED"},"1930"],
+ [{zh:"員工",en:"EMPLOYEES"},{zh:"約 21,000 人(概)",en:"~21,000 (est.)"}],
+ [{zh:"執行長",en:"CHIEF EXECUTIVE"},{zh:"David Zapico(董事長兼執行長)",en:"David Zapico (Chairman and CEO)"}],
+ [{zh:"財年",en:"FISCAL YEAR"},{zh:"12 月止",en:"Ends Dec"}]
+],
+valuation:{ price:"US$246.45", mcap:{zh:"約 US$565 億",en:"~US$56.5B"}, pe:{zh:"前瞻約 30x(2026 指引中值)",en:"Forward ~30x (2026 guidance midpoint)"}, asOf:"2026-09-23" },
+price52w:{ low:179.24, high:261.16, cur:246.5 },
+priceHistory:[["2026-08-24",239.6],["2026-09-23",246.5]],
+cardStats:[ [{zh:"市值",en:"MKT CAP"},"$56B"], [{zh:"股價",en:"PRICE"},"$246"], [{zh:"積壓訂單",en:"BACKLOG"},"$4.1B"] ],
+financials:[
+ [{zh:"2026 第二季銷售",en:"Q2 2026 sales"},{zh:"創紀錄 20.4 億美元,年增 15%(有機 10%)",en:"Record US$2.04B, up 15% (10% organic)"}],
+ [{zh:"訂單",en:"Orders"},{zh:"創紀錄 23 億美元,年增 28%(有機 25%)",en:"Record US$2.3B, up 28% (25% organic)"}],
+ [{zh:"積壓訂單",en:"Backlog"},{zh:"創紀錄 41.1 億美元,約 80% 將於 12 個月內出貨",en:"Record US$4.11B, about 80% shipping within 12 months"}],
+ [{zh:"第二季每股盈餘",en:"Q2 earnings per share"},{zh:"調整後 2.09 美元,年增 17%(預期 1.99)",en:"Adjusted US$2.09, up 17% (consensus 1.99)"}],
+ [{zh:"利潤率",en:"Margins"},{zh:"營業利益率 26.6%(核心 27.1%,提升 110 個基點);稅息折舊攤銷前利潤率 31.5%",en:"Operating margin 26.6% (core 27.1%, up 110 basis points); margin on earnings before interest, taxes, depreciation and amortization 31.5%"}],
+ [{zh:"自由現金流",en:"Free cash flow"},{zh:"4.52 億美元,年增 37%,轉換率 111%",en:"US$452M, up 37%, 111% conversion"}],
+ [{zh:"2026 指引(上修)",en:"2026 guidance (raised)"},{zh:"銷售成長約 10%;調整後每股盈餘 8.20 至 8.30 美元(原 7.94 至 8.14)",en:"Sales up about 10%; adjusted earnings per share US$8.20 to 8.30 (was 7.94 to 8.14)"}],
+ [{zh:"併購",en:"Acquisitions"},{zh:"已完成 FARO;Indicor 交易待完成",en:"FARO closed; Indicor pending"}]
+],
+revTrend:{ unit:{zh:"十億美元(曆年)",en:"US$B (calendar yr)"}, labels:["2023","2024","2025"], values:[6.6,6.94,7.4], approx:[false,false,true], note:{zh:"*2025 為約值;2026 指引成長約 10%",en:"*2025 approximate; 2026 guidance about 10% growth"} },
+segments:{ title:{zh:"兩大集團營收佔比(約)",en:"Two group revenue mix (approx.)"}, labels:[{zh:"電子儀器集團",en:"Electronic Instruments Group"},{zh:"機電集團",en:"Electromechanical Group"}], values:[65,35] },
+sections:[
+[{zh:"公司概覽",en:"Company Overview"},
+{zh:"AMETEK 創立於 1930 年(前身為 American Machine and Metals),總部位於賓州 Berwyn,約 2.1 萬名員工,是由數十個利基事業組成的工業科技公司。兩大集團:電子儀器集團(分析儀器、測試量測、電力儀表、航太感測器、醫療與超精密量測)以及機電集團(精密馬達、連接元件、特殊金屬與自動化運動控制)。",
+ en:"Founded in 1930 (originally American Machine and Metals) and based in Berwyn, Pennsylvania, with about 21,000 employees, AMETEK is an industrial technology company built from dozens of niche businesses. Its Electronic Instruments Group covers analytical instruments, test and measurement, power instrumentation, aerospace sensors, and medical and ultraprecision metrology, while its Electromechanical Group makes precision motors, interconnects, specialty metals and automation motion control."}],
+[{zh:"商業模式",en:"Business Model"},
+{zh:"AMETEK 的成長公式是四大策略:營運卓越、新產品研發、全球與市場擴張,以及策略性併購。它專挑市佔領先、技術門檻高、售價占客戶總成本比重低的利基儀器公司,收購後導入精實營運提升利潤率,再把自由現金流投入下一筆併購。多數產品是客戶產線或實驗室中的關鍵量測環節,需求分散在醫療、航太國防、電力、半導體與自動化等市場,景氣波動相對溫和。",
+ en:"AMETEK's formula rests on four growth strategies: operational excellence, new product development, global and market expansion, and strategic acquisitions. It targets niche instrument makers with leading share, high technical barriers and a small share of the customer's total cost, applies lean operations after purchase to raise margins, then recycles free cash flow into the next deal. Most products are critical measurement steps on customers' lines or in their labs, with demand spread across medical, aerospace and defense, power, semiconductors and automation, so cycles are relatively mild."}],
+[{zh:"子行業地位",en:"Sub-sector Position"},
+{zh:"AMETEK 常與 Roper、Fortive 相提並論,屬於「併購型複利股」;在本庫自動化板塊中,它代表量測與運動控制的元件層,與 Emerson 的測試量測(國家儀器)、Rockwell 的運動控制產品有所交集。近年收購 Paragon Medical 與三維量測廠 FARO,並計畫收購前 Roper 工業事業 Indicor,規模與產品線將再上一層樓;挑戰在於大型併購後的整合,以及能否撐住估值溢價。",
+ en:"AMETEK is often compared with Roper and Fortive as an acquisition driven compounder; on this knowledge base's automation shelf it represents the component layer of measurement and motion control, overlapping with Emerson's test and measurement (National Instruments) and Rockwell's motion products. Recent deals include Paragon Medical and FARO (three dimensional measurement), and the planned purchase of Indicor, formerly Roper's industrial businesses, would lift its scale and product breadth again; the challenges are integrating large acquisitions and justifying a premium valuation."}],
+[{zh:"近期動態",en:"Recent Developments"},
+{zh:"2026 年第二季(8/4)銷售創紀錄 20.4 億美元、年增 15%(有機 10%),訂單創紀錄 23 億美元、年增 28%(有機 25%),積壓訂單增至 41.1 億美元;醫療科技、國防與自動化市場訂單特別強勁,6 月更是史上訂單最強的月份。調整後每股盈餘 2.09 美元、年增 17%,核心利潤率提升 110 個基點至 27.1%,自由現金流年增 37%。全年指引上修為銷售成長約 10%、調整後每股盈餘 8.20 至 8.30 美元。股價 9/23 收 246.45 美元,距 52 週高點 261.16 美元約低 6%。",
+ en:"Q2 2026 (Aug 4) sales hit a record $2.04B, up 15% (10% organic), while orders set a record at $2.3B, up 28% (25% organic), lifting backlog to $4.11B, with especially strong orders in medical technology, defense and automation and June the best order month in company history. Adjusted earnings per share of $2.09 rose 17%, core margin expanded 110 basis points to 27.1%, and free cash flow rose 37%. Full year guidance now calls for about 10% sales growth and $8.20 to $8.30 adjusted earnings per share. Shares closed at $246.45 on Sep 23, about 6% below the $261.16 52 week high."}]
 ]
 }
 
